@@ -1,0 +1,4 @@
+* { /*example universal selector for global styling*/
+    color: black;
+    background-color: white;
+}
