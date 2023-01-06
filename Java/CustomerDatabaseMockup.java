@@ -12,10 +12,13 @@
 // total sales and displays all customers with total sales in that range. Display each customer on a separate
 // line with all information – Customer Name, Customer ID, and Total Sales
 // 6. Exit
-import java.lang.reflect.Array;
+
 import java.util.*;
 public class CustomerDatabaseMockup {
     static Scanner scanner = new Scanner(System.in);
+    /**
+     * @param args
+     */
     public static void main(String[] args){
         //array list
         String[] customerName = new String[100];
