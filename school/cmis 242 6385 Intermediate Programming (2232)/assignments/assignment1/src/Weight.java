@@ -9,11 +9,13 @@
  * 3. A private variable called ounces with a data type of double
  */
 
-public class Weight {
+public class Weight {//begin class
+    //class attributes
     private int OUNCES_IN_A_POUND = 16;
     private int pounds;
     private double ounces;
-    public static void main(String[] args) {
+    
+    public Weight (int pounds, double ounces) { //begin constructor
         System.out.println("Hello, World!");
-    }
-}
+    }//end constructor
+}//end class
