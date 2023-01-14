@@ -10,6 +10,9 @@
  */
 
 public class Weight {
+    private int OUNCES_IN_A_POUND = 16;
+    private int pounds;
+    private double ounces;
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
