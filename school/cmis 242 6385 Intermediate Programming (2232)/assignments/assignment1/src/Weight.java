@@ -16,6 +16,7 @@ public class Weight {//begin class
     private double ounces;
     
     public Weight (int pounds, double ounces) { //begin constructor
-        System.out.println("Hello, World!");
+        this.pounds=pounds;
+        this.ounces=ounces;
     }//end constructor
 }//end class
