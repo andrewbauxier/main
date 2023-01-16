@@ -7,8 +7,13 @@
 */
 public class Project {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
+        Weight weight1 = new Weight(11, 3);
+        Weight weight2 = new Weight(7, 20);
+        Weight weight3 = new Weight(14, 6);
+        System.out.println("Weight1 is " + weight1);
+        System.out.println("Weight2 is " + weight2);
+        System.out.println("Weight3 is " + weight3);
+    }//end main
 
     //begin methods
  
@@ -44,4 +49,4 @@ public class Project {
     // Weight weight3 = new Weight(14, 6);
     
     //end methods
-}
+}//end class
