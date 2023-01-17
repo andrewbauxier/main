@@ -1,14 +1,13 @@
 /* TODO: alter this date before submitting
  * Name: Andrew B. Auxier
  * Date: 2023-01-10
- * 
+ * todo: f this
  * Weight class should have three private variables, two private methods and four public methods.
  * 1. A private constant variable called OUNCES_IN_A_POUND that defines the number of
  * ounces in a pound (16).
  * 2. A private variable called pounds with a data type of integer.
  * 3. A private variable called ounces with a data type of double
 */
-
 
 public class Weight {//begin class
     //class attributes
@@ -22,14 +21,20 @@ public class Weight {//begin class
     }//end constructor
 
     //begin methods
+    
     /* 
      * A private instance method called toOunces with a return type of double. This method
      * has no parameters and should return the total number of ounces. For full credit, reuse this method
      * across other methods when possible.
     */
-
-    // private double toOunces() {
-    // }
+     
+    private double toOunces() {
+        double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
+        //add existing ounces
+        System.out.println("total ounces: " + totalOunces);
+        return totalOunces;
+    }
+    
     
     /*
      * A private instance method called normalize with a return type of void. This method has
@@ -38,6 +43,7 @@ public class Weight {//begin class
     */
 
     // private void Normalize() {
+        
     // }
 
     /* 

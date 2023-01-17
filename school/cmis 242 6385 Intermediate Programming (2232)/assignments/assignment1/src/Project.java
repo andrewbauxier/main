@@ -10,13 +10,25 @@ public class Project {
         Weight weight1 = new Weight(11, 3);
         Weight weight2 = new Weight(7, 20);
         Weight weight3 = new Weight(14, 6);
-        System.out.println("Weight1 is " + weight1);
-        System.out.println("Weight2 is " + weight2);
-        System.out.println("Weight3 is " + weight3);
+
+        
+        
     }//end main
 
     //begin methods
- 
+    
+    //TODO: Fix this later
+    //a sysout display of current objects and their values
+    // public void instanceDisplay() {
+    //     this.weight1=weight1;
+    //     this.weight2=weight2;
+    //     this.weight3=weight3;
+    //     System.out.println("Weight1 is " + weight1);
+    //     System.out.println("Weight2 is " + weight2);
+    //     System.out.println("Weight3 is " + weight3);
+    // }
+
+
     // A private class method named findMinimum with a return type of Weight. This method
     // should accept three Weight objects as parameters and compare each Weight object’s
     // weight values to find the minimum. The Weight object with the minimum weight value
