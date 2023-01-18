@@ -9,10 +9,7 @@ public class Project {
     public static void main(String[] args) {
         Weight weight1 = new Weight(11, 3);
         Weight weight2 = new Weight(7, 20);
-        Weight weight3 = new Weight(14, 6);
-
-        
-        
+        Weight weight3 = new Weight(14, 6);        
     }//end main
 
     //begin methods

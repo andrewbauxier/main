@@ -28,13 +28,12 @@ public class Weight {//begin class
      * across other methods when possible.
     */
      
-    private double toOunces() {
+    public double toOunces() { //TODO:fix this later
         double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
         //add existing ounces
         System.out.println("total ounces: " + totalOunces);
         return totalOunces;
     }
-    
     
     /*
      * A private instance method called normalize with a return type of void. This method has
@@ -42,9 +41,18 @@ public class Weight {//begin class
      * pound. For full credit, reuse this method across other methods when possible.
     */
 
-    // private void Normalize() {
+    private void normalize() {    
         
-    // }
+        for (int i = 0; this.ounces > OUNCES_IN_A_POUND; i++) {
+            if (this.ounces>OUNCES_IN_A_POUND/*16*/) {
+                this.ounces = this.ounces-16;
+                this.pounds = this.pounds+1;
+            }
+            System.out.println("new pounds are : " + this.pounds);
+            System.out.println("new ounces are : " + this.ounces);
+        }
+    }
+    //
 
     /* 
      * A public instance method called lessThan with a return type of boolean. This method
