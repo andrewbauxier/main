@@ -60,8 +60,20 @@ public class Weight {//begin class
      * the initialized values.
     */
 
-    // public boolean lessThan() {
-    // }
+     //WORK IN PROGRESS
+    public void lessThan() {
+        
+        double booleanValueToBeChecked = .toOunces();
+        System.out.println( booleanValueToBeChecked);
+        /* 
+        if ( this > something) {
+            print something;
+        } else {
+            print something else;
+        }
+        */
+    }
+    
 
     /* 
      * A public instance method called addTo with a return type of void. This method should
