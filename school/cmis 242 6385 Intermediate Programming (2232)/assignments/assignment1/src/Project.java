@@ -11,7 +11,15 @@ public class Project {
         Weight weight2 = new Weight(7, 20);
         Weight weight3 = new Weight(14, 6);        
     
-        // test normalize method - switch normalize to public first
+
+        // Test Code Blocks Begin
+        weight2.lessThan();
+        // weight2.toOunces();    // test toOunces method - switch normalize to public first
+        
+        // weight2.normalize();   // test normalize method - switch normalize to public first
+
+
+        //Test Code Blocks End        // test normalize method - switch normalize to public first
         // weight2.normalize();
     }//end main
 
