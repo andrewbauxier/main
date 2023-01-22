@@ -10,14 +10,16 @@ public class Project {
         Weight weight1 = new Weight(11, 3);
         Weight weight2 = new Weight(7, 20);
         Weight weight3 = new Weight(14, 6);        
-    
-
-        // Test Code Blocks Begin
-        weight2.lessThan();
-        // weight2.toOunces();    // test toOunces method - switch normalize to public first
         
+        
+        
+        System.out.println(weight1.toOunces());
+        // Test Code Blocks Begin
+        // System.out.println(weight1.lessThan(weight2));
+        // weight2.toOunces();    // test toOunces method - switch normalize to public first
         // weight2.normalize();   // test normalize method - switch normalize to public first
-
+        // System.out.println( weight1.lessThan(weight2));
+        // weight1.addTo(weight2);
 
         //Test Code Blocks End        // test normalize method - switch normalize to public first
         // weight2.normalize();

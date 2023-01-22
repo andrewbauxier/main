@@ -31,7 +31,7 @@ public class Weight {//begin class
     public double toOunces() { //TODO:fix this later
         double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
         //add existing ounces
-        System.out.println("total ounces: " + totalOunces);
+        //System.out.println("total ounces: " + totalOunces);
         return totalOunces;
     }
     
@@ -61,28 +61,18 @@ public class Weight {//begin class
     */
 
      //WORK IN PROGRESS
-    public void lessThan() {
-        
-        double booleanValueToBeChecked = .toOunces();
-        System.out.println( booleanValueToBeChecked);
-        /* 
-        if ( this > something) {
-            print something;
-        } else {
-            print something else;
-        }
-        */
+    public boolean lessThan(Weight that) { //value to be compared
+        return this.toOunces()<that.toOunces(); //returns true or false depending on values
     }
-    
-
     /* 
      * A public instance method called addTo with a return type of void. This method should
      * accept a Weight object as a parameter and add the object’s weight values to the initialized
      * values.
     */
 
-    // public void addTo (Weight weight){
-    //     }
+    public void addTo (Weight weightToBeAdded){
+        this.ounces += weightToBeAdded.toOunces();
+    }
 
     /* 
      * public instance method called toString with a return type of String. This method has
