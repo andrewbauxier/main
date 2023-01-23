@@ -61,8 +61,8 @@ public class Weight {//begin class
     */
 
      //WORK IN PROGRESS
-    public boolean lessThan(Weight that) { //value to be compared
-        return this.toOunces()<that.toOunces(); //returns true or false depending on values
+    public boolean lessThan(Weight weight) { //value to be compared
+        return this.toOunces()<weight.toOunces(); //returns true or false depending on values
     }
     /* 
      * A public instance method called addTo with a return type of void. This method should
@@ -82,9 +82,8 @@ public class Weight {//begin class
     */
 
     public String toString() {    
-    String yourmothersbutt = this.pounds + " pounds and " + this.ounces + " ounces";
-    return yourmothersbutt;
-
+    String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + this.ounces + " ounces";
+    return stringToDisplayPoundsAndOunces;
     }
 
     //end methods
