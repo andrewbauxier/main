@@ -81,8 +81,11 @@ public class Weight {//begin class
      * displayed with two decimal places. 
     */
 
-    // public String toString() {    
-    // }
+    public String toString() {    
+    String yourmothersbutt = this.pounds + " pounds and " + this.ounces + " ounces";
+    return yourmothersbutt;
+
+    }
 
     //end methods
 }//end class
