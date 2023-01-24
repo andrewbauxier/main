@@ -10,13 +10,14 @@ public class Project {
         Weight weight1 = new Weight(11, 3);
         Weight weight2 = new Weight(7, 20);
         Weight weight3 = new Weight(14, 6);        
+        findMinimum(weight1, weight2, weight3); //TODO: Works, but looks sloppy. refactor later.
         
-        instanceDisplay(weight1);
+        //instanceDisplay(weight1);
         // Test Code Blocks Begin
         
         // System.out.println(weight1.lessThan(weight2));
         // System.out.println(weight1.toOunces()); // switch normalize to public first
-        weight2.normalize(); // switch normalize to public first
+        // weight2.normalize(); // switch normalize to public first
         // weight2.normalize(); // switch normalize to public first
         // System.out.println(weight1.lessThan(weight2));
         // weight1.addTo(weight2);
@@ -30,9 +31,9 @@ public class Project {
     
     //TODO: Fix this later
     //a sysout display of current objects and their values
-    public static void instanceDisplay(Weight weight) {
-        System.out.println("The weight is " + weight);
-    }
+    // public static void instanceDisplay(Weight weight) {
+    //     System.out.println("The weight is " + weight);
+    // }
 
     // A private class method named findMinimum with a return type of Weight. This method
     // should accept three Weight objects as parameters and compare each Weight object’s
@@ -41,6 +42,27 @@ public class Project {
     // The minimum weight is x pounds and y ounces
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
+    public static Weight findMinimum(Weight weight1, Weight weight2, Weight weight3) {
+        //weight1.normalize(); shouldn't I do this?
+        Weight minValue;
+    if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
+
+      // return the first weight as the smallest weight
+      minValue = weight1;
+        }
+    // else if the second weight is smaller than the first & third weight
+    else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){
+      // return the second weight as the smallest weight
+        minValue = weight2;
+        }
+    // else the third weight is smaller than the first & second weight
+    else{
+        // return the third weight as the smallest weight
+        minValue = weight3;
+        }
+    System.out.println("\nThe minimum weight is " + minValue.toString());
+    return minValue;
+  }
 
     // A private class method named findMaximum with a return type of Weight. This method
     // should accept three Weight objects as parameters and compare each Weight object’s weight
