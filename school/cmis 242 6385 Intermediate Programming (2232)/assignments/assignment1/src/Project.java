@@ -16,7 +16,7 @@ public class Project {
         
         // System.out.println(weight1.lessThan(weight2));
         // System.out.println(weight1.toOunces()); // switch normalize to public first
-        // weight2.normalize(); // switch normalize to public first
+        weight2.normalize(); // switch normalize to public first
         // weight2.normalize(); // switch normalize to public first
         // System.out.println(weight1.lessThan(weight2));
         // weight1.addTo(weight2);
