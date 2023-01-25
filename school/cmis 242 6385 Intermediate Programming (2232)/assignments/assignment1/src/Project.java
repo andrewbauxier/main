@@ -27,7 +27,8 @@ public class Project {
         // System.out.println(weight1.lessThan(weight2));
         // weight1.addTo(weight2);
         // System.out.println(weight1.toString());
-        findAverage(weightArray);
+        // weight2.normalize();
+        
 
         // Test Code Blocks End //
 
@@ -104,30 +105,49 @@ public class Project {
     // }
 
     // A private class method named findAverage with a return type of Weight. This
-    // method
-    // should accept three Weight objects as parameters and calculate the average
-    // weight value. A new
-    // Weight object with the average weight values should be returned and then
-    // printed using toString
-    // in the following format:
-    // The average weight is x pounds and y ounces
+    // method should accept three Weight objects as parameters and calculate the average
+    // weight value. A new Weight object with the average weight values should be returned and then
+    // printed using toString in the following format:
+    // "The average weight is x pounds and y ounces"
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-    public static Weight findAverage(Weight[] weightArray) {
-        Weight minWeight = new Weight(0, 0);
+    public Weight findAverage(Weight[] weightArray) {
         Weight weightAverage = new Weight(0, 0);
-        double totalWeightInOunces = 0;
-            for (Weight weight : weightArray) { // iterates through array
-                System.out.println("weight value to be added is " + weight.toOunces()); //TODO: testing purposes. delete later
-                System.out.println("minweight is currently " + minWeight.toOunces()); //TODO: testing purposes. delete later
-                totalWeightInOunces = minWeight.toOunces(); // adds weights for division
-                
-                weightArrayIterationCount ++;
-            }
-            weightAverage = totalWeightInOunces/3;
-            minWeight.normalize(); // changes from total ounces to ounces and pounds
-            return minWeight;
+        Weight weightSum = new Weight(0, 0);
+        
+        for (Weight weight : weightArray) {
+            System.out.println(weight);
+            //weightSum = weightSum.addTo(weight);
+            System.out.println(weight);
+            // System.out.println(weightSum.toString());
+            // weightSum = weightSum + weight.toOunces();
+            // System.out.println(weightSum);
+        }
+        
+        // weightSum = weightSum / 3.0;
+        // System.out.println(weightSum);
+        return weightAverage;
     }
+
+    /* WIP1 - managed to add weights with for loop but can't divide weight object by
+     * int to find average
+     * 
+    */
+    // public static Weight findAverage(Weight[] weightArray) {
+    //     Weight minWeight = new Weight(0, 0);
+    //     Weight weightAverage = new Weight(0, 0);
+    //     double totalWeightInOunces = 0;
+    //         for (Weight weight : weightArray) { // iterates through array
+    //             System.out.println("weight value to be added is " + weight.toOunces()); //TODO: testing purposes. delete later
+    //             System.out.println("minweight is currently " + minWeight.toOunces()); //TODO: testing purposes. delete later
+    //             totalWeightInOunces = minWeight.toOunces(); // adds weights for division
+    //             //weightArrayIterationCount ++;
+    //         }
+    //         minWeight.normalize(); // changes from total ounces to ounces and pounds
+    //         return minWeight;
+        
+    // }
+    
 
     // A public method named main with a return type of void. This method should
     // exercise the
