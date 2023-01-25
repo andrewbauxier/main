@@ -56,7 +56,7 @@ public class Weight {//begin class
      * accept a Weight object as a parameter and add the object’s weight values to the initialized
      * values.
     */
-    public void addTo (Weight weightToBeAdded){
+    public Weight addTo (Weight weightToBeAdded){
         this.ounces += weightToBeAdded.toOunces();
     }
     /* 
@@ -66,7 +66,8 @@ public class Weight {//begin class
      * displayed with two decimal places. 
     */
     public String toString() {    
-        String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " +String.format("%.2f", this.ounces) + " ounces";
+        String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
+        //System.out.println(stringToDisplayPoundsAndOunces); //for testing
         return stringToDisplayPoundsAndOunces;
     }
     //end methods
