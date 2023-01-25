@@ -16,6 +16,7 @@ public class Project {
         Weight weight3 = new Weight(14, 6);
         Weight[] weightArray = {weight1, weight2, weight3};
         // Test Code Blocks Begin
+        // findMinimum(weightArray);
         // findMinimum(weight1, weight2, weight3); //TODO: Works, but looks sloppy.
         // refactor later.
         // instanceDisplay(weight1);
@@ -26,6 +27,7 @@ public class Project {
         // System.out.println(weight1.lessThan(weight2));
         // weight1.addTo(weight2);
         // System.out.println(weight1.toString());
+        findAverage(weightArray);
 
         // Test Code Blocks End //
 
@@ -68,10 +70,10 @@ public class Project {
     // System.out.println("\nThe minimum weight is " + minValue.toString());
     // return minValue;
     // }
-    public static Weight findMinimum(Weight[] weightArray) {
-        Weight minWeight = null;
-        return minWeight;
-    }
+    // public static Weight findMinimum(Weight[] weightArray) {
+    //     Weight minWeight = new Weight(0, 0);
+        
+    // }
 
     // A private class method named findMaximum with a return type of Weight. This
     // method
@@ -111,9 +113,17 @@ public class Project {
     // The average weight is x pounds and y ounces
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-    // public Weight findAverage(Weight weight1, Weight weight2, Weight weight3) {
-        
-    // }
+    public static Weight findAverage(Weight[] weightArray) {
+        Weight minWeight = new Weight(0, 0);
+        Weight weightAverage = new Weight(0, 0);
+        for (Weight weight : weightArray) { // iterates through array
+            System.out.println("weight value to be added is " + weight.toOunces()); //TODO: testing purposes. delete later
+            System.out.println("minweight is currently " + minWeight.toOunces()); //TODO: testing purposes. delete later
+            minWeight.addTo(weight); // adds weights for division
+        }
+        minWeight.normalize(); // changes from total ounces to ounces and pounds
+        return minWeight;
+    }
 
     // A public method named main with a return type of void. This method should
     // exercise the
