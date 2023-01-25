@@ -5,6 +5,10 @@
  * This program does stuff
  * 
 */
+
+/* TODO List
+ * Ask luke if there's a better way to reactor those ugly if/else statements
+*/
 public class Project {
     public static void main(String[] args) {
         Weight weight1 = new Weight(11, 3);
@@ -42,27 +46,21 @@ public class Project {
     // The minimum weight is x pounds and y ounces
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-    public static Weight findMinimum(Weight weight1, Weight weight2, Weight weight3) {
-        //weight1.normalize(); shouldn't I do this?
-        Weight minValue;
-    if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
-
-      // return the first weight as the smallest weight
-      minValue = weight1;
-        }
-    // else if the second weight is smaller than the first & third weight
-    else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){
-      // return the second weight as the smallest weight
-        minValue = weight2;
-        }
-    // else the third weight is smaller than the first & second weight
-    else{
-        // return the third weight as the smallest weight
-        minValue = weight3;
-        }
-    System.out.println("\nThe minimum weight is " + minValue.toString());
-    return minValue;
-  }
+    //TODO: refactor all of these methods late. they look sloppy
+    public static Weight findMinimum(Weight weight1, Weight weight2, Weight weight3) { 
+      //weight1.normalize(); shouldn't I do this?
+      Weight minValue;
+      if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
+        minValue = weight1; //return the first weight as the smallest weight
+        } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){//else if the second weight is smaller than the first & third weight
+          //return the second weight as the smallest weight
+            minValue = weight2;
+          } else {//else the third weight is smaller than the first & second weight
+              minValue = weight3;// return the third weight as the smallest weight
+            }
+      System.out.println("\nThe minimum weight is " + minValue.toString());
+      return minValue;
+    }
 
     // A private class method named findMaximum with a return type of Weight. This method
     // should accept three Weight objects as parameters and compare each Weight object’s weight
@@ -70,7 +68,18 @@ public class Project {
     // returned and then printed using toString in the following format:
     // The maximum weight is x pounds and y ounceswhere x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-
+    public static Weight findMaximum(Weight weight1, Weight weight2, Weight weight3) {
+      //weight1.normalize(); shouldn't I do this?
+      Weight maxValue;
+      if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
+        maxValue = weight1; //return the first weight as the smallest weight
+      } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){//else if the second weight is smaller than the first & third weight
+          //return the second weight as the smallest weight
+          maxValue = weight2;
+        } else {//else the third weight is smaller than the first & second weight
+            maxValue = weight3;// return the third weight as the smallest weight
+          }
+    }
     // A private class method named findAverage with a return type of Weight. This method
     // should accept three Weight objects as parameters and calculate the average weight value. A new
     // Weight object with the average weight values should be returned and then printed using toString
