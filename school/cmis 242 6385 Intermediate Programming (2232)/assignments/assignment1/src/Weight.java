@@ -25,7 +25,7 @@ public class Weight {//begin class
      * across other methods when possible.
     */
     
-    public double toOunces() { //TODO:fix this later
+    private double toOunces() { //TODO:fix this later
         double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
         //add existing ounces
         //System.out.println("total ounces: " + totalOunces);
@@ -47,8 +47,7 @@ public class Weight {//begin class
      * no parameters and should ensure that the number of ounces is less than the number of ounces in a
      * pound. For full credit, reuse this method across other methods when possible.
     */
-
-    public void normalize() {    
+    private void normalize() {    
         for (int i = 0; this.ounces>OUNCES_IN_A_POUND/*16*/; i++) {//OUNCES_IN_A_POUND=16
                 this.ounces = this.ounces-16;
                 this.pounds = this.pounds+1;                
@@ -62,7 +61,6 @@ public class Weight {//begin class
      * should accept a Weight object as a parameter and determine if the object is greater or less than
      * the initialized values.
     */
-     //WORK IN PROGRESS
     public boolean lessThan(Weight weight) { //value to be compared
         return this.toOunces()<weight.toOunces(); //returns true or false depending on values
     }
@@ -73,11 +71,18 @@ public class Weight {//begin class
      * where x is the number of pounds and y the number of ounces. Ounces should be
      * displayed with two decimal places. 
     */
-
     public String toString() {    
         String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
         //System.out.println(stringToDisplayPoundsAndOunces); //for testing
         return stringToDisplayPoundsAndOunces;
+    }
+
+    /* 
+     * public method that can be and do whatever it wants to be. ideally it combines private method
+     * so that they can be used accordingly. 
+    */
+    public void toBeDetermined() {
+        System.out.println("Hello World");
     }
     //end methods
 }//end class

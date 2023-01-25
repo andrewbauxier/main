@@ -28,21 +28,9 @@ public class Project {
         // weight1.addTo(weight2);
         // System.out.println(weight1.toString());
         // weight2.normalize();
-        
-
         // Test Code Blocks End //
-
     }// end main
-
     // begin methods
-
-    // TODO: Fix this later
-    // finished
-    // a sysout display of current objects and their values
-    // public static void instanceDisplay(Weight weight) {
-    // System.out.println("The weight is " + weight);
-    // }
-
     // finished
     // A private class method named findMinimum with a return type of Weight. This
     // method
@@ -55,26 +43,21 @@ public class Project {
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
     // TODO: refactor all of these methods late. they look sloppy
-    // public static Weight findMinimum(Weight weight1, Weight weight2, Weight
-    // weight3) {
-    // //weight1.normalize(); shouldn't I do this?
-    // Weight minValue;
-    // if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
-    // minValue = weight1; //return the first weight as the smallest weight
-    // } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){//else if
-    // the second weight is smaller than the first & third weight
-    // //return the second weight as the smallest weight
-    // minValue = weight2;
-    // } else {//else the third weight is smaller than the first & second weight
-    // minValue = weight3;// return the third weight as the smallest weight
-    // }
-    // System.out.println("\nThe minimum weight is " + minValue.toString());
-    // return minValue;
-    // }
-    // public static Weight findMinimum(Weight[] weightArray) {
-    //     Weight minWeight = new Weight(0, 0);
-        
-    // }
+    private static Weight findMinimum(Weight weight1, Weight weight2, Weight weight3) {
+    //weight1.normalize(); shouldn't I do this?
+        Weight minValue;
+        if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
+            minValue = weight1; //return the first weight as the smallest weight
+        } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){
+        // else if the second weight is smaller than the first & third weight
+        // return the second weight as the smallest weight
+        minValue = weight2;
+        } else {//else the third weight is smaller than the first & second weight
+        minValue = weight3;// return the third weight as the smallest weight
+        }
+        System.out.println("\nThe minimum weight is " + minValue.toString());
+        return minValue;
+    }        
 
     // A private class method named findMaximum with a return type of Weight. This
     // method
@@ -88,21 +71,20 @@ public class Project {
     // displayed with two decimal places.
 
     // TODO: alter this later to properly return max value, returns min value
-    // public static Weight findMaximum(Weight weight1, Weight weight2, Weight
-    // weight3) {
-    // //weight1.normalize(); shouldn't I do this?
-    // Weight maxValue;
-    // if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
-    // maxValue = weight1; //return the first weight as the smallest weight
-    // } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){//else if
-    // the second weight is smaller than the first & third weight
-    // //return the second weight as the smallest weight
-    // maxValue = weight2;
-    // } else {//else the third weight is smaller than the first & second weight
-    // maxValue = weight3;// return the third weight as the smallest weight
-    // }
-    // return maxValue;
-    // }
+    private static Weight findMaximum(Weight weight1, Weight weight2, Weight weight3) {
+    //weight1.normalize(); shouldn't I do this?
+        Weight maxValue;
+        if(weight1.lessThan(weight2) && weight1.lessThan(weight3)){
+        maxValue = weight1; //return the first weight as the smallest weight
+        //else if the second weight is smaller than the first & third weight
+        } else if (weight2.lessThan(weight1) && weight2.lessThan(weight3)){
+        //return the second weight as the smallest weight
+        maxValue = weight2;
+        } else {//else the third weight is smaller than the first & second weight 
+        maxValue = weight3;// return the third weight as the smallest weight
+        }
+        return maxValue;
+    }
 
     // A private class method named findAverage with a return type of Weight. This
     // method should accept three Weight objects as parameters and calculate the average
@@ -111,10 +93,9 @@ public class Project {
     // "The average weight is x pounds and y ounces"
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-    public Weight findAverage(Weight[] weightArray) {
+    private Weight findAverage(Weight[] weightArray) {
         Weight weightAverage = new Weight(0, 0);
         Weight weightSum = new Weight(0, 0);
-        
         for (Weight weight : weightArray) {
             System.out.println(weight);
             //weightSum = weightSum.addTo(weight);
@@ -123,12 +104,10 @@ public class Project {
             // weightSum = weightSum + weight.toOunces();
             // System.out.println(weightSum);
         }
-        
         // weightSum = weightSum / 3.0;
         // System.out.println(weightSum);
         return weightAverage;
     }
-
     /* WIP1 - managed to add weights with for loop but can't divide weight object by
      * int to find average
      * 
