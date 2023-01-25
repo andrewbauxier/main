@@ -116,13 +116,17 @@ public class Project {
     public static Weight findAverage(Weight[] weightArray) {
         Weight minWeight = new Weight(0, 0);
         Weight weightAverage = new Weight(0, 0);
-        for (Weight weight : weightArray) { // iterates through array
-            System.out.println("weight value to be added is " + weight.toOunces()); //TODO: testing purposes. delete later
-            System.out.println("minweight is currently " + minWeight.toOunces()); //TODO: testing purposes. delete later
-            minWeight.addTo(weight); // adds weights for division
-        }
-        minWeight.normalize(); // changes from total ounces to ounces and pounds
-        return minWeight;
+        double totalWeightInOunces = 0;
+            for (Weight weight : weightArray) { // iterates through array
+                System.out.println("weight value to be added is " + weight.toOunces()); //TODO: testing purposes. delete later
+                System.out.println("minweight is currently " + minWeight.toOunces()); //TODO: testing purposes. delete later
+                totalWeightInOunces = minWeight.toOunces(); // adds weights for division
+                
+                weightArrayIterationCount ++;
+            }
+            weightAverage = totalWeightInOunces/3;
+            minWeight.normalize(); // changes from total ounces to ounces and pounds
+            return minWeight;
     }
 
     // A public method named main with a return type of void. This method should

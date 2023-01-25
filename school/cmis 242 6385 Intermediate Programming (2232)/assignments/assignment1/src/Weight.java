@@ -51,10 +51,10 @@ public class Weight {//begin class
     public void normalize() {    
         for (int i = 0; this.ounces>OUNCES_IN_A_POUND/*16*/; i++) {//OUNCES_IN_A_POUND=16
                 this.ounces = this.ounces-16;
-                this.pounds = this.pounds+1;
-                System.out.println("New pounds are : " + this.pounds); //TODO: testing purposes. delete later
-                System.out.println("New ounces are : " + this.ounces); //TODO: testing purposes. delete later
+                this.pounds = this.pounds+1;                
         }
+        System.out.println("New pounds are : " + this.pounds); //TODO: testing purposes. delete later
+        System.out.println("New ounces are : " + this.ounces); //TODO: testing purposes. delete later
     }
 
     /* 
