@@ -1,8 +1,10 @@
 /* 
  * Name:    Andrew B. Auxier
  * Class:   Class:CMIS 242 6385
- * Date:    2023-01-10 
- * This program does stuff
+ * Date:    2023-01-25 
+ * This program provides proof of knowledge of concepts relating to encapsulation
+ * and object-oriented program by performing calculations using Weight objects 
+ * (instances of Weight class)
 */
 
 /* TODO List [project]: tasks to be done before submitting
@@ -28,7 +30,7 @@ public class Project {
         // System.out.println(weight1.lessThan(weight2));
         // weight1.addTo(weight2);
         // System.out.println(weight1.toString());
-        weight2.normalize();
+        // weight2.normalize();
         // Test Code Blocks End //
 
     }// end main
@@ -87,15 +89,16 @@ public class Project {
     // "The average weight is x pounds and y ounces"
     // where x is the number of pounds and y the number of ounces. Ounces should be
     // displayed with two decimal places.
-    private Weight findAverage(Weight[] weightArray) {
+    private static Weight findAverage(Weight[] weightArray) {
         Weight weightAverage = new Weight(0, 0);
-        Weight weightSum = new Weight(0, 0);
-        for (int j = 0; j < weightArray.length; j++) {
-            weightSum.addTo(weightArray[j]);
-            weightSum.divide(weightArray.length);
+        // for (int j = 0; j < weightArray.length; j++) {
+        //     weightAverage.addTo(weightArray[j]);
+        // } 
+        //keeping just in case
+        for (Weight weight : weightArray) {
+            weightAverage.addTo(weight);
         }
-        // weightSum = weightSum / 3.0;
-        // System.out.println(weightSum);
+        weightAverage.divide(3);
         System.out.println("\nThe average weight is " + weightAverage.toString());
         return weightAverage;
     }
@@ -112,6 +115,7 @@ public class Project {
     public static void getMinMaxAvg(Weight[] weightArray) {
         findMinimum(weightArray);
         findMaximum(weightArray);
+        findAverage(weightArray);
     }
     // end methods
 }// end class

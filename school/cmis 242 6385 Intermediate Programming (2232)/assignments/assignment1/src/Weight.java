@@ -26,27 +26,13 @@ public class Weight {//begin class
     */
     
     private double toOunces() { //TODO: fix this later
-        double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
-        //add existing ounces
-        //System.out.println("total ounces: " + totalOunces);
-        return totalOunces;
+        return (this.pounds * OUNCES_IN_A_POUND) + this.ounces;
     }
-
-    /* 
-     * A public instance method called addTo with a return type of void. This method should
-     * accept a Weight object as a parameter and add the object’s weight values to the initialized
-     * values.
-    */
-    public void addTo (Weight weightToBeAdded){
-        this.ounces += weightToBeAdded.toOunces();
-        System.out.println("addTo complete. New ounces value is: " + this.ounces); //TODO: testing purposes. delete later
+    public void addTo (Weight weight){
+        this.ounces += weight.ounces;
+        this.normalize();
+        this.pounds += weight.pounds;
     }
-
-    /*
-     * A private instance method called normalize with a return type of void. This method has
-     * no parameters and should ensure that the number of ounces is less than the number of ounces in a
-     * pound. For full credit, reuse this method across other methods when possible.
-    */
     public void normalize() {    
         for (int i = 0; this.ounces>OUNCES_IN_A_POUND/*16*/; i++) {//OUNCES_IN_A_POUND=16
                 // this.ounces = this.ounces-OUNCES_IN_A_POUND;
@@ -54,8 +40,7 @@ public class Weight {//begin class
                 this.ounces -= OUNCES_IN_A_POUND;
                 this.pounds += 1;                
         }
-        System.out.println("The weight value has been converted");
-        System.out.println("The new weight values are : " + toString()); //TODO: testing purposes. delete later
+        System.out.println("Normalization has occured. The new weight values are : " + toString()); //TODO: testing purposes. delete later
     }
 
     /* 
@@ -84,15 +69,20 @@ public class Weight {//begin class
      * so that they can be used accordingly. 
     */
     public void divide(int divisor) {
-        double ounces = this.toOunces();
-        double averageInOunces = ounces / divisor;
+        double noOfOunces = this.toOunces();
+        double averageOunces = noOfOunces / divisor;
         int pounds = 0;
-        if (averageInOunces > OUNCES_IN_A_POUND) {
-            while (averageInOunces > OUNCES_IN_A_POUND) {
-            pounds += 1;
-            averageInOunces = averageInOunces - OUNCES_IN_A_POUND;
+        System.out.println(noOfOunces);
+        System.out.println(averageOunces);
+        System.out.println(pounds);
+        if (averageOunces > OUNCES_IN_A_POUND) {
+            while (averageOunces > OUNCES_IN_A_POUND) {
+                pounds += 1;
+                averageOunces = averageOunces - OUNCES_IN_A_POUND;
             }
         }
+        this.pounds = pounds;
+        this.ounces = averageOunces;
     }
     //end methods
 }//end class
