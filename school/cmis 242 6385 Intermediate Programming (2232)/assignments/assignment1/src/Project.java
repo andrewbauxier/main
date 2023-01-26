@@ -20,6 +20,7 @@ public class Project {
         Weight weight2 = new Weight(7, 20);
         Weight weight3 = new Weight(14, 6);
         Weight[] weightArray = {weight1, weight2, weight3};
+        
         getMinMaxAvg(weightArray);
 
         // Test Code Blocks Begin
@@ -78,7 +79,7 @@ public class Project {
                 maxValue = weightArray[i];
             }
         }
-        System.out.println("\nThe maximum weight is " + maxValue.toString());
+        System.out.println("The maximum weight is " + maxValue.toString());
         return maxValue;
     }
 
@@ -98,8 +99,8 @@ public class Project {
         for (Weight weight : weightArray) {
             weightAverage.addTo(weight);
         }
-        weightAverage.divide(3);
-        System.out.println("\nThe average weight is " + weightAverage.toString());
+        weightAverage.divide(weightArray.length);
+        System.out.println("The average weight is " + weightAverage.toString() + "\n");
         return weightAverage;
     }
 

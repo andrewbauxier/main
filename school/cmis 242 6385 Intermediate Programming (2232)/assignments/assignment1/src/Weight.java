@@ -1,4 +1,4 @@
-/* TODO: alter this date before submitting
+/*
  * Name: Andrew B. Auxier
  * Date: 2023-01-10
  * 
@@ -9,13 +9,16 @@
  * 3. A private variable called ounces with a data type of double
 */
 public class Weight {//begin class
-    //class attributes
-    private int OUNCES_IN_A_POUND = 16;
+    
+    private int OUNCES_IN_A_POUND = 16;//begin class attributes
     private int pounds;
-    private double ounces;
+    private double ounces; //end class attributes
     public Weight (int pounds, double ounces) { //begin constructor
         this.pounds=pounds;
         this.ounces=ounces;
+        if (this.ounces>OUNCES_IN_A_POUND) {
+            normalize();
+        }
     }//end constructor
 
     //begin methods
@@ -24,61 +27,35 @@ public class Weight {//begin class
      * has no parameters and should return the total number of ounces. For full credit, reuse this method
      * across other methods when possible.
     */
-    
-    private double toOunces() { //TODO: fix this later
+    private double toOunces() { //converts from pounds and ounces to ounces
         return (this.pounds * OUNCES_IN_A_POUND) + this.ounces;
     }
-    public void addTo (Weight weight){
-        this.ounces += weight.ounces;
-        this.normalize();
-        this.pounds += weight.pounds;
+    public void addTo (Weight weight){ //combines two weights
+        this.ounces += weight.ounces; 
+        this.normalize(); //converts from ounces to pounds and ounces
+        this.pounds += weight.pounds; 
     }
-    public void normalize() {    
-        for (int i = 0; this.ounces>OUNCES_IN_A_POUND/*16*/; i++) {//OUNCES_IN_A_POUND=16
-                // this.ounces = this.ounces-OUNCES_IN_A_POUND;
-                // this.pounds += this.pounds+1;
-                this.ounces -= OUNCES_IN_A_POUND;
-                this.pounds += 1;                
+    public void normalize() { //converts from ounces to pounds and ounces
+        for (int i = 0; this.ounces>OUNCES_IN_A_POUND; i++) {//OUNCES_IN_A_POUND=16
+                this.ounces -= OUNCES_IN_A_POUND; //converts ounces to pounds part1
+                this.pounds += 1;                 //converts ounces to pounds part2
         }
-        System.out.println("Normalization has occured. The new weight values are : " + toString()); //TODO: testing purposes. delete later
     }
-
-    /* 
-     * A public instance method called lessThan with a return type of boolean. This method
-     * should accept a Weight object as a parameter and determine if the object is greater or less than
-     * the initialized values.
-    */
-    public boolean lessThan(Weight weight) { //value to be compared
+    public boolean lessThan(Weight weight) { //compare two values to find lesser value
         return this.toOunces()<weight.toOunces(); //returns true or false depending on values
     }
-    
-    /* 
-     * public instance method called toString with a return type of String. This method has
-     * no parameters and should have the following format: x pounds and y ounces
-     * where x is the number of pounds and y the number of ounces. Ounces should be
-     * displayed with two decimal places. 
-    */
-    public String toString() {    
+    public String toString() { //displays pounds and ounces(in .xx format)
         String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
-        //System.out.println(stringToDisplayPoundsAndOunces); //for testing
         return stringToDisplayPoundsAndOunces;
     }
-
-    /* 
-     * public method that can be and do whatever it wants to be. ideally it combines private method
-     * so that they can be used accordingly. 
-    */
-    public void divide(int divisor) {
-        double noOfOunces = this.toOunces();
-        double averageOunces = noOfOunces / divisor;
-        int pounds = 0;
-        System.out.println(noOfOunces);
-        System.out.println(averageOunces);
-        System.out.println(pounds);
-        if (averageOunces > OUNCES_IN_A_POUND) {
+public void divide(int divisor) { //divides value that calls it
+        double noOfOunces = this.toOunces(); //converts to ounces
+        double averageOunces = noOfOunces / divisor; //divides the ounces
+        int pounds = 0; //sets pounds variable
+        if (averageOunces > OUNCES_IN_A_POUND) { //iterates until
             while (averageOunces > OUNCES_IN_A_POUND) {
                 pounds += 1;
-                averageOunces = averageOunces - OUNCES_IN_A_POUND;
+                averageOunces -= OUNCES_IN_A_POUND;
             }
         }
         this.pounds = pounds;
