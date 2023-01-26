@@ -48,18 +48,24 @@ public class Weight {//begin class
         String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
         return stringToDisplayPoundsAndOunces;
     }
-public void divide(int divisor) { //divides value that calls it
-        double noOfOunces = this.toOunces(); //converts to ounces
-        double averageOunces = noOfOunces / divisor; //divides the ounces
-        int pounds = 0; //sets pounds variable
-        if (averageOunces > OUNCES_IN_A_POUND) { //iterates until
-            while (averageOunces > OUNCES_IN_A_POUND) {
-                pounds += 1;
-                averageOunces -= OUNCES_IN_A_POUND;
-            }
-        }
-        this.pounds = pounds;
-        this.ounces = averageOunces;
+public void divideObject(int divisor) { //divides value that calls it
+        this.ounces = this.toOunces() / divisor; //converts pounds and ounces to ounces
+        this.pounds = 0;//sets object's pounds to 0.
+        normalize();
+        // if (this.ounces > OUNCES_IN_A_POUND) { //iterates until
+        //     while (this.ounces > OUNCES_IN_A_POUND) {
+        //         // pounds += 1;
+        //         // averageOunces = averageOunces - OUNCES_IN_A_POUND;
+        //         normalize();
+        //         System.out.println(pounds);
+        //         System.out.println(ounces);
+                
+        //     }
+        //     System.out.println(this.pounds);
+        //         System.out.println(this.ounces);
+        // }
+        
+        //this.ounces = ounces;
     }
     //end methods
 }//end class

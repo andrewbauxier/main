@@ -99,7 +99,7 @@ public class Project {
         for (Weight weight : weightArray) {
             weightAverage.addTo(weight);
         }
-        weightAverage.divide(weightArray.length);
+        weightAverage.divideObject(weightArray.length);
         System.out.println("The average weight is " + weightAverage.toString() + "\n");
         return weightAverage;
     }
