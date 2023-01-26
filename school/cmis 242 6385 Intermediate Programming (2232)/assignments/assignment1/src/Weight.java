@@ -1,15 +1,9 @@
 /*
  * Name: Andrew B. Auxier
+ * Class:   Class:CMIS 242 6385
  * Date: 2023-01-10
- * 
- * Weight class should have three private variables, two private methods and four public methods.
- * 1. A private constant variable called OUNCES_IN_A_POUND that defines the number of
- * ounces in a pound (16).
- * 2. A private variable called pounds with a data type of integer.
- * 3. A private variable called ounces with a data type of double
 */
 public class Weight {//begin class
-    
     private int OUNCES_IN_A_POUND = 16;//begin class attributes
     private int pounds;
     private double ounces; //end class attributes
@@ -22,11 +16,6 @@ public class Weight {//begin class
     }//end constructor
 
     //begin methods
-    /* 
-     * A private instance method called toOunces with a return type of double. This method
-     * has no parameters and should return the total number of ounces. For full credit, reuse this method
-     * across other methods when possible.
-    */
     private double toOunces() { //converts from pounds and ounces to ounces
         return (this.pounds * OUNCES_IN_A_POUND) + this.ounces;
     }
@@ -48,24 +37,9 @@ public class Weight {//begin class
         String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
         return stringToDisplayPoundsAndOunces;
     }
-public void divideObject(int divisor) { //divides value that calls it
+public void divideObject(int divisor) { //divides value that calls it//might be able to refactor and delete
         this.ounces = this.toOunces() / divisor; //converts pounds and ounces to ounces
         this.pounds = 0;//sets object's pounds to 0.
         normalize();
-        // if (this.ounces > OUNCES_IN_A_POUND) { //iterates until
-        //     while (this.ounces > OUNCES_IN_A_POUND) {
-        //         // pounds += 1;
-        //         // averageOunces = averageOunces - OUNCES_IN_A_POUND;
-        //         normalize();
-        //         System.out.println(pounds);
-        //         System.out.println(ounces);
-                
-        //     }
-        //     System.out.println(this.pounds);
-        //         System.out.println(this.ounces);
-        // }
-        
-        //this.ounces = ounces;
-    }
-    //end methods
+    }//end methods
 }//end class
