@@ -1,7 +1,7 @@
 /* TODO: alter this date before submitting
  * Name: Andrew B. Auxier
  * Date: 2023-01-10
- * todo: f this
+ * 
  * Weight class should have three private variables, two private methods and four public methods.
  * 1. A private constant variable called OUNCES_IN_A_POUND that defines the number of
  * ounces in a pound (16).
@@ -25,7 +25,7 @@ public class Weight {//begin class
      * across other methods when possible.
     */
     
-    private double toOunces() { //TODO:fix this later
+    private double toOunces() { //TODO: fix this later
         double totalOunces= (pounds * OUNCES_IN_A_POUND) + ounces; //converts pounds to ounces
         //add existing ounces
         //System.out.println("total ounces: " + totalOunces);
@@ -47,13 +47,15 @@ public class Weight {//begin class
      * no parameters and should ensure that the number of ounces is less than the number of ounces in a
      * pound. For full credit, reuse this method across other methods when possible.
     */
-    private void normalize() {    
+    public void normalize() {    
         for (int i = 0; this.ounces>OUNCES_IN_A_POUND/*16*/; i++) {//OUNCES_IN_A_POUND=16
-                this.ounces = this.ounces-16;
-                this.pounds = this.pounds+1;                
+                // this.ounces = this.ounces-OUNCES_IN_A_POUND;
+                // this.pounds += this.pounds+1;
+                this.ounces -= OUNCES_IN_A_POUND;
+                this.pounds += 1;                
         }
-        System.out.println("New pounds are : " + this.pounds); //TODO: testing purposes. delete later
-        System.out.println("New ounces are : " + this.ounces); //TODO: testing purposes. delete later
+        System.out.println("The weight value has been converted");
+        System.out.println("The new weight values are : " + toString()); //TODO: testing purposes. delete later
     }
 
     /* 
@@ -81,8 +83,16 @@ public class Weight {//begin class
      * public method that can be and do whatever it wants to be. ideally it combines private method
      * so that they can be used accordingly. 
     */
-    public void toBeDetermined() {
-        System.out.println("Hello World");
+    public void divide(int divisor) {
+        double ounces = this.toOunces();
+        double averageInOunces = ounces / divisor;
+        int pounds = 0;
+        if (averageInOunces > OUNCES_IN_A_POUND) {
+            while (averageInOunces > OUNCES_IN_A_POUND) {
+            pounds += 1;
+            averageInOunces = averageInOunces - OUNCES_IN_A_POUND;
+            }
+        }
     }
     //end methods
 }//end class
