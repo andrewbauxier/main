@@ -6,11 +6,6 @@
  * and object-oriented program by performing calculations using Weight objects 
  * (instances of Weight class)
 */
-
-/* TODO List [project]: tasks to be done before submitting
- * clean-up
- * 
-*/
 /* TODO List [personal]: personal tasks to be done at a later date
  * refactor divide, maybe delete it. seems like it could be unneccessary.
 */
