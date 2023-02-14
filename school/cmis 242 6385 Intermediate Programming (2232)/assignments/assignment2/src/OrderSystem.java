@@ -8,10 +8,16 @@
  * 
  * TODO List
  * [project]: tasks to be done before submitting
- * clean-up
+ * Implement order system
  * 
  * [personal]: personal tasks to be done at a later date
- * refactor divide, maybe delete it. seems like it could be unneccessary.
+ * 
+*/
+
+/* 
+ * Implement OrderSystem class with main method with following functionality:
+ * Order a snack and after ordering it will display the snack type, its size, id and price
+ * Exit program
 */
 public class OrderSystem {
     public static void main(String[] args) {

@@ -4,12 +4,9 @@
  * Date: 2023-01-10
 */
 public class Weight {//begin class
-    private int CONSTANT_EXAMPLE = 69;  //begin class attributes
-    private int exampleVariable;        //end class attributes
-    /* 
-     *  (1) There will be a Snack class with following attributes: id (combination of numbers and letters), 
-        size (values S, M, or L), and price
-    */
+    private int OUNCES_IN_A_POUND = 16;//begin class attributes
+    private int pounds;
+    private double ounces; //end class attributes
     public Weight (int pounds, double ounces) { //begin constructor
         this.pounds=pounds;
         this.ounces=ounces;
