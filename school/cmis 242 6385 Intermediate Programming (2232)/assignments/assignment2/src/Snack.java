@@ -14,12 +14,22 @@ public class Snack {//begin snack class
     }//end snack constructor
 
     public class FruitSnack extends Snack { 
-        private boolean hasFruit = true;
+        private boolean hasFruits = true;
         public FruitSnack (String snackID, String sizeOfSnack, Double priceOfSnack) {
-            super(snackID, sizeOfSnack, priceOfSnack)
+            super(snackID, sizeOfSnack, priceOfSnack);
+            this.hasFruits=hasFruits;
         }
     }
+    public class SaltySnack extends Snack { 
+        private boolean hasNuts = true;
+        public SaltySnack (String snackID, String sizeOfSnack, Double priceOfSnack) {
+            super(snackID, sizeOfSnack, priceOfSnack);
+            this.hasNuts=hasNuts;
+        }
+    }
+    
 // //begin methods
 // private void exampleMethod() { //converts from pounds and ounces to ounces
 // }//end methods
+
 }//end snack class    
