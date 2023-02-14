@@ -1,7 +1,7 @@
 public class Snack {//begin snack class
-    protected String snackID;             //begin class attributes
-    protected String sizeOfSnack;
-    protected double priceOfSnack;        //end class attributes
+    protected String snackID = "No type Selected";             //begin class attributes
+    protected String sizeOfSnack = "No size Selected";
+    protected double priceOfSnack = 0.0;        //end class attributes
     /* 
      *  (1) There will be a Snack class with following attributes: id (combination of numbers and letters), 
         size (values S, M, or L), and price
@@ -10,7 +10,10 @@ public class Snack {//begin snack class
     public Snack (String snackID, String sizeOfSnack, Double priceOfSnack) { //begin snack constructor
         this.snackID=snackID;
         this.sizeOfSnack=sizeOfSnack;
-        this.priceOfSnack=priceOfSnack;    
+        this.priceOfSnack=priceOfSnack;
+        
+        
+        
     }//end snack constructor
 
     public class FruitSnack extends Snack { 

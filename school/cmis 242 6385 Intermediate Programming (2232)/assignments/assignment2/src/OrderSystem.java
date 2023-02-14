@@ -19,22 +19,37 @@ public class OrderSystem {
     public static void main(String[] args) {
         int customerInput; //global variables begin
         Scanner scan1 = new Scanner(System.in); //global variables end
-        System.out.println("MENU.\n1: Order Snack\n2. Exit Program");//begin program operation
+        int snackCountToGenerateID = 0;
+        System.out.print("MENU.\n1: Order Snack\n2. Exit Program\nEnter your selection: ");//begin program operation
         customerInput = scan1.nextInt();
-        System.out.println("Thank you! You chose Number " + customerInput);
+        System.out.println("\nThank you! You chose Number " + customerInput);        
+        System.out.println("Do you want Fruit Snack (1) or Salty Snack (2): ");
+        
+        
+        
         switch (customerInput) {//begin switch operation
             case 1:
-                System.out.println("This is number 1");
+                //local variables
+                snackCountToGenerateID++;    
+                String initialSnackSize;
+                double priceOfSnack = 0;
+                double snackSmall = 19.99;
+                double snackMedium = 29.99;
+                double snackLarge = 39.99;
+                double citrusSnackCharge = 5.99;
+                double nutSnackCharge = 4.50;
+                
 
-                return;
-            case 2:
-                System.out.println("This is number 2");    
-                break;
-        
-            default:
-                if (customerInput!=1 || customerInput!=2) {
-                    System.out.println("Please enter 1 or 2 only");
-                }
+                //format: Snack(String:snackID, String:sizeOfSnack, Double:priceOfSnack)
+                Snack baseSnack = new Snack( "snack"+snackCountToGenerateID, "no size selected", priceOfSnack);
+                System.out.println(baseSnack.snackID);
+                System.out.println(baseSnack.sizeOfSnack);
+                System.out.println(baseSnack.priceOfSnack);
+                System.out.println(snackCountToGenerateID);
+                
+                case 2:
+                System.out.println("Thank you for using the program. Goodbye!");    
+                break;        
         }
     }
 }
