@@ -37,7 +37,7 @@ public class Weight {//begin class
         String stringToDisplayPoundsAndOunces = this.pounds + " pounds and " + String.format("%.2f", this.ounces) + " ounces";
         return stringToDisplayPoundsAndOunces;
     }
-public void divideObject(int divisor) { //divides value that calls it//might be able to refactor and delete
+    public void divideObject(int divisor) { //divides value that calls it//might be able to refactor and delete
         this.ounces = this.toOunces() / divisor; //converts pounds and ounces to ounces
         this.pounds = 0;//sets object's pounds to 0.
         normalize();

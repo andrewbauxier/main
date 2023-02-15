@@ -20,22 +20,22 @@ public class OrderSystem {
         //global variables begin
         int customerMenuInput; //choose snack or exit program
         int customerFruitOrSalt;
-        String customerSizeChoice;
+        String customerSizeInput;
         double customerTotalPrice = 0;
-
         Scanner scanner = new Scanner(System.in); 
         //global variables end
+
         System.out.print("MENU\n1: Order Snack\n2. Exit Program\nEnter your selection: ");//begin program operation
         customerMenuInput = scanner.nextInt();
         scanner.nextLine();
         //System.out.println("Thank you! You chose Number " + customerMenuInput);
-        System.out.println("What size do you want (S, M, L): ");
-        customerSizeChoice = scanner.nextLine();
+        System.out.println("What size do you want (s, m, l): ");
+        customerSizeInput = scanner.nextLine();
         System.out.println("Do you want Fruit Snack (1) or Salty Snack (2): ");
         customerFruitOrSalt = scanner.nextInt();
         ///code///
-        customerSizePricing(customerSizeChoice, customerTotalPrice);
-        helloworld();
+        customerTotalPrice = customerSizePricing(customerSizeInput, customerTotalPrice);
+        System.out.println("Total price so far is " + customerTotalPrice);
         /* 
          * Fruit snack only
          * System.out.println("Do you want citrus fruit included? true/false: ");
@@ -44,4 +44,28 @@ public class OrderSystem {
          * System.out.println("Do you want nuts included? true/false: ");
         */
     }
+
+    //begin methods
+    public static double customerSizePricing(String customerSizeChoice, double customerTotalPrice) {
+        
+        switch (customerSizeChoice) {
+            case "s":
+            System.out.println("Small Size Chosen");
+            customerTotalPrice = 19.99;
+            break; 
+
+            case "m":                
+            System.out.println("med Size Chosen");
+            customerTotalPrice = 29.99;
+            break;
+            
+            case "l":                
+            System.out.println("large Size Chosen");
+            customerTotalPrice = 39.99;
+            break;
+        }
+        return customerTotalPrice;
+        
+    }
+    //end methods
 }

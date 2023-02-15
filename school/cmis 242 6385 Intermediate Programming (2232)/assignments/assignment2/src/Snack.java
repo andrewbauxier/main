@@ -1,7 +1,7 @@
 public class Snack {//begin snack class
-    protected String snackID;             //begin class attributes
-    protected String sizeOfSnack;
-    protected double priceOfSnack;        //end class attributes
+    private String snackID;             //begin class attributes
+    private char snackSize;
+    private double snackPrice;        //end class attributes
     //maybe switch to private latr
     
     /* 
@@ -19,50 +19,57 @@ public class Snack {//begin snack class
      * (4) Each class must have a method to return or display the class’s values to the console
     */
 
-    public Snack (String snackID, String sizeOfSnack, Double priceOfSnack) { //begin snack constructor
+    public Snack (String snackID, char sizeOfSnack, Double priceOfSnack) { //begin snack constructor
         this.snackID=snackID;
-        this.sizeOfSnack=sizeOfSnack;
-        this.priceOfSnack=priceOfSnack;    
+        this.snackSize=snackSize;
+        this.snackPrice=snackPrice;    
     }//end snack constructor
 
     public class FruitSnack extends Snack { 
-        private boolean hasCitrusFruit = true;
-        public FruitSnack (String snackID, String sizeOfSnack, Double priceOfSnack) {
-            super(snackID, sizeOfSnack, priceOfSnack);
-            this.hasCitrusFruit = hasCitrusFruit;
+        private boolean hasCitrus = true;
+        public FruitSnack (String snackID, char snackSize, Double snackPrice) {
+            super(snackID, snackSize, snackPrice);
+            this.hasCitrus = hasCitrus;
         }
     }
     public class SaltySnack extends Snack { 
         private boolean hasNuts = true;
-        public SaltySnack (String snackID, String sizeOfSnack, Double priceOfSnack) {
-            super(snackID, sizeOfSnack, priceOfSnack);
+        public SaltySnack (String snackID, char snackSize, Double snackPrice) {
+            super(snackID, snackSize, snackPrice);
             this.hasNuts = hasNuts;
         }
     }
+
     //begin methods
-    public static double customerSizePricing(String customerSizeChoice, double customerTotalPrice) { //switch case to figure out price
-        customerSizeChoice.toUpperCase();
-        switch (customerSizeChoice) {
-            case "S":
-            return customerTotalPrice = 19.99;
-            
-            case "M":                
-            return customerTotalPrice = 29.99;
-            
-            case "L":                
-            return customerTotalPrice = 39.99;
-    
-        // default:
-        //     System.out.println( "That is not an appropriate choice, try again");
-        //     break;
+    public void calculatePrice() { //calculate snack price based on size plus additives //TODO: Also add in fruit and nut prices
+        if (snackSize == 's') {
+            snackPrice = 19.99;
+        } else if (snackSize == 'm') {
+            snackPrice = 29.99;
+        } else if (snackSize == 'l') {
+            snackPrice = 39.99;
         }
-        return customerTotalPrice;
-    
-    }//end methods
-    public static void helloworld() {
-        System.out.println("Hello World");
     }
+    //getters and setters
+    public String getSnackID() {
+        return snackID;
+    }
+    public void setSnackID(String snackID) {
+        this.snackID=snackID;
+    }
+    public String getSnackSize() {
+        return snackID;
+    }
+    public void setSnackSize(char snackSize) {
+        this.snackSize=snackSize;
+    }
+    // Display the snack's attributes
+    public void display() {
+        System.out.println("Snack ID: " + snackID);
+        System.out.println("Snack size: " + snackSize);
+        System.out.println("Snack price: $" + snackPrice);
+        
+    }
+
+    //end methods
 }//end snack class    
-public static void helloworld() {
-    System.out.println("Hello World");
-}
