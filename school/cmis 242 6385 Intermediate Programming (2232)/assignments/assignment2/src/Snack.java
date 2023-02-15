@@ -22,7 +22,7 @@ public class Snack {//begin snack class
     public Snack (String snackID, char sizeOfSnack, Double priceOfSnack) { //begin snack constructor
         this.snackID=snackID;
         this.snackSize=snackSize;
-        this.snackPrice=snackPrice;    
+        this.snackPrice=calculatePrice(snackSize);    
     }//end snack constructor
 
     public class FruitSnack extends Snack { 
@@ -32,6 +32,7 @@ public class Snack {//begin snack class
             this.hasCitrus = hasCitrus;
         }
     }
+
     public class SaltySnack extends Snack { 
         private boolean hasNuts = true;
         public SaltySnack (String snackID, char snackSize, Double snackPrice) {
@@ -41,7 +42,7 @@ public class Snack {//begin snack class
     }
 
     //begin methods
-    public void calculatePrice() { //calculate snack price based on size plus additives //TODO: Also add in fruit and nut prices
+    public double calculatePrice(char snackSize) { //calculate snack price based on size plus additives //TODO: Also add in fruit and nut prices
         if (snackSize == 's') {
             snackPrice = 19.99;
         } else if (snackSize == 'm') {
@@ -49,6 +50,7 @@ public class Snack {//begin snack class
         } else if (snackSize == 'l') {
             snackPrice = 39.99;
         }
+        return snackPrice;
     }
     //getters and setters
     public String getSnackID() {
@@ -60,15 +62,18 @@ public class Snack {//begin snack class
     public String getSnackSize() {
         return snackID;
     }
-    public void setSnackSize(char snackSize) {
-        this.snackSize=snackSize;
+    public void setSnackSize(char customerSizeInput) {
+        this.snackSize=customerSizeInput;
+    }
+    public double getSnackPrice() {
+        return snackPrice;
     }
     // Display the snack's attributes
-    public void display() {
+    public void displaySnack() {
         System.out.println("Snack ID: " + snackID);
         System.out.println("Snack size: " + snackSize);
         System.out.println("Snack price: $" + snackPrice);
-        
+
     }
 
     //end methods
