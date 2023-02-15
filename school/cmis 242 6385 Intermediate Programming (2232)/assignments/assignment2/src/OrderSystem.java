@@ -17,39 +17,31 @@ import java.util.Scanner;
 */
 public class OrderSystem {
     public static void main(String[] args) {
-        int customerInput; //global variables begin
-        Scanner scan1 = new Scanner(System.in); //global variables end
-        int snackCountToGenerateID = 0;
-        System.out.print("MENU.\n1: Order Snack\n2. Exit Program\nEnter your selection: ");//begin program operation
-        customerInput = scan1.nextInt();
-        System.out.println("\nThank you! You chose Number " + customerInput);        
-        System.out.println("Do you want Fruit Snack (1) or Salty Snack (2): ");
-        
-        
-        
-        switch (customerInput) {//begin switch operation
-            case 1:
-                //local variables
-                snackCountToGenerateID++;    
-                String initialSnackSize;
-                double priceOfSnack = 0;
-                double snackSmall = 19.99;
-                double snackMedium = 29.99;
-                double snackLarge = 39.99;
-                double citrusSnackCharge = 5.99;
-                double nutSnackCharge = 4.50;
-                
+        //global variables begin
+        int customerMenuInput; //choose snack or exit program
+        int customerFruitOrSalt;
+        String customerSizeChoice;
+        double customerTotalPrice = 0;
 
-                //format: Snack(String:snackID, String:sizeOfSnack, Double:priceOfSnack)
-                Snack baseSnack = new Snack( "snack"+snackCountToGenerateID, "no size selected", priceOfSnack);
-                System.out.println(baseSnack.snackID);
-                System.out.println(baseSnack.sizeOfSnack);
-                System.out.println(baseSnack.priceOfSnack);
-                System.out.println(snackCountToGenerateID);
-                
-                case 2:
-                System.out.println("Thank you for using the program. Goodbye!");    
-                break;        
-        }
+        Scanner scanner = new Scanner(System.in); 
+        //global variables end
+        System.out.print("MENU\n1: Order Snack\n2. Exit Program\nEnter your selection: ");//begin program operation
+        customerMenuInput = scanner.nextInt();
+        scanner.nextLine();
+        //System.out.println("Thank you! You chose Number " + customerMenuInput);
+        System.out.println("What size do you want (S, M, L): ");
+        customerSizeChoice = scanner.nextLine();
+        System.out.println("Do you want Fruit Snack (1) or Salty Snack (2): ");
+        customerFruitOrSalt = scanner.nextInt();
+        ///code///
+        customerSizePricing(customerSizeChoice, customerTotalPrice);
+        helloworld();
+        /* 
+         * Fruit snack only
+         * System.out.println("Do you want citrus fruit included? true/false: ");
+         * 
+         * Salt Snack only
+         * System.out.println("Do you want nuts included? true/false: ");
+        */
     }
 }
