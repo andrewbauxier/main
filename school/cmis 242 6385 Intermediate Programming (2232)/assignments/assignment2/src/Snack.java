@@ -1,80 +1,90 @@
-public class Snack {//begin snack class
-    private String snackID;             //begin class attributes
-    private char snackSize;
-    private double snackPrice;        //end class attributes
-    //maybe switch to private latr
-    
-    /* 
-     * (1) There will be a Snack class with following attributes: id (combination of numbers and letters), 
-     * size (values S, M, or L), and price
-     * (2) On creation, a snack instance must be given all attribute values except its price, which must be calculated
-     * (3) Price is calculated as follows:
-     *      (a) There is a flat fee of $19.99 for S snack, $29.99 for M snack, and $39.99 for L snack.
-     *      (b) FruitSnack has an additional fee of $5.99 when it has a citrus fruit. Please add
-     *          only a single citrus fruit, and no preventing coding is required to limit adding more
-     *          than one.
-     *      (c) SaltySnack has an additional fee of $4.50 when it has a nut snack. Please add
-     *          only a single nut snack no preventing coding is required to limit adding more than
-     *          one.
-     * (4) Each class must have a method to return or display the class’s values to the console
-    */
-
-    public Snack (String snackID, char sizeOfSnack, Double priceOfSnack) { //begin snack constructor
-        this.snackID=snackID;
-        this.snackSize=snackSize;
-        this.snackPrice=calculatePrice(snackSize);    
-    }//end snack constructor
-
-    public class FruitSnack extends Snack { 
-        private boolean hasCitrus = true;
-        public FruitSnack (String snackID, char snackSize, Double snackPrice) {
-            super(snackID, snackSize, snackPrice);
-            this.hasCitrus = hasCitrus;
-        }
+//part of OrderSystem Project
+// Snack class hierarchy
+class Snack {
+    protected String snackID;
+    protected char sizeChoice;
+    protected double price = calculatePrice();
+    public Snack(String snackID, char sizeChoice, double price) {//constructor
+        this.snackID = snackID;
+        this.sizeChoice = sizeChoice;
+        this.price = price;
     }
-
-    public class SaltySnack extends Snack { 
-        private boolean hasNuts = true;
-        public SaltySnack (String snackID, char snackSize, Double snackPrice) {
-            super(snackID, snackSize, snackPrice);
-            this.hasNuts = hasNuts;
-        }
-    }
-
-    //begin methods
-    public double calculatePrice(char snackSize) { //calculate snack price based on size plus additives //TODO: Also add in fruit and nut prices
-        if (snackSize == 's') {
-            snackPrice = 19.99;
-        } else if (snackSize == 'm') {
-            snackPrice = 29.99;
-        } else if (snackSize == 'l') {
-            snackPrice = 39.99;
-        }
-        return snackPrice;
-    }
-    //getters and setters
-    public String getSnackID() {
+    //get methods begin
+    public String getId() {
         return snackID;
     }
-    public void setSnackID(String snackID) {
-        this.snackID=snackID;
+    public char getSize() {
+        return sizeChoice;
     }
-    public String getSnackSize() {
-        return snackID;
+
+    public double getPrice() {
+        return price;
     }
-    public void setSnackSize(char customerSizeInput) {
-        this.snackSize=customerSizeInput;
+    //internal methods for calculating price and displaying snack info 
+    protected double calculatePrice() {
+        double sizeFee;
+        switch (sizeChoice) {
+            case 'S':
+                return sizeFee = 19.99;
+                
+            case 'M':
+                return sizeFee = 29.99;
+                
+            case 'L':
+                return sizeFee = 39.99;
+            default:
+                sizeFee  = 0;
+        }
+        return sizeFee ;
     }
-    public double getSnackPrice() {
-        return snackPrice;
+    public void displaySnack() { //display snack class info
+        System.out.println("Snack type = " + getClass().getSimpleName() + " of size =" + getSize() + ", id = " + getId() + ", and price = $" + getPrice());
     }
-    // Display the snack's attributes
+}
+class FruitSnack extends Snack {//begin subclass fruitsnack
+    private boolean hasCitrus;
+    public FruitSnack(String snackID, char sizeChoice, double price, boolean hasCitrus) {
+        super(snackID, sizeChoice, price);
+        this.hasCitrus = hasCitrus;
+        this.price = calculatePrice();
+    }
+    public boolean getCitrusFruit() {//encapsulation
+        return hasCitrus;
+    }
+    @Override //class override, add fruits
+    protected double calculatePrice() {
+        double flatFee = super.calculatePrice();
+        if (hasCitrus) {
+            flatFee += 5.99;
+        }
+        return flatFee;
+    }
+    @Override //class override, show fruitsnack instead 
     public void displaySnack() {
-        System.out.println("Snack ID: " + snackID);
-        System.out.println("Snack size: " + snackSize);
-        System.out.println("Snack price: $" + snackPrice);
-
+        System.out.println("Snack type = " + getClass().getSimpleName() + " of size =" + getSize() + ", id = " + getId() + ", and price = $" + getPrice());
     }
-
-    //end methods
-}//end snack class    
+}//end subclass fruitsnack
+class SaltySnack extends Snack {//begin subclass saltysnack
+    private boolean hasNuts;
+    public SaltySnack(String snackID, char sizeChoice, double price, boolean hasNuts) {
+        super(snackID, sizeChoice, price);
+        this.hasNuts = hasNuts;
+        this.price = calculatePrice();
+    }
+    public boolean getNutSnack() {//encapsulation
+        return hasNuts;
+    }
+    @Override //class override, add nuts
+    protected double calculatePrice() {
+        double flatFee = super.calculatePrice();
+        if (hasNuts) {
+            flatFee += 4.50;
+        }
+        return flatFee;
+    }
+    @Override //class override, show saltysnack instead
+    public void displaySnack() {
+        System.out.println("Snack type = " + getClass().getSimpleName() + " of size =" + getSize() + ", id = " + getId() + ", and price = $" + getPrice());
+    }
+    //looking back, was it even necessary to do these overrides? Wouldn't it show the class regardless? Done is done.
+}//end subclass saltysnack

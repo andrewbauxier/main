@@ -1,65 +1,48 @@
-import java.util.Scanner;
-
 /* 
  * Name:    Andrew B. Auxier
  * Class:   Class:CMIS 242 6385
- * Date:    2023-MM-DD 
- * This program provides proof of knowledge of concepts relating to encapsulation
- * and object-oriented program by performing calculations using Weight objects 
- * (instances of Weight class)
- * 
- * TODO List
- * [project]: tasks to be done before submitting
- * clean-up
- * 
- * [personal]: personal tasks to be done at a later date
- * refactor divide, maybe delete it. seems like it could be unneccessary.
+ * Date:    2023-02-16 
+ * This program implements a snack ordering system with a Snack class hierarchy and FruitSnack and SaltySnack subclasses as well 
+ * as an OrderSystem class. The user inputs data and is given the details for a snack. Provides proof of knowledge of concepts such as 
+ * encapsulation, polymorphism, and inheritance in Object Oriented Programming (Java).
 */
 import java.util.Scanner;
-
 public class OrderSystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int customerSelectionInput = 0;
-
-        while (customerSelectionInput != 2) {
-            System.out.println("\nMENU\n1: Order a Snack\n2: Exit program\nEnter your selection: ");
-            customerSelectionInput = scanner.nextInt();
-            switch (customerSelectionInput) {
-                case 1:
+        int menuSelectionInput = 0;
+        while (menuSelectionInput != 2) { //while loop to kick back to menu until exit program
+            System.out.print("\nMENU\n1: Order a Snack\n2: Exit program\nEnter your selection: ");
+            menuSelectionInput = scanner.nextInt();
+            switch (menuSelectionInput) { //begin switch operations to determine snack
+                case 1: //Snack case
                     System.out.print("Do you want Fruit Snack (1) or Salty Snack (2): ");
-                    int snackTypeInput = scanner.nextInt();
-
+                    int snackChoice = scanner.nextInt();
                     System.out.print("What size do you want: S, M, or L: ");
-                    String snackSizeInput = scanner.next();
-
-                    boolean isCitrusFruit = false;
-                    boolean hasNutSnack = false;
-
-                    if (snackTypeInput == 1) {
+                    char sizeChoice = scanner.next().charAt(0);
+                    boolean hasCitrus = false;
+                    boolean hasNuts = false;
+                    if (snackChoice == 1) { //fruit snack for snackChoice
                         System.out.print("Do you want citrus fruit included? true/false: ");
-                        isCitrusFruit = scanner.nextBoolean();
-                    } else if (snackTypeInput == 2) {
+                        hasCitrus = scanner.nextBoolean();
+                    } else if (snackChoice == 2) { //nut snack for snackChoice
                         System.out.print("Do you want nut snack included? true/false: ");
-                        hasNutSnack = scanner.nextBoolean();
+                        hasNuts = scanner.nextBoolean();
                     }
-
-                    Snack snack;
-
-                    if (snackTypeInput == 1) {
-                        snack = new FruitSnack(snackSizeInput, isCitrusFruit);
+                    if (snackChoice == 1) {//fruit snack for snackChoice
+                        String snackID = "fruitsnack" + sizeChoice + snackChoice;
+                        FruitSnack fruitSnack = new FruitSnack(snackID, sizeChoice, snackChoice, hasCitrus);
+                        fruitSnack.displaySnack();
                     } else {
-                        snack = new SaltySnack(snackSizeInput, hasNutSnack);
+                        String snackID = "nutsnack" + sizeChoice + snackChoice ;
+                        SaltySnack saltySnack = new SaltySnack(snackID, sizeChoice, snackChoice, hasNuts);
+                        saltySnack.displaySnack();
                     }
-
-                    System.out.println("You have chosen snack type = " + snack.getClass().getSimpleName()
-                            + ", of type = " + snack.getSize() + ", id = " + snack.getId() + ", and price = $"
-                            + snack.getPrice());
                     break;
-                case 2:
+                case 2: //exit program case
                     System.out.println("Thank you for using the program. Goodbye!");
                     break;
-                default:
+                default: //verification to get to right choice
                     System.out.println("Invalid selection. Please try again.");
                     break;
             }
