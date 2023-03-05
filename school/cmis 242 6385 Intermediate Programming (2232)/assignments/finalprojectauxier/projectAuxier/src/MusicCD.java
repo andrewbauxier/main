@@ -5,5 +5,6 @@ public class MusicCD extends Media {
         this.mediaID = mediaID;
         this.mediaTitle = mediaTitle;
         this.mediaYearPublished = mediaYearPublished;
+        this.lengthInMinutes = lengthInMinutes;
     }
 }

@@ -5,5 +5,6 @@ public class Ebook extends Media {
         this.mediaID = mediaID;
         this.mediaTitle = mediaTitle;
         this.mediaYearPublished = mediaYearPublished;
+        this.numberOfChapters = numberOfChapters;
     }
 }
