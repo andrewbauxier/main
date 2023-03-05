@@ -1,17 +1,13 @@
 /* 
  * Name:    Andrew B. Auxier
  * Class:   CMIS 242 6385
- * Date:    2023-02-16
- * Package Description: Temperature converter package for use in main GUI application
+ * Date:    2023-02-27
+ * Package Description: main converter package to provide structure for classes in
+ *  following children packages of TemperatureConverter.java and DistanceConverter.java
 */
-/**
- * Converter
- */
 public class Converter {
-
-    private double input; //Private attribute for input of data type double
-    //Default constructor with no parameter which sets input to Double.NaN
-    Converter() {
+    private double input; //user input
+    Converter() { //Default input value, Double.NaN
         this.input=Double.NaN;
     }
     //Overloaded constructor with input for parameter
@@ -19,51 +15,13 @@ public class Converter {
         this.input = input;
     }
     //Get and set methods for input attribute
-    double getInput() {
+    double getInput() { //input private, gets input
         return this.input;
     }
-    void setInput(double input) {
+    void setInput(double input) { //input private, sets input
         this.input = input;
     }
-    //Method convert() which returns input value
-    double convert() {
+    double convert() { //convert method, returns input
         return this.input;
     }
-    
-    class TemperatureConverter extends Converter {
-        //Constructors which call parent constructors
-        TemperatureConverter() {
-            super();
-        }
-        TemperatureConverter(double input) {
-            super(input);
-        }
-        //Overridden convert() method to convert input (Fahrenheit temperature) to Celsius and returns the value. If the instance has no input value, it should return Double.NaN
-        double convert() {
-            if(super.getInput(input) == Double.NaN) {//We use getter method of super class to get input value and check if it has default value. If yes, we return same as result, otherwise we calculate temperature in Celsius
-                return Double.NaN;
-            } else {
-                return ((super.getInput()-32.0)*5.0)/9.0;
-            }
-        }
-    }
-
-    class DistanceConverter extends Converter {
-        //Constructors which call parent constructors
-        DistanceConverter() {
-        super();
-        }
-        DistanceConverter(double input) {
-        super(input);
-        }
-        //Overridden convert() method to convert input (distance in miles) to distance in kilometers and returns the value. If the instance has no input value, it should return Double.NaN
-            double convert() {
-            if(super.getInput() == Double.NaN) //We use getter method of super class to get input value and check if it has default value. If yes, we return same as result, otherwise we calculate distance in KM
-            {
-                return Double.NaN;
-            } else {
-                return super.getInput() * 1.609;
-            }
-        }
-    }
-}
+} //end class
