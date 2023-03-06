@@ -42,4 +42,7 @@ want to allow a creation of this class directly
     protected void setAvailable(boolean available) {
         this.isAvailable = isAvailable;
     }
+    public double totalPrice() {
+        return 3.50;
+    }
 }
