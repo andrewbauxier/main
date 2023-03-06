@@ -10,9 +10,9 @@ want to allow a creation of this class directly
     private int mediaID;
     private String mediaTitle;
     private int mediaYearPublished;
+    private boolean isAvailable;
     //private double rentalFee = 3.50;
         //maybe dont put this here
-    private boolean isAvailable;
     public Media(int mediaID, String mediaTitle, int mediaYearPublished, boolean isAvailable) { //needs get,
         this.mediaID = mediaID;
         this.mediaTitle = mediaTitle;
@@ -20,4 +20,26 @@ want to allow a creation of this class directly
         this.isAvailable= isAvailable;
     }
 
+    // getters and setters
+    public int getId() {
+        return this.mediaID;
+    }
+    public String getTitle() {
+        return this.mediaTitle;
+    }
+    public int getYear() {
+        return this.mediaYearPublished;
+    }
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+    protected void setTitle(String title) {
+        this.mediaTitle = mediaTitle;
+    }
+    protected void setYear(int year) {
+        this.mediaYearPublished = mediaYearPublished;
+    }
+    protected void setAvailable(boolean available) {
+        this.isAvailable = isAvailable;
+    }
 }
