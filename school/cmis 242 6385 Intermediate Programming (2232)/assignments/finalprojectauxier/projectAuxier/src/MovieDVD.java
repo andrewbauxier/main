@@ -1,6 +1,12 @@
+/* Documentation 
+ *  Name:    Andrew B. Auxier
+ *  Class:   CMIS 242 6385
+ *  Date:    2023-03-07
+ *  Package Description: This package provides construction of and manipulation for child class(MovieDVD) of parent class(Media)
+*/
 public class MovieDVD extends Media {
     private double sizeInMegabytes = 0;
-    public MovieDVD(int mediaID, String mediaTitle, int mediaYearPublished, boolean isAvailable) {
+    public MovieDVD(int mediaID, String mediaTitle, int mediaYearPublished, double sizeInMegabytes, boolean isAvailable) {
         super(mediaID, mediaTitle, mediaYearPublished, isAvailable);
         this.sizeInMegabytes=sizeInMegabytes;
     }
@@ -18,7 +24,7 @@ public class MovieDVD extends Media {
 		// not override
 		@Override
 		public String toString() { //display stuff
-			return "MovieDVD [ id=" + getId() + ", title=" + getTitle() + ", year=" + getYear() + ", size=" + getSize()
+			return "MovieDVD [ id=" + getID() + ", title=" + getTitle() + ", year=" + getYear() + ", size=" + getSize()
 					+ "MB, available=" + this.isAvailable() + " ]";
 		}
 }
