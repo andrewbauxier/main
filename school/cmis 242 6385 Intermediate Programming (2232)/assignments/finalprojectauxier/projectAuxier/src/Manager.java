@@ -12,13 +12,17 @@
  *      201,SampleDVD1,2004,140,true
  *    MusicCD.txt
  *      301,SampleCD1,2007,170,false
+ * 
+ *  TO-DO:
+ *      Figure out why I could not get it to load mutliple objects at once. It appears like it did not, but maybe it did.
 */
 
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Manager {
     // attribute
@@ -73,7 +77,6 @@ public class Manager {
                             } 
                     this.addMedia(media); //add to attribute
                 } catch (FileNotFoundException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 } 
             } 
@@ -116,7 +119,7 @@ public class Manager {
             System.out.println(media.toString());
         }
     }
-    public void addMedia(Media media) { //add Media object
+    public void addMedia(Media media) { //add media
         this.mediaObjects.add(media);
     }
 }

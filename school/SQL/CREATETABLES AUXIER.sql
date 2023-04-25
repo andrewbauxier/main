@@ -20,7 +20,7 @@ CREATE TABLE DIRECTOR (
 CREATE TABLE AWARD (
   AwardID           VARCHAR2(10) ,   
   DateReceived      DATE , 
-  TYPE              VARCHAR2(10) , 
+  TypeOfAward       VARCHAR2(10) , 
   CONSTRAINT AWARD_PK PRIMARY KEY (AwardID)  
 );
 

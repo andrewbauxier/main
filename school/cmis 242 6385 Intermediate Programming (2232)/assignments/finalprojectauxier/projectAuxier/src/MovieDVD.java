@@ -19,10 +19,6 @@ public class MovieDVD extends Media {
 		public void setSize(double sizeInMegabytes) {
 			this.sizeInMegabytes = sizeInMegabytes;
 		}
-
-		// inherits calculate rental fee method and no different calculation so should
-		// not override
-		@Override
 		public String toString() { //display stuff
 			return "MovieDVD [ id=" + getID() + ", title=" + getTitle() + ", year=" + getYear() + ", size=" + getSize()
 					+ "MB, available=" + this.isAvailable() + " ]";
