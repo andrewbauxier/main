@@ -4,39 +4,35 @@
 --DATE: 20230422
 
 CREATE TABLE ACTOR (
-  ActorID           VARCHAR2(10) , 
+  ActorID           NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   FirstName         VARCHAR2(30) , 
-  LastName          VARCHAR2(30) , 
-  CONSTRAINT ACTOR_PK PRIMARY KEY (ActorID)  
+  LastName          VARCHAR2(30) 
 );
 
 CREATE TABLE DIRECTOR (
-  DirectorID        VARCHAR2(10) , 
+  DirectorID        NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
   FirstName         VARCHAR2(30) , 
-  LastName          VARCHAR2(30) , 
-  CONSTRAINT DIRECTOR_PK PRIMARY KEY (DirectorID)  
+  LastName          VARCHAR2(30) 
 );
 
 CREATE TABLE AWARD (
-  AwardID           VARCHAR2(10) ,   
+  AwardID           NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,   
   DateReceived      DATE , 
-  TypeOfAward       VARCHAR2(10) , 
-  CONSTRAINT AWARD_PK PRIMARY KEY (AwardID)  
+  TypeOfAward       VARCHAR2(10)  
 );
 
 ---MOVIE TABLE
 CREATE TABLE MOVIE (
-  MovieID           VARCHAR2(10) ,    
+  MovieID           NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,    
   DistributorID     VARCHAR2(30) , 
   RunningLength     NUMBER(6) , 
   Genre             VARCHAR2(30) , 
   Rating            VARCHAR2(30) , 
-  ReleaseDate       DATE , 
-  CONSTRAINT MOVIE_PK PRIMARY KEY (MovieID)  
+  ReleaseDate       DATE 
 );
 
 CREATE TABLE CUSTOMER (
-  CustomerID        VARCHAR2(10) ,   
+  CustomerID        NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,   
   FirstName         VARCHAR2(30) , 
   LastName          VARCHAR2(30) ,
   DateOfBirth       DATE , 
@@ -44,33 +40,30 @@ CREATE TABLE CUSTOMER (
   City              VARCHAR2(30) ,
   StateID           VARCHAR2(2) ,
   ZipCode           NUMBER(30) ,
-  Telephone         NUMBER(10) ,
+  Telephone         NUMBER(10) 
 
-  CONSTRAINT CUSTOMER_PK PRIMARY KEY (CustomerID)  
 );
 
 CREATE TABLE DVD (
-  DVDID             VARCHAR2(10) ,    
+  DVDID             NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,    
   Title             VARCHAR2(30) , 
   RunningLength     NUMBER(6) , 
   Genre             VARCHAR2(30) , 
   RentalFee         NUMBER(10) ,
-  Discount          NUMBER(2) ,
-  CONSTRAINT DVD_PK PRIMARY KEY (DVDID)  
+  Discount          NUMBER(2) 
 );
 
 CREATE TABLE VHS (
-  VHSID             VARCHAR2(10) ,    
+  VHSID             NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,    
   Title             VARCHAR2(30) , 
   RunningLength     NUMBER(6) , 
   Genre             VARCHAR2(30) , 
   RentalFee         NUMBER(10) ,
-  Discount          NUMBER(2) ,
-  CONSTRAINT VHS_PK PRIMARY KEY (VHSID)  
+  Discount          NUMBER(2) 
 );
 
 CREATE TABLE RENTAL (
-  RentalID          VARCHAR2(10) ,    
+  RentalID          NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,    
   DistributorID     VARCHAR2(30) , 
   DateOut           DATE , 
   DateIn            DATE , 
@@ -79,61 +72,67 @@ CREATE TABLE RENTAL (
   LateFee           NUMBER(10) ,
   DamageFee         NUMBER(10) ,
   RewindFee         NUMBER(10) ,
-  OtherFee          NUMBER(10) ,
-  CONSTRAINT RENTAL_PK PRIMARY KEY (RentalID)  
+  OtherFee          NUMBER(10) 
 );
 
 ----------------------
 
 --RELATIONAL TABLES
 CREATE TABLE ACTOR_MOVIE (
-  ActorID           VARCHAR2(10) , 
-  MovieID           VARCHAR2(10) ,
+  ActorID           NUMBER(8) , 
+  MovieID           NUMBER(8) ,
   CONSTRAINT ActorID_ACTOR_MOVIE_FK1    FOREIGN KEY (ActorID) REFERENCES ACTOR(ActorID) ,
   CONSTRAINT MovieID_ACTOR_MOVIE_FK2    FOREIGN KEY (MovieID) REFERENCES MOVIE(MovieID) 
 );
+CREATE TABLE ACTOR_MOVIE (
+  ActorID           NUMBER, 
+  MovieID           NUMBER,
+  CONSTRAINT Actor_Movie_PK PRIMARY KEY (ActorID, MovieID),
+  CONSTRAINT Actor_Movie_Actor_FK FOREIGN KEY (ActorID) REFERENCES Actor(ActorID),
+  CONSTRAINT Actor_Movie_Movie_FK FOREIGN KEY (MovieID) REFERENCES Movie(MovieID)
+);
 
 CREATE TABLE DIRECTOR_MOVIE (
-  DirectorID        VARCHAR2(10) , 
-  MovieID           VARCHAR2(10) ,
+  DirectorID        NUMBER(8) , 
+  MovieID           NUMBER(8) ,
   CONSTRAINT DirectorID_DIRECTOR_MOVIE_FK1 FOREIGN KEY (DirectorID) REFERENCES DIRECTOR(DirectorID)  ,
   CONSTRAINT MovieID_DIRECTOR_MOVIE_FK2    FOREIGN KEY (MovieID)   REFERENCES MOVIE(MovieID) 
 );
 
 CREATE TABLE AWARD_MOVIE (
-  AwardID           VARCHAR2(10) , 
-  MovieID           VARCHAR2(10) ,
+  AwardID           NUMBER(8) , 
+  MovieID           NUMBER(8) ,
   CONSTRAINT AwardID_AWARD_MOVIE_FK1    FOREIGN KEY (AwardID) REFERENCES AWARD(AwardID) ,
   CONSTRAINT MovieID_AWARD_MOVIE_FK2    FOREIGN KEY (MovieID) REFERENCES MOVIE(MovieID) 
 );
 
 CREATE TABLE DVD_MOVIE (
-  DVDID             VARCHAR2(10) , 
-  MovieID           VARCHAR2(10) ,
+  DVDID             NUMBER(8) , 
+  MovieID           NUMBER(8) ,
   CONSTRAINT DVDID_DVD_MOVIE_FK1      FOREIGN KEY (DVDID) REFERENCES DVD(DVDID) ,
   CONSTRAINT MovieID_DVD_MOVIE_FK2    FOREIGN KEY (MovieID) REFERENCES MOVIE(MovieID) 
 );
 CREATE TABLE VHS_MOVIE (
-  VHSID             VARCHAR2(10) , 
-  MovieID           VARCHAR2(10) ,
+  VHSID             NUMBER(8) , 
+  MovieID           NUMBER(8) ,
   CONSTRAINT VHSID_VHS_MOVIE_FK1      FOREIGN KEY (VHSID) REFERENCES VHS(VHSID) ,
   CONSTRAINT MovieID_VHS_MOVIE_FK2    FOREIGN KEY (MovieID) REFERENCES MOVIE(MovieID) 
 );
 CREATE TABLE VHS_RENTAL (
-  VHSID             VARCHAR2(10) , 
-  RentalID          VARCHAR2(10) ,
+  VHSID             NUMBER(8) , 
+  RentalID          NUMBER(8) ,
   CONSTRAINT VHSID_VHS_RENTAL_FK1      FOREIGN KEY (VHSID) REFERENCES VHS(VHSID) ,
   CONSTRAINT RentalID_VHS_RENTAL_FK2   FOREIGN KEY (RentalID) REFERENCES RENTAL(RentalID) 
 );
 CREATE TABLE DVD_RENTAL (
-  DVDID             VARCHAR2(10) , 
-  RentalID           VARCHAR2(10) ,
+  DVDID             NUMBER(8) , 
+  RentalID          NUMBER(8) ,
   CONSTRAINT DVDID_DVD_RENTAL_FK1      FOREIGN KEY (DVDID) REFERENCES DVD(DVDID) ,
   CONSTRAINT RentalID_DVD_RENTAL_FK2   FOREIGN KEY (RentalID) REFERENCES RENTAL(RentalID) 
 );
 CREATE TABLE CUSTOMER_RENTAL (
-  CustomerID        VARCHAR2(10) , 
-  RentalID           VARCHAR2(10) ,
+  CustomerID        NUMBER(8) , 
+  RentalID          NUMBER(8) ,
   CONSTRAINT CustomerID_CUSTOMER_RENTAL_FK1 FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ,
   CONSTRAINT RentalID_CUSTOMER_RENTAL_FK2   FOREIGN KEY (RentalID) REFERENCES RENTAL(RentalID) 
 );
