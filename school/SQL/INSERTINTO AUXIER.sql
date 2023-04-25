@@ -16,11 +16,11 @@ INSERT INTO ACTOR (ActorID, FirstName, LastName) VALUES (1004, 'Emma', 'Stone');
 INSERT INTO ACTOR (ActorID, FirstName, LastName) VALUES (1005, 'Denzel', 'Washington');
 
 --DIRECTOR
-INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (001, 'Christopher', 'Nolan');
+INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (1001, 'Christopher', 'Nolan');
 
 INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (1002, 'Steven', 'Spielberg');
 
-INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (1002, 'Steven', 'Spielberg');
+INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (1003, 'Steven', 'Spielberg');
 
 INSERT INTO DIRECTOR (DirectorID, FirstName, LastName) VALUES (1004, 'Ava', 'DuVernay');
 

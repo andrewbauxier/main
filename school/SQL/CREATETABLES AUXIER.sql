@@ -28,7 +28,9 @@ CREATE TABLE DIRECTOR (
 CREATE TABLE AWARD (
   AwardID           INT PRIMARY KEY NOT NULL,
   AwardName         VARCHAR2(10),  
-  DateReceived      DATE  
+  DateReceived      DATE,
+  FirstName         VARCHAR2(30) , 
+  LastName          VARCHAR2(30)   
 );
 
 CREATE TABLE CUSTOMER (
