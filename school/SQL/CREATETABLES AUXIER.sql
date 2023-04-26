@@ -3,20 +3,12 @@
 --CLASS:CMIS302 
 --DATE: 20230422
 
+
+--Standard Tables
 CREATE TABLE ACTOR (
   ActorID           INT PRIMARY KEY NOT NULL,
   FirstName         VARCHAR2(30) , 
   LastName          VARCHAR2(30) 
-);
-
-CREATE TABLE MOVIE (
-  MovieID           INT PRIMARY KEY NOT NULL,
-  DistributorID     NUMBER(30) ,
-  MovieName         VARCHAR2(30) ,
-  RunningLength     NUMBER(10) , 
-  Genre             VARCHAR2(30) , 
-  Rating            VARCHAR2(30) , 
-  ReleaseDate       DATE 
 );
 
 CREATE TABLE DIRECTOR (
@@ -33,48 +25,49 @@ CREATE TABLE AWARD (
   LastName          VARCHAR2(30)   
 );
 
+CREATE TABLE MOVIE (
+  MovieID           INT PRIMARY KEY NOT NULL,
+  DistributorID     NUMBER(30) ,
+  MovieName         VARCHAR2(30) ,
+  DistributorName   VARCHAR2(30)   
+);
+
+CREATE TABLE DISTRIBUTOR (
+  DistributorID        INT PRIMARY KEY NOT NULL,
+  DistributorName      VARCHAR2(30) 
+);
+
 CREATE TABLE CUSTOMER (
   CustomerID        INT PRIMARY KEY NOT NULL, 
   FirstName         VARCHAR2(30) , 
   LastName          VARCHAR2(30) ,
-  DateOfBirth       DATE , 
   StreetAddress     VARCHAR2(30) ,
-  City              VARCHAR2(30) ,
-  StateID           VARCHAR2(2) ,
-  ZipCode           NUMBER(30) ,
-  Telephone         NUMBER(10) 
+  ZipCode           NUMBER(30) 
 );
 
 CREATE TABLE DVD (
   DVDID             INT PRIMARY KEY NOT NULL, 
-  Title             VARCHAR2(30) , 
-  RunningLength     NUMBER(6) , 
-  Genre             VARCHAR2(30) , 
-  RentalFee         NUMBER(10) ,
-  Discount          NUMBER(3) 
+  Title             VARCHAR2(30)  
 );
 
 CREATE TABLE VHS (
   VHSID             INT PRIMARY KEY NOT NULL,
-  Title             VARCHAR2(30) , 
-  RunningLength     NUMBER(6) , 
-  Genre             VARCHAR2(30) , 
-  RentalFee         NUMBER(10) ,
-  Discount          NUMBER(3) 
+  Title             VARCHAR2(30)  
 );
 
 CREATE TABLE RENTAL (
   RentalID          INT PRIMARY KEY NOT NULL,    
-  DistributorID     INT(30) , 
+  MovieID           INT ,
+  DistributorID     INT ,
+  CustomerID        INT ,
   DateOut           DATE , 
-  DateIn            DATE , 
   DateDue           DATE ,
-  RentalFee         NUMBER(10) ,
-  LateFee           NUMBER(10) ,
-  DamageFee         NUMBER(10) ,
-  RewindFee         NUMBER(10) ,
-  OtherFee          NUMBER(10) 
+  CONSTRAINT MOVIEID_FK FOREIGN KEY (MovieID) REFERENCES MOVIE(MovieID),  
+  CONSTRAINT DISTRIBUTORID_FK FOREIGN KEY (DistributorID) REFERENCES DISTRIBUTOR(DistributorID),
+  CONSTRAINT CUSTOMERID_FK FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID)  
 );
+
+
 
 ----------------------
 
