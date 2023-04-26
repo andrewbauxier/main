@@ -37,19 +37,19 @@ VALUES (1005, 'AwardName5', TO_DATE('2026-11-18', 'YYYY-MM-DD'), 'FirstName5', '
 
 --MOVIE
 INSERT INTO MOVIE (MovieID, DistributorID, MovieName, DistributorName)
-VALUES (1001, 1001, "MovieName1", "DistributorName1");
+VALUES (1001, 1001, 'MovieName1', 'DistributorName1');
 
 INSERT INTO MOVIE (MovieID, DistributorID, MovieName, DistributorName)
-VALUES (1002, 1002, "MovieName2", "DistributorName2");
+VALUES (1002, 1002, 'MovieName2', 'DistributorName2');
 
 INSERT INTO MOVIE (MovieID, DistributorID, MovieName, DistributorName)
-VALUES (1003, 1003, "MovieName3", "DistributorName3");
+VALUES (1003, 1003, 'MovieName3', 'DistributorName3');
 
 INSERT INTO MOVIE (MovieID, DistributorID, MovieName, DistributorName)
-VALUES (1004, 1004, "MovieName4", "DistributorName4");
+VALUES (1004, 1004, 'MovieName4', 'DistributorName4');
 
 INSERT INTO MOVIE (MovieID, DistributorID, MovieName, DistributorName)
-VALUES (1005, 1005, "MovieName5", "DistributorName5");
+VALUES (1005, 1005, 'MovieName5', 'DistributorName5');
 
 
 --CUSTOMER
@@ -101,6 +101,23 @@ VALUES (1004, 'ExampleMovie4');
 
 INSERT INTO VHS (VHSID, Title)
 VALUES (1005, 'ExampleMovie5');
+
+--DISTRIBUTOR
+INSERT INTO DISTRIBUTOR (DistributorID, DistributorName)
+VALUES (1001, 'DistributorName1');
+
+INSERT INTO DISTRIBUTOR (DistributorID, DistributorName)
+VALUES (1002, 'DistributorName2');
+
+INSERT INTO DISTRIBUTOR (DistributorID, DistributorName)
+VALUES (1003, 'DistributorName3');
+
+INSERT INTO DISTRIBUTOR (DistributorID, DistributorName)
+VALUES (1004, 'DistributorName4');
+
+INSERT INTO DISTRIBUTOR (DistributorID, DistributorName)
+VALUES (1005, 'DistributorName5');
+
 
 --RENTAL
 INSERT INTO RENTAL (RentalID, MovieID, DistributorID, CustomerID, DateOut, DateDue)

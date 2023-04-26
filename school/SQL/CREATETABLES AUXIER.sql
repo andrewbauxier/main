@@ -27,7 +27,7 @@ CREATE TABLE AWARD (
 
 CREATE TABLE MOVIE (
   MovieID           INT PRIMARY KEY NOT NULL,
-  DistributorID     NUMBER(30) ,
+  DistributorID     INT ,
   MovieName         VARCHAR2(30) ,
   DistributorName   VARCHAR2(30)   
 );
