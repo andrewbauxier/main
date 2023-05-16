@@ -1,0 +1,26 @@
+
+--1
+SELECT FirstName, LastName, CustomerID, StreetAddress, ZipCode
+FROM CUSTOMER
+ORDER BY CustomerID;
+
+--2
+SELECT * FROM rental 
+WHERE DateOut >= SYSDATE - INTERVAL '30' DAY 
+ORDER BY DateOut ASC;
+
+--3
+SELECT * FROM DISTRIBUTOR
+ORDER BY DistributorName ASC;
+
+--4
+UPDATE CUSTOMER
+SET LastName = 'FISH'
+WHERE CustomerID = 1001;
+--ROLLBACK;
+
+DELETE FROM RENTAL
+WHERE CustomerID = 1005;
+DELETE FROM CUSTOMER
+WHERE CustomerID = 1005;
+--ROLLBACK;
