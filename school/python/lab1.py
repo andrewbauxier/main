@@ -36,14 +36,9 @@ def enterExitLoop():
         print("Invalid input. Please enter 'yes', 'no' or 'exit'.")
   print("The boolean value is:", userBool)    
       
-
-    
-    
-
-
-    
-      
-
+def enterFirstName():
+    userFirstName = input("Please enter your first name now\n")
+    print(userFirstName)
 #main
 enterExitLoop()
 
