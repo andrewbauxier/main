@@ -21,24 +21,30 @@
 # menu looping
 def enterExitLoop():
   while True:
-    enterExitLoopInput = input("Welcome to the Python Voter Registration Application. Do you want to continue with Voter Registration? Type 'yes' or 'no'\n")
+    enterExitLoopInput = input("\nWelcome to the Python Voter Registration Application. Do you want to continue with Voter Registration? Type 'yes' or 'no'\n")
     enterExitLoopInput = enterExitLoopInput.lower()
-    if enterExitLoopInput == "exit":
-        print("Exiting the program.")
-        exit(0)
-    elif enterExitLoopInput == "yes":
+    if enterExitLoopInput == "yes":
         userBool = True
-        break
+        enterUserFirstAndLastName()
+        #break
     elif enterExitLoopInput == "no":
         userBool = False
-        break
+        print("\nExiting the program.\n")
+        exit(0)
     else:
-        print("Invalid input. Please enter 'yes', 'no' or 'exit'.")
+        print("Invalid input. Please enter 'yes' or 'no'.")
   print("The boolean value is:", userBool)    
       
-def enterFirstName():
-    userFirstName = input("Please enter your first name now\n")
-    print(userFirstName)
+def enterUserFirstAndLastName():
+    userFirstName = input("\nPlease enter your first name now\n")
+    print("\nThe name you entered is:", userFirstName, )
+    userLastName = input("\nPlease enter your last name now\n")
+    print
+    
+
+
+####################################################################################################################################
+
 #main
 enterExitLoop()
 
