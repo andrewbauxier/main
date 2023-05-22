@@ -1,13 +1,23 @@
-# Prompt the user for their first name, last name, age, country of citizenship, state of residence and zipcode
-#     all fields must be entered
+# Prompt the user for their 
+#   first name, last name,          Check!
+#   age,                            
+#   country of citizenship,         
+#   state of residence              
+#   zipcode                         
+#   *all fields must be entered     
+# 
 # 18 years old and a U.S citizen, they can move forward and be prompted 
 #     for the remaining questions and register to vote
+# 
 # If not, they should not be presented with the additional questions.
 # error checking logicon the input statements to make sure the age numbers entered seem reasonable 
 #     (e.g. a person is probably not > 120 years)
+# 
 # States should be 2 letters representing only valid U.S. States.
+# 
 # Application should prompt the user for the needed questions to complete the registration 
 #     and reprompt when data is invalid giving the user the opportunity to retry.
+# 
 # output should summarize the input data and congratulate the user if they are 
 #     eligible to vote and entered all of the data
 #     The user should be given options to exit the program at any time to cancel the registration process
@@ -17,8 +27,8 @@
 # Class:    SDEV 300 6383 Building Secure Python Applications (2235)
 # Date:     2023-05-17
 
-# methods
-# menu looping
+##################### functions begin
+# loop to introduce program and provide ability to exit program. also performs validation of options
 def enterExitLoop():
   while True:
     enterExitLoopInput = input("\nWelcome to the Python Voter Registration Application. Do you want to continue with Voter Registration? Type 'yes' or 'no'\n")
@@ -35,17 +45,27 @@ def enterExitLoop():
         print("Invalid input. Please enter 'yes' or 'no'.")
   print("The boolean value is:", userBool)    
       
+## function to acquire first and last name of registrant
 def enterUserFirstAndLastName():
-    userFirstName = input("\nPlease enter your first name now\n")
-    print("\nThe name you entered is:", userFirstName, )
+    userFirstName = input("\nIf you wish to exit the program at any time, type 'exit'.\nPlease enter your first name now\n")
+    if userFirstName == "exit":
+      exit(0)
     userLastName = input("\nPlease enter your last name now\n")
-    print
-    
+    if userLastName == "exit":
+      exit(0)
+    print("\nThe name you entered is:\n", userFirstName, userLastName)
+    enterUserAgeAndValidate()
 
+## function to gather user age input and validate age
+def enterUserAgeAndValidate():
+  userAge = input("\nBe advised, only individuals 18 years og age or older are allowed to register.\nPlease input your age now")
+  if userAge == "exit":
+    exit(0)
+##################### functions end
 
-####################################################################################################################################
+#######################################################################################################################
 
-#main
+#main program 
 enterExitLoop()
 
 
