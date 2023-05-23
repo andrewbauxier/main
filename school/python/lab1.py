@@ -2,10 +2,12 @@
 # function introduces program, performs validation of options
 def enter_exit_loop():
     while True:
-        enter_exit_loop_input = input(
-            "\nWelcome to the Python Voter Registration Application. \nTo exit the program at any time, type 'exit'. \
-                \nDo you want to continue with Voter Registration? Type 'yes' or 'no'. \n"
-        ).lower()
+        print("\nWelcome to the Python Voter Registration Application.")
+        print("\nTo exit the program at any time, type 'exit'.")
+        print(
+            "\nDo you want to continue with Voter Registration? Type 'yes' or 'no'. \n"
+        )
+        enter_exit_loop_input = input().lower()
         if enter_exit_loop_input == "yes":
             enter_user_first_and_last_name()
         elif enter_exit_loop_input == "no":
@@ -17,7 +19,9 @@ def enter_exit_loop():
 
 # function to acquire first and last name of registrant
 def enter_user_first_and_last_name():
-    user_first_name = input("\nPlease enter your first name now. To exit, type 'exit'.\n")
+    user_first_name = input(
+        "\nPlease enter your first name now. To exit, type 'exit'.\n"
+    )
     if user_first_name.lower() == "exit":
         print("\nExiting the program.\n")
         exit(0)
@@ -71,7 +75,6 @@ def is_us_citizen_check(user_first_name, user_last_name, age):
             print("\nInvalid input. Please enter 'yes' or 'no'.")
 
 
-#function to gather US state and validate length
 def enter_user_state(user_first_name, user_last_name, age):
     while True:
         user_state_living_in = input(
@@ -86,7 +89,9 @@ def enter_user_state(user_first_name, user_last_name, age):
             and state_validation(user_state_living_in)
         ):
             print("The state you entered is: ", user_state_living_in)
-            enter_user_zip_code(user_first_name, user_last_name, age, user_state_living_in)
+            enter_user_zip_code(
+                user_first_name, user_last_name, age, user_state_living_in
+            )
         else:
             print("Invalid input. That is not a valid state choice.")
 
@@ -94,10 +99,56 @@ def enter_user_state(user_first_name, user_last_name, age):
 # function validates that state entered is an actual state
 def state_validation(string):
     valid_state_codes = [
-        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
-        "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
-        "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
-        "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+        "AL",
+        "AK",
+        "AZ",
+        "AR",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "KY",
+        "LA",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MS",
+        "MO",
+        "MT",
+        "NE",
+        "NV",
+        "NH",
+        "NJ",
+        "NM",
+        "NY",
+        "NC",
+        "ND",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WV",
+        "WI",
+        "WY",
     ]
     return string in valid_state_codes
 
@@ -105,7 +156,9 @@ def state_validation(string):
 # function to gather zip code information and validate
 def enter_user_zip_code(user_first_name, user_last_name, age, state):
     while True:
-        user_zip_code = input("\nPlease enter your zip code now. It must be numeric and contain only 5 digits. To exit, type 'exit'.\n")
+        user_zip_code = input(
+            "\nPlease enter your zip code now. \nIt must be numeric and contain only 5 digits. To exit, type 'exit'.\n"
+        )
         if user_zip_code.lower() == "exit":
             print("\nExiting the program.\n")
             exit(0)
@@ -130,7 +183,8 @@ def display_user_information_and_exit_program(
     print("State:", state)
     print("Zip Code:", user_zip_code)
     print(
-        "Thanks for using the Voter Registration Application. Your voter registration card should be shipped within 3 weeks.\n"
+        "Thanks for using the Voter Registration Application. \
+            \nYour voter registration card should be shipped within 3 weeks.\n"
     )
     exit(0)
 
