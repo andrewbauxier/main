@@ -30,19 +30,16 @@
 ##################### functions begin
 # loop to introduce program and provide ability to exit program. also performs validation of options
 def exitAtAnyJunction():
-  exitVariable = input("\nDo you wish to continue with registration? Type 'yes' or 'no'.\n")
-  exitVariable = exitVariable.lower()
+  exitVariable = input("\nDo you wish to continue with registration? Type 'yes' or 'no'.\n").lower()
   if exitVariable == "no":
     exit(0)
 
 def enterExitLoop():
   while True:
-    enterExitLoopInput = input("\nWelcome to the Python Voter Registration Application. Do you want to continue with Voter Registration? Type 'yes' or 'no'\n")
-    enterExitLoopInput = enterExitLoopInput.lower()
+    enterExitLoopInput = input("\nWelcome to the Python Voter Registration Application. Do you want to continue with Voter Registration? Type 'yes' or 'no'\n").lower()
     if enterExitLoopInput == "yes":
         #userBool = True
         enterUserFirstAndLastName()
-        
     elif enterExitLoopInput == "no":
         #userBool = False
         print("\nExiting the program.\n")
@@ -56,8 +53,10 @@ def enterUserFirstAndLastName():
     userFirstName = input("\nPlease enter your first name now\n")
     userLastName = input("\nPlease enter your last name now\n")
     print("\nThe name you entered is:\n", userFirstName, userLastName)
+
     exitAtAnyJunction()
     enterUserAgeAndValidate()
+    return userFirstName, userLastName
 
 ## function to gather user age input and validate age
 def enterUserAgeAndValidate():
@@ -66,6 +65,7 @@ def enterUserAgeAndValidate():
     print("\nThe age you entered is: ",  userAge)
     exitAtAnyJunction()
     isUSCitizenCheck()
+    return userAge
   else:
     print("You must be 18 or older to register to vote. Goodbye.")
     exit(0)
@@ -76,17 +76,45 @@ def isUSCitizenCheck():
     if isUserUSCitizen.isalpha:
       isUserUSCitizen = isUserUSCitizen.lower()
       if isUserUSCitizen == "yes":
-        print("ok")
-      #go to next section
+        enterUserState()
+        return isUserUSCitizen
       elif isUserUSCitizen == "no":
-        print("You must be a U.S. Citizen to register to vote. Goodbye.")
+        print("You must be a U.S. Citizen to register to vote. Goodbye.\n")
         exit(0) 
     else:
       print("\nInvalid input. Please enter 'yes' or 'no'.")
+
+def enterUserState():
+  while True:
+    userStateLivingIn = input("\nWhat State do you live in? Please enter the 2 digit representation of your state, such as FL.\n").upper()
+    if userStateLivingIn.isalpha() and len(userStateLivingIn) == 2:
+      print("The state you entered is: ", userStateLivingIn)
+      enterUserZipCode()
+      return userStateLivingIn
+    else:
+      print("Invalid input. Please enter the 2 digit representation of your state, such as FL.")
       
-def enterUserZipCode():
-  userZipCode = int(input("\nPlease enter your zip code now"))
+def stateValidation(string):
+  validStateCodes = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 
+    'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
+  return string in validStateCodes
     
+def enterUserZipCode():
+  while True:
+    userZipCode = input("\nPlease enter your zip code now. it must be numeric and contain only 5 digits\n")
+    if userZipCode.isnumeric and len(userZipCode) == 5: 
+      print ("The zip code you entered is ", userZipCode)
+      return userZipCode
+      displayUserInformationAndExitProgram()
+    else:
+      print("\nInvalid input. Please enter a numeric 5-digit zip code such as 12345.") 
+      
+def displayUserInformationAndExitProgram(string userFirstName, int):
+  print("Thanks for registering to vote. Here is the information we received: ")
+  print("Name: ", string userFirstName)
+
+
         
 ##################### functions end
 
@@ -97,3 +125,6 @@ def enterUserZipCode():
 #enterUserFirstAndLastName()
 #enterUserAgeAndValidate()
 #isUSCitizenCheck()
+#enterUserState()
+enterUserZipCode()
+displayUserInformationAndExitProgram()
