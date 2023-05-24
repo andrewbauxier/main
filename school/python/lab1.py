@@ -1,6 +1,12 @@
-# functions begin
-# function introduces program, performs validation of options
+"""
+Title:      Lab 1
+Name:       Andrew Auxier
+Course:     SDEV 300 6383 Building Secure Python Applications (2235)
+"""
+import sys
+
 def enter_exit_loop():
+    """function introduces program, performs validation of options"""
     while True:
         print("\nWelcome to the Python Voter Registration Application.")
         print("\nTo exit the program at any time, type 'exit'.")
@@ -12,29 +18,29 @@ def enter_exit_loop():
             enter_user_first_and_last_name()
         elif enter_exit_loop_input == "no":
             print("\nExiting the program.\n")
-            exit(0)
+            sys.exit(0)
         else:
             print("\nInvalid input. Please enter 'yes' or 'no'.")
 
 
-# function to acquire first and last name of registrant
 def enter_user_first_and_last_name():
+    """function to acquire first and last name of registrant"""
     user_first_name = input(
         "\nPlease enter your first name now. To exit, type 'exit'.\n"
     )
     if user_first_name.lower() == "exit":
         print("\nExiting the program.\n")
-        exit(0)
+        sys.exit(0)
     user_last_name = input("\nPlease enter your last name now. To exit, type 'exit'.\n")
     if user_last_name.lower() == "exit":
         print("\nExiting the program.\n")
-        exit(0)
+        sys.exit(0)
     print("\nThe name you entered is:\t", user_first_name, user_last_name)
     enter_user_age_and_validate(user_first_name, user_last_name)
 
 
-# function to gather user age input and validate age
 def enter_user_age_and_validate(user_first_name, user_last_name):
+    """function to gather user age input and validate age"""
     while True:
         print(
             "\nBe advised, only individuals 18 years of age or older are allowed to register."
@@ -42,53 +48,55 @@ def enter_user_age_and_validate(user_first_name, user_last_name):
         user_age = input("Please input your age now. To exit, type 'exit'.\n")
         if user_age.lower() == "exit":
             print("\nExiting the program.\n")
-            exit(0)
+            sys.exit(0)
         if user_age.isdigit():
             user_age = int(user_age)
             if 17 < user_age < 130:
                 print("\nThe age you entered is:\t", user_age)
                 is_us_citizen_check(user_first_name, user_last_name, user_age)
-                break
             else:
-                print("You must be 18 or older to register to vote. Please try again.")
+                print("You are not of age to vote, exiting the program")
+                sys.exit(0)
         else:
             print("Invalid input. Please enter a valid age.")
 
 
-# function to validate US citizenship
 def is_us_citizen_check(user_first_name, user_last_name, age):
+    """function to validate US citizenship"""
     while True:
         is_user_us_citizen = input(
             "\nAre you a U.S. citizen? Please enter 'yes' or 'no' now. To exit, type 'exit'.\n"
         )
         if is_user_us_citizen.lower() == "exit":
             print("\nExiting the program.\n")
-            exit(0)
+            sys.exit(0)
         if is_user_us_citizen.isalpha():
             is_user_us_citizen = is_user_us_citizen.lower()
             if is_user_us_citizen == "yes":
                 enter_user_state(user_first_name, user_last_name, age)
             elif is_user_us_citizen == "no":
                 print("You must be a U.S. Citizen to register to vote. Goodbye.\n")
-                exit(0)
+                sys.exit(0)
         else:
             print("\nInvalid input. Please enter 'yes' or 'no'.")
 
 
 def enter_user_state(user_first_name, user_last_name, age):
+    """function gathers users state information"""
     while True:
+        print("\nTo exit, type 'exit'.")
         user_state_living_in = input(
-            "\nPlease enter the 2 digit representation of your state, such as FL. To exit, type 'exit'.\n"
+            "Please enter the 2 digit representation of your state, such as FL.\n"
         ).upper()
         if user_state_living_in.lower() == "exit":
             print("\nExiting the program.\n")
-            exit(0)
+            sys.exit(0)
         if (
             user_state_living_in.isalpha()
             and len(user_state_living_in) == 2
             and state_validation(user_state_living_in)
         ):
-            print("The state you entered is: ", user_state_living_in)
+            print("\nThe state you entered is: ", user_state_living_in)
             enter_user_zip_code(
                 user_first_name, user_last_name, age, user_state_living_in
             )
@@ -96,8 +104,8 @@ def enter_user_state(user_first_name, user_last_name, age):
             print("Invalid input. That is not a valid state choice.")
 
 
-# function validates that state entered is an actual state
 def state_validation(string):
+    """function validates that state entered is an actual state"""
     valid_state_codes = [
         "AL",
         "AK",
@@ -153,17 +161,16 @@ def state_validation(string):
     return string in valid_state_codes
 
 
-# function to gather zip code information and validate
 def enter_user_zip_code(user_first_name, user_last_name, age, state):
+    """function to gather zip code information and validate"""
     while True:
-        user_zip_code = input(
-            "\nPlease enter your zip code now. \nIt must be numeric and contain only 5 digits. To exit, type 'exit'.\n"
-        )
+        print("\nMust be numeric and contain only 5 digits. To exit, type 'exit'.")
+        user_zip_code = input("Please enter your zip code now. \n")
         if user_zip_code.lower() == "exit":
             print("\nExiting the program.\n")
-            exit(0)
+            sys.exit(0)
         if user_zip_code.isnumeric() and len(user_zip_code) == 5:
-            print("The zip code you entered is ", user_zip_code)
+            print("\nThe zip code you entered is ", user_zip_code)
             display_user_information_and_exit_program(
                 user_first_name, user_last_name, age, state, user_zip_code
             )
@@ -173,10 +180,10 @@ def enter_user_zip_code(user_first_name, user_last_name, age, state):
             )
 
 
-# function to display all gathered information and end program
 def display_user_information_and_exit_program(
     user_first_name, user_last_name, age, state, user_zip_code
 ):
+    """function to output all data collected from user"""
     print("\nThanks for registering to vote. Here is the information we received:")
     print("Name:", user_first_name, user_last_name)
     print("Age:", age)
@@ -186,7 +193,7 @@ def display_user_information_and_exit_program(
         "Thanks for using the Voter Registration Application. \
             \nYour voter registration card should be shipped within 3 weeks.\n"
     )
-    exit(0)
+    sys.exit(0)
 
 
 # Call the main function to start the program
