@@ -29,12 +29,12 @@ def main_menu_loop():
 #menu option validation
 def get_menu_option_validation():
     while True:
-        menu_option = input("Which option would you like to choose? ")
+        menu_option = input("Which option would you like to choose? \n")
         try:
             menu_option = int(menu_option)
             return menu_option
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print("\nInvalid input. Please enter a valid integer.\n")
 # switch case to direct traffic
 def utility_function_switcher(menu_option_selected):
     match menu_option_selected:
@@ -55,7 +55,7 @@ def utility_function_switcher(menu_option_selected):
 ## Generate a secure password
 def secure_password_generation():
     print("\nYou have chosen the secure password generator.\n"
-          "Be advised, passwords will only be generated for up to 30 characters.\n"
+          "Passwords will be no shorter than 8 characters or longer than 30.\n"
           "In the event that you enter invalid input, the program will enforce valid entry.")
 
     password_length = get_valid_password_length()
@@ -64,13 +64,15 @@ def secure_password_generation():
     include_symbols = get_yes_no_input("Include special symbols? (y/n): ")
     include_numbers = get_yes_no_input("Include numbers? (y/n): ")
 
-    character_pool = build_character_pool(include_uppercase, include_lowercase, include_symbols, include_numbers)
+    character_pool = build_character_pool(include_uppercase, include_lowercase,
+        include_symbols, include_numbers)
     if not character_pool:
         print("Please select at least one option for password generation.")
         return
 
     password = generate_password(character_pool, password_length)
     print("\nYour generated password is:", password, "\n")
+    password = ""
 
 
 def get_valid_password_length():
@@ -78,18 +80,18 @@ def get_valid_password_length():
         try:
             password_length = int(input("How long would you like the password to be?\n"
                                         "Please enter a number now: \n"))
-            while password_length > 30:
-                print("Sorry, the password can only be up to 30 characters.")
+            while password_length <8 or password_length > 30:
+                print("Sorry, the password must be from 8 to 30 characters.")
                 password_length = int(input("Please enter a number now: \n"))
             return password_length
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
 
-def get_yes_no_input(prompt):
+def get_yes_no_input(fish):
     while True:
-        user_input = input(prompt).lower()
-        if user_input in ['y', 'n']:
+        user_input = input(fish).lower()
+        if user_input == "y" or user_input == "n":
             return user_input
         print("Invalid input detected. Please enter 'y' or 'n' only.")
 
@@ -111,8 +113,7 @@ def generate_password(character_pool, password_length):
     return ''.join(secrets.choice(character_pool) for _ in range(password_length))
 
 ## Calculate and format a percentage
-def calculate_format_percentage():
-    print("Hellow World\n")
+
 ## Calculate the number of days until July 4, 2025
 def calculate_days_until_july_4_2025():
     print("Hellow World\n")
