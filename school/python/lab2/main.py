@@ -15,7 +15,7 @@ import anchandaysuntil
 import anchantriangle
 import anchancylinder
 
-def main_menu_loop():
+def main_menu_loop(): #TODO break menu up into its own module, finish cylinder
     while True:
         print("\nWelcome to the Assorted Utility Program. Your options are as follows:\n")
         print("1: Secure Password Generation")
@@ -51,17 +51,8 @@ def utility_function_switcher(menu_option_selected):
         case 6:
             exit_program()
         case _:
-            print("\nInvalid option. Please choose a valid option.\n")
+            print("\nInvalid option. Please choose a valid option.")
 
-
-## Calculate and format a percentage
-# Calling point from menu
-
-
-
-## Use the Law of Cosines to calculate the leg of a triangle
-def calculate_triangle_leg():
-    print("Hellow World\n")
 ## Calculate the volume of a Right Circular Cylinder
 def calculate_right_circular_cylinder_volume():
     print("Hellow World\n")
