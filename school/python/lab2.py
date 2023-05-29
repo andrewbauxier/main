@@ -11,10 +11,11 @@ Description:    This project serves a multitude of functions as listed: Generate
 import sys
 import string
 import secrets
+import datetime
 
 def main_menu_loop():
     while True:
-        print("Welcome to the Assorted Utility Program. Your options are as follows:\n")
+        print("\nWelcome to the Assorted Utility Program. Your options are as follows:\n")
         print("1: Secure Password Generation")
         print("2: Calculate and Format a Percentage")
         print("3: Determine the number of Days until July 4, 2025")
@@ -63,7 +64,7 @@ def secure_password_generation():
 
     password = generate_password(character_pool, password_length)
     print("\nYour generated password is:", password)
-
+    input("\nPress Enter to return to the main program.")
 
 def get_character_pool():
     prompt_message_include_uppercase = get_yes_no_input("Include uppercase letters? (y/n):\t")
@@ -74,7 +75,6 @@ def get_character_pool():
     return build_character_pool(prompt_message_include_uppercase, prompt_message_lowercase,
         prompt_message_numbers, prompt_message_symbols
     )
-
 
 def get_valid_password_length():
     while True:
@@ -109,8 +109,18 @@ def build_character_pool(include_uppercase, include_lowercase, include_symbols, 
 def generate_password(character_pool, password_length):
     return ''.join(secrets.choice(character_pool) for _ in range(password_length))
 
-
 ## Calculate and format a percentage
+# Calling point from menu
+def calculate_and_format_percentage():
+    numerator = get_valid_input("\nPlease enter the numerator: ", min_value=1)
+    denominator = get_valid_input("\nPlease enter the denominator: ", min_value=1)
+    decimal_points = get_valid_input("\nPlease enter the number of decimal points: ", min_value=0)
+
+    formatted_percentage = percentage_calculation_function(numerator, denominator, decimal_points)
+
+    print(f"The calculated percentage is: {formatted_percentage}%\n")
+    input("\nPress Enter to return to the main program.")
+
 def get_valid_input(prompt, data_type=int, min_value=None):
     while True:
         try:
@@ -121,27 +131,25 @@ def get_valid_input(prompt, data_type=int, min_value=None):
         except ValueError:
             print("\nOopsie Poopsie! Invalid input. Please try again.")
 
-def calculate_percentage(numerator, denominator, decimal_points):
+def percentage_calculation_function(numerator, denominator, decimal_points):
     percentage = (numerator / denominator) * 100
     formatted_percentage = f"{percentage:.{decimal_points}f}"
     return formatted_percentage
 
-def calculate_and_format_percentage():
-    numerator = get_valid_input("\nPlease enter the numerator: ", min_value=1)
-    denominator = get_valid_input("\nPlease enter the denominator: ", min_value=1)
-    decimal_points = get_valid_input("\nPlease enter the number of decimal points: ", min_value=0)
-
-    formatted_percentage = calculate_percentage(numerator, denominator, decimal_points)
-
-    print(f"The calculated percentage is: {formatted_percentage}%\n")
-
-
-
-
 
 ## Calculate the number of days until July 4, 2025
+# Calling point from menu
 def calculate_days_until_july_4_2025():
-    print("Hellow World\n")
+    target_date = datetime.datetime(2025, 7, 4).date()
+    days_until_target = calculate_days(target_date)
+    print(f"\nThere are {days_until_target} days until {target_date.strftime('%B %d, %Y')}")
+    input("\nPress Enter to return to the main program.")
+
+# Subodinate Function to calculate_days_until_july_4_2025
+def calculate_days(target_date):
+    current_date = datetime.datetime.now().date()
+    remaining_days = (target_date - current_date).days
+    return remaining_days
 ## Use the Law of Cosines to calculate the leg of a triangle
 def calculate_triangle_leg():
     print("Hellow World\n")
@@ -155,5 +163,3 @@ def exit_program():
 ### functions end ###
 # Start the program
 main_menu_loop()
-secure_password_generation()
-calculate_and_format_percentage()
