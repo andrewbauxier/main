@@ -8,7 +8,6 @@ def calculate_triangle_leg():
 
     leg_c = math.sqrt(side_a**2 + side_b**2 - 2*side_a*side_b*math.cos(math.radians(angle_c)))
     print(f"The length of leg C is: {leg_c:.3f}")
-
     input("\nPress Enter to return to the main menu\n")
 
 
