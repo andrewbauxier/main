@@ -17,11 +17,16 @@ def secure_password_generation():
     input("\nPress Enter to return to the main program.")
 
 def get_character_pool():
-    prompt_message_include_uppercase = get_yes_no_input("Include uppercase letters? (y/n):\t")
-    prompt_message_lowercase = get_yes_no_input("Include lowercase letters? (y/n): \t")
-    prompt_message_symbols = get_yes_no_input("Include special symbols? (y/n): \t")
-    prompt_message_numbers = get_yes_no_input("Include numbers? (y/n): \t")
-
+    prompt_message_include_uppercase = get_yes_no_input(
+        "Do you want to include uppercase letters? (y/n):\t")
+    prompt_message_lowercase = get_yes_no_input(
+        "Do you want to include lowercase letters? (y/n): \t")
+    prompt_message_symbols = get_yes_no_input(
+        "Do you want to include special symbols? (y/n): \t\t")
+    prompt_message_numbers = get_yes_no_input(
+        "Do you want to include numbers? (y/n): \t\t\t")
+        #there's a more elegant solution to the tabs but it's a lot of work and not a requirement
+            #TODO: do the work later
     return build_character_pool(prompt_message_include_uppercase, prompt_message_lowercase,
         prompt_message_numbers, prompt_message_symbols
     )

@@ -1,7 +1,7 @@
 import math
 
 def calculate_right_circular_cylinder_volume():
-    radius = get_cylinder_input("\nPlease enter the radious of the cylinder\n")
+    radius = get_cylinder_input("\nPlease enter the radius of the cylinder\n")
     height = get_cylinder_input("\nPlease enter the height of the cylinder\n")
     volume = calculate_volume(radius, height)
     print(f"The volume of the cylinder is: {volume:.2f} cubic units.")

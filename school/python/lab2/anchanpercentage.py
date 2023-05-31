@@ -1,4 +1,3 @@
-
 def calculate_percentage():
     numerator = get_valid_input("\nPlease enter the numerator: ", min_value=1)
     denominator = get_valid_input("\nPlease enter the denominator: ", min_value=1)

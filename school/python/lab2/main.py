@@ -2,9 +2,11 @@
 Title:          Lab 1
 Name:           Andrew Auxier
 Course:         SDEV 300 6383 Building Secure Python Applications (2235)
-Description:    This project serves a multitude of functions as listed: Generate a secure password,\
-    Calculate and Format a Percentage, determine number of Days until July 4, 2025, use the Law of \
-    Cosines to calculate the leg of a triangle, calculate the volume of a Right Circular Cylinder, \
+Description:    
+    
+    This project serves a multitude of functions as listed: Generate a secure password,
+    Calculate and Format a Percentage, determine number of Days until July 4, 2025, use the Law of
+    Cosines to calculate the leg of a triangle, calculate the volume of a Right Circular Cylinder,
     and exit the program.
     
 """
@@ -19,7 +21,7 @@ def main_menu_loop(): #TODO break menu up into its own module, finish cylinder
     while True:
         print("\nWelcome to the Assorted Utility Program. Your options are as follows:\n")
         print("1: Secure Password Generation")
-        print("2: Calculate and Format a Percentage")
+        print("2: Calculate and Format Percentages")
         print("3: Determine the number of Days until July 4, 2025")
         print("4: Calculate the leg of a triangle")
         print("5: Calculate the volume of a Right Circular Cylinder")
@@ -29,10 +31,10 @@ def main_menu_loop(): #TODO break menu up into its own module, finish cylinder
 
 def get_menu_option_validation():
     while True:
-        menu_option = input("\nWhich option would you like to choose? \n")
+        menu_option_input = input("\nWhich option would you like to choose? \n")
         try:
-            menu_option = int(menu_option)
-            return menu_option
+            menu_option_input = int(menu_option_input)
+            return menu_option_input
         except ValueError:
             print("\nInvalid input. Please enter a valid integer.\n")
 
@@ -53,9 +55,6 @@ def utility_function_switcher(menu_option_selected):
         case _:
             print("\nInvalid option. Please choose a valid option.")
 
-## Calculate the volume of a Right Circular Cylinder
-def calculate_right_circular_cylinder_volume():
-    print("Hellow World\n")
 
 ## Exit the program
 def exit_program():
