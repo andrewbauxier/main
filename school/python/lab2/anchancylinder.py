@@ -1,6 +1,11 @@
 import math
 
+
 def calculate_right_circular_cylinder_volume():
+    """function prompts the user for radius and height of cylinder, calculates volume,
+    and then displays the result. After displaying the result, prompts user to exit to
+    main program.
+    """
     radius = get_cylinder_input("\nPlease enter the radius of the cylinder\n")
     height = get_cylinder_input("\nPlease enter the height of the cylinder\n")
     volume = calculate_volume(radius, height)
@@ -9,15 +14,31 @@ def calculate_right_circular_cylinder_volume():
 
 
 def get_cylinder_input(prompt_for_measurements):
+    """Gets input and runs validation
+    Args:
+        prompt_for_measurements (str): prompt message and validation for above inputs.
+    Returns:
+        float: value entered by the user.
+    """
     while True:
         try:
             input_value = float(input(prompt_for_measurements))
             return input_value
         except ValueError:
-            print("Sorry, the value entered must be an number")
+            print("Sorry, the value entered must be a number")
+
 
 def calculate_volume(radius, height):
-    return math.pi * (radius*radius) * height
+    """right circular cylinder formula. runs calcs.
+    Args:
+        radius (float)
+        height (float)
+    Returns:
+        float
+    """
+    return math.pi * (radius * radius) * height
+
 
 def prompt_to_exit():
+    """shutup linter"""
     input("Press Enter to return to the main program.")
