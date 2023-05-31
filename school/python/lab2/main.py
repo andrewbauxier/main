@@ -17,17 +17,21 @@ import anchandaysuntil
 import anchantriangle
 import anchancylinder
 
-def main_menu_loop(): #TODO break menu up into its own module, finish cylinder
+
+def main_menu_loop():  # TODO break menu up into its own module, finish cylinder
     while True:
-        print("\nWelcome to the Assorted Utility Program. Your options are as follows:\n")
+        print(
+            "\nWelcome to the Assorted Utility Program. Your options are as follows:\n"
+        )
         print("1: Secure Password Generation")
         print("2: Calculate and Format Percentages")
         print("3: Determine the number of Days until July 4, 2025")
         print("4: Calculate the leg of a triangle")
         print("5: Calculate the volume of a Right Circular Cylinder")
-        print("6: Exit the program\n")
+        print("6: Exit the program")
         menu_option_selected = get_menu_option_validation()
         utility_function_switcher(menu_option_selected)
+
 
 def get_menu_option_validation():
     while True:
@@ -38,10 +42,11 @@ def get_menu_option_validation():
         except ValueError:
             print("\nInvalid input. Please enter a valid integer.\n")
 
+
 def utility_function_switcher(menu_option_selected):
     match menu_option_selected:
         case 1:
-            anchanpassword.secure_password_generation()
+            anchanpassword.secure_password_generator()
         case 2:
             anchanpercentage.calculate_percentage()
         case 3:
@@ -59,6 +64,8 @@ def utility_function_switcher(menu_option_selected):
 ## Exit the program
 def exit_program():
     sys.exit()
+
+
 ### functions end ###
 # Start the program
 main_menu_loop()
