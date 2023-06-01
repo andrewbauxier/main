@@ -47,7 +47,7 @@ def get_menu_option_validation():
         menu_option_input = input("\nWhich option would you like to choose? \n")
         if menu_option_input.isdigit():
             menu_option_input = int(menu_option_input)
-            if menu_option_input > 1 and menu_option_input < 7:
+            if menu_option_input >= 1 and menu_option_input <= 6:
                 return menu_option_input
             else:
                 print("\nInvalid input. Please enter a number between 1 and 6.")
@@ -83,3 +83,8 @@ def exit_program():
 
 # Start the program
 main_menu_loop()
+# anchanpassword.secure_password_generator()
+# anchanpercentage.calculate_percentage()
+# anchandaysuntil.calculate_days_until_july_4_2025()
+# anchantriangle.calculate_triangle_leg()
+# anchancylinder.calculate_right_circular_cylinder_volume()

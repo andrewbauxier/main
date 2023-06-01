@@ -12,16 +12,15 @@ def get_yes_no_input(prompt_messages):
 
 def get_valid_password_length():
     while True:
-        try:
-            password_length = int(
-                input("How long would you like the password to be? (8-30): ")
-            )
+        password_length = input("How long would you like the password to be? (8-30): ")
+        if password_length.isdigit():
+            password_length = int(password_length)
             if 8 <= password_length <= 30:
                 return password_length
             else:
-                print("Sorry, the password must be between 8 and 30 characters.")
-        except ValueError:
-            print("Invalid input. Please enter a valid number.")
+                print("Sorry, the password must be between 8 and 30 characters.\n")
+        else:
+            print("Sorry, the password must be a whole number.\n")
 
 
 def get_character_pool():
