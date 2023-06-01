@@ -1,3 +1,7 @@
+--FILE NAME:    FUNCTIONALITY CHECK
+--AUTHOR NAME:  ANDREW AUXIER
+--CLASS:        CMIS302 
+--DATE:         20230427 (GMT+9)
 
 --1
 SELECT FirstName, LastName, CustomerID, StreetAddress, ZipCode
