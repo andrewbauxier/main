@@ -34,8 +34,6 @@ INSERT INTO Classes (Subject, Catalognbr, Title)
 VALUES ('CCCC', 301, 'ClassTitle3');
 
 
-
---Enrollment table inserts
 -- Enrollment table inserts
 INSERT INTO ClassEnrollments (CID, FID, EID)
 VALUES (1, 1, 1);
