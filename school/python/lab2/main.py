@@ -19,6 +19,11 @@ import anchancylinder
 
 
 def main_menu_loop():  # TODO break menu up into its own module, finish cylinder
+    """provides menu loop functionality so tt program continuously returns here after operation.
+    input options are printed, option chosen is accepted then run through validation, then gets
+    passed to the match-case
+
+    """
     while True:
         print(
             "\nWelcome to the Assorted Utility Program. Your options are as follows:\n"
@@ -34,13 +39,25 @@ def main_menu_loop():  # TODO break menu up into its own module, finish cylinder
 
 
 def get_menu_option_validation():
+    """provides validation for input from main menu loop. validation rules are: must be an integer
+    between 1 and 6
+
+    Returns:
+        Integer: parameter returns as validated
+    """
     while True:
         menu_option_input = input("\nWhich option would you like to choose? \n")
-        try:
+        if (
+            menu_option_input == int
+            and menu_option_input >= 1
+            and menu_option_input <= 6
+        ):
             menu_option_input = int(menu_option_input)
             return menu_option_input
-        except ValueError:
-            print("\nInvalid input. Please enter a valid integer.\n")
+        else:
+            print("\nInvalid input. Please enter a number between 1 and 6.")
+            input("Press enter to try again.")
+            break
 
 
 def utility_function_switcher(menu_option_selected):
@@ -57,12 +74,11 @@ def utility_function_switcher(menu_option_selected):
             anchancylinder.calculate_right_circular_cylinder_volume()
         case 6:
             exit_program()
-        case _:
-            print("\nInvalid option. Please choose a valid option.")
 
 
 ## Exit the program
 def exit_program():
+    print("\nYou have chosen to exit the program. Goodbye!\n")
     sys.exit()
 
 
