@@ -1,8 +1,13 @@
+"""This module takes in input, validates the input, builds a character pool from said
+input, then assigns the character pool to a formula that then generates a secure, complex 
+password
+"""
 import string
 import secrets
 
 
 def get_yes_no_input(prompt_messages):
+    """input validation for 'y' or 'n'"""
     while True:
         user_input = input(prompt_messages).lower()
         if user_input == "y" or user_input == "n":
@@ -11,6 +16,7 @@ def get_yes_no_input(prompt_messages):
 
 
 def get_valid_password_length():
+    """input validation to ensure the password entry is a number amd is between 8-30"""
     while True:
         password_length = input("How long would you like the password to be? (8-30): ")
         if password_length.isdigit():
@@ -24,6 +30,7 @@ def get_valid_password_length():
 
 
 def get_character_pool():
+    """gets and validates input to build character pool"""
     prompt_message_include_uppercase = get_yes_no_input(
         "Do you want to include uppercase letters? (y/n):\t"
     )
@@ -49,6 +56,8 @@ def get_character_pool():
 def build_character_pool(
     include_uppercase, include_lowercase, include_symbols, include_numbers
 ):
+    """uses input from previous function to build character pool for special characters to
+    increase password complexity then sends it back"""
     character_pool = ""
     if include_uppercase == "y":
         character_pool += string.ascii_uppercase
@@ -62,10 +71,14 @@ def build_character_pool(
 
 
 def generate_password(character_pool, password_length):
+    """actually makes the password based on secrets module imported voodo then pastes it together
+    and spits it back out to the user
+    """
     return "".join(secrets.choice(character_pool) for _ in range(password_length))
 
 
 def secure_password_generator():
+    """enter and exit message input getter and giver"""
     print("\nYou have chosen the secure password generator.")
     print("Passwords must be between 8 and 30 characters long.\n")
     password_length = get_valid_password_length()

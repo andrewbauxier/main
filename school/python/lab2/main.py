@@ -60,6 +60,10 @@ def get_menu_option_validation():
 
 
 def utility_function_switcher(menu_option_selected):
+    """match-case for input to direct traffic to approprate modules and functions
+    Args:
+        menu_option_selected (int)
+    """
     match menu_option_selected:
         case 1:
             anchanpassword.secure_password_generator()
@@ -77,6 +81,7 @@ def utility_function_switcher(menu_option_selected):
 
 ## Exit the program
 def exit_program():
+    """exit function"""
     print("\nYou have chosen to exit the program. Goodbye!\n")
     sys.exit()
 

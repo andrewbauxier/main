@@ -1,3 +1,6 @@
+"""This module takes in input, validates the input, passes it to a formula and then calculates
+the volume of a right circular cylinder, then passes that back
+"""
 import math
 
 
@@ -40,5 +43,5 @@ def calculate_volume(radius, height):
 
 
 def prompt_to_exit():
-    """shutup linter"""
+    """exit function"""
     input("Press Enter to return to the main program.")
