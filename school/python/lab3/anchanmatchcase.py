@@ -1,19 +1,20 @@
 import sys
-import anchan_state_database
+import anchan_state_functionality
+import anchan_state_display_all
 
 
 def main_menu_loop():
     print("\nWelcome to Anchan's State Database. Here are your options\n")
     print(
-        "1. Display all U.S. States in Alphabetical order along with the Capital, "
-        "State Population, and Flower"
+        "1. Display all U.S. states in alphabetical order along with their capital, "
+        "state population, and state flower"
     )
     print(
-        "2. Search for a specific state and display the appropriate Capital"
-        "name, State Population, and an image of the associated State Flower."
+        "2. Search for a specific state and display the name of its capital, "
+        "the size of the state's population, and an image of the State Flower."
     )
     print(
-        "3. Provide a Bar graph of the top 5 populated States showing their"
+        "3. Provide a bar graph of the top 5 populated states showing their"
         "overall population."
     )
     print("4. Update the overall state population for a specific state.")
@@ -51,9 +52,9 @@ def utility_function_switcher(menu_option_selected):
     """
     match menu_option_selected:
         case 1:
-            anchan_state_database.start()
+            anchan_state_display_all.run()
         case 2:
-            anchan_state_database.start()
+            anchan_state_functionality.start()
         case 3:
             anchan_state_database.start()
         case 4:
