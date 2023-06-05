@@ -315,28 +315,27 @@ def display_all_states_alphabetical():
         print()
 
 
-def get_state():
-    find_state_by_name = input(
-        "Enter the state name or two digit representation:\t"
-    )  # Prompt state name
-    state_data_lookup_results = us_states_dictionary.get(
-        find_state_by_name.lower()
-    )  # Retrieve state info
+find_state_by_name = input(
+    "Enter the state name or two digit representation:\t"
+)  # Prompt state name
+state_data_lookup_results = us_states_dictionary.get(
+    find_state_by_name.lower()
+)  # Retrieve state info
 
-    for state_name_and_entry_id, state_data_item in us_states_dictionary.items():
-        if (
-            state_name_and_entry_id.lower() == find_state_by_name
-            or state_data_item["state_code"] == find_state_by_name
-        ):
-            state_data_lookup_results = state_data_item
-            break
+for state_name_and_entry_id, state_data_item in us_states_dictionary.items():
+    if (
+        state_name_and_entry_id.lower() == find_state_by_name
+        or state_data_item["state_code"] == find_state_by_name
+    ):
+        state_data_lookup_results = state_data_item
+        break
 
-    if state_data_lookup_results:
-        print()
-        print(state_name_and_entry_id.capitalize())
-        print("Capital:", state_data_lookup_results["capital"])
-        print("Population:", state_data_lookup_results["population"])
-        print("Flower:", state_data_lookup_results["flower"])
-        print()
-    else:
-        print("State not found.")
+if state_data_lookup_results:
+    print()
+    print(state_name_and_entry_id.capitalize())
+    print("Capital:", state_data_lookup_results["capital"])
+    print("Population:", state_data_lookup_results["population"])
+    print("Flower:", state_data_lookup_results["flower"])
+    print()
+else:
+    print("State not found.")
