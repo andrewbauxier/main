@@ -56,9 +56,11 @@ def utility_function_switcher(menu_option_selected):
         case 2:
             anchan_state_functionality.start()
         case 3:
-            anchan_state_database.start()
+            print("Hello darkness, my old friend")
+            # anchan_state_database.start()
         case 4:
-            anchan_state_database.start()
+            print("Hello darkness, my old friend")
+            # anchan_state_database.start()
         case 5:
             exit_program()
 

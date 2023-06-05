@@ -5,27 +5,31 @@ def start():
     find_state_by_name = input(
         "Enter the state name or two digit representation:\t"
     )  # Prompt state name
-    return find_state_by_name
+    selected_state = select_state(find_state_by_name)
+    if selected_state:
+        display_state(selected_state)
+    else:
+        print("oopsie poopsie.")
 
 
 def select_state(find_state_by_name):
     for state, state_data_item in us_states_dictionary.items():
-        state_data_lookup_results = us_states_dictionary.get(
-            find_state_by_name.lower()
-        )  # Retrieve state info
         if (
-            state.lower() == find_state_by_name  # find state by name
-            or state_data_item["state_code"] == find_state_by_name  # find state by code
+            find_state_by_name == state.lower()
+            or find_state_by_name == state_data_item["state_code"]
         ):
-            state_data_lookup_results = state_data_item  # changes state target to code
-            break
+            return find_state_by_name  # Return the lowercase state name if found
+    return None  # Return None if state not found
 
-    if state_data_lookup_results:
+
+def display_state(find_state_by_name):
+    state_data_item = us_states_dictionary.get(find_state_by_name)
+    if state_data_item:
         print()
-        print(state.capitalize())
-        print("Capital:", state_data_lookup_results["capital"])
-        print("Population:", state_data_lookup_results["population"])
-        print("Flower:", state_data_lookup_results["flower"])
+        print(find_state_by_name.capitalize())
+        print("Capital:", state_data_item["capital"])
+        print("Population:", state_data_item["population"])
+        print("Flower:", state_data_item["flower"])
         print()
     else:
         print("State not found.")
