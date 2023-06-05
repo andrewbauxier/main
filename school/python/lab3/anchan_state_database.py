@@ -1,4 +1,3 @@
-# TODO: break up functions if you have time
 # TODO: reconsider variable names, hella confusing
 
 

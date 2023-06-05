@@ -1,5 +1,5 @@
-from anchan_state_database import us_states_dictionary
 from time import sleep
+from anchan_state_database import us_states_dictionary
 
 
 def run():
