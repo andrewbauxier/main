@@ -1,3 +1,4 @@
+# TODO: break up functions if you have time
 def start():
     print("hello anchan_full_state")
 
@@ -306,16 +307,14 @@ us_states_dictionary = {
 }
 
 
-def display_all_states_alphabetical():
-    for state_name_and_entry_id in us_states_dictionary.items():
-        print(state_name_and_entry_id)
-        print("Capital:", state_data_item["capital"])
-        print("Population:", state_data_item["population"])
-        print("Flower:", state_data_item["flower"])
-        print()
+for state, state_data_item in us_states_dictionary.items():
+    print(state)
+    print("Capital:", state_data_item["capital"])
+    print("Population:", state_data_item["population"])
+    print("Flower:", state_data_item["flower"])
+    print()
 
 
-##this is all one function, dont touch it until you are ready
 find_state_by_name = input(
     "Enter the state name or two digit representation:\t"
 )  # Prompt state name
@@ -323,21 +322,20 @@ state_data_lookup_results = us_states_dictionary.get(
     find_state_by_name.lower()
 )  # Retrieve state info
 
-for state_name_and_entry_id, state_data_item in us_states_dictionary.items():
+for state, state_data_item in us_states_dictionary.items():
     if (
-        state_name_and_entry_id.lower() == find_state_by_name
-        or state_data_item["state_code"] == find_state_by_name
+        state.lower() == find_state_by_name  # find state by name
+        or state_data_item["state_code"] == find_state_by_name  # find state by code
     ):
-        state_data_lookup_results = state_data_item
+        state_data_lookup_results = state_data_item  # changes state target to code
         break
 
 if state_data_lookup_results:
     print()
-    print(state_name_and_entry_id.capitalize())
+    print(state.capitalize())
     print("Capital:", state_data_lookup_results["capital"])
     print("Population:", state_data_lookup_results["population"])
     print("Flower:", state_data_lookup_results["flower"])
     print()
 else:
     print("State not found.")
-##this is all one function, dont touch it until you are ready
