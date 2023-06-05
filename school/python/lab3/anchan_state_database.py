@@ -306,32 +306,37 @@ us_states_dictionary = {
 }
 
 
-for state, state_data in us_states_dictionary.items():
-    print(state)
-    print("Capital:", state_data["capital"])
-    print("Population:", state_data["population"])
-    print("Flower:", state_data["flower"])
-    print()
-find_state_by_name = input(
-    "Enter the state name or two digit representation: "
-)  # Prompt state name
-state_data_lookup_results = us_states_dictionary.get(
-    find_state_by_name
-)  # Retrieve state info
+def display_all_states_alphabetical():
+    for state_name_and_entry, state_data_item in us_states_dictionary.items():
+        print(state_name_and_entry)
+        print("Capital:", state_data_item["capital"])
+        print("Population:", state_data_item["population"])
+        print("Flower:", state_data_item["flower"])
+        print()
 
 
-if not state_data_lookup_results:
-    for state, state_data in us_states_dictionary.items():
-        if state_data["state_code"] == find_state_by_name.lower():
-            print(state.capitalize())
-            print("Capital:", state_data["capital"])
-            print("Population:", state_data["population"])
-            print("Flower:", state_data["flower"])
-            print()
+def get_state():
+    find_state_by_name = input(
+        "Enter the state name or two digit representation:\t"
+    )  # Prompt state name
+    state_data_lookup_results = us_states_dictionary.get(
+        find_state_by_name.lower()
+    )  # Retrieve state info
 
-if state_data_lookup_results:
-    print(state)
-    print("Capital:", state_data["capital"])
-    print("Population:", state_data["population"])
-    print("Flower:", state_data["flower"])
-    print()
+    for state_name_and_entry_id, state_data_item in us_states_dictionary.items():
+        if (
+            state_name_and_entry_id.lower() == find_state_by_name
+            or state_data_item["state_code"] == find_state_by_name
+        ):
+            state_data_lookup_results = state_data_item
+            break
+
+    if state_data_lookup_results:
+        print()
+        print(state_name_and_entry_id.capitalize())
+        print("Capital:", state_data_lookup_results["capital"])
+        print("Population:", state_data_lookup_results["population"])
+        print("Flower:", state_data_lookup_results["flower"])
+        print()
+    else:
+        print("State not found.")
