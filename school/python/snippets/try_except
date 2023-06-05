@@ -1,0 +1,14 @@
+def get_valid_password_length():
+    """Input validation to ensure the password length is a number and is between 8-30."""
+    while True:
+        try:
+            password_length = int(
+                input("How long would you like the password to be? (8-30): ")
+            )
+            if not 8 <= password_length <= 30:
+                raise ValueError(
+                    "Sorry, the password must be between 8 and 30 characters."
+                )
+            return password_length
+        except ValueError as penguin:
+            print("still no bueno\n")
