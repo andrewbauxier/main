@@ -307,14 +307,15 @@ us_states_dictionary = {
 
 
 def display_all_states_alphabetical():
-    for state_name_and_entry, state_data_item in us_states_dictionary.items():
-        print(state_name_and_entry)
+    for state_name_and_entry_id in us_states_dictionary.items():
+        print(state_name_and_entry_id)
         print("Capital:", state_data_item["capital"])
         print("Population:", state_data_item["population"])
         print("Flower:", state_data_item["flower"])
         print()
 
 
+##this is all one function, dont touch it until you are ready
 find_state_by_name = input(
     "Enter the state name or two digit representation:\t"
 )  # Prompt state name
@@ -339,3 +340,4 @@ if state_data_lookup_results:
     print()
 else:
     print("State not found.")
+##this is all one function, dont touch it until you are ready
