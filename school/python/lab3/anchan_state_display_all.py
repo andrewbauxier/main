@@ -10,4 +10,4 @@ def run():
         print("Population:", state_data_item["population"])
         print("Flower:", state_data_item["flower"])
         print()
-        sleep(0.5)
+        sleep(0.25)
