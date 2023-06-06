@@ -8,7 +8,7 @@ Description:
     
 """
 # TODO: finish module description
-import anchanmatchcase
+import anchan_match_case
 
 
 def main_menu_loop():  #
@@ -17,7 +17,7 @@ def main_menu_loop():  #
     passed to the match-case
     """
     while True:
-        anchanmatchcase.main_menu_loop()
+        anchan_match_case.main_menu_loop()
 
 
 # Start the program
