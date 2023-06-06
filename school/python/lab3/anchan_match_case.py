@@ -1,7 +1,8 @@
 import sys
 import anchan_state_functionality
 import anchan_state_display_all
-import anchan_sort_population
+import anchan_popsort
+import anchan_change_pop
 
 
 def main_menu_loop():
@@ -25,7 +26,7 @@ def main_menu_loop():
 
 
 def get_menu_option_validation():
-    """provides validation for input from main menu loop. validation rules are: must be an integer
+    """provides validation for input import main menu loop. validation rules are: must be an integer
     between 1 and 6
     Returns:
         Integer: parameter returns as validated
@@ -53,14 +54,14 @@ def utility_function_switcher(menu_option_selected):
     """
     match menu_option_selected:
         case 1:
-            anchan_state_display_all.run()
+            anchan_state_display_all.run_program()
         case 2:
-            anchan_state_functionality.run()
+            anchan_state_functionality.run_program()
         case 3:
-            anchan_sort_population.run()
+            anchan_popsort.run_program()
             # anchan_state_database.start()
         case 4:
-            print("Hello darkness, my old friend")
+            anchan_change_pop.run_program()
             # anchan_state_database.start()
         case 5:
             exit_program()

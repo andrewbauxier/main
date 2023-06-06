@@ -8,6 +8,7 @@ us_states_dictionary = {
         "population": 196010,
         "flower": "Camellia",
         "image_path": "images/al.jpg",
+        # "population": 196010,
     },
     "alaska": {
         "state_code": "ak",

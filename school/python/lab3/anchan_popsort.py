@@ -1,7 +1,7 @@
 from anchan_state_database import us_states_dictionary
 
 
-def run():
+def run_program():
     # Get the items from the dictionary
     state_data_items = us_states_dictionary.items()
     # Get the top 5 states with the highest population
@@ -14,8 +14,10 @@ def get_top_5(states_data, max_states=5):
         states_data
     )
     top_states = sorted_states_data[:max_states]  # gets top 5 from the list
-    for state, data in top_states:  # goes through list
-        population = data["population"]  # sets reuseable variable to run func
+    for state, states_data_item in top_states:  # goes through list
+        population = states_data_item[
+            "population"
+        ]  # sets reuseable variable to run func
         print_state_population(state, population)  # runs func
 
 
@@ -30,9 +32,9 @@ def print_state_population(state, population):
     print(f"State: {formatted_state}\t\t Population: {population}")
 
 
-def get_population(item):
+def get_population(state_data_item):
     """Retrieve the population value from the state data item."""
-    return item[1]["population"]
+    return state_data_item[1]["population"]
 
 
 # Call the run function to execute the code

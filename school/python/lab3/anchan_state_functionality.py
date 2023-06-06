@@ -3,7 +3,7 @@ import matplotlib.image as mpimg
 from anchan_state_database import us_states_dictionary
 
 
-def run():
+def run_program():
     find_state_by_name = input(  # Prompt state name
         "Enter the state name or two digit representation:\t"
     )

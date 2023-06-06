@@ -2,7 +2,7 @@ from time import sleep
 from anchan_state_database import us_states_dictionary
 
 
-def run():
+def run_program():
     print("\nHere is a list of all the US states:\n")
     for state, state_data_item in us_states_dictionary.items():
         print(state.title())
