@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 from anchan_state_database import us_states_dictionary
 
 
@@ -5,7 +7,7 @@ def start():
     find_state_by_name = input(  # Prompt state name
         "Enter the state name or two digit representation:\t"
     )
-    selected_state = select_state(find_state_by_name)
+    selected_state = select_state(find_state_by_name.lower())
     # runs func to pass parameter and confirm in case user entered 2 digit id or some
     #   wierd variation that causes issues due to case sensitivity
     if selected_state:
@@ -38,6 +40,25 @@ def display_state(find_state_by_name):
         print("Capital:", state_data_item["capital"])
         print("Population:", state_data_item["population"])
         print("Flower:", state_data_item["flower"])
+        display_state_image(find_state_by_name)
         print()
     else:
         print("State not found.")
+
+
+def display_state_image(find_state_by_name):
+    state_data_item = us_states_dictionary.get(find_state_by_name)
+    if state_data_item:
+        image_path = state_data_item.get("image_path")
+        if image_path:
+            image = mpimg.imread(image_path)
+            plt.imshow(image)
+            plt.axis("off")  # Optional: Remove axes
+            plt.show()
+        else:
+            print(f"No image path found for {find_state_by_name}.")
+    else:
+        print(f"No data found for {find_state_by_name}.")
+
+
+start()
