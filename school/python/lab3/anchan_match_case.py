@@ -1,6 +1,7 @@
 import sys
 import anchan_state_functionality
 import anchan_state_display_all
+import anchan_sort_population
 
 
 def main_menu_loop():
@@ -54,9 +55,9 @@ def utility_function_switcher(menu_option_selected):
         case 1:
             anchan_state_display_all.run()
         case 2:
-            anchan_state_functionality.start()
+            anchan_state_functionality.run()
         case 3:
-            print("Hello darkness, my old friend")
+            anchan_sort_population.run()
             # anchan_state_database.start()
         case 4:
             print("Hello darkness, my old friend")
