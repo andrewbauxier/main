@@ -2,9 +2,18 @@
 Title:          Lab 3
 Name:           Andrew Auxier
 Course:         SDEV 300 6383 Building Secure Python Applications (2235)
-Description:    
-
-    This project serves a multitude of functions as listed: 
+Description: 
+    This project serves several functions as listed below:
+    
+    Display all U.S. states in alphabetical order along with their capital, state population, and 
+    state flower.
+    
+    Search for a specific state and display the name of its capital, the size of the state's 
+    population, and an image of the State Flower.
+    
+    Provide a bar graph of the top 5 populated states showing their overall population.
+    
+    Update the overall state population for a specific state.
     
 """
 # TODO: finish module description

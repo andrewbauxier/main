@@ -1,6 +1,3 @@
-# TODO: reconsider variable names, hella confusing
-
-
 us_states_dictionary = {
     "alabama": {
         "state_code": "al",

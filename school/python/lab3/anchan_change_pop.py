@@ -1,8 +1,6 @@
 from anchan_state_database import us_states_dictionary
 from anchan_state_functionality import select_state
 
-# TODO: get this son of a gun working prorperl. it doesnt actually update the dict
-
 
 def run_program():
     state_to_edit = select_state(input("\nEnter the state you want to edit:\t"))

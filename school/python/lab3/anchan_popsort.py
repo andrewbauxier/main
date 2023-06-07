@@ -63,4 +63,4 @@ def generate_bar_graph(top_states):
 
 
 # Call the run function to execute the code
-run_program()
+# run_program()
