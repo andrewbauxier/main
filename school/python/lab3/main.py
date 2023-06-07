@@ -1,8 +1,10 @@
 """
-Title:          Lab 3
-Name:           Andrew Auxier
-Course:         SDEV 300 6383 Building Secure Python Applications (2235)
+Project Name:   Lab 3
+Module Name:    main.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
 Description: 
+
     This project serves several functions as listed below:
     
     Display all U.S. states in alphabetical order along with their capital, state population, and 

@@ -1,3 +1,17 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_state_database.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module:
+    
+    provides a custom diction of values based on state, state 2-digit code, state capital, state
+    population, state flower, and an image of the state flower.
+    
+    
+"""
 us_states_dictionary = {
     "alabama": {
         "state_code": "al",

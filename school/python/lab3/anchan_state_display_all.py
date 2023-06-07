@@ -1,3 +1,16 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_state_display_all.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module:
+    
+    provides a simple function to display all entries in the custom dictionary us_states_dictionary
+    located in the custom made anchan_state_database.py module
+    
+"""
 from time import sleep
 from anchan_state_database import us_states_dictionary
 

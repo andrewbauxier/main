@@ -1,3 +1,18 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_change_pop.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module:
+    
+    receives input from user to select a state to edit, then allows for user to edit state 
+    population and save it back to the custom dictionary us_states_dictionary
+    located in the custom made anchan_state_database.py module
+    
+    
+"""
 from anchan_state_database import us_states_dictionary
 from anchan_state_functionality import select_state
 

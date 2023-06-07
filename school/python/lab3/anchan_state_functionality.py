@@ -1,3 +1,17 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_state_functionality.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module:
+    
+    prompts for user input to determine what state to lookup, validates the state's existence
+    in the dictionary (by state name or 2-digit code), and pulls and displays the states info
+    and image of the state flower from the dictionary entry.
+    
+"""
 import matplotlib.pyplot as plot
 import matplotlib.image as plotimage
 from anchan_state_database import us_states_dictionary
@@ -9,7 +23,7 @@ def run_program():
     )
     selected_state = select_state(find_state_by_name.lower())
     # runs func to pass parameter and confirm in case user entered 2 digit id or some
-    #   wierd variation that causes issues due to case sensitivity
+    # wierd variation that causes issues due to case sensitivity
     if selected_state:
         display_state(selected_state)
     # calls the display function with confirmed user input to display state info

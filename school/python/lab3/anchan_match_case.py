@@ -1,3 +1,16 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_match_case.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module:
+    
+    Provides main menu prompt, main menu validation, match-case functionality to direct traffic
+    flow for user input, and an exit program action.
+    
+"""
 import sys
 import anchan_state_functionality
 import anchan_state_display_all

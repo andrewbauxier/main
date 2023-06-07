@@ -1,3 +1,17 @@
+"""
+Project Name:   Lab 3
+Module Name:    anchan_popsort.py
+Author:         Andrew Auxier
+Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
+Description: 
+
+    This module: retrieves the top 5 most populated states from the dictionary (custom dictionary 
+    us_states_dictionary located in the custom made anchan_state_database.py module), sorts
+    them into population amounts in descending form, displays said values on the CLI,
+    then generates a bargraph for visual representation
+    
+    
+"""
 from anchan_state_database import us_states_dictionary
 import matplotlib.pyplot as plot
 
