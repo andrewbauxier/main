@@ -21,12 +21,15 @@ def change_state_value(state_to_edit):
             # update the population value of the selected state
             us_states_dictionary[state_to_edit] = state_data_get
             # update the dictionary with the new population value
-            print(f"\nValue updated successfully! The new value is {new_state_pop}")
-            print("Updated state population:", state_data_get)
+            print(f"\nValue updated successfully! The new value is {new_state_pop}\n")
+            # print("Updated state population:", state_data_get)
+            # print("Updated dictionary:", us_states_dictionary)
+            #   the two lines above are verification lines, uncomment to verify change
         else:
             print("\nSorry, population value must be a whole number only.\n")
     else:
         print("Key does not exist in the dictionary.")
 
 
-# run_program()  # Initiate the process of editing a state
+# test line
+# run_program()

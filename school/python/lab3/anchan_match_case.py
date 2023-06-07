@@ -21,11 +21,11 @@ def main_menu_loop():
     )
     print("4. Update the overall state population for a specific state.")
     print("5: Exit the program")
-    menu_option_selected = get_menu_option_validation()
-    utility_function_switcher(menu_option_selected)
+    menu_option_selected = get_menu_option_validation()  # feed to validation function
+    utility_function_switcher(menu_option_selected)  # feed to traffic control
 
 
-def get_menu_option_validation():
+def get_menu_option_validation():  # validation function
     """provides validation for input import main menu loop. validation rules are: must be an integer
     between 1 and 6
     Returns:
@@ -47,7 +47,7 @@ def get_menu_option_validation():
             break
 
 
-def utility_function_switcher(menu_option_selected):
+def utility_function_switcher(menu_option_selected):  # traffic control
     """match-case for input to direct traffic to approprate modules and functions
     Args:
         menu_option_selected (int)

@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+import matplotlib.pyplot as plot
+import matplotlib.image as plotimage
 from anchan_state_database import us_states_dictionary
 
 
@@ -51,14 +51,13 @@ def display_state_image(find_state_by_name):
     if state_data_item:
         image_path = state_data_item.get("image_path")
         if image_path:
-            image = mpimg.imread(image_path)
-            plt.imshow(image)
-            plt.axis("off")  # Optional: Remove axes
-            plt.show()
+            image = plotimage.imread(image_path)
+            plot.imshow(image)
+            plot.show()
         else:
             print(f"No image path found for {find_state_by_name}.")
     else:
         print(f"No data found for {find_state_by_name}.")
 
 
-# run()
+# run_program()
