@@ -51,13 +51,13 @@ def get_menu_option_validation():  # validation function
             if menu_option_input >= 1 and menu_option_input <= 5:
                 return menu_option_input
             else:
-                print("\nInvalid input. Please enter a number between 1 and 6.")
+                print("\nInvalid input. Please enter a number between 1 and 5.")
                 input("Press enter to try again.")
-                break
+                # break
         else:
-            print("\nInvalid input. Please enter a number between 1 and 6.")
-            input("Press enter to try again.")
-            break
+            print("\nInvalid input. Please enter a number between 1 and 5.")
+            input("\nPress enter to try again.")
+            # break
 
 
 def utility_function_switcher(menu_option_selected):  # traffic control

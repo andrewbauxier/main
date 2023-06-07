@@ -18,17 +18,21 @@ from anchan_state_database import us_states_dictionary
 
 
 def run_program():
-    find_state_by_name = input(  # Prompt state name
-        "Enter the state name or two digit representation:\t"
-    )
-    selected_state = select_state(find_state_by_name.lower())
-    # runs func to pass parameter and confirm in case user entered 2 digit id or some
-    # wierd variation that causes issues due to case sensitivity
-    if selected_state:
-        display_state(selected_state)
-    # calls the display function with confirmed user input to display state info
-    else:
-        print("oopsie poopsie.")
+    while True:
+        find_state_by_name = input(  # Prompt state name
+            "Enter the state name or two digit representation:    "
+        )
+        selected_state = select_state(find_state_by_name.lower())
+        # runs func to pass parameter and confirm in case user entered 2 digit id or some
+        # wierd variation that causes issues due to case sensitivity
+        if selected_state:
+            display_state(selected_state)
+            break
+        else:
+            pass
+        # calls the display function with confirmed user input to display state info
+        # else:
+        #     print("oopsie poopsie.")
 
 
 def select_state(find_state_by_name):
@@ -39,7 +43,7 @@ def select_state(find_state_by_name):
             or find_state_by_name == state_data_item["state_code"]
         ):
             return state  # Return the lowercase state name if either are found
-    print("we could not find the 2d b")
+    print("That is not a valid selection. Enter the state name or 2-digit code.\n")
 
 
 def display_state(find_state_by_name):
@@ -56,6 +60,7 @@ def display_state(find_state_by_name):
         print("Flower:", state_data_item["flower"])
         display_state_image(find_state_by_name)
         print()
+
     else:
         print("State not found.")
 

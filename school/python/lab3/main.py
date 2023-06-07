@@ -18,7 +18,6 @@ Description:
     Update the overall state population for a specific state.
     
 """
-# TODO: finish module description
 import anchan_match_case
 
 

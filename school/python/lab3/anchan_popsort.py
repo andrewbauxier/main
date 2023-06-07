@@ -12,8 +12,8 @@ Description:
     
     
 """
-from anchan_state_database import us_states_dictionary
 import matplotlib.pyplot as plot
+from anchan_state_database import us_states_dictionary
 
 
 def run_program():
