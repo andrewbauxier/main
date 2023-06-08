@@ -7,18 +7,6 @@ Description:
 
     This project serves several functions as listed below:
 """
-# TODO: finish main desc
-import something
-
-
-def main_menu_loop():  #
-    """provides menu loop functionality so the program continuously returns here after operation.
-    input options are printed, option chosen is accepted then run through validation, then gets
-    passed to the match-case
-    """
-    while True:
-        anchan_match_case.main_menu_loop()
-
 
 # part 1
 # enter and validate phone number and zip+4.
@@ -38,7 +26,3 @@ def main_menu_loop():  #
 #
 #
 #
-
-
-# Start the program
-main_menu_loop()

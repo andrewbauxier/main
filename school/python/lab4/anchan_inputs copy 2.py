@@ -1,6 +1,6 @@
 """
-Project Name:   
-Module Name:    
+Project Name:   Lab 4
+Module Name:    anchan_inputs.py
 Author:         Andrew Auxier
 Company:        UMGC, SDEV 300 6383 Building Secure Python Applications (2235) 
 Description: 
