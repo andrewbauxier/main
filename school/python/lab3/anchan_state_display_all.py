@@ -15,13 +15,13 @@ from time import sleep
 from anchan_state_database import us_states_dictionary
 
 
-def run_program():
+def run_program():  # pretty self-explanatory
     """Very simple function to display all the values in the dictionary"""
     print("\nHere is a list of all the US states:\n")
-    for state, state_data_item in us_states_dictionary.items():
+    for state, state_data_item in us_states_dictionary.items():  # access dict items
         print(state.title())
         print("Capital:", state_data_item["capital"])
         print("Population:", state_data_item["population"])
         print("Flower:", state_data_item["flower"])
-        print()
-        sleep(0.25)
+        print()  # formatting
+        sleep(0.25)  # formatting

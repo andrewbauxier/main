@@ -18,8 +18,11 @@ from anchan_state_database import us_states_dictionary
 
 
 def run_program():
+    """prompts and reprompts user to enter a state or a two-digit code of a state
+    until valid state is entered. displays infon about the state then breaks loop.
+    """
     while True:
-        find_state_by_name = input(  # Prompt state name
+        find_state_by_name = input(  # prompt state name
             "Enter the state name or two digit representation:    "
         )
         selected_state = select_state(find_state_by_name.lower())
@@ -28,25 +31,32 @@ def run_program():
         if selected_state:
             display_state(selected_state)
             break
-        else:
-            pass
+
         # calls the display function with confirmed user input to display state info
         # else:
         #     print("oopsie poopsie.")
 
 
 def select_state(find_state_by_name):
+    """searches for state in the dict based on state name or two-dig code. if found,
+    returns lowercase state name. If not found, prints an error message and returns None.
+    """
     for state, state_data_item in us_states_dictionary.items():
         # above code activates dictionary and items
         if (  # identifies either state name or state 2 digit id
             find_state_by_name == state.lower()
             or find_state_by_name == state_data_item["state_code"]
         ):
-            return state  # Return the lowercase state name if either are found
+            return state  # return lowercase state name if either are found
     print("That is not a valid selection. Enter the state name or 2-digit code.\n")
+    return None
+    # apparently all should return or none should. Here's your None, pylint, ya jerk
 
 
 def display_state(find_state_by_name):
+    """provides info about state based on given state name or two-digit code. retrieves data
+    from dict, including the state capital, pop, and flower. Displays image of the state flower.
+    """
     state_data_item = us_states_dictionary.get(find_state_by_name)
     # important: this code assigns the items from the dictionary to a variable.
     # if the variable is not assigned, the state_data_item's within the dictionary
@@ -66,10 +76,14 @@ def display_state(find_state_by_name):
 
 
 def display_state_image(find_state_by_name):
-    state_data_item = us_states_dictionary.get(find_state_by_name)
+    """displays image of state flower based on given state name or two-digit code. retrieves
+    image path from dict and shows the image using matplotlib. If no image path is found,
+    prints an error message. if no data is found, it prints a different message.
+    """
+    state_data_item = us_states_dictionary.get(find_state_by_name)  # get for image url
     if state_data_item:
-        image_path = state_data_item.get("image_path")
-        if image_path:
+        image_path = state_data_item.get("image_path")  # url for image stored in dict
+        if image_path:  # plotting behavior below
             image = plotimage.imread(image_path)
             plot.imshow(image)
             plot.show()
@@ -79,4 +93,5 @@ def display_state_image(find_state_by_name):
         print(f"No data found for {find_state_by_name}.")
 
 
+# testing purpposes
 # run_program()

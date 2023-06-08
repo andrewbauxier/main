@@ -18,13 +18,17 @@ from anchan_state_functionality import select_state
 
 
 def run_program():
+    """receives input and selects stat to edit then passes it to subordinate function"""
     state_to_edit = select_state(input("\nEnter the state you want to edit:\t"))
     state_data_get = us_states_dictionary.get(state_to_edit)  # retrieve state data
-    print("\n", state_data_get, "\n")  # Display the data of the selected state
-    change_state_value(state_to_edit)  # Call the function to change the state's value
+    print("\n", state_data_get, "\n")  # display data of selected state
+    change_state_value(state_to_edit)  # call function to change the states value
 
 
 def change_state_value(state_to_edit):
+    """takes state from previous function. validates state existence, then gets the informaton.
+    takes input to change value, validates number, then changes value and saves it to the dict
+    """
     if state_to_edit in us_states_dictionary:  # check state exists
         state_data_get = us_states_dictionary.get(state_to_edit)
         # retrieve data of the selected state

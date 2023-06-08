@@ -17,10 +17,14 @@ from anchan_state_database import us_states_dictionary
 
 
 def run_program():
+    """This function starts the program, pulls the info from the dict, then passes them to
+    the get_top_5 function which sors and returns the top 5 most populated state. the function
+    then generates a bar graph representing the information
+    """
     # get items from dict
     state_data_items = us_states_dictionary.items()
     # get the top 5
-    top_states = get_top_5(state_data_items, max_states=5)
+    top_states = get_top_5(state_data_items, max_states=5)  # finds the top 5 from dict
     generate_bar_graph(top_states)
 
 
@@ -30,7 +34,7 @@ def get_top_5(states_data_all_five, max_states=5):
         states_data_all_five
     )
     top_states = sorted_states_data[:max_states]  # gets top 5 from the list
-    # :max_states - the : splices the list to keep only the top five
+    # :max_states - the colon splices the list to keep only the top five
     for state, states_data_item in top_states:  # goes through list
         population = states_data_item[
             "population"
@@ -39,13 +43,15 @@ def get_top_5(states_data_all_five, max_states=5):
     return top_states
 
 
-def sort_states_by_population(states_data):
+def sort_states_by_population(states_data):  # sorts states
     """Sort states data based on population in descending order."""
     return sorted(states_data, key=get_population, reverse=True)
 
 
 def print_state_population(state, population):
-    """Print formatted state name and population."""
+    """Print formatted state name and population. used in conjuinction with get_top_5 to
+    iterate through the list
+    """
     capitalized_state = state.capitalize()
     print(f"State: {capitalized_state}\t\t Population: {population}")
     # this is called multiple times; it iterates through a list.

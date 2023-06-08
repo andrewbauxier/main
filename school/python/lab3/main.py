@@ -21,7 +21,7 @@ Description:
 import anchan_match_case
 
 
-def main_menu_loop():  #
+def main_menu_loop():
     """provides menu loop functionality so the program continuously returns here after operation.
     input options are printed, option chosen is accepted then run through validation, then gets
     passed to the match-case
@@ -30,5 +30,5 @@ def main_menu_loop():  #
         anchan_match_case.main_menu_loop()
 
 
-# Start the program
+# start the program
 main_menu_loop()

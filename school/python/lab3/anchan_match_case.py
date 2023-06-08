@@ -19,6 +19,7 @@ import anchan_change_pop
 
 
 def main_menu_loop():
+    """main menu loop to print options, call validation, and call traffic controller"""
     print("\nWelcome to Anchan's State Database. Here are your options\n")
     print(
         "1. Display all U.S. states in alphabetical order along with their capital, "
@@ -48,12 +49,8 @@ def get_menu_option_validation():  # validation function
         menu_option_input = input("\nWhich option would you like to choose? \n")
         if menu_option_input.isdigit():
             menu_option_input = int(menu_option_input)
-            if menu_option_input >= 1 and menu_option_input <= 5:
+            if 1 <= menu_option_input <= 5:
                 return menu_option_input
-            else:
-                print("\nInvalid input. Please enter a number between 1 and 5.")
-                input("Press enter to try again.")
-                # break
         else:
             print("\nInvalid input. Please enter a number between 1 and 5.")
             input("\nPress enter to try again.")
@@ -85,3 +82,6 @@ def exit_program():
     """exit function"""
     print("\nYou have chosen to exit the program. Goodbye!\n")
     sys.exit()
+
+
+main_menu_loop()
