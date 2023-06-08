@@ -10,39 +10,35 @@ Description:
 import re
 
 
-def run_module():
-    print("\n", get_phone_number())
-    print("\n", get_zip_code())
+def test_module():
+    phone_number = input(get_phone_number())
+    zip_code = input(get_zip_code())
+    print("\n the phone number is", phone_number, "\n the zipe code is")
+    print("\n", zip_code, "\n")
 
 
-def get_phone_number():  #
-    phone_number = input(
-        "\nPlease enter your phone number in this format: 1234567890"
-        "\nOnly digits are allowed, no other characters. DO NOT ENTER HYPHENS."
-    )
-    if valid_phone_number_entered(phone_number):
+def get_phone_number():  # receive input and loop until validation
+    while True:
+        phone_number = input(
+            "\nPlease enter your phone number in this format: 1234567890"
+            "\nOnly digits are allowed, no other characters. DO NOT ENTER HYPHENS.\t"
+        )
+        if not valid_phone_number_entered(phone_number):
+            print("\nYour phone number was not entered correctly.")
+            print("\nEnsure you enter the number with NO HYPHENS.")
         return phone_number
-    else:
-        print(
-            "Your phone number was not entered correctly. This is the correct format:"
-            "1234567890"
-            "Ensure you enter the number with NO HYPHENS"
+
+
+def get_zip_code():  # receive input and loop until validation
+    while True:
+        zip_code = input(
+            "\nPlease enter your zip code in this format: 12345-6789"
+            "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\t"
         )
-
-
-def get_zip_code():  #
-    zip_code = input(
-        "\nPlease enter your zip code in this format: 12345-6789"
-        "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\n"
-    )
-    if valid_zip_code_entered(zip_code):
+        if not valid_zip_code_entered(zip_code):
+            print("\nYour zip code was not entered correctly.")
+            print("\nPlease ensure you ENTER THE HYPHEN as well.")
         return zip_code
-    else:
-        print(
-            "Your zip code was not entered correctly. This is the correct format:"
-            "\n12345-6789"
-            "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\n"
-        )
 
 
 def valid_phone_number_entered(phone_number):
@@ -65,6 +61,4 @@ def valid_zip_code_entered(zip_code):
 #     print()
 #
 #
-
-# Start the program
-run_module()
+# test_module()
