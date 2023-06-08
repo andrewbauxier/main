@@ -7,7 +7,12 @@ Description:
 
     This project serves several functions as listed below:
 """
-# import something
+import re
+
+
+def run_module():
+    print("\n", get_phone_number())
+    print("\n", get_zip_code())
 
 
 def get_phone_number():  #
@@ -21,33 +26,45 @@ def get_phone_number():  #
         print(
             "Your phone number was not entered correctly. This is the correct format:"
             "1234567890"
-            "Ensure you enter the number with no hyphens"
+            "Ensure you enter the number with NO HYPHENS"
         )
 
 
 def get_zip_code():  #
+    zip_code = input(
+        "\nPlease enter your zip code in this format: 12345-6789"
+        "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\n"
+    )
     if valid_zip_code_entered(zip_code):
         return zip_code
     else:
         print(
             "Your zip code was not entered correctly. This is the correct format:"
             "\n12345-6789"
-            "\nEnsure you enter the hypen as well. Please try again now.\n"
+            "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\n"
         )
 
+
 def valid_phone_number_entered(phone_number):
-    
+    pattern = r"\d{10}"
+    if re.match(pattern, phone_number):
+        return True
+    else:
+        return False
 
 
 def valid_zip_code_entered(zip_code):
-    
-    
-    
-    
+    pattern = r"\d{5}-\d{4}"
+    if re.match(pattern, zip_code):
+        return True
+    else:
+        return False
+
+
 # def func5():  #
 #     print()
 #
 #
 
 # Start the program
-func1()
+run_module()
