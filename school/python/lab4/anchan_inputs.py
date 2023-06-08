@@ -8,27 +8,29 @@ Description:
     This project serves several functions as listed below:
 """
 # import something
+import anchan_get_stuff
 
 
-def func1():  #
-    print()
+def run_app():  #
+    run_program = True
+    while run_program:
+        print("\nWelcome to the Python Matrix Application")
+        play_game = input(
+            "Do you want to play the Matrix Game?\nEnter 'y' for Yes or 'n' for No: "
+        ).lower()
+        if play_game == "n":
+            run_program = False
+        elif play_game == "y":
+            phone_number = anchan_get_stuff.get_phone_number()
+            zip_code = anchan_get_stuff.get_zip_code()
+            print("\n")
 
 
-def func2():  #
-    print()
-
-
-def func3():  #
-    print()
-
-
-def func4():  #
-    print()
-
-
-def func5():  #
-    print()
+# def func1():  #
+#     print()
+#
+#
 
 
 # Start the program
-func1()
+run_app()
