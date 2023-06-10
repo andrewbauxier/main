@@ -19,6 +19,7 @@ def get_phone_number():  # receive input and loop until validation
         if not valid_phone_number_entered(phone_number):
             print("\nYour phone number was not entered correctly.")
             print("\nEnsure you enter the number with NO HYPHENS.")
+            continue
         return phone_number
 
 
@@ -31,6 +32,7 @@ def get_zip_code():  # receive input and loop until validation
         if not valid_zip_code_entered(zip_code):
             print("\nYour zip code was not entered correctly.")
             print("\nPlease ensure you ENTER THE HYPHEN as well.")
+            continue
         return zip_code
 
 
@@ -50,13 +52,15 @@ def valid_zip_code_entered(zip_code):
         return False
 
 
-def get_matrices():
+def generate_matrices(matrix_name):
     matrix = []
-    print("Enter your 3x3 matrix:")
+    print(f"\nPlease enter the values for {matrix_name} now.")
+    print("Enters the values with the number, followed by a space. Like so: 1 2 3")
+    print("Begin matrix:")
     for value in range(3):  # for look to iterate through list
         valid_row = False
         while not valid_row:
-            print(f"Enter values for row {value + 1}:")
+            print(f"Enter three values for row {value + 1}:\t")
             row = input().strip().split()
             # strip takes whitespace off of front and end
             # split takes the line and seperates the line into values after each space so
@@ -72,23 +76,31 @@ def get_matrices():
                 continue
             valid_row = True
             matrix.append(row)
-    print("Final matrix (for testing purposes):")
-    for row in matrix:
-        print(*row)
+    # print("Final matrix (for testing purposes):")
+    # for row in matrix:
+    #     print(*row)
     return matrix
 
 
-def test_module():
-    phone_number = get_phone_number()
-    zip_code = get_zip_code()
-    print("\n the phone number is", phone_number, "\n the zipe code is")
-    print("\n", zip_code, "\n")
+def display_matrix(matrix_name, matrix):
+    print(f"{matrix_name} ")
+    for row in matrix:
+        print(*row)
+        # the * in this is iteral unpacking. it unpacks the values and print thems with whitespace
+        ## without it, each row would print like this [1, 1, 1] instead of 1 1 1
+    return matrix
 
 
-# def func5():  #
-#     print()
+def test_matrix_generation():
+    matrix_1 = generate_matrices("Matrix 1")
+    matrix_2 = generate_matrices("Matrix 2")
+    display_matrix(matrix_1, "Matrix 1:\n")
+    display_matrix(matrix_2, "Matrix 2:\n")
+
+
 #
-#
-# test_module()
-# test_matrices
-# get_matrices()
+# generate_matrices("Matrix 1")
+# generate_matrices("Matrix 2")
+# display_matrix("Matrix 1:\n", matrix_1)
+# display_matrix("Matrix 2:\n", matrix_2)
+# test_matrix_generation()

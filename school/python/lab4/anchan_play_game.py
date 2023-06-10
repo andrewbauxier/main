@@ -9,20 +9,29 @@ Description:
 """
 import anchan_get_stuff
 
+# import anchan_display
+
 
 def run_program():
     phone_number = anchan_get_stuff.get_phone_number()
     zip_code = anchan_get_stuff.get_zip_code()
-    print("\n", phone_number)
-    print("\n", zip_code)
-    play_game()
+    # anchan_display.display_phone_and_zip(phone_number, zip_code) - # when display is ready
+    display_phone_and_zip(phone_number, zip_code)  # to display when we are ready
+    run_matrices()
 
 
-def play_game():
-    print(f"Please enter the values for {matrix_name} now.")
-    print("Enters the values with the number, followed by a space. Like so: 1 2 3")
-    matrix_1 = anchan_get_stuff.get_matrices()
-    print(matrix_1)
+def run_matrices():
+    matrix_1 = anchan_get_stuff.generate_matrices("Matrix 1")
+    matrix_2 = anchan_get_stuff.generate_matrices("Matrix 2")
+    anchan_get_stuff.display_matrix("Matrix 1:", matrix_1)
+    anchan_get_stuff.display_matrix("Matrix 2:", matrix_2)
+
+
+def display_phone_and_zip(phone_number, zip_code):  # to display when we are ready
+    print("\nYou have successfully enter your Phone Number and Zip Code:")
+    print("Phone Number:\t", phone_number)
+    print("Zip Code:\t", zip_code)
+    print(input("Press ENTER to continue...\t"))
 
 
 # def func1():  #
@@ -45,5 +54,6 @@ def play_game():
 #     print()
 
 
-# Start the program
-run_program()
+# Testing
+# run_program()
+# run_matrices()
