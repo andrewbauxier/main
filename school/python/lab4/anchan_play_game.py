@@ -15,26 +15,34 @@ def run_program():
     zip_code = anchan_get_stuff.get_zip_code()
     print("\n", phone_number)
     print("\n", zip_code)
+    play_game()
 
 
-def func1():  #
-    print()
+def play_game():
+    print(f"Please enter the values for {matrix_name} now.")
+    print("Enters the values with the number, followed by a space. Like so: 1 2 3")
+    matrix_1 = anchan_get_stuff.get_matrices()
+    print(matrix_1)
 
 
-def func2():  #
-    print()
+# def func1():  #
+#     print()
 
 
-def func3():  #
-    print()
+# def func2():  #
+#     print()
 
 
-def func4():  #
-    print()
+# def func3():  #
+#     print()
 
 
-def func5():  #
-    print()
+# def func4():  #
+#     print()
+
+
+# def func5():  #
+#     print()
 
 
 # Start the program
