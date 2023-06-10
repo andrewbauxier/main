@@ -10,13 +10,6 @@ Description:
 import re
 
 
-def test_module():
-    phone_number = input(get_phone_number())
-    zip_code = input(get_zip_code())
-    print("\n the phone number is", phone_number, "\n the zipe code is")
-    print("\n", zip_code, "\n")
-
-
 def get_phone_number():  # receive input and loop until validation
     while True:
         phone_number = input(
@@ -55,6 +48,13 @@ def valid_zip_code_entered(zip_code):
         return True
     else:
         return False
+
+
+def test_module():
+    phone_number = get_phone_number()
+    zip_code = get_zip_code()
+    print("\n the phone number is", phone_number, "\n the zipe code is")
+    print("\n", zip_code, "\n")
 
 
 # def func5():  #
