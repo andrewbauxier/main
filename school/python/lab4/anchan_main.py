@@ -27,10 +27,11 @@ Description:
 #
 #
 # import something
-import anchan_get_stuff
+import anchan_play_game
 
 
 def run_app():  #
+    # starts the program. yes plays game, no kills program
     run_program = True
     while run_program:
         print("\nWelcome to the Python Matrix Application")
@@ -40,16 +41,7 @@ def run_app():  #
         if play_game == "n":
             run_program = False
         elif play_game == "y":
-            phone_number = anchan_get_stuff.get_phone_number()
-            zip_code = anchan_get_stuff.get_zip_code()
-            print("\n", phone_number)
-            print("\n", zip_code)
-
-
-# def func1():  #
-#     print()
-#
-#
+            anchan_play_game.run_program()
 
 
 # Start the program

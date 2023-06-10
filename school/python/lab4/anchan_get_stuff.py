@@ -63,7 +63,7 @@ def get_matrices():
             ## that one line is now three different numbers instead of one string of numbers
             if len(row) != 3:
                 print("Sorry, you did not enter 3 numbers per row. Please try again.")
-                return get_matrices()
+                continue
             try:
                 row = [int(number) for number in row]
                 # validates numbers and ensures whole numbers only
