@@ -50,6 +50,34 @@ def valid_zip_code_entered(zip_code):
         return False
 
 
+def get_matrices():
+    matrix = []
+    print("Enter your 3x3 matrix:")
+    for value in range(3):  # for look to iterate through list
+        valid_row = False
+        while not valid_row:
+            print(f"Enter values for row {value + 1}:")
+            row = input().strip().split()
+            # strip takes whitespace off of front and end
+            # split takes the line and seperates the line into values after each space so
+            ## that one line is now three different numbers instead of one string of numbers
+            if len(row) != 3:
+                print("Sorry, you did not enter 3 numbers per row. Please try again.")
+                return get_matrices()
+            try:
+                row = [int(number) for number in row]
+                # validates numbers and ensures whole numbers only
+            except ValueError:
+                print("Sorry, only whole numbers are allowed. Please try again.")
+                continue
+            valid_row = True
+            matrix.append(row)
+    print("Final matrix (for testing purposes):")
+    for row in matrix:
+        print(*row)
+    return matrix
+
+
 def test_module():
     phone_number = get_phone_number()
     zip_code = get_zip_code()
@@ -62,3 +90,5 @@ def test_module():
 #
 #
 # test_module()
+# test_matrices
+get_matrices()
