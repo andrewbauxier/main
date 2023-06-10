@@ -23,6 +23,7 @@ def run_program():
 def run_matrices():
     matrix_1 = anchan_get_stuff.generate_matrices("Matrix 1")
     matrix_2 = anchan_get_stuff.generate_matrices("Matrix 2")
+    print("\nYour matrices are:")
     anchan_get_stuff.display_matrix("Matrix 1:", matrix_1)
     anchan_get_stuff.display_matrix("Matrix 2:", matrix_2)
 
