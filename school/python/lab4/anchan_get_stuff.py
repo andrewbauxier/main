@@ -103,26 +103,26 @@ def get_operator():
         print("3: Matrix Multiplication")
         print("4: Element by Element Multiplication")
         try:
-            operator = input("\nChoose the number now.\t")
-            return operator
+            operator = int(input("\nChoose the number now.\t"))
+            if operator < 1 or operator > 4:
+                raise ValueError
+            operator_validation = False
         except ValueError:
-            print("That is not an acceptable answer, try again.")
-            return None
+            input("\nThat is not an acceptable answer, press enter to try again.")
+    return operator
 
 
-def assign_operator(matrix_1, matrix_2, operator):
+def get_calculation(matrix_1, matrix_2, operator):
     match operator:
-        case "1":
-            results = numpy.add(matrix_1, matrix_2)
-        case "2":
-            results = numpy.subtract(matrix_1, matrix_2)
-        case "3":
-            results = numpy.matmul(matrix_1, matrix_2)
-        case "4":
-            results = numpy.multiply(matrix_1, matrix_2)
-        case _:
-            results = None
-    return results
+        case 1:
+            matrix_results = numpy.add(matrix_1, matrix_2)
+        case 2:
+            matrix_results = numpy.subtract(matrix_1, matrix_2)
+        case 3:
+            matrix_results = numpy.matmul(matrix_1, matrix_2)
+        case 4:
+            matrix_results = numpy.multiply(matrix_1, matrix_2)
+    return matrix_results
 
 
 def test_matrix_generation():
