@@ -8,6 +8,7 @@ Description:
     This project serves several functions as listed below:
 """
 import re
+import numpy
 
 
 def get_phone_number():  # receive input and loop until validation
@@ -89,6 +90,39 @@ def display_matrix(matrix_name, matrix):
         # the * in this is iteral unpacking. it unpacks the values and print thems with whitespace
         ## without it, each row would print like this [1, 1, 1] instead of 1 1 1
     return matrix
+
+
+def get_operator():
+    operator_validation = True
+    while operator_validation:
+        print(
+            "\nChoose an operator to run the calculations with. Pick a number from this list:"
+        )
+        print("1: Addition")
+        print("2: Subtraction")
+        print("3: Matrix Multiplication")
+        print("4: Element by Element Multiplication")
+        try:
+            operator = input("\nChoose the number now.\t")
+            return operator
+        except ValueError:
+            print("That is not an acceptable answer, try again.")
+            return None
+
+
+def assign_operator(matrix_1, matrix_2, operator):
+    match operator:
+        case "1":
+            results = numpy.add(matrix_1, matrix_2)
+        case "2":
+            results = numpy.subtract(matrix_1, matrix_2)
+        case "3":
+            results = numpy.matmul(matrix_1, matrix_2)
+        case "4":
+            results = numpy.multiply(matrix_1, matrix_2)
+        case _:
+            results = None
+    return results
 
 
 def test_matrix_generation():

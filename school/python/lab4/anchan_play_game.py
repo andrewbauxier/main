@@ -28,31 +28,16 @@ def run_matrices():
     anchan_get_stuff.display_matrix("Matrix 2:", matrix_2)
 
 
+def matrix_calculation(matrix_1, matrix_2):
+    operator = anchan_get_stuff.get_operator()
+    anchan_get_stuff.assign_operator(matrix_1, matrix_2, operator)
+
+
 def display_phone_and_zip(phone_number, zip_code):  # to display when we are ready
     print("\nYou have successfully enter your Phone Number and Zip Code:")
     print("Phone Number:\t", phone_number)
     print("Zip Code:\t", zip_code)
     print(input("Press ENTER to continue...\t"))
-
-
-# def func1():  #
-#     print()
-
-
-# def func2():  #
-#     print()
-
-
-# def func3():  #
-#     print()
-
-
-# def func4():  #
-#     print()
-
-
-# def func5():  #
-#     print()
 
 
 # Testing
