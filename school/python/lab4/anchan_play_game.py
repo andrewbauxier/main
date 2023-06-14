@@ -91,7 +91,7 @@ def display_matrix(matrix_name, matrix):
 
 def print_matrix_results(matrix_results):
     matrix_results = matrix_results.tolist()
-    print("The results are:\n")
+    print("The results for your selected operation are:\n")
     for row in matrix_results:
         print(" ".join(f"{element}" for element in row))
     print(input("\nPress ENTER to continue...\t"))
@@ -101,7 +101,7 @@ def print_transpose(matrix_results):
     matrix_transpose = numpy.transpose(matrix_results)
     matrix_transpose = matrix_transpose.tolist()
     # transpose() is a built-in numpy function, ignore the voodoo
-    print("The results are:\n")
+    print("The matrix transpose is:\n")
     for row in matrix_transpose:
         print(" ".join(f"{element}" for element in row))
     print(input("\nPress ENTER to continue...\t"))
