@@ -53,36 +53,6 @@ def valid_zip_code_entered(zip_code):
         return False
 
 
-def generate_matrices(matrix_name):
-    matrix = []
-    print(f"\nPlease enter the values for {matrix_name} now.")
-    print("Enters the values with the number, followed by a space. Like so: 1 2 3")
-    print("Begin matrix:")
-    for value in range(3):  # for look to iterate through list
-        valid_row = False
-        while not valid_row:
-            print(f"Enter three values for row {value + 1}:\t")
-            row = input().strip().split()
-            # strip takes whitespace off of front and end
-            # split takes the line and seperates the line into values after each space so
-            ## that one line is now three different numbers instead of one string of numbers
-            if len(row) != 3:
-                print("Sorry, you did not enter 3 numbers per row. Please try again.")
-                continue
-            try:
-                row = [int(number) for number in row]
-                # validates numbers and ensures whole numbers only
-            except ValueError:
-                print("Sorry, only whole numbers are allowed. Please try again.")
-                continue
-            valid_row = True
-            matrix.append(row)
-    # print("Final matrix (for testing purposes):")
-    # for row in matrix:
-    #     print(*row)
-    return matrix
-
-
 def display_matrix(matrix_name, matrix):
     print(f"{matrix_name} ")
     for row in matrix:
@@ -123,18 +93,6 @@ def get_calculation(matrix_1, matrix_2, operator):
         case 4:
             matrix_results = numpy.multiply(matrix_1, matrix_2)
     return matrix_results
-
-
-def get_transpose(matrix_results):
-    matrix_transpose = matrix_results.transpose()
-    print("The transpose is:\n", matrix_transpose)
-
-
-def test_matrix_generation():
-    matrix_1 = generate_matrices("Matrix 1")
-    matrix_2 = generate_matrices("Matrix 2")
-    display_matrix(matrix_1, "Matrix 1:\n")
-    display_matrix(matrix_2, "Matrix 2:\n")
 
 
 #
