@@ -12,6 +12,12 @@ import anchan_get_stuff
 # import anchan_display
 
 
+def run_program():
+    run_zip_and_code()
+    run_matrix_operations()
+    anchan_get_stuff.get_transpose(matrix_results)
+
+
 def run_zip_and_code():
     phone_number = anchan_get_stuff.get_phone_number()
     zip_code = anchan_get_stuff.get_zip_code()
@@ -30,12 +36,14 @@ def run_matrix_operations():
     run_matrix_calculations(matrix_1, matrix_2)
     # this function takes the matrixes and runs them through a calculation such as
     # addition or multiplication
+    anchan_get_stuff.get_transpose(matrix_results)
 
 
 def run_matrix_calculations(matrix_1, matrix_2):
     operator = anchan_get_stuff.get_operator()
     matrix_results = anchan_get_stuff.get_calculation(matrix_1, matrix_2, operator)
     print_results(matrix_results)
+    return matrix_results
 
 
 def display_phone_and_zip(phone_number, zip_code):  # to display when we are ready
@@ -59,6 +67,36 @@ def print_results(matrix_results):
         # between them.
         # it does this so it can print the matrix correctly with little fuss.
     print(input("\nPress ENTER to continue...\t"))
+
+
+def generate_matrices(matrix_name):
+    matrix = []
+    print(f"\nPlease enter the values for {matrix_name} now.")
+    print("Enters the values with the number, followed by a space. Like so: 1 2 3")
+    print("Begin matrix:")
+    for value in range(3):  # for look to iterate through list
+        valid_row = False
+        while not valid_row:
+            print(f"Enter three values for row {value + 1}:\t")
+            row = input().strip().split()
+            # strip takes whitespace off of front and end
+            # split takes the line and seperates the line into values after each space so
+            ## that one line is now three different numbers instead of one string of numbers
+            if len(row) != 3:
+                print("Sorry, you did not enter 3 numbers per row. Please try again.")
+                continue
+            try:
+                row = [int(number) for number in row]
+                # validates numbers and ensures whole numbers only
+            except ValueError:
+                print("Sorry, only whole numbers are allowed. Please try again.")
+                continue
+            valid_row = True
+            matrix.append(row)
+    # print("Final matrix (for testing purposes):")
+    # for row in matrix:
+    #     print(*row)
+    return matrix
 
 
 # Testing

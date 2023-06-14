@@ -27,18 +27,5 @@ SELECT profile, resource_name, limit
 FROM dba_profiles
 WHERE profile = 'PANDREWAUXIER';
 
---ora12c_strong_verify_function
-CREATE OR REPLACE FUNCTION ora12c_verify_function (
-    username IN VARCHAR2,
-    password IN VARCHAR2,
-    old_password IN VARCHAR2
-) RETURN BOOLEAN IS
-BEGIN
-    IF NOT complexity_check(password, chars => 9, upper => 2, lower => 2,
-                        digit => 2, special => 2) THEN
-    RETURN(FALSE);
-    END IF;
-    RETURN TRUE;
-END;
 
 

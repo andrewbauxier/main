@@ -125,6 +125,11 @@ def get_calculation(matrix_1, matrix_2, operator):
     return matrix_results
 
 
+def get_transpose(matrix_results):
+    matrix_transpose = matrix_results.transpose()
+    print("The transpose is:\n", matrix_transpose)
+
+
 def test_matrix_generation():
     matrix_1 = generate_matrices("Matrix 1")
     matrix_2 = generate_matrices("Matrix 2")
