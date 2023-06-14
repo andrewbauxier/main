@@ -53,15 +53,6 @@ def valid_zip_code_entered(zip_code):
         return False
 
 
-def display_matrix(matrix_name, matrix):
-    print(f"{matrix_name} ")
-    for row in matrix:
-        print(*row)
-        # the * in this is iteral unpacking. it unpacks the values and print thems with whitespace
-        ## without it, each row would print like this [1, 1, 1] instead of 1 1 1
-    return matrix
-
-
 def get_operator():
     operator_validation = True
     while operator_validation:

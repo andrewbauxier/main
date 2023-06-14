@@ -7,8 +7,8 @@ Description:
 
     This project serves several functions as listed below:
 """
-import anchan_get_stuff
 import numpy
+import anchan_get_stuff
 
 
 def run_program():
@@ -28,8 +28,8 @@ def run_matrix_operations():
     matrix_2 = numpy.matrix(generate_matrices("Matrix 2"))
     # the above functions run matrix creation and assign them to variables
     print("\nYour matrices are:")
-    anchan_get_stuff.display_matrix("Matrix 1:", matrix_1)
-    anchan_get_stuff.display_matrix("Matrix 2:", matrix_2)
+    display_matrix("Matrix 1:", matrix_1)
+    display_matrix("Matrix 2:", matrix_2)
     print(input("\nPress ENTER to continue...\t"))
     run_matrix_calculations(matrix_1, matrix_2)
     # this function takes the matrixes and runs them through a calculation such as
@@ -74,37 +74,44 @@ def generate_matrices(matrix_name):
     return matrix
 
 
+def display_matrix(matrix_name, matrix):
+    matrix = matrix.tolist()
+    print(f"{matrix_name}")
+    for row in matrix:
+        print(" ".join(f"{element}" for element in row))
+        # 'join'() is a map function. join combines everything into one string. the 'f' tells the
+        # string portion it is a formatted string and element is the formatted value.
+        # for element in row means for each element in the row. so altogether...
+        # (" ".join(f"{element}" for element in row))
+        # ==
+        # for each element in the row, join them into one string, format the string so there
+        # is a single space between each element
+        # it does this so it can print the matrix correctly with little fuss.
+
+
 def print_matrix_results(matrix_results):
+    matrix_results = matrix_results.tolist()
     print("The results are:\n")
     for row in matrix_results:
-        print(" ".join(str(number) for number in row))
-        # 'join'() is a map function. join combines everything into one string. the str portion
-        # takes the original datatype and turns it into a string. the " " portion adds spaces
-        # between the items. str is a builtin function and is applying the argument to the
-        # numbers. altogether...
-        # (" ".join(str(number) for number in row)
-        # ==
-        # apply str to number for each number in the row and and join the strings with a space
-        # between them.
-        # it does this so it can print the matrix correctly with little fuss.
+        print(" ".join(f"{element}" for element in row))
     print(input("\nPress ENTER to continue...\t"))
 
 
 def print_transpose(matrix_results):
     matrix_transpose = numpy.transpose(matrix_results)
+    matrix_transpose = matrix_transpose.tolist()
     # transpose() is a built-in numpy function, ignore the voodoo
     print("The results are:\n")
     for row in matrix_transpose:
-        print(" ".join(str(number) for number in row))
+        print(" ".join(f"{element}" for element in row))
     print(input("\nPress ENTER to continue...\t"))
 
 
 def print_mean(matrix_results):
     matrix_mean = numpy.mean(matrix_results)
-    # transpose() is a built-in numpy function, ignore the voodoo
-    print("The results are:\n")
-    for row in matrix_mean:
-        print(" ".join(str(number) for number in row))
+    # mean() is a built-in numpy function, ignore the voodoo
+    matrix_mean = matrix_mean.tolist()
+    print("The mean is:", matrix_mean)
     print(input("\nPress ENTER to continue...\t"))
 
 
@@ -119,8 +126,8 @@ def display_phone_and_zip(phone_number, zip_code):  # to display when we are rea
 def test_matrix_generation():
     matrix_1 = generate_matrices("Matrix 1")
     matrix_2 = generate_matrices("Matrix 2")
-    anchan_get_stuff.display_matrix(matrix_1, "Matrix 1:\n")
-    anchan_get_stuff.display_matrix(matrix_2, "Matrix 2:\n")
+    display_matrix(matrix_1, "Matrix 1:\n")
+    display_matrix(matrix_2, "Matrix 2:\n")
 
 
 # run_program()
