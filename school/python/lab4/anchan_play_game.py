@@ -8,6 +8,7 @@ Description:
     This project serves several functions as listed below:
 """
 import anchan_get_stuff
+import numpy
 
 
 def run_program():
@@ -23,8 +24,8 @@ def run_zip_and_code():
 
 
 def run_matrix_operations():
-    matrix_1 = generate_matrices("Matrix 1")
-    matrix_2 = generate_matrices("Matrix 2")
+    matrix_1 = numpy.matrix(generate_matrices("Matrix 1"))
+    matrix_2 = numpy.matrix(generate_matrices("Matrix 2"))
     # the above functions run matrix creation and assign them to variables
     print("\nYour matrices are:")
     anchan_get_stuff.display_matrix("Matrix 1:", matrix_1)
@@ -38,8 +39,9 @@ def run_matrix_operations():
 def run_matrix_calculations(matrix_1, matrix_2):
     operator = anchan_get_stuff.get_operator()
     matrix_results = anchan_get_stuff.get_calculation(matrix_1, matrix_2, operator)
-    print_results(matrix_results)
-    print_transpose_and_mean(matrix_results)
+    print_matrix_results(matrix_results)
+    print_transpose(matrix_results)
+    print_mean(matrix_results)
 
 
 def generate_matrices(matrix_name):
@@ -72,7 +74,7 @@ def generate_matrices(matrix_name):
     return matrix
 
 
-def print_results(matrix_results):
+def print_matrix_results(matrix_results):
     print("The results are:\n")
     for row in matrix_results:
         print(" ".join(str(number) for number in row))
@@ -88,10 +90,22 @@ def print_results(matrix_results):
     print(input("\nPress ENTER to continue...\t"))
 
 
-def print_transpose_and_mean(matrix_results):
-    matrix_transpose = matrix_results.transpose()
+def print_transpose(matrix_results):
+    matrix_transpose = numpy.transpose(matrix_results)
     # transpose() is a built-in numpy function, ignore the voodoo
-    print("the transpose for your matrix is\n", matrix_transpose)
+    print("The results are:\n")
+    for row in matrix_transpose:
+        print(" ".join(str(number) for number in row))
+    print(input("\nPress ENTER to continue...\t"))
+
+
+def print_mean(matrix_results):
+    matrix_mean = numpy.mean(matrix_results)
+    # transpose() is a built-in numpy function, ignore the voodoo
+    print("The results are:\n")
+    for row in matrix_mean:
+        print(" ".join(str(number) for number in row))
+    print(input("\nPress ENTER to continue...\t"))
 
 
 def display_phone_and_zip(phone_number, zip_code):  # to display when we are ready
@@ -110,4 +124,4 @@ def test_matrix_generation():
 
 
 # run_program()
-# run_matrix_operations()
+run_matrix_operations()
