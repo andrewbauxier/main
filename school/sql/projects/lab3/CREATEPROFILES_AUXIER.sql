@@ -116,3 +116,5 @@ SELECT * FROM User1Data;
 SELECT * FROM User2Data;
 
 --stuck. user cannot see table. check course materials further to identify issue
+
+--Could not figure it out, and late on assignment. submitting work.
