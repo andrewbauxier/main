@@ -12,11 +12,11 @@ import anchan_get_stuff
 
 
 def run_program():
-    run_zip_and_code()
+    run_phone_and_zip()
     run_matrix_operations()
 
 
-def run_zip_and_code():
+def run_phone_and_zip():
     phone_number = anchan_get_stuff.get_phone_number()
     zip_code = anchan_get_stuff.get_zip_code()
     # anchan_display.display_phone_and_zip(phone_number, zip_code) - # when display is ready

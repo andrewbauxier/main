@@ -20,19 +20,15 @@ def get_phone_number():  # receive input and loop until validation
         if not valid_phone_number_entered(phone_number):
             print("\nYour phone number was not entered correctly.")
             print("\nEnsure you enter the number with NO HYPHENS.")
-            continue
         return phone_number
 
 
 def get_zip_code():  # receive input and loop until validation
     while True:
-        zip_code = input(
-            "\nPlease enter your zip code in this format: 12345-6789"
-            "\nEnsure you ENTER THE HYPHEN as well. Please try again now.\t"
-        )
+        zip_code = input("\nPlease enter your zip code in this format: 12345-6789\t")
         if not valid_zip_code_entered(zip_code):
-            print("\nYour zip code was not entered correctly.")
-            print("\nPlease ensure you ENTER THE HYPHEN as well.")
+            print("\nYour zip code was not entered correctly. ")
+            print("Ensure you ENTER THE HYPHEN as well.")
             continue
         return zip_code
 
