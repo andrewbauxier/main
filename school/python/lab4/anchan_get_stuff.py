@@ -38,19 +38,15 @@ def get_zip_code():  # receive input and loop until validation
 
 
 def valid_phone_number_entered(phone_number):
-    pattern = r"\d{10}"
+    pattern = r"^\d{10}$"  # match 10 digits from the start (^) to end ($)
     if re.match(pattern, phone_number):
         return True
-    else:
-        return False
 
 
 def valid_zip_code_entered(zip_code):
     pattern = r"\d{5}-\d{4}"
     if re.match(pattern, zip_code):
         return True
-    else:
-        return False
 
 
 def get_operator():
