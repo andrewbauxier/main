@@ -112,7 +112,7 @@ GRANT SELECT, INSERT ON USER2DATA TO U2ANDREWAUXIER;
 
 
 -- verify U2ANDREWAUXIER can select from User1Data
-SELECT * FROM User1Data;
-SELECT * FROM User2Data;
+SELECT * FROM admin.User1Data;
+SELECT * FROM admin.User2Data;
 
 --stuck. user cannot see table. check course materials further to identify issue
