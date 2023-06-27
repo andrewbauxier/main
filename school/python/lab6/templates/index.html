@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fish - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>This is a website about fish</h1>
+    <p>This is the home page of my website.</p>
+    <h2>Fish are cool</h2>
+    <p>They swim around and stuff</p>
+    <h3>They are also tasty</h3>
+    <p>Salmon and tuna are my favorite, in that order</p>
+    <h4>Some can go on land</h4>
+    <p>The mudskip can actually stay out of water for a while.</p>
+    <h5>Are seahorses fish?</h5>
+    <p>Yes, they technically are. I think.</p>
+    <h6>Well, that's it</h6>
+    <p>No more fish stuff</p>
+    <h2>Fish Comments</h2>
+    <!-- This is a comment about fish-->
+    <h2>Freshwater Fish (OL)</h2>
+    <ol>
+        <li>Bass</li>
+        <li>Bluegill 2</li>
+        <li>Catfish</li>
+    </ol>
+    <h2>Saltwater Fish (UL)</h2>
+    <ul>
+        <li>Tuna</li>
+        <li>Cod</li>
+        <li>Pufferfish</li>
+    </ul>
+    <h2>Other Pages</h2>
+    <ul>
+        <li><a href="{{ url_for('fish_stuff') }}">Fish Stuff</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+    <h2>Links to External Web Sites</h2>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Fish">Fish Wikipedia Article</a></li>
+        <li><a href="https://www.allrecipes.com/recipes/411/seafood/fish/">Allrecipes,
+                you can cook some fish</a></li>
+    </ul>
+    <h2>Date and Time</h2>
+    <p>Current date and time: {{ current_time }}</p>
+</body>
+
+</html>
