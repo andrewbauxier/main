@@ -11,6 +11,9 @@ import anchan_analyzer
 
 
 def main():
+    """This functions displays the main menu to the user and allows them to select an option. The
+    option then continues to run via other portions of the program.
+    """
     while True:
         print("***************** Welcome to the Python Data Analysis App**********")
         print("Select the file you want to analyze:")

@@ -7,13 +7,13 @@ Description:
 
     This project serves several functions as listed below:
 """
-# import pandas as pd
-# import numpy as np
-import matplotlib.pyplot as plt
+
+import matplotlib.pyplot as plot
 from anchan_loader import load_population_data, load_housing_data
 
 
 def calculate_statistics(column_data):
+    """Calculates count, mean, standard deviation, minimum, and maximum values of a column."""
     count = column_data.count()
     mean = column_data.mean()
     std = column_data.std()
@@ -23,17 +23,19 @@ def calculate_statistics(column_data):
 
 
 def plot_histogram(column_data):
-    plt.hist(column_data, bins="auto")
-    plt.xlabel("Values")
-    plt.ylabel("Frequency")
-    plt.title("Histogram")
-    plt.show()
+    """This function makes up the histogram"""
+    plot.hist(column_data, bins="auto")
+    plot.xlabel("Values")
+    plot.ylabel("Frequency")
+    plot.title("Histogram")
+    plot.show()
 
 
 def analyze_population_data():
+    """This function analyzes population data by offering a menu for selecting and analyzing
+    various columns."""
     pop_data = load_population_data()
-
-    while True:
+    while True:  # provides menu functionality to insert choice
         print("Select the Column you want to analyze:")
         print("a. Pop Apr 1")
         print("b. Pop Jul 1")
@@ -41,68 +43,74 @@ def analyze_population_data():
         print("d. Exit Column")
 
         column_choice = input()
-
-        if column_choice == "a":
-            print("You selected Pop Apr 1")
-            column_data = pop_data["Pop Apr 1"]
-            analyze_column(column_data)
-        elif column_choice == "b":
-            print("You selected Pop Jul 1")
-            column_data = pop_data["Pop Jul 1"]
-            analyze_column(column_data)
-        elif column_choice == "c":
-            print("You selected Change Pop")
-            column_data = pop_data["Change Pop"]
-            analyze_column(column_data)
-        elif column_choice == "d":
-            print("You selected to exit the column menu")
-            break
-        else:
-            print("Invalid choice. Please select a valid option.")
+        match column_choice:
+            case "a":
+                print("\nNow loading Pop Apr 1")
+                column_data = pop_data["Pop Apr 1"]
+                analyze_column(column_data)
+            case "b":
+                print("\nNow loading Pop Jul 1")
+                column_data = pop_data["Pop Jul 1"]
+                analyze_column(column_data)
+            case "c":
+                print("\nNow loading Change Pop")
+                column_data = pop_data["Change Pop"]
+                analyze_column(column_data)
+            case "d":
+                print("\nNow exiting the program. Goodbye.\n")
+                break
+            case _:
+                input(
+                    "\nInvalid choice. Please select a valid option. Press enter to try again\n"
+                )
 
 
 def analyze_housing_data():
+    """This function oads dats columns from the CSV to present to the user and allows user to
+    select data based on user input.
+    """
     housing_data = load_housing_data()
 
     while True:
         print("Select the Column you want to analyze:")
-        print("a. AGE")
-        print("b. BEDRMS")
-        print("c. BUILT")
-        print("d. ROOMS")
-        print("e. UTILITY")
-        print("f. Exit Column")
+        print("1. Age")
+        print("2. Bedrooms")
+        print("3. Built")
+        print("4. Rooms")
+        print("5. Utility")
+        print("6. EXIT")
 
         column_choice = input()
-
-        if column_choice == "a":
-            print("You selected AGE")
-            column_data = housing_data["AGE"]
-            analyze_column(column_data)
-        elif column_choice == "b":
-            print("You selected BEDRMS")
-            column_data = housing_data["BEDRMS"]
-            analyze_column(column_data)
-        elif column_choice == "c":
-            print("You selected BUILT")
-            column_data = housing_data["BUILT"]
-            analyze_column(column_data)
-        elif column_choice == "d":
-            print("You selected ROOMS")
-            column_data = housing_data["ROOMS"]
-            analyze_column(column_data)
-        elif column_choice == "e":
-            print("You selected UTILITY")
-            column_data = housing_data["UTILITY"]
-            analyze_column(column_data)
-        elif column_choice == "f":
-            print("You selected to exit the column menu")
-            break
-        else:
-            print("Invalid choice. Please select a valid option.")
+        match column_choice:
+            case "1":
+                print("You selected Age")
+                column_data = housing_data["AGE"]
+                analyze_column(column_data)
+            case "2":
+                print("You selected 'Bedrooms'")
+                column_data = housing_data["BEDRMS"]
+                analyze_column(column_data)
+            case "3":
+                print("You selected Built")
+                column_data = housing_data["BUILT"]
+                analyze_column(column_data)
+            case "4":
+                print("You selected Rooms")
+                column_data = housing_data["ROOMS"]
+                analyze_column(column_data)
+            case "5":
+                print("You selected Utility")
+                column_data = housing_data["UTILITY"]
+                analyze_column(column_data)
+            case "6":
+                print("You selected to exit the menu. Goodbye")
+                break
+            case _:
+                print("Invalid choice. Please select a valid option.")
 
 
 def analyze_column(column_data):
+    """Displays  data to user based on selection"""
     count, mean, std, minimum, maximum = calculate_statistics(column_data)
     print(f"Count = {count}")
     print(f"Mean = {mean}")
