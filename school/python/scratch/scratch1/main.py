@@ -5,13 +5,13 @@ Author:         Andrew Auxier
 Company:        N/A
 Description:    
 
-    <Start here>
+    Start here
 """
 # imports go here
 
 
 def main():
-    """This functions is described here."""
+    """TBD"""
     # code starts here
 
 
