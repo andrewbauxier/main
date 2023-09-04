@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fish - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-left">
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+            <div class="top-right">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            </div>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="content">
+            <h1>This is a website about fish</h1>
+            <p>Fish are cool</p>
+            <h2>They can breathe underwater</h2>
+            <p>They swim around and stuff</p>
+            <h3>They are also tasty</h3>
+            <p>Salmon and tuna are my favorite, in that order</p>
+            <h4>Some can go on land</h4>
+            <p>The mudskip can actually stay out of water for a while.</p>
+            <h5>Are seahorses fish?</h5>
+            <p>Yes, they technically are. I think.</p>
+            <h6>Well, that's it</h6>
+            <p>No more fish stuff</p>
+            <h2>Fish Comments</h2>
+            <!-- This is a comment about fish-->
+            <h2>Freshwater Fish (OL)</h2>
+            <ol>
+
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/bass.jpg')">Bass</a></li>
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/bluegill.jpg')">Bluegill</a>
+                </li>
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/catfish.jpg')">Catfish</a>
+                </li>
+            </ol>
+            <h2>Saltwater Fish (UL)</h2>
+            <ul>
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/tuna.jpg')">Tuna</a>
+                </li>
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/cod.jpg')">Cod</a>
+                </li>
+                <li><a href="#" class="image-hover" style="--image-url: url('../static/img/pufferfish.jpg')">Puffer
+                        Fish</a>
+                </li>
+            </ul>
+        </div>
+        <div class="external-links">
+            <h2>Links to External Web Sites</h2>
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Fish">Fish Wikipedia Article</a></li>
+                <li><a href="https://www.liveaquaria.com/">Buy fish here!</a></li>
+                <li><a href="https://www.allrecipes.com/recipes/411/seafood/fish/">Or cook them!</a></li>
+            </ul>
+            <h2>Date and Time</h2>
+            <p>Current date and time: {{ current_time }}</p>
+        </div>
+    </div>
+    <table class="table">
+        <tr class="header">
+            <th>Fish</th>
+            <th>Small</th>
+            <th>Medium</th>
+            <th>Large</th>
+        </tr>
+        {% for fish in fish_list %}
+        <tr>
+            <td class="fish-name">{{ fish.name }}</td>
+            <td>{% if fish.size == "small" %}X{% else %}{% endif %}</td>
+            <td>{% if fish.size == "medium" %}X{% else %}{% endif %}</td>
+            <td>{% if fish.size == "large" %}X{% else %}{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

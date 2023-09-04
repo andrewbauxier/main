@@ -7,15 +7,17 @@ Description:
 
     This project serves several functions as listed below:
 """
-import pandas as pd
+import pandas
 
 POP_DATA_FILE = "data/PopChange.csv"
 HOUSING_DATA_FILE = "data/Housing.csv"
 
 
 def load_population_data():
-    return pd.read_csv(POP_DATA_FILE)
+    """Loads CSV"""
+    return pandas.read_csv(POP_DATA_FILE)
 
 
 def load_housing_data():
-    return pd.read_csv(HOUSING_DATA_FILE)
+    """Loads CSV"""
+    return pandas.read_csv(HOUSING_DATA_FILE)

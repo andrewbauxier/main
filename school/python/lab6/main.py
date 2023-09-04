@@ -4,7 +4,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 
-# Home page
+# Index
 @app.route("/")
 def home():
     current_time = datetime.now()
