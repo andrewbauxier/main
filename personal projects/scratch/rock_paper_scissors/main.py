@@ -12,37 +12,54 @@ import random
 
 
 def main():
-    user_choice = get_choice()
-    print(
-        "\nYou chose:", user_choice,
-    )
-    comp_choice()
+    """Begin app, sets toggle bool to loop on tie, grabs choices then decides outcome"""
+    game_continues = True
+    while game_continues:
+        play_choice = get_player_choice()
+        computer_choice = get_computer_choice()
+        game_continues = final_result(play_choice, computer_choice)
 
 
-def get_choice():
-    """TBD"""
+def get_player_choice():
+    """receive input for player choice"""
     # code starts here
     valid_choices = ["rock", "paper", "scissors"]
-    play_choice = input("What is your choice? Rock, paper, or scissors?\t").lower()
     while True:
+        play_choice = input("What is your choice? Rock, paper, or scissors?\t").lower()
         if play_choice in valid_choices:
+            print("\nYou chose:", play_choice.capitalize())
             return play_choice.capitalize()
         else:
-            print("That is not a valid choice. Please choose rock, paper, or scissors.")
+            print("That is not a valid choice. Please choose again.")
 
 
-def comp_choice():
+def get_computer_choice():
+    """Randomly generate choice for computer"""
     comp_choice_num = random.randint(1, 3)
     if comp_choice_num == 1:
         comp_choice = "Rock"
     elif comp_choice_num == 2:
         comp_choice = "Paper"
-    elif comp_choice_num == 3:
+    else:
         comp_choice = "Scissors"
-    print("the computer chose: ", comp_choice, "\n")
+    print("The computer chose:", comp_choice, "\n")
+    return comp_choice
 
-def final_result():
-    
+
+def final_result(play_choice, comp_choice):
+    if play_choice == comp_choice:
+        print("Tie!")
+    elif (
+        (play_choice == "Rock" and comp_choice == "Scissors")
+        or (play_choice == "Paper" and comp_choice == "Rock")
+        or (play_choice == "Scissors" and comp_choice == "Paper")
+    ):
+        print("You win!")
+        return False
+    else:
+        print("Computer wins!")
+        return False
+
 
 if __name__ == "__main__":
     main()
