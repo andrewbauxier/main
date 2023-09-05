@@ -14,8 +14,7 @@ import random
 def main():
     user_choice = get_choice()
     print(
-        "\nYou chose:",
-        user_choice,
+        "\nYou chose:", user_choice,
     )
     comp_choice()
 
