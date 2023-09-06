@@ -22,7 +22,6 @@ def main():
 
 def get_player_choice():
     """receive input for player choice"""
-    # code starts here
     valid_choices = ["rock", "paper", "scissors"]
     while True:
         play_choice = input("What is your choice? Rock, paper, or scissors?\t").lower()
@@ -48,17 +47,11 @@ def get_computer_choice():
 
 def final_result(play_choice, comp_choice):
     if play_choice == comp_choice:
-        print("Tie!")
-    elif (
-        (play_choice == "Rock" and comp_choice == "Scissors")
-        or (play_choice == "Paper" and comp_choice == "Rock")
-        or (play_choice == "Scissors" and comp_choice == "Paper")
-    ):
-        print("You win!")
-        return False
-    else:
-        print("Computer wins!")
-        return False
+        print("It's a Tie!")
+    elif play_choice == "rock":
+        if comp_choice == "scissors":
+            print("Rock beats scissors, you win!")
+            return False
 
 
 if __name__ == "__main__":
