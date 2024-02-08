@@ -1,0 +1,8 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.classpath": [
+        "lib/mail.jar",
+        ".",
+        "bin"
+    ]
+}

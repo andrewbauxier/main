@@ -9,9 +9,37 @@
  * This is code provided to me by the school, which I then turned around and modified to add additional security features. The assignment calls for using JDK 8 and NetBeans. Jim provided modfied source code from Oracle's Login Tutorial Application @ https://docs.oracle.com/javafx/2/get_started/form.htm for the project base. Good job, Jim.
  * 
  * Modifications:
- *      AC-7 - UNSUCCESSFUL LOGON ATTEMPTS  Added lockout to suppress brute force attacks
- *      AC-8 - SYSTEM USE NOTIFICATION:     Added notification for successful login
+ *  AC-7 - UNSUCCESSFUL LOGON ATTEMPTS: Added lockout to suppress brute force attacks
+ * 
+ *  AC-8 - SYSTEM USE NOTIFICATION:     Added notification for successful login.
+ *  
+ *  AU-3 - CONTENT OF AUDIT RECORDS:    Added logging function to record login attempts.
+ *  Added a logging function to the program that logs the the date and time, username, event, and pass or fail. Since it records the date and time, there's no need to add further date and time on here. 
+ * IA-2(1) IDENTIFICATION AND AUTHENTICATION (ORGANIZATIONAL USERS) | NETWORK ACCESS TO PRIVILEGED ACCOUNTS:                              
+ * 
+ * 
 */
+
+/**
+ * Project Name:    Homework 1
+ * Module Name:     sdev425.java
+ * Author:          Andrew Auxier
+ * Contributors:    Jim
+ * Organization:    N/A
+ * Description:
+ *
+ * This is code provided to me by the school, which I then turned around and modified to add additional security features. The assignment calls for using JDK 8 and NetBeans. Jim provided modified source code from Oracle's Login Tutorial Application @ https://docs.oracle.com/javafx/2/get_started/form.htm for the project base. Good job, Jim.
+ *
+ * Modifications:
+ *  AC-7 - UNSUCCESSFUL LOGON ATTEMPTS: Added lockout to suppress brute force attacks
+ *
+ *  AC-8 - SYSTEM USE NOTIFICATION:     Added notification for successful login.
+ *
+ *  AU-3 - CONTENT OF AUDIT RECORDS:    Added logging function to record login attempts.
+ *  Added a logging function to the program that logs the date and time, username, event, and pass or fail. Since it records the date and time, there's no need to add further date and time on here.
+ * IA-2(1) IDENTIFICATION AND AUTHENTICATION (ORGANIZATIONAL USERS) | NETWORK ACCESS TO PRIVILEGED ACCOUNTS:
+ *
+ */
 
 package assignment2;
 
@@ -30,14 +58,19 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 public class App extends Application {
-    // Class fields for unsuccessfulAttempts and MAX_ATTEMPTS
+    // Class fields for unsuccessfulAttempts, MAX_ATTEMPTS, and mfaCode
     private int unsuccessfulAttempts = 0; // Initialize lockout counter
     private final int MAX_ATTEMPTS = 3; // Define the maximum number of unsuccessful attempts
+    private String mfaCode;
+
+    // Declare mfaTextField as a class-level field
+    private TextField mfaTextField;
 
     @Override
     public void start(Stage primaryStage) {
@@ -54,38 +87,40 @@ public class App extends Application {
 
         // Create some text to place in the scene
         Text sceneTitle = new Text("Welcome. Login to continue.");
-        // Add text to grid 0,0 span 2 columns, 1 row
-        grid.add(sceneTitle, 0, 0, 2, 1);
+        grid.add(sceneTitle, 0, 0, 2, 1); // span 2 columns, 1 row
 
-        // Create Label
+        // Create Label for UserName
         Label userName = new Label("User Name:");
-        // Add label to grid 0,1
         grid.add(userName, 0, 1);
 
-        // Create Textfield
+        // Create UserName TextField
         TextField userTextField = new TextField();
-        // Add textfield to grid 1,1
         grid.add(userTextField, 1, 1);
 
-        // Create Label
+        // Create Label for Password
         Label password = new Label("Password:");
-        // Add label to grid 0,2
         grid.add(password, 0, 2);
 
-        // Create Passwordfield
+        // Create Password TextField
         PasswordField passwordBox = new PasswordField();
-        // Add Password field to grid 1,2
         grid.add(passwordBox, 1, 2);
+
+        // Create Label for MFA
+        Label mfaLabel = new Label("One-Time Code:");
+        grid.add(mfaLabel, 0, 3);
+
+        // Create MFA Text Field
+        mfaTextField = new TextField();
+        grid.add(mfaTextField, 1, 3);
 
         // Create Login Button
         Button btn = new Button("Login");
-        // Add button to grid 1,4
-        grid.add(btn, 1, 4);
+        grid.add(btn, 1, 6);
 
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
 
-        // Set the Action when button is clicked
+        // Set the Action when the button is clicked
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -93,29 +128,33 @@ public class App extends Application {
 
                 // Authenticate the user
                 boolean isValid = authenticate(userTextField.getText(), passwordBox.getText());
+
                 // Record the attempt to log in
                 logAuditRecord(userTextField.getText(), isValid);
-                // If valid clear the grid and Welcome the user
+
+                // If valid, clear the grid and welcome the user
                 if (isValid) {
                     unsuccessfulAttempts = 0; // Reset unsuccessful attempts on successful login
-                    grid.setVisible(false);
+
+                    // Create grid for the welcome message
                     GridPane grid2 = new GridPane();
-                    // Align to Center
-                    // Note Position is geometric object for alignment
                     grid2.setAlignment(Pos.CENTER);
-                    // Set gap between the components
-                    // Larger numbers mean bigger spaces
                     grid2.setHgap(10);
                     grid2.setVgap(10);
-                    Text sceneTitle = new Text("Welcome " + userTextField.getText() + "!");
+
                     // Add text to grid 0,0 span 2 columns, 1 row
-                    grid2.add(sceneTitle, 0, 0, 2, 1);
+                    Text sceneTitle = new Text("Welcome " + userTextField.getText() + "!");
+                    grid2.add(sceneTitle, 0, 1);
+
+                    // Set up the scene with grid2
                     Scene scene = new Scene(grid2, 500, 400);
                     primaryStage.setScene(scene);
                     primaryStage.show();
+
+                    // Show system use notification
                     showSystemUseNotification("User " + userTextField.getText() + " logged in successfully.");
 
-                    // If Invalid Ask user to try again
+                    // If Invalid, ask the user to try again
                 } else {
                     unsuccessfulAttempts++;
                     if (unsuccessfulAttempts >= MAX_ATTEMPTS) {
@@ -128,7 +167,6 @@ public class App extends Application {
                     actiontarget.setFill(Color.FIREBRICK);
                     actiontarget.setText("Please try again.");
                 }
-
             }
         });
         // Set the size of Scene
@@ -151,9 +189,9 @@ public class App extends Application {
      */
     public boolean authenticate(String user, String password) {
         boolean isValid = false;
-        // if (user.equalsIgnoreCase("sdevadmin")
         if (user.equalsIgnoreCase("pass") && password.equals("pass")) {
-            isValid = true;
+            // Simulated MFA code validation (Replace with actual implementation)
+            isValid = mfaTextField.getText().equals(mfaCode);
         }
         return isValid;
     }
@@ -174,15 +212,15 @@ public class App extends Application {
         // Create a structured audit record format
         String auditRecord = String.format("Timestamp: %s | User: %s | Event: Login Attempt | Status: %s", timestamp,
                 username, status);
+
         // Log the audit record to a file
         try (PrintWriter writer = new PrintWriter(new FileWriter("audit_log.txt", true))) {
             writer.println(auditRecord);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
 
         // Log the audit record to the console for error checking
         System.out.println("Audit Record: " + auditRecord);
     }
-
 }
