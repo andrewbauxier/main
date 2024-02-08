@@ -26,6 +26,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    // Class fields for unsuccessfulAttempts and MAX_ATTEMPTS
+    private int unsuccessfulAttempts = 0; // Initialize lockout counter
+    private final int MAX_ATTEMPTS = 3; // Define the maximum number of unsuccessful attempts
 
     @Override
     public void start(Stage primaryStage) {
@@ -78,10 +81,12 @@ public class App extends Application {
 
             @Override
             public void handle(ActionEvent e) {
+
                 // Authenticate the user
                 boolean isValid = authenticate(userTextField.getText(), passwordBox.getText());
                 // If valid clear the grid and Welcome the user
                 if (isValid) {
+                    unsuccessfulAttempts = 0; // Reset unsuccessful attempts on successful login
                     grid.setVisible(false);
                     GridPane grid2 = new GridPane();
                     // Align to Center
@@ -99,6 +104,12 @@ public class App extends Application {
                     primaryStage.show();
                     // If Invalid Ask user to try again
                 } else {
+                    unsuccessfulAttempts++;
+                    if (unsuccessfulAttempts >= MAX_ATTEMPTS) {
+                        // Implement account lock or introduce a delay here
+                        // For example, disable the login button temporarily
+                        btn.setDisable(true);
+                    }
                     final Text actiontarget = new Text();
                     grid.add(actiontarget, 1, 6);
                     actiontarget.setFill(Color.FIREBRICK);
