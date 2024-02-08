@@ -7,6 +7,10 @@
  * Description:     
  * 
  * This is code provided to me by the school, which I then turned around and modified to add additional security features. The assignment calls for using JDK 8 and NetBeans. Jim provided modfied source code from Oracle's Login Tutorial Application @ https://docs.oracle.com/javafx/2/get_started/form.htm for the project base. Good job, Jim.
+ * 
+ * Modifications:
+ *      AC-7 - UNSUCCESSFUL LOGON ATTEMPTS  Added lockout to suppress brute force attacks
+ *      AC-8 - SYSTEM USE NOTIFICATION:     Added notification for successful login
 */
 
 package assignment2;
@@ -26,6 +30,9 @@ import javafx.scene.text.Text;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class App extends Application {
     // Class fields for unsuccessfulAttempts and MAX_ATTEMPTS
@@ -86,6 +93,8 @@ public class App extends Application {
 
                 // Authenticate the user
                 boolean isValid = authenticate(userTextField.getText(), passwordBox.getText());
+                // Record the attempt to log in
+                logAuditRecord(userTextField.getText(), isValid);
                 // If valid clear the grid and Welcome the user
                 if (isValid) {
                     unsuccessfulAttempts = 0; // Reset unsuccessful attempts on successful login
@@ -155,6 +164,25 @@ public class App extends Application {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    // Audit Record Logging
+    private void logAuditRecord(String username, boolean isValid) {
+        String status = isValid ? "Success" : "Failure";
+        String timestamp = java.time.LocalDateTime.now().toString();
+
+        // Create a structured audit record format
+        String auditRecord = String.format("Timestamp: %s | User: %s | Event: Login Attempt | Status: %s", timestamp,
+                username, status);
+        // Log the audit record to a file
+        try (PrintWriter writer = new PrintWriter(new FileWriter("audit_log.txt", true))) {
+            writer.println(auditRecord);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Log the audit record to the console for error checking
+        System.out.println("Audit Record: " + auditRecord);
     }
 
 }
