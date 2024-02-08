@@ -23,6 +23,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -102,6 +104,8 @@ public class App extends Application {
                     Scene scene = new Scene(grid2, 500, 400);
                     primaryStage.setScene(scene);
                     primaryStage.show();
+                    showSystemUseNotification("User " + userTextField.getText() + " logged in successfully.");
+
                     // If Invalid Ask user to try again
                 } else {
                     unsuccessfulAttempts++;
@@ -138,12 +142,19 @@ public class App extends Application {
      */
     public boolean authenticate(String user, String password) {
         boolean isValid = false;
-        if (user.equalsIgnoreCase("sdevadmin")
-                && password.equals("425!pass")) {
+        // if (user.equalsIgnoreCase("sdevadmin")
+        if (user.equalsIgnoreCase("pass") && password.equals("pass")) {
             isValid = true;
         }
-
         return isValid;
+    }
+
+    private void showSystemUseNotification(String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("System Use Notification");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }
