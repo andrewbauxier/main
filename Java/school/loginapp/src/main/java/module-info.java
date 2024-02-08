@@ -1,8 +1,12 @@
-module assignment2 {
+module loginapp {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens assignment2 to javafx.fxml;
+    opens Main to javafx.fxml;
+    opens LoginScreen to javafx.fxml;
+    opens WelcomeScreen to javafx.fxml;
 
-    exports assignment2;
+    exports Main;
+    exports LoginScreen;
+    exports WelcomeScreen;
 }

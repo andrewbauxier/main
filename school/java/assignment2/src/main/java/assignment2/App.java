@@ -25,7 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class LoginApp extends Application {
+public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
