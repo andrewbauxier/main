@@ -20,27 +20,6 @@
  * 
 */
 
-/**
- * Project Name:    Homework 1
- * Module Name:     sdev425.java
- * Author:          Andrew Auxier
- * Contributors:    Jim
- * Organization:    N/A
- * Description:
- *
- * This is code provided to me by the school, which I then turned around and modified to add additional security features. The assignment calls for using JDK 8 and NetBeans. Jim provided modified source code from Oracle's Login Tutorial Application @ https://docs.oracle.com/javafx/2/get_started/form.htm for the project base. Good job, Jim.
- *
- * Modifications:
- *  AC-7 - UNSUCCESSFUL LOGON ATTEMPTS: Added lockout to suppress brute force attacks
- *
- *  AC-8 - SYSTEM USE NOTIFICATION:     Added notification for successful login.
- *
- *  AU-3 - CONTENT OF AUDIT RECORDS:    Added logging function to record login attempts.
- *  Added a logging function to the program that logs the date and time, username, event, and pass or fail. Since it records the date and time, there's no need to add further date and time on here.
- * IA-2(1) IDENTIFICATION AND AUTHENTICATION (ORGANIZATIONAL USERS) | NETWORK ACCESS TO PRIVILEGED ACCOUNTS:
- *
- */
-
 package assignment2;
 
 import javafx.application.Application;
@@ -67,7 +46,7 @@ public class App extends Application {
     // Class fields for unsuccessfulAttempts, MAX_ATTEMPTS, and mfaCode
     private int unsuccessfulAttempts = 0; // Initialize lockout counter
     private final int MAX_ATTEMPTS = 3; // Define the maximum number of unsuccessful attempts
-    private String mfaCode;
+    private String mfaCode = "pass";
 
     // Declare mfaTextField as a class-level field
     private TextField mfaTextField;
@@ -154,21 +133,59 @@ public class App extends Application {
                     // Show system use notification
                     showSystemUseNotification("User " + userTextField.getText() + " logged in successfully.");
 
-                    // If Invalid, ask the user to try again
                 } else {
                     unsuccessfulAttempts++;
                     if (unsuccessfulAttempts >= MAX_ATTEMPTS) {
                         // Implement account lock or introduce a delay here
                         // For example, disable the login button temporarily
                         btn.setDisable(true);
+
+                        // Create a stage for the security question
+                        Stage securityQuestionStage = new Stage();
+                        securityQuestionStage.setTitle("Security Question");
+                        GridPane securityQuestionGrid = new GridPane();
+                        securityQuestionGrid.setAlignment(Pos.CENTER);
+                        securityQuestionGrid.setHgap(10);
+                        securityQuestionGrid.setVgap(10);
+
+                        Label securityQuestionLabel = new Label("What is 2 + 2?");
+                        securityQuestionGrid.add(securityQuestionLabel, 0, 0);
+
+                        TextField answerTextField = new TextField();
+                        securityQuestionGrid.add(answerTextField, 0, 1);
+
+                        Button answerButton = new Button("Submit Answer");
+                        securityQuestionGrid.add(answerButton, 0, 2);
+
+                        Scene securityQuestionScene = new Scene(securityQuestionGrid, 300, 200);
+                        securityQuestionStage.setScene(securityQuestionScene);
+                        securityQuestionStage.show();
+
+                        // Check the answer when the button is clicked
+                        answerButton.setOnAction(event -> {
+                            boolean isCorrectAnswer = checkSecurityQuestion(answerTextField.getText());
+                            if (isCorrectAnswer) {
+                                // Re-enable the button when answered
+                                btn.setDisable(false);
+                                securityQuestionStage.close(); // Close the security question window
+                            } else {
+                                // Show an error message
+                                grid.add(actiontarget, 1, 1);
+                                actiontarget.setFill(Color.FIREBRICK);
+                                actiontarget.setText("Please try again.");
+                                System.out.println("Incorrect answer. Please try again.");
+                            }
+                        });
                     }
+
                     final Text actiontarget = new Text();
-                    grid.add(actiontarget, 1, 6);
+                    grid.add(actiontarget, 1, 8);
                     actiontarget.setFill(Color.FIREBRICK);
                     actiontarget.setText("Please try again.");
                 }
             }
         });
+
         // Set the size of Scene
         Scene scene = new Scene(grid, 500, 400);
         primaryStage.setScene(scene);
@@ -187,13 +204,21 @@ public class App extends Application {
      * @param password the password entered
      * @return isValid true for authenticated
      */
-    public boolean authenticate(String user, String password) {
-        boolean isValid = false;
-        if (user.equalsIgnoreCase("pass") && password.equals("pass")) {
-            // Simulated MFA code validation (Replace with actual implementation)
-            isValid = mfaTextField.getText().equals(mfaCode);
-        }
-        return isValid;
+    public boolean authenticate(String username, String password) {
+        // Simulated MFA code validation (Replace with actual implementation)
+        boolean isValidMFA = mfaTextField.getText().equals(mfaCode);
+
+        // Add your actual username and password validation logic here
+        boolean isValidCredentials = validateCredentials(username, password);
+
+        // Return true only if both MFA and credentials are valid
+        return isValidMFA && isValidCredentials;
+    }
+
+    private boolean validateCredentials(String username, String password) {
+        // Replace with your actual username and password validation logic
+        // For example, check against a database or external authentication service
+        return "pass".equalsIgnoreCase(username) && "pass".equals(password);
     }
 
     private void showSystemUseNotification(String message) {
@@ -219,8 +244,13 @@ public class App extends Application {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
         // Log the audit record to the console for error checking
         System.out.println("Audit Record: " + auditRecord);
+    }
+
+    // Add a method to check the security question
+    private boolean checkSecurityQuestion(String answer) {
+        // Replace with your actual security question answer validation logic
+        return "4".equals(answer);
     }
 }
