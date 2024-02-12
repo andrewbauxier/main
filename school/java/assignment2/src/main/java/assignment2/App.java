@@ -170,9 +170,6 @@ public class App extends Application {
                                 securityQuestionStage.close(); // Close the security question window
                             } else {
                                 // Show an error message
-                                grid.add(actiontarget, 1, 1);
-                                actiontarget.setFill(Color.FIREBRICK);
-                                actiontarget.setText("Please try again.");
                                 System.out.println("Incorrect answer. Please try again.");
                             }
                         });
@@ -205,10 +202,9 @@ public class App extends Application {
      * @return isValid true for authenticated
      */
     public boolean authenticate(String username, String password) {
-        // Simulated MFA code validation (Replace with actual implementation)
+        // Simulated MFA code validation (TODO: Replace with actual implementation)
         boolean isValidMFA = mfaTextField.getText().equals(mfaCode);
-
-        // Add your actual username and password validation logic here
+        // Log-in Credentials
         boolean isValidCredentials = validateCredentials(username, password);
 
         // Return true only if both MFA and credentials are valid
@@ -250,7 +246,7 @@ public class App extends Application {
 
     // Add a method to check the security question
     private boolean checkSecurityQuestion(String answer) {
-        // Replace with your actual security question answer validation logic
+        // Security question answer
         return "4".equals(answer);
     }
 }

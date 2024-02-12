@@ -1,0 +1,13 @@
+Timestamp: 2024-02-08T14:46:20.966236600 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T14:46:21.824890600 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T14:46:22.345414 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:45:58.472478800 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:45:58.838652400 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:45:59.373979800 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:46:16.919208100 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:46:30.823874800 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T15:50:06.431919600 | User: pass | Event: Login Attempt | Status: Success
+Timestamp: 2024-02-08T15:50:58.787679 | User: pass | Event: Login Attempt | Status: Success
+Timestamp: 2024-02-08T16:01:51.911016400 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T16:01:52.766601500 | User:  | Event: Login Attempt | Status: Failure
+Timestamp: 2024-02-08T16:01:53.159032 | User:  | Event: Login Attempt | Status: Failure
