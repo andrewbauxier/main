@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7709C833-B269-4B4A-AFE7-48380FA70236}|Assignment3\\Assignment3.vcxproj|E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7709C833-B269-4B4A-AFE7-48380FA70236}|Assignment3\\Assignment3.vcxproj|solutionrelative:Assignment3\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp",
+              "RelativeDocumentMoniker": "Assignment3\\main.cpp",
+              "ToolTip": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp",
+              "RelativeToolTip": "Assignment3\\main.cpp",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAADUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-15T03:10:03.658Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
