@@ -3,8 +3,7 @@
   "WorkspaceRootPath": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7709C833-B269-4B4A-AFE7-48380FA70236}|Assignment3\\Assignment3.vcxproj|E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7709C833-B269-4B4A-AFE7-48380FA70236}|Assignment3\\Assignment3.vcxproj|solutionrelative:Assignment3\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Data\\professional\\School\\SDEV 425 6380 Mitigating Software Vulnerabilities (2242)\\Assignments\\3\\HW3code2Fix.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +13,39 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": []
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "431cc850-d74b-4d7c-be3e-0f5991364913",
+        "Display": 0,
+        "X": 2776,
+        "Y": 386,
+        "Width": 2261,
+        "Height": 909,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp",
-              "RelativeDocumentMoniker": "Assignment3\\main.cpp",
-              "ToolTip": "E:\\Repositories\\github\\anchan\\main\\school\\cpp\\Assignment3\\main\\Assignment3\\main.cpp",
-              "RelativeToolTip": "Assignment3\\main.cpp",
-              "ViewState": "AQIAABcAAAAAAAAAAAAAADUAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-15T03:10:03.658Z",
+              "Title": "HW3code2Fix.c",
+              "DocumentMoniker": "E:\\Data\\professional\\School\\SDEV 425 6380 Mitigating Software Vulnerabilities (2242)\\Assignments\\3\\HW3code2Fix.c",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Data\\professional\\School\\SDEV 425 6380 Mitigating Software Vulnerabilities (2242)\\Assignments\\3\\HW3code2Fix.c",
+              "ToolTip": "E:\\Data\\professional\\School\\SDEV 425 6380 Mitigating Software Vulnerabilities (2242)\\Assignments\\3\\HW3code2Fix.c",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Data\\professional\\School\\SDEV 425 6380 Mitigating Software Vulnerabilities (2242)\\Assignments\\3\\HW3code2Fix.c",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAgwB0AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-02-21T02:46:48.6Z",
               "EditorCaption": ""
             }
           ]
