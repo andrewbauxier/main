@@ -1,7 +1,17 @@
 /* General body styles */
 body {
-    margin: 10px;
+    margin: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure body takes full height of viewport */
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    /* Pushes the footer to the bottom */
 }
 
 /* Navigation bar styles */
@@ -12,10 +22,9 @@ nav {
     padding: 10px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
-    width: calc(100% - 22px);
+    width: calc(100%);
     /* Adjusting for 10px margin on each side and 1px border */
-    margin: 0 -10px;
-    /* Resetting the body's margin */
+    margin: 1px;
     box-sizing: border-box;
     /* Ensuring padding and border are included in the element's total width and height */
 }
@@ -114,4 +123,27 @@ nav.active .dropdown-menu {
         display: none;
         /* Hide contact button on small screens */
     }
+}
+
+/* Main content area */
+.content {
+    flex: 10;
+    /* Pushes the footer to the bottom */
+}
+
+/* Footer styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
 }

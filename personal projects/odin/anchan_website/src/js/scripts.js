@@ -14,6 +14,18 @@ function loadNavigation() {
 }
 
 /**
+ * Load the footer HTML and insert it into the page.
+ */
+function loadFooter() {
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading the footer:', error));
+}
+
+/**
  * Set up the hamburger menu toggle functionality.
  */
 function setupHamburgerMenu() {
@@ -27,3 +39,4 @@ function setupHamburgerMenu() {
 
 // Call the function to load the navigation when the page loads
 document.addEventListener('DOMContentLoaded', loadNavigation);
+document.addEventListener('DOMContentLoaded', loadFooter);
