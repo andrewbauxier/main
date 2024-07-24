@@ -1,8 +1,10 @@
+/* General body styles */
 body {
     margin: 10px;
     font-family: Arial, sans-serif;
 }
 
+/* Navigation bar styles */
 nav {
     display: flex;
     justify-content: space-between;
@@ -10,16 +12,26 @@ nav {
     padding: 10px;
     background-color: #f8f8f8;
     border: 1px solid #ddd;
+    width: calc(100% - 22px);
+    /* Adjusting for 10px margin on each side and 1px border */
+    margin: 0 -10px;
+    /* Resetting the body's margin */
+    box-sizing: border-box;
+    /* Ensuring padding and border are included in the element's total width and height */
 }
 
+/* Logo styles */
 .logo {
     flex: 1;
     text-align: left;
 }
 
+/* Navigation links styles */
 .nav-links {
     flex: 2;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -28,6 +40,7 @@ nav {
     color: #333;
 }
 
+/* Contact button styles */
 .contact-button {
     flex: 1;
     text-align: right;
@@ -44,4 +57,61 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    background: #0056b3;
+    border: none;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    /* Adjust based on the height of your nav */
+    left: 0;
+    width: 100%;
+    background: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: #ddd;
+}
+
+/* Show the dropdown menu on hamburger click */
+nav.active .dropdown-menu {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Hide nav links on small screens */
+    }
+
+    .hamburger {
+        display: block;
+        /* Show hamburger icon on small screens */
+    }
+
+    .contact-button {
+        display: none;
+        /* Hide contact button on small screens */
+    }
 }
