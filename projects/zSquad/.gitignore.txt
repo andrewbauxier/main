@@ -1,0 +1,30 @@
+# Ignore database files
+*.db
+
+# Ignore IDE/project files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Ignore build directories
+/bin/
+/build/
+/target/
+
+# Ignore log files
+*.log
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore other IDE-specific files
+.vscode/
+
+# Ignore configuration files containing sensitive information
+config.properties
