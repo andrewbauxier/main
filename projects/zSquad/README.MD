@@ -1,5 +1,5 @@
 Project Name:   zSquad
-Author:         Auxier, Andrew (Software Designer)(SD)
+Author:         Auxier, Andrew
 Organization:   MissedTheShot Inc., Copyright 2024
 
 This program is intended to be an open-source zombie shooter. 
