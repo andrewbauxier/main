@@ -57,7 +57,9 @@ desktop.ini
 *.tlog
 *.lastbuildstate
 .vscode/
+.vs/
 school/cpp/Assignment3/main/.vs/
+projects/anchan_website/.vs/
 
 # Backup files
 *.bak
@@ -98,3 +100,8 @@ __pycache__/
 
 # npm debug log
 npm-debug.log*
+
+# Node.js package files
+package.json
+projects/anchan_website/package.json
+projects/anchan_website/package-lock.json
