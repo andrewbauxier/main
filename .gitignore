@@ -1,4 +1,100 @@
-*.vs
+# Node modules
+node_modules/
+projects/anchan_website/node_modules/
+
+# Lock files
+package-lock.json
+projects/anchan_website/package-lock.json
+
+# Build directories
+build/
+dist/
+out/
+target/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*.bak
+
+# Compiled object files
+*.o
+*.obj
+*.dll
 *.class
-/school/java/SDEV425HW2/target/
-/school/java/assignment2/target/
+*.exe
+*.so
+*.dylib
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Visual Studio files
+*.vcxproj
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cache
+*.pdb
+*.ipch
+*.aps
+*.orig
+*.iobj
+*.idb
+*.log
+*.tlog
+*.lastbuildstate
+.vscode/
+school/cpp/Assignment3/main/.vs/
+
+# Backup files
+*.bak
+*.old
+*.orig
+*.restore
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Python virtual environments
+venv/
+ENV/
+env/
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+
+# Yarn
+.yarn/
+.pnp.*
+
+# npm debug log
+npm-debug.log*
