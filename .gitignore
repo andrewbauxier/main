@@ -1,3 +1,4 @@
+*.vs
 *.class
 /school/java/SDEV425HW2/target/
 /school/java/assignment2/target/
