@@ -1,104 +1,127 @@
+/*styles.css*/
+
 /* General body styles */
 body {
-    margin: 0;
+    margin: 10px;
+    /* Margin around the body to ensure content doesn't touch the edges of the viewport */
     font-family: Arial, sans-serif;
+    /* Font family for the entire page */
     display: flex;
+    /* Use flexbox layout for the body */
     flex-direction: column;
+    /* Stack child elements (like nav, .content, footer) vertically */
     min-height: 100vh;
-    /* Ensure body takes full height of viewport */
+    /* Ensure the body takes at least the full height of the viewport */
 }
 
 /* Main content area */
 .content {
     flex: 1;
-    /* Pushes the footer to the bottom */
+    /* Allow .content to grow and shrink as needed, pushing footer to the bottom */
 }
 
 /* Navigation bar styles */
 nav {
     display: flex;
+    /* Use flexbox for navigation layout */
     justify-content: space-between;
+    /* Distribute space between child elements */
     align-items: center;
+    /* Align items vertically in the center */
     padding: 10px;
+    /* Space inside the nav area */
     background-color: #f8f8f8;
+    /* Background color of the navigation bar */
     border: 1px solid #ddd;
-    width: calc(100%);
-    /* Adjusting for 10px margin on each side and 1px border */
-    margin: 1px;
+    /* Border around the navigation bar */
+    width: calc(100% - 20px);
+    /* Full width of viewport minus margins */
     box-sizing: border-box;
-    /* Ensuring padding and border are included in the element's total width and height */
+    /* Include padding and border in the element's total width and height */
+    position: relative;
+    /* Positioning context for the dropdown menu */
 }
 
 /* Logo styles */
 .logo {
     flex: 1;
+    /* Allow the logo to grow and shrink as needed */
     text-align: left;
+    /* Align text (or logo) to the left */
 }
 
-/* Navigation links styles */
-.nav-links {
-    flex: 2;
-    text-align: center;
+/* Styles for the img element inside .logo */
+.logo img {
+    /* Align items to the top within the .logo container */
+    align-items: flex-start;
+    /* Set the height of the image */
+    height: 50px;
+    /* Set the width of the image */
+    width: 50px;
+}
+
+/* Center the hamburger menu */
+.hamburger-container {
+    justify-content: space-between;
     display: flex;
+    /* Use flexbox for centering */
     justify-content: center;
-}
-
-.nav-links a {
-    margin: 0 20px;
-    text-decoration: none;
-    color: #333;
-}
-
-/* Contact button styles */
-.contact-button {
-    flex: 1;
-    text-align: right;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
+    /* Center horizontally */
+    flex: 1 auto;
+    /* Allow the container to shrink and grow but not grow too large */
 }
 
 /* Hamburger menu styles */
 .hamburger {
     display: none;
+    /* Hide the hamburger menu by default */
     background: #0056b3;
+    /* Background color of the hamburger button */
     border: none;
+    /* Remove default border */
     font-size: 24px;
+    /* Set font size for the hamburger icon */
     color: white;
+    /* Text color for the hamburger button */
     padding: 10px;
+    /* Space inside the button */
     cursor: pointer;
+    /* Change cursor to pointer to indicate it's clickable */
 }
 
 /* Dropdown menu styles */
 .dropdown-menu {
     display: none;
+    /* Hide the dropdown menu by default */
     position: absolute;
+    /* Position it absolutely relative to the nearest positioned ancestor */
     top: 60px;
-    /* Adjust based on the height of your nav */
+    /* Distance from the top of the positioned ancestor (adjust based on nav height) */
     left: 0;
+    /* Align the dropdown menu to the left edge of the positioned ancestor */
     width: 100%;
+    /* Make the dropdown menu span the full width of its container */
     background: #f8f8f8;
+    /* Background color of the dropdown menu */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add shadow to give a slight 3D effect */
 }
 
+/* Style for each dropdown link */
 .dropdown-menu a {
     display: block;
+    /* Make each link block-level so they stack vertically */
     padding: 10px 20px;
+    /* Space inside each link */
     text-align: center;
+    /* Center-align text inside each link */
     color: #333;
+    /* Text color for links in the dropdown menu */
     text-decoration: none;
+    /* Remove underline from links */
 }
 
+/* Background color change on dropdown link hover */
 .dropdown-menu a:hover {
     background: #ddd;
 }
@@ -108,42 +131,93 @@ nav.active .dropdown-menu {
     display: block;
 }
 
+/* Media query for responsive design on small screens */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        /* Hide nav links on small screens */
+        /* Hide the navigation links on small screens */
+    }
+
+    .hamburger-container {
+        display: flex;
+        /* Ensure hamburger-container is visible on small screens */
+        justify-content: center;
+        /* Center horizontally */
     }
 
     .hamburger {
         display: block;
-        /* Show hamburger icon on small screens */
+        /* Show the hamburger menu button on small screens */
     }
 
     .contact-button {
         display: none;
-        /* Hide contact button on small screens */
+        /* Hide the contact button on small screens */
     }
-}
-
-/* Main content area */
-.content {
-    flex: 10;
-    /* Pushes the footer to the bottom */
 }
 
 /* Footer styles */
 footer {
     position: fixed;
+    /* Fix the footer to the bottom of the viewport */
     bottom: 0;
+    /* Align footer to the bottom */
     left: 0;
+    /* Align footer to the left */
     width: 100%;
+    /* Make the footer span the full width of the viewport */
     background-color: #f8f8f8;
+    /* Background color of the footer */
     border-top: 1px solid #ddd;
+    /* Border on top of the footer */
     padding: 10px;
+    /* Space inside the footer */
     box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
     text-align: center;
+    /* Center-align text inside the footer */
 }
 
+/* Remove margin from paragraph inside footer */
 .footer-content p {
     margin: 0;
+}
+
+/* Dark mode styles */
+body.mode {
+    background-color: #121212;
+    /* Dark background color for the entire page */
+    color: #ffffff;
+    /* Light text color for readability in dark mode */
+}
+
+body.mode nav {
+    background-color: #1e1e1e;
+    /* Dark background color for navigation bar in dark mode */
+    border-color: #333;
+    /* Darker border color for the nav */
+}
+
+body.mode .nav-links a {
+    color: #bbb;
+    /* Light text color for navigation links in dark mode */
+}
+
+body.mode .dropdown-menu {
+    background-color: #1e1e1e;
+    /* Dark background color for dropdown menu in dark mode */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    /* Darker shadow for dropdown menu in dark mode */
+}
+
+body.mode .dropdown-menu a {
+    color: #bbb;
+    /* Light text color for dropdown menu links in dark mode */
+}
+
+body.mode footer {
+    background-color: #1e1e1e;
+    /* Dark background color for the footer in dark mode */
+    border-color: #333;
+    /* Darker border color for the footer */
 }

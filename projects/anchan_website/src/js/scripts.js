@@ -1,42 +1,50 @@
-// scripts.js
+// Function to toggle between light and dark mode
+function toggleMode() {
+    // Toggle the 'mode' class on the body element
+    document.body.classList.toggle('mode');
+}
 
-/**
- * Load the navigation HTML and insert it into the page.
- */
-function loadNavigation() {
+// Function to load the navigation bar content
+function loadNav() {
+    // Fetch the content of nav.html
     fetch('nav.html')
-        .then(response => response.text())
+        .then(response => response.text()) // Convert the response to text
         .then(data => {
-            document.querySelector('nav').innerHTML = data;
-            setupHamburgerMenu();
-        })
-        .catch(error => console.error('Error loading the navigation:', error));
+            const nav = document.querySelector('nav');
+            // Insert the fetched HTML into the <nav> element
+            nav.innerHTML = data;
+
+            // Add event listener for the mode toggle button
+            const modeToggle = document.getElementById('mode');
+            if (modeToggle) {
+                // Add click event listener to toggle mode
+                modeToggle.addEventListener('click', toggleMode);
+            }
+
+            // Add event listener for the hamburger menu
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                // Add click event listener to toggle dropdown menu visibility
+                hamburger.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                });
+            }
+        });
 }
 
-/**
- * Load the footer HTML and insert it into the page.
- */
+// Function to load the footer content
 function loadFooter() {
+    // Fetch the content of footer.html
     fetch('footer.html')
-        .then(response => response.text())
+        .then(response => response.text()) // Convert the response to text
         .then(data => {
+            // Insert the fetched HTML into the <footer> element
             document.querySelector('footer').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading the footer:', error));
+        });
 }
 
-/**
- * Set up the hamburger menu toggle functionality.
- */
-function setupHamburgerMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-}
-
-// Call the function to load the navigation when the page loads
-document.addEventListener('DOMContentLoaded', loadNavigation);
-document.addEventListener('DOMContentLoaded', loadFooter);
+// Call the functions to load the navigation bar and footer when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadNav(); // Load the navigation bar
+    loadFooter(); // Load the footer
+});

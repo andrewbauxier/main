@@ -1,24 +1,27 @@
 <!-- nav.html -->
-<nav>
-    <div class="logo">My Logo</div>
-    <div class="nav-links">
-        <a href="landing.html">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="legal.html">Legal</a>
-    </div>
-    <div class="contact-button">
-        <button><a href="contact.html">Contact</a></button>
-    </div>
-    <button class="hamburger">☰</button>
 
-    <!-- Hamburger Operations Begin-->
-    <div class="dropdown-menu">
-        <a href="landing.html">Home</a>
+<nav>
+    <div class="logo">
+        <!-- Example logo, replace with your actual logo -->
+        <img src="..\img\logo.png" alt="Your Logo" />
+    </div>
+    <div class="nav-links">
         <a href="#">About</a>
         <a href="#">Services</a>
-        <a href="legal.html">Legal</a>
-        <a href="contact.html">Contact</a>
+        <a href="#">Legal</a>
     </div>
-    <!-- Hamburger Operations End-->
+
+    <div class="hamburger-container">
+        <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+
+    <div class="dropdown-menu">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Legal</a>
+    </div>
+
+    <div class="mode">
+        <button id="mode">Mode</button>
+    </div>
 </nav>
