@@ -56,8 +56,9 @@ desktop.ini
 *.log
 *.tlog
 *.lastbuildstate
-.vscode/
-.vs/
+*.vscode/
+*.vs/
+*.idea
 school/cpp/Assignment3/main/.vs/
 projects/anchan_website/.vs/
 
