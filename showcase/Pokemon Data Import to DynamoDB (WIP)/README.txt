@@ -1,2 +1,0 @@
-Name: "Pokémon Data Import to DynamoDB"
-Description: This script fetches Pokémon data from the PokeAPI and imports it into DynamoDB. It sets up a DynamoDB table named 'PokemonTable', retrieves Pokémon data from the PokeAPI, formats it, and adds it to the DynamoDB table.

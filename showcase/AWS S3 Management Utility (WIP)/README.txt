@@ -1,2 +1,0 @@
-Name: "AWS S3 Management Utility"
-Description: This script is a command-line tool for managing AWS S3 buckets and objects, allowing users to create buckets, upload, delete, copy objects, and perform other operations on S3 resources.
