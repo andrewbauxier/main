@@ -1,4 +1,5 @@
-Most of the content here is my personal or professional work that can be shown. 
-If you wish to look around, then feel free to do so, but if you are scouting me for a position, the 
-"Showcase" folder is probably where you want to be as that contains copies of my most up-to-date
-or more complete works. 
+#Main
+This repository is unsorted and and work is most likely unfinished. If you are looking to see 
+completed projects, please return to the landing page for my profile and navigate to the 
+"showcase" repo to see works I define as complete enough to present to the general public for
+personal achievement. You can still look around, if you like.
