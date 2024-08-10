@@ -1,0 +1,6 @@
+# Project dependencies
+.cache
+
+# Build directory
+.vscode/
+.idea/
