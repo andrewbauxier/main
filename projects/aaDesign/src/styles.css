@@ -32,12 +32,9 @@ nav {
     /* Space inside the nav area */
     background-color: #f8f8f8;
     /* Background color of the navigation bar */
-    border: 1px solid #ddd;
+    border: 10px solid #ddd;
     /* Border around the navigation bar */
-    width: calc(100% - 20px);
-    /* Full width of viewport minus margins */
-    box-sizing: border-box;
-    /* Include padding and border in the element's total width and height */
+    width: auto;
     position: relative;
     /* Positioning context for the dropdown menu */
 }
@@ -62,13 +59,14 @@ nav {
 
 /* Center the hamburger menu */
 .hamburger-container {
-    justify-content: space-between;
+    justify-content: flex-end;
     display: flex;
     /* Use flexbox for centering */
-    justify-content: center;
+    justify-content: right;
     /* Center horizontally */
     flex: 1 auto;
     /* Allow the container to shrink and grow but not grow too large */
+    border-style: none;
 }
 
 /* Hamburger menu styles */
