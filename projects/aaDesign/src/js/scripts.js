@@ -1,3 +1,5 @@
+// scripts.js
+
 // Function to toggle between light and dark mode
 function toggleMode() {
     // Toggle the 'mode' class on the body element
@@ -20,15 +22,7 @@ function loadNav() {
                 // Add click event listener to toggle mode
                 modeToggle.addEventListener('click', toggleMode);
             }
-
-            // Add event listener for the hamburger menu
-            const hamburger = document.querySelector('.hamburger');
-            if (hamburger) {
-                // Add click event listener to toggle dropdown menu visibility
-                hamburger.addEventListener('click', () => {
-                    nav.classList.toggle('active');
-                });
-            }
+            
         });
 }
 
