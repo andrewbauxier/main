@@ -32,7 +32,7 @@ nav {
     /* Space inside the nav area */
     background-color: #f8f8f8;
     /* Background color of the navigation bar */
-    border: 10px solid #ddd;
+    border: 1px solid #ddd;
     /* Border around the navigation bar */
     width: auto;
     position: relative;
