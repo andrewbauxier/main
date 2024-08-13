@@ -16,11 +16,11 @@ function loadNav() {
             // Insert the fetched HTML into the <nav> element
             nav.innerHTML = data;
 
-            // Add event listener for the mode toggle button
-            const modeToggle = document.getElementById('mode');
-            if (modeToggle) {
-                // Add click event listener to toggle mode
-                modeToggle.addEventListener('click', toggleMode);
+            // Add event listener for the mode toggle checkbox
+            const modeToggleCheckbox = document.querySelector('.nav-mode-toggle input[type="checkbox"]');
+            if (modeToggleCheckbox) {
+                // Add change event listener to toggle mode
+                modeToggleCheckbox.addEventListener('change', toggleMode);
             }
             
         });
