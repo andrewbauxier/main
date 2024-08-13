@@ -67,6 +67,49 @@ nav {
     justify-content: flex-end;
 }
 
+label {
+    width: 50px;
+    height: 90px;
+    /* Position is necessary for correctly aligning the CSS shape */
+    position: relative;
+    display: block;
+    /* Background, Border Radius, and Box Shadow create the visual representation for the CSS image */
+    background: #dddddd97;
+    /* Changes the shap from a box to an oval */
+    border-radius: 200px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(0, 0, 0, 0.4);
+    /* Creates toggle annimation and ensures animation only affects toggles background, and not position on screen */
+    transition: background 0.4s;
+}
+/* Controls the sun image */
+label::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #fdfd00, #ff9900dd);
+    border-radius: 30px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+/* input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+} */
+
+input:checked + label::after {
+    background-color: #1e1e1e;
+    /* Controls overall position on page after checked */
+    top: 85px;
+    /* Inverts button */
+    transform: translateY(-100%);
+    background: linear-gradient(180deg, blue, navy);
+}
+
 /* Dropdown Styles */
 .dropdown {
     display: none; /* Hide by default */
