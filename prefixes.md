@@ -1,8 +1,6 @@
 # Commit Message Prefixes
 
-<!-- Prefixes may be added or removed as necessary-->
-
-## Table of Contents
+## Table of Contents <!-- Prefixes may be added or removed as necessary-->
 
 1.  [CHORE](#1-chore)
 2.  [FIX](#2-fix)
@@ -12,117 +10,81 @@
 6.  [DOCS](#6-docs)
 7.  [STYLE](#7-style)
 8.  [TEST](#8-test)
-9.  [PERF](#9-perf)
-10. [BUILD](#10-build)
-11. [REVERT](#11-revert)
-12. [CI](#12-ci)
-13. [MERGE](#13-merge)
-14. [SECURITY](#14-security)
-15. [RELEASE](#15-release)
-16. [DEPLOY](#16-deploy)
-17. [HOTFIX](#17-hotfix)
-18. [CONFIG](#18-config)
-19. [INIT](#19-init)
-20. [WIP](#20-wip-work-in-progress)
+9.  [BUILD](#9-build)
+10. [MERGE](#10-merge)
+11. [RELEASE](#11-release)
+12. [SECURE](#12-secure)
+13. [HOTFIX](#13-hotfix)
+14. [WIP](#14-wip)
 
 ---
 
 ### 1. **CHORE**
 
--   **Description**: Used for routine tasks and maintenance work that doesn’t change the functionality of the code.
+-   **Description**: For routine work or updates that don't affect functionality.
 -   **Example**: `CHORE: Update dependencies`
 
 ### 2. **FIX**
 
--   **Description**: Indicates a bug fix that resolves an issue or bug in the code.
+-   **Description**: For bug fixes that resolve an issue or problem in the code.
 -   **Example**: `FIX: Correct header alignment issue`
 
 ### 3. **CLEAN**
 
--   **Description**: Used for cleaning up the repository by removing unused files, temporary data, or any other unnecessary clutter.
+-   **Description**: For removing unused files, code, or other unnecessary clutter.
 -   **Example**: `CLEAN: Remove old test file`
 
 ### 4. **FEAT**
 
--   **Description**: Used when adding a new feature or functionality.
+-   **Description**: For adding new features or functionalities.
 -   **Example**: `FEAT: Add user authentication`
 
 ### 5. **REFACTOR**
 
--   **Description**: For code changes that neither fix a bug nor add a feature but improve the code structure, readability, or performance.
+-   **Description**: For code changes that improve code structure, readability, or performance.
 -   **Example**: `REFACTOR: Simplify user service logic`
 
 ### 6. **DOCS**
 
--   **Description**: For changes related to documentation, such as updating README files, comments, or other documentation-related work.
+-   **Description**: For changes related to documentation (e.g., README, comments).
 -   **Example**: `DOCS: Update API documentation`
 
 ### 7. **STYLE**
 
--   **Description**: Used for code style changes that don’t affect the logic of the code (e.g., formatting, missing semicolons).
+-   **Description**: For code style changes that don't affect functionality (e.g., formatting).
 -   **Example**: `STYLE: Reformat code according to style guide`
 
 ### 8. **TEST**
 
--   **Description**: Used for adding or updating tests (e.g., unit tests, integration tests).
+-   **Description**: For adding or updating tests (e.g., unit tests, integration tests).
 -   **Example**: `TEST: Add unit tests for user service`
 
-### 9. **PERF**
+### 9. **BUILD**
 
--   **Description**: Indicates a change that improves performance.
--   **Example**: `PERF: Optimize image loading`
+-   **Description**: For changes related to the build process or continuous integration.
+-   **Example**: `BUILD: Update CI config for deployment`
 
-### 10. **BUILD**
+### 10. **MERGE**
 
--   **Description**: For changes related to the build process, CI/CD configuration, or dependencies.
--   **Example**: `BUILD: Update webpack configuration`
-
-### 11. **REVERT**
-
--   **Description**: Used when reverting a previous commit.
--   **Example**: `REVERT: Revert "Add user authentication"`
-
-### 12. **CI**
-
--   **Description**: For changes to continuous integration (CI) configuration files and scripts.
--   **Example**: `CI: Update CircleCI config for new deployment`
-
-### 13. **MERGE**
-
--   **Description**: Used when merging branches or resolving merge conflicts.
+-   **Description**: For merging branches or resolving merge conflicts.
 -   **Example**: `MERGE: Merge branch 'feature/auth' into 'main'`
 
-### 14. **SECURITY**
+### 11. **RELEASE**
 
--   **Description**: For security-related changes, such as fixing vulnerabilities.
--   **Example**: `SECURITY: Patch XSS vulnerability`
+-   **Description**: For creating a new release version or deploying code.
+-   **Example**: `RELEASE: Deploy version 1.2.0 to production`
 
-### 15. **RELEASE**
+### 12. **SECURE**
 
--   **Description**: Used when creating a new release version.
--   **Example**: `RELEASE: Version 1.2.0`
+-   **Description**: For security-related changes (e.g., fixing vulnerabilities).
+-   **Example**: `SECURE: Patch XSS vulnerability`
 
-### 16. **DEPLOY**
+### 13. **HOTFIX**
 
--   **Description**: For changes related to deployment.
--   **Example**: `DEPLOY: Deploy to production`
-
-### 17. **HOTFIX**
-
--   **Description**: Used for urgent bug fixes that are critical and need to be fixed immediately.
+-   **Description**: For urgent bug fixes that are critical and need immediate attention.
 -   **Example**: `HOTFIX: Fix critical issue in payment processing`
 
-### 18. **CONFIG**
+### 14. **WIP**
 
--   **Description**: For changes related to configuration files.
--   **Example**: `CONFIG: Update environment variables`
-
-### 19. **INIT**
-
--   **Description**: Used for the initial commit of a project.
--   **Example**: `INIT: Initial project setup`
-
-### 20. **WIP** (Work in Progress)
-
--   **Description**: Indicates a work-in-progress commit that isn’t ready for release.
+-   **Description**: For work-in-progress commits that aren't ready for release.
 -   **Example**: `WIP: Implement user profile page`
