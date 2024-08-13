@@ -74,7 +74,7 @@ label {
     position: relative;
     display: block;
     /* Background, Border Radius, and Box Shadow create the visual representation for the CSS image */
-    background: #dddddd97;
+    background: #bebebe;
     /* Changes the shap from a box to an oval */
     border-radius: 200px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(0, 0, 0, 0.4);
@@ -89,6 +89,7 @@ label::after {
     position: absolute;
     top: 5px;
     left: 5px;
+    background-color: #131313;
     background: linear-gradient(180deg, #fdfd00, #ff9900dd);
     border-radius: 30px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
@@ -101,8 +102,12 @@ label::after {
     visibility: hidden;
 } */
 
+/* Change the background of the oval shape and the sun's position when checked */
+input:checked + label {
+    background: #6c6c6c; /* New background color for the oval shape */
+}
+
 input:checked + label::after {
-    background-color: #1e1e1e;
     /* Controls overall position on page after checked */
     top: 85px;
     /* Inverts button */
