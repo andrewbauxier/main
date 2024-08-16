@@ -1,27 +1,29 @@
 <!-- nav.html -->
 <nav>
     <div class="logo">
-        <img src="..\img\aaDesignLogoCropped.webp" alt="Double A Design Logo" />
+        <a href="landing.html"> <img src="..\img\aaDesignLogoCropped.webp" alt="Double A Design Logo" /></a>
     </div>
-    <div class="nav-sections">
-        <div class="nav-right">
-            <div class="nav-links-container">
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Legal</a>
-            </div>
-            <div class="dropdown">
-                <button class="dropdown-button">Menu</button>
-                <div class="dropdown-content">
+    <header>
+        <div class="nav-sections">
+            <div class="nav-right">
+                <div class="nav-links-container">
                     <a href="#">About</a>
                     <a href="#">Services</a>
-                    <a href="#">Legal</a>
+                    <a href="legal.html">Legal</a>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-button">Menu</button>
+                    <div class="dropdown-content">
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="legal.html">Legal</a>
+                    </div>
                 </div>
             </div>
+            <div class="nav-mode-toggle">
+                <input type="checkbox" id="toggle-mode-checkbox" />
+                <label for="toggle-mode-checkbox"></label>
+            </div>
         </div>
-        <div class="nav-mode-toggle">
-            <input type="checkbox" id="toggle-mode-checkbox" />
-            <label for="toggle-mode-checkbox"></label>
-        </div>
-    </div>
+    </header>
 </nav>
