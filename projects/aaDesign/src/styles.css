@@ -3,6 +3,7 @@ project: aaDesign
 module: styles.css
 author: andrew b. auxier 
  */
+
 /* General body styles */
 body {
     display: flex;
@@ -23,10 +24,8 @@ a {
 nav {
     display: flex;
     align-items: center;
-    border: 1px none black;
     background-color: #ddddddee;
     width: 100%;
-    position: relative;
     justify-content: space-between;
     box-sizing: border-box;
 }
@@ -39,7 +38,6 @@ nav {
 
 .logo img {
     display: flex;
-    align-items: flex-start;
     height: 100px;
     width: 50px;
 }
@@ -66,27 +64,23 @@ nav {
 
 /* Mode toggle container */
 .nav-mode-toggle {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 0 10px;
     display: flex;
     justify-content: flex-end;
 }
 
+/* Toggle switch styles */
 label {
     width: 50px;
     height: 90px;
-    /* Position is necessary for correctly aligning the CSS shape */
     position: relative;
     display: block;
-    /* Background, Border Radius, and Box Shadow create the visual representation for the CSS image */
     background: #bebebe;
-    /* Changes the shap from a box to an oval */
     border-radius: 200px;
-    /* Creates shadows to give dwitch 3d effect*/
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(0, 0, 0, 0.4);
-    /* Creates toggle annimation and ensures animation only affects toggles background, and not position on screen */
     transition: background 0.4s;
 }
+
 /* Controls the sun image */
 label::after {
     content: "";
@@ -95,7 +89,6 @@ label::after {
     position: absolute;
     top: 5px;
     left: 5px;
-    background-color: #131313;
     background: linear-gradient(180deg, #fdfd00, #ff9900dd);
     border-radius: 30px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
@@ -103,27 +96,23 @@ label::after {
 }
 
 input {
-    width: 0;
-    height: 0;
     visibility: hidden;
 }
 
 /* Change the background of the oval shape and the sun's position when checked */
 input:checked + label {
-    background: #6c6c6c; /* New background color for the oval shape */
+    background: #6c6c6c;
 }
 
 input:checked + label::after {
-    /* Controls overall position on page after checked */
     top: 85px;
-    /* Inverts button */
     transform: translateY(-100%);
     background: linear-gradient(180deg, blue, navy);
 }
 
 /* Dropdown Styles */
 .dropdown {
-    display: none; /* Hide by default */
+    display: none;
     margin-left: 10px;
 }
 
@@ -141,7 +130,7 @@ input:checked + label::after {
     position: absolute;
     background-color: #ddddddee;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(65, 65, 65, 0.2);
+    box-shadow: 0px 8px 16px rgba(65, 65, 65, 0.2);
     z-index: 10;
     top: 100%;
     left: 0;
@@ -149,26 +138,23 @@ input:checked + label::after {
 }
 
 .dropdown:focus-within .dropdown-content {
-    display: flex; /* Display dropdown items vertically */
+    display: flex;
 }
 
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
-    text-decoration: none;
-    display: block;
 }
 
+/* Banner image */
 .under-nav-banner {
-    display: flex;
     width: 100%;
     height: auto;
     max-width: 100%;
-    display: block;
 }
+
 /* Main content area */
 .content {
-    border-style: none;
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -177,11 +163,11 @@ input:checked + label::after {
 /* Responsive Styles for Navigation */
 @media (max-width: 450px) {
     .nav-links-container {
-        display: none; /* Hide the normal links */
+        display: none;
     }
 
     .dropdown {
-        display: block; /* Show the dropdown button */
+        display: block;
     }
 
     .nav-mode-toggle {
@@ -189,14 +175,13 @@ input:checked + label::after {
     }
 }
 
-/* Styles for larger screens */
 @media (min-width: 451px) {
     .dropdown {
-        display: none; /* Hide the dropdown button */
+        display: none;
     }
 
     .nav-links-container {
-        display: flex; /* Show the normal links */
+        display: flex;
     }
 }
 
@@ -208,7 +193,6 @@ body.mode {
 
 body.mode nav {
     background-color: #1e1e1e;
-    border-color: #333;
 }
 
 body.mode .nav-links-container a {
@@ -226,33 +210,28 @@ body.mode .dropdown-content a {
 
 body.mode footer {
     background-color: #1e1e1e;
-    border-color: #333;
 }
 
-/* Dark mode styles for language switcher */
 body.mode .language-switcher-container {
     background-color: #1e1e1e;
     color: #bbb;
     border: 3px solid #333;
 }
 
-/* Optionally, style the select dropdown itself */
 body.mode .language-switcher-container select {
     background-color: #6c6c6c;
     color: #fff;
-    border: none;
 }
 
-/* Optionally, style the select options in dark mode */
 body.mode .language-switcher-container select option {
     background-color: #6c6c6c;
     color: #fff;
 }
 
+/* Language switcher styles */
 .language-switcher {
     display: flex;
-    align-items: end;
-    justify-content: right;
+    justify-content: flex-end;
     margin: 5px;
     padding: 5px;
     border-radius: 100px;
@@ -261,40 +240,34 @@ body.mode .language-switcher-container select option {
 /* Footer styles */
 footer {
     display: flex;
-    flex: 1;
-    position: fixed;
+    position: sticky;
     bottom: 0;
-    left: 0;
     width: 100%;
     background-color: #f8f8f8;
-    border-top: 1px solid #ddddddee;
+    border-top: 2px solid #ddddddee;
     padding: 5px;
-    box-sizing: border-box;
-    justify-content: center; /* Center the content */
+    justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 20px; /* Optional: space out elements */
+    box-sizing: border-box;
 }
 
 /* Container for copyright info */
 .footer-content-container {
     flex: 1;
-    text-align: center; /* Ensure content stays centered */
 }
 
-/* Language switcher styles */
+/* Language switcher container */
 .language-switcher-container {
-    margin-left: auto; /* Push language switcher to the far right */
+    margin-left: auto;
     margin-right: 5px;
     display: flex;
     align-items: center;
     padding: 5px;
     border-radius: 100px;
-    right: 5px; /* Align the switcher to the right edge */
-    bottom: 5px; /* Align the switcher to the bottom edge */
 }
 
 /* Remove margin from paragraph inside footer */
 .footer-content p {
-    margin: 0px;
+    margin: 0;
 }
