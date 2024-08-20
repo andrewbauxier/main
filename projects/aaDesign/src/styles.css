@@ -4,10 +4,43 @@ module: styles.css
 author: andrew b. auxier 
  */
 
+/* Fonts */
+/* Define the regular (normal weight, normal style) Open Sans font */
+@font-face {
+    font-family: "OpenSans"; /* Name to use when referencing this font in CSS */
+    src: url("/fonts/OpenSans/static/OpenSans-Regular.ttf") format("truetype"); /* Path to the regular font file */
+    font-weight: normal; /* Standard font weight */
+    font-style: normal; /* Standard font style */
+}
+
+/* Define the bold version of Open Sans */
+@font-face {
+    font-family: "OpenSans"; /* Same font family name */
+    src: url("/fonts/OpenSans/static/OpenSans-Bold.ttf") format("truetype"); /* Path to the bold font file */
+    font-weight: bold; /* Bold font weight */
+    font-style: normal; /* Standard font style */
+}
+
+/* Define the italic version of Open Sans */
+@font-face {
+    font-family: "OpenSans"; /* Same font family name */
+    src: url("/fonts/OpenSans/static/OpenSans-Italic.ttf") format("truetype"); /* Path to the italic font file */
+    font-weight: normal; /* Standard font weight */
+    font-style: italic; /* Italic font style */
+}
+
+/* Use the font in your styles, with Arial as a fallback */
+body {
+    font-family: "OpenSans", Arial, sans-serif; /* Fallback to Arial if Open Sans isn't available */
+}
+
+/* ALL */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "OpenSans", Arial, sans-serif;
 }
 
 /* Element-specific styles */
@@ -34,53 +67,42 @@ img {
 
 /* General body styles */
 body {
-    display: flex;
     font-family: Arial, sans-serif;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
-    min-height: fit-content;
-    width: 100%;
 }
 
 /* Navigation bar styles */
-nav {
-    display: flex;
-    align-items: center;
+.navbar {
     background-color: #ddddddee;
-    width: 100%;
-    justify-content: space-between;
-    box-sizing: border-box;
+}
+
+.navbar .container-lg {
+    display: flex;
 }
 
 /* Logo styles */
 .logo {
-    display: flex;
     align-items: center;
 }
 
 .logo img {
-    display: flex;
     height: 100px;
     width: 50px;
 }
 
 /* Container for navigation links and mode toggle */
 .nav-sections {
-    display: flex;
     align-items: center;
 }
 
 /* Right section of nav containing links and toggle */
 .nav-right {
-    display: flex;
     gap: 20px;
     align-items: center;
 }
 
 /* Links container */
 .nav-links-container {
-    display: flex;
     gap: 20px;
     font-size: 24px;
 }
