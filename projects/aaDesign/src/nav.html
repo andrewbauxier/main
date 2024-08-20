@@ -4,33 +4,28 @@ module: nav.html
 author: andrew b. auxier
 -->
 
-<nav>
-    <div class="container-lg"></div>
-        <div class="logo">
-            <a href="landing.html"> <img src="../img/aaDesignLogoCropped.webp" alt="Double A Design Logo" /></a>
+<nav class="navbar">
+    <!-- Logo -->
+    <a href="landing.html" class="logo">
+        <img src="../img/aaDesignLogoCropped.webp" alt="Clickable Company Logo" />
+    </a>
+
+    <!-- Navigation links -->
+    <a id="nav-about" href="#">About</a>
+    <a id="nav-services" href="#">Services</a>
+    <a id="nav-legal" href="legal.html">Legal</a>
+
+    <!-- Dropdown menu for mobile view -->
+    <div class="dropdown">
+        <button id="nav-menu" class="dropdown-button">Menu</button>
+        <div class="dropdown-content">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="legal.html">Legal</a>
         </div>
-        <span>
-            <div class="nav-sections">
-                <div class="nav-right">
-                    <div class="nav-links-container">
-                        <a id="nav-about" href="#">About</a>
-                        <a id="nav-services" href="#">Services</a>
-                        <a id="nav-legal" href="legal.html">Legal</a>
-                    </div>
-                    <div class="dropdown">
-                        <button id="nav-menu" class="dropdown-button">Menu</button>
-                        <div class="dropdown-content">
-                            <a href="#">About</a>
-                            <a href="#">Services</a>
-                            <a href="legal.html">Legal</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-mode-toggle">
-                    <input type="checkbox" id="toggle-mode-checkbox" />
-                    <label for="toggle-mode-checkbox"></label>
-                </div>
-            </div>
-        </div>
-    </span>
+    </div>
+
+    <!-- Mode toggle -->
+    <input type="checkbox" id="toggle-mode-checkbox" />
+    <label for="toggle-mode-checkbox"></label>
 </nav>

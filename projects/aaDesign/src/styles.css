@@ -2,45 +2,32 @@
 project: aaDesign
 module: styles.css
 author: andrew b. auxier 
- */
+*/
 
 /* Fonts */
-/* Define the regular (normal weight, normal style) Open Sans font */
+/* Variable font for normal and bold styles */
 @font-face {
-    font-family: "OpenSans"; /* Name to use when referencing this font in CSS */
-    src: url("/fonts/OpenSans/static/OpenSans-Regular.ttf") format("truetype"); /* Path to the regular font file */
-    font-weight: normal; /* Standard font weight */
-    font-style: normal; /* Standard font style */
+    font-family: "OpenSans";
+    src: url("/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 1 1000;
+    font-style: normal;
 }
 
-/* Define the bold version of Open Sans */
+/* Variable font for italic styles */
 @font-face {
-    font-family: "OpenSans"; /* Same font family name */
-    src: url("/fonts/OpenSans/static/OpenSans-Bold.ttf") format("truetype"); /* Path to the bold font file */
-    font-weight: bold; /* Bold font weight */
-    font-style: normal; /* Standard font style */
+    font-family: "OpenSans";
+    src: url("/fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 1 1000;
+    font-style: italic;
 }
 
-/* Define the italic version of Open Sans */
-@font-face {
-    font-family: "OpenSans"; /* Same font family name */
-    src: url("/fonts/OpenSans/static/OpenSans-Italic.ttf") format("truetype"); /* Path to the italic font file */
-    font-weight: normal; /* Standard font weight */
-    font-style: italic; /* Italic font style */
-}
-
-/* Use the font in your styles, with Arial as a fallback */
-body {
-    font-family: "OpenSans", Arial, sans-serif; /* Fallback to Arial if Open Sans isn't available */
-}
-
-/* ALL */
-
+/* General styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "OpenSans", Arial, sans-serif;
+    max-width: 1920px;
 }
 
 /* Element-specific styles */
@@ -52,122 +39,54 @@ img {
     max-width: 100%;
 }
 
-/* Utility Classes */
-.container-lg {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.container-sm {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* General body styles */
 body {
-    font-family: Arial, sans-serif;
     flex-direction: column;
+    font-family: "OpenSans", Arial, sans-serif;
 }
 
 /* Navigation bar styles */
 .navbar {
     background-color: #ddddddee;
-}
-
-.navbar .container-lg {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Logo styles */
-.logo {
-    align-items: center;
-}
-
 .logo img {
     height: 100px;
     width: 50px;
-}
-
-/* Container for navigation links and mode toggle */
-.nav-sections {
-    align-items: center;
-}
-
-/* Right section of nav containing links and toggle */
-.nav-right {
-    gap: 20px;
-    align-items: center;
-}
-
-/* Links container */
-.nav-links-container {
-    gap: 20px;
-    font-size: 24px;
-}
-
-/* Mode toggle container */
-.nav-mode-toggle {
-    margin: 0 10px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Toggle switch styles */
-label {
-    width: 50px;
-    height: 90px;
-    position: relative;
     display: block;
-    background: #bebebe;
-    border-radius: 200px;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(0, 0, 0, 0.4);
-    transition: background 0.4s;
+    margin-right: 50px;
+    position: relative;
 }
 
-/* Controls the sun image */
-label::after {
-    content: "";
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background: linear-gradient(180deg, #fdfd00, #ff9900dd);
-    border-radius: 30px;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
-    transition: 0.4s;
+/* Navigation links directly within the navbar */
+.navbar a {
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-input {
-    visibility: hidden;
-}
-
-/* Change the background of the oval shape and the sun's position when checked */
-input:checked + label {
-    background: #6c6c6c;
-}
-
-input:checked + label::after {
-    top: 85px;
-    transform: translateY(-100%);
-    background: linear-gradient(180deg, blue, navy);
+.navbar a:hover {
+    color: #000098;
 }
 
 /* Dropdown Styles */
 .dropdown {
     display: none;
-    margin-left: 10px;
+    position: relative;
 }
 
 .dropdown-button {
     background-color: #000098;
     color: #fdfd00;
     padding: 10px;
+    border-radius: 100px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .dropdown-content {
@@ -175,7 +94,7 @@ input:checked + label::after {
     position: absolute;
     background-color: #ddddddee;
     min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(65, 65, 65, 0.2);
+    box-shadow: 0 8px 16px rgba(65, 65, 65, 0.2);
     z-index: 10;
     top: 100%;
     left: 0;
@@ -191,6 +110,46 @@ input:checked + label::after {
     padding: 12px 16px;
 }
 
+/* Mode toggle */
+label {
+    width: 50px;
+    height: 90px;
+    margin-right: 10px;
+    background: #bebebe;
+    border-radius: 200px;
+    transition: background 0.4s;
+    margin-left: 10px;
+    position: relative;
+    display: block;
+}
+
+label::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #fdfd00, #ff9900dd);
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+input {
+    visibility: hidden;
+}
+
+input:checked + label {
+    background: #6c6c6c;
+}
+
+input:checked + label::after {
+    top: 85px;
+    transform: translateY(-100%);
+    background: linear-gradient(180deg, blue, navy);
+}
+
 /* Banner image */
 .under-nav-banner {
     width: 100%;
@@ -202,12 +161,11 @@ input:checked + label::after {
 .content {
     padding: 10px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 /* Responsive Styles for Navigation */
 @media (max-width: 450px) {
-    .nav-links-container {
+    .navbar a:not(.logo) {
         display: none;
     }
 
@@ -215,8 +173,8 @@ input:checked + label::after {
         display: block;
     }
 
-    .nav-mode-toggle {
-        margin-left: 10px;
+    label {
+        margin-left: 0;
     }
 }
 
@@ -225,8 +183,8 @@ input:checked + label::after {
         display: none;
     }
 
-    .nav-links-container {
-        display: flex;
+    .navbar a:not(.logo) {
+        display: block;
     }
 }
 
@@ -240,7 +198,7 @@ body.mode nav {
     background-color: #1e1e1e;
 }
 
-body.mode .nav-links-container a {
+body.mode .navbar a {
     color: #bbb;
 }
 
@@ -255,64 +213,28 @@ body.mode .dropdown-content a {
 
 body.mode footer {
     background-color: #1e1e1e;
-}
-
-body.mode .language-switcher-container {
-    background-color: #1e1e1e;
     color: #bbb;
-    border: 3px solid #333;
+    border-top: 2px solid #333; /* Make the border more subtle in night mode */
 }
-
-body.mode .language-switcher-container select {
-    background-color: #6c6c6c;
-    color: #fff;
-}
-
-body.mode .language-switcher-container select option {
-    background-color: #6c6c6c;
-    color: #fff;
-}
-
-/* Language switcher styles */
-.language-switcher {
-    display: flex;
-    justify-content: flex-end;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 100px;
-}
-
 /* Footer styles */
 footer {
-    display: flex;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
     background-color: #f8f8f8;
     border-top: 2px solid #ddddddee;
     padding: 5px;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     box-sizing: border-box;
 }
 
-/* Container for copyright info */
-.footer-content-container {
-    flex: 1;
-}
-
-/* Language switcher container */
-.language-switcher-container {
-    margin-left: auto;
-    margin-right: 5px;
-    display: flex;
-    align-items: center;
+/* Language switcher styles */
+#language-switcher {
+    margin: 5px;
     padding: 5px;
     border-radius: 100px;
+    background-color: #6c6c6c;
+    color: #fff;
 }
 
-/* Remove margin from paragraph inside footer */
-.footer-content p {
-    margin: 0;
+#language-switcher option {
+    background-color: #6c6c6c;
+    color: #fff;
 }

@@ -5,6 +5,9 @@
 // Function to toggle between light and dark mode
 function toggleMode() {
     try {
+        // Debug log to check if the function is executing
+        console.log('Mode toggled');
+        
         // Toggle the 'mode' class on the body element
         document.body.classList.toggle('mode');
     } catch (error) {
@@ -16,15 +19,13 @@ function toggleMode() {
 function loadTranslations(language) {
     fetch(`/translations/${language}.json`)
         .then((response) => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch translations: ${response.statusText}`);
-            }
-            return response.json(); // Convert the response to JSON
+            if (!response.ok) throw new Error(`Failed to fetch translations: ${response.statusText}`);
+            return response.json();
         })
         .then((translations) => {
             console.log('Loaded Translations:', translations);
 
-            // Update the navigation content with translations
+            // Update navigation content
             try {
                 document.getElementById('nav-about').textContent = translations.nav.about;
                 document.getElementById('nav-services').textContent = translations.nav.services;
@@ -34,14 +35,14 @@ function loadTranslations(language) {
                 console.error('ERROR UPDATING NAVIGATION CONTENT:', error);
             }
 
-            // Update the footer content with translations
+            // Update footer content
             try {
-                document.getElementById('footer-copyright').textContent = translations.footer.copyright;
+                document.getElementById('footer').textContent = translations.footer.copyright;
             } catch (error) {
                 console.error('ERROR UPDATING FOOTER CONTENT:', error);
             }
 
-            // Update the landing page content with translations
+            // Update landing page content
             try {
                 if (document.getElementById('landing-welcome')) {
                     document.getElementById('landing-welcome').textContent = translations.landing.welcome;
@@ -61,15 +62,14 @@ function loadTranslations(language) {
 function handleLanguageSwitch() {
     try {
         const languageSwitcher = document.getElementById('language-switcher');
-        const selectedLanguage = localStorage.getItem('language') || 'en'; // Default to English
-        loadTranslations(selectedLanguage); // Load the translations when the page loads
+        const selectedLanguage = localStorage.getItem('language') || 'en';
+        loadTranslations(selectedLanguage);
 
-        // Set the value of the language switcher dropdown to the selected language
         languageSwitcher.value = selectedLanguage;
         languageSwitcher.addEventListener('change', (event) => {
             const selectedLanguage = event.target.value;
-            loadTranslations(selectedLanguage); // Load translations based on user selection
-            localStorage.setItem('language', selectedLanguage); // Save the selected language in localStorage
+            loadTranslations(selectedLanguage);
+            localStorage.setItem('language', selectedLanguage);
         });
     } catch (error) {
         console.error('ERROR HANDLING LANGUAGE SWITCH:', error);
@@ -80,18 +80,15 @@ function handleLanguageSwitch() {
 function loadNav() {
     return fetch('nav.html')
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`FAILED TO LOAD nav.html: ${response.statusText}`);
-            }
-            return response.text(); // Convert the response to text
+            if (!response.ok) throw new Error(`FAILED TO LOAD nav.html: ${response.statusText}`);
+            return response.text();
         })
         .then(data => {
             try {
-                const nav = document.querySelector('nav');
-                nav.innerHTML = data; // Insert the fetched HTML into the <nav> element
-
+                document.querySelector('nav').innerHTML = data;
+                
                 // Add event listener for the mode toggle checkbox
-                const modeToggleCheckbox = document.querySelector('.nav-mode-toggle input[type="checkbox"]');
+                const modeToggleCheckbox = document.getElementById('toggle-mode-checkbox');
                 if (modeToggleCheckbox) {
                     modeToggleCheckbox.addEventListener('change', toggleMode);
                 }
@@ -108,14 +105,12 @@ function loadNav() {
 function loadFooter() {
     return fetch('footer.html')
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`FAILED TO LOAD footer.html: ${response.statusText}`);
-            }
-            return response.text(); // Convert the response to text
+            if (!response.ok) throw new Error(`FAILED TO LOAD footer.html: ${response.statusText}`);
+            return response.text();
         })
         .then(data => {
             try {
-                document.querySelector('footer').innerHTML = data; // Insert the fetched HTML into the <footer> element
+                document.querySelector('footer').innerHTML = data;
             } catch (error) {
                 console.error('ERROR INSERTING FOOTER CONTENT:', error);
             }
@@ -129,9 +124,7 @@ function loadFooter() {
 function initializePage() {
     try {
         Promise.all([loadNav(), loadFooter()])
-            .then(() => {
-                handleLanguageSwitch(); // Re-run the translation logic after both nav and footer are fully loaded
-            })
+            .then(handleLanguageSwitch)
             .catch((error) => {
                 console.error('ERROR INITIALIZING PAGE PROMISE:', error);
             });
@@ -140,11 +133,5 @@ function initializePage() {
     }
 }
 
-// Call the function to load the navigation bar and footer when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-        initializePage(); // Initialize the page after loading nav and footer
-    } catch (error) {
-        console.error('ERROR LOADING PAGE CONTENT:', error);
-    }
-});
+// Initialize page after content is loaded
+document.addEventListener('DOMContentLoaded', initializePage);
