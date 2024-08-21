@@ -22,6 +22,20 @@ author: andrew b. auxier
 }
 
 /* General styles */
+:root {
+    /* Light Mode Colors */
+    --light-dark-tone: #333333; /* Dark grey */
+    --light-mid-tone: #dddddd; /* Light grey */
+    --light-light-tone: #ffffff; /* Pure white */
+    --light-darkest-tone: #1a1a1a; /* Darkest grey */
+
+    /* Dark Mode Colors */
+    --dark-dark-tone: #121212; /* Almost black */
+    --dark-mid-tone: #333333; /* Dark grey */
+    --dark-light-tone: #bbbbbb; /* Light grey */
+    --dark-darkest-tone: #0a0a0a; /* Almost pitch black */
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,7 +60,7 @@ body {
 
 /* Navigation bar styles */
 .navbar {
-    background-color: #ddddddee;
+    background-color: var(--light-light-tone);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,7 +77,7 @@ body {
 
 /* Navigation links directly within the navbar */
 .navbar a {
-    color: #000;
+    color: var(--light-dark-tone);
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -92,7 +106,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #ddddddee;
+    background-color: var(--light-mid-tone);
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(65, 65, 65, 0.2);
     z-index: 10;
@@ -106,23 +120,25 @@ body {
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--light-dark-tone);
     padding: 12px 16px;
 }
 
 /* Mode toggle */
+/* Styling the label that acts as the toggle switch */
 label {
     width: 50px;
     height: 90px;
     margin-right: 10px;
-    background: #bebebe;
+    background: var(--light-mid-tone); /* Background color for light mode */
     border-radius: 200px;
-    transition: background 0.4s;
+    transition: background 0.4s; /* Smooth transition when toggling modes */
     margin-left: 10px;
     position: relative;
     display: block;
 }
 
+/* The circular switch inside the toggle */
 label::after {
     content: "";
     width: 40px;
@@ -130,24 +146,27 @@ label::after {
     position: absolute;
     top: 5px;
     left: 5px;
-    background: linear-gradient(180deg, #fdfd00, #ff9900dd);
+    background: linear-gradient(180deg, #fdfd00, #ff9900dd); /* Gradient for the switch in light mode */
     border-radius: 30px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-    transition: 0.4s;
+    transition: 0.4s; /* Smooth transition when the switch moves */
 }
 
+/* Hides the actual checkbox, only the label is visible */
 input {
     visibility: hidden;
 }
 
+/* When the checkbox is checked (dark mode), apply these styles */
 input:checked + label {
-    background: #6c6c6c;
+    background: var(--dark-mid-tone); /* Background color for dark mode */
 }
 
+/* Move the switch to the bottom and change its color for dark mode */
 input:checked + label::after {
     top: 85px;
     transform: translateY(-100%);
-    background: linear-gradient(180deg, blue, navy);
+    background: linear-gradient(180deg, blue, navy); /* Gradient for the switch in dark mode */
 }
 
 /* Banner image */
@@ -190,36 +209,37 @@ input:checked + label::after {
 
 /* Dark mode styles */
 body.mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: var(--dark-darkest-tone);
+    color: var(--dark-light-tone);
 }
 
 body.mode nav {
-    background-color: #1e1e1e;
+    background-color: var(--dark-darkest-tone);
 }
 
 body.mode .navbar a {
-    color: #bbb;
+    color: var(--dark-light-tone);
 }
 
 body.mode .dropdown-content {
-    background-color: #1e1e1e;
+    background-color: var(--dark-mid-tone);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 body.mode .dropdown-content a {
-    color: #bbb;
+    color: var(--dark-light-tone);
 }
 
 body.mode footer {
-    background-color: #1e1e1e;
-    color: #bbb;
-    border-top: 2px solid #333; /* Make the border more subtle in night mode */
+    background-color: var(--dark-mid-tone);
+    color: var(--dark-light-tone);
+    border-top: 2px solid var(--dark-light-tone);
 }
+
 /* Footer styles */
 footer {
-    background-color: #f8f8f8;
-    border-top: 2px solid #ddddddee;
+    background-color: var(--light-mid-tone);
+    border-top: 2px solid var(--light-dark-tone);
     padding: 5px;
     text-align: center;
     box-sizing: border-box;
@@ -230,11 +250,11 @@ footer {
     margin: 5px;
     padding: 5px;
     border-radius: 100px;
-    background-color: #6c6c6c;
-    color: #fff;
+    background-color: var(--light-mid-tone);
+    color: var(--dark-darkest-tone);
 }
 
 #language-switcher option {
-    background-color: #6c6c6c;
+    background-color: var(--light-dark-tone);
     color: #fff;
 }
