@@ -47,6 +47,12 @@ function loadTranslations(language) {
                 if (document.getElementById('landing-aboutUsTitle')) {
                     document.getElementById('landing-aboutUsTitle').textContent = translations.landing.aboutUsTitle;
                     document.getElementById('landing-aboutUsText').textContent = translations.landing.aboutUsText;
+
+                    document.getElementById('landing-aboutUsSubheading1').textContent = translations.landing.aboutUsSubheading1;
+                    document.getElementById('landing-aboutUsSubtext1').textContent = translations.landing.aboutUsSubtext1;
+                    document.getElementById('landing-aboutUsSubheading2').textContent = translations.landing.aboutUsSubheading2;
+                    document.getElementById('landing-aboutUsSubtext2').textContent = translations.landing.aboutUsSubtext2;
+
                 }
             } catch (error) {
                 console.error('ERROR UPDATING LANDING PAGE CONTENT:', error);
