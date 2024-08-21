@@ -48,6 +48,9 @@ author: andrew b. auxier
 a {
     text-decoration: none;
 }
+li {
+    text-decoration: none;
+}
 
 img {
     max-width: 100%;
@@ -75,14 +78,27 @@ body {
     position: relative;
 }
 
-/* Navigation links directly within the navbar */
-.navbar a {
+/* Main menu list styling */
+.navbar .main-menu {
+    list-style-type: none; /* Remove default list bullet points */
+    display: flex; /* Align list items horizontally */
+}
+
+/* Styling for each list item */
+.navbar .main-menu li {
+    margin-right: 20px; /* Space between each link */
+}
+
+/* Styling for the links */
+.navbar .main-menu li a {
     color: var(--light-dark-tone);
     font-weight: bold;
     transition: color 0.3s;
+    text-decoration: none; /* Remove underline */
 }
 
-.navbar a:hover {
+/* Hover effect */
+.navbar .main-menu li a:hover {
     color: #000098;
 }
 
@@ -132,7 +148,7 @@ label {
     margin-right: 10px;
     background: var(--light-mid-tone); /* Background color for light mode */
     border-radius: 200px;
-    transition: background 0.4s; /* Smooth transition when toggling modes */
+    transition: 0.4s; /* Smooth transition when toggling modes */
     margin-left: 10px;
     position: relative;
     display: block;
@@ -227,13 +243,13 @@ body.mode .dropdown-content {
 }
 
 body.mode .dropdown-content a {
-    color: var(--dark-light-tone);
+    color: var(--dark-mid-tone);
 }
 
 body.mode footer {
     background-color: var(--dark-mid-tone);
     color: var(--dark-light-tone);
-    border-top: 2px solid var(--dark-light-tone);
+    border-top: 2px solid var(--dark-mid-tone);
 }
 
 /* Footer styles */
@@ -250,11 +266,11 @@ footer {
     margin: 5px;
     padding: 5px;
     border-radius: 100px;
-    background-color: var(--light-mid-tone);
-    color: var(--dark-darkest-tone);
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
 }
 
 #language-switcher option {
-    background-color: var(--light-dark-tone);
-    color: #fff;
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
 }
