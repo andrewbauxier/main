@@ -59,23 +59,20 @@ body {
     margin-right: auto;
     margin-left: auto;
     max-width: 1000px;
+    min-width: 375px;
 }
 
 p {
-    /* 
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px; */
     line-height: 1.5em;
     text-align: justify;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 40px;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 /* Navigation bar styles */
@@ -98,7 +95,7 @@ h2 {
 .navbar .main-menu {
     list-style-type: none; /* Remove default list bullet points */
     display: flex; /* Align list items horizontally */
-    margin-right: 150px;
+    margin-right: 100px;
 }
 
 /* Styling for each list item */
@@ -127,7 +124,7 @@ h2 {
 .dropdown-button {
     position: absolute;
     top: 22px;
-    right: 100px;
+    right: 120px;
     background-color: #000098;
     color: #fdfd00;
     padding: 20px;
@@ -135,7 +132,6 @@ h2 {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
 }
 
 .dropdown-content {
@@ -163,15 +159,15 @@ h2 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px;
+    width: 90px;
     height: 100px;
     background-color: #fdfd00;
 }
 
 /* Language switcher styles */
 #language-switcher {
-    margin: 15px;
-    padding: 15px;
+    margin: 5px;
+    padding: 5px;
     border-radius: 100px;
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
@@ -263,7 +259,7 @@ input:checked + label::after {
 }
 
 /* Responsive Styles for Navigation */
-@media (max-width: 450px) {
+@media (max-width: 501px) {
     .navbar a:not(.logo) {
         display: none;
     }
@@ -277,7 +273,7 @@ input:checked + label::after {
     }
 }
 
-@media (min-width: 451px) {
+@media (min-width: 500px) {
     .dropdown {
         display: none;
     }
