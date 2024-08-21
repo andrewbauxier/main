@@ -1,21 +1,20 @@
 {
     "nav": {
-      "about": "アバウト",
-      "services": "サービス",
-      "legal": "法務",
-      "menu": "メニュー"
+        "about": "アバウト",
+        "services": "サービス",
+        "legal": "法務",
+        "menu": "メニュー"
     },
     "footer": {
-      "copyright": "© 2023 ダブル A デザイン. すべての権利を保有します。"
+        "copyright": "© 2023 ダブル A デザイン. すべての権利を保有します。"
     },
     "landing": {
-      "welcome": "AAデザインへようこそ",
-      "aboutUsTitle": "私たちについて",
-      "aboutUsText": "私たちは神奈川県綾瀬市にある地元のウェブサイトデザインスタジオです。シンプルなWordPressサイトから、複雑でスケーラブルなアプリケーションまで、さまざまなオンラインプレゼンスを提供しています。どんな目標であっても、必ずあなたのニーズに応えます。過去のプロジェクトをこちらでご覧いただき、私たちのサービスがあなたのデジタルな夢を現実にする方法をぜひご確認ください。",
-      "aboutUsSubheading1": "Japanese to English Translation",
-      "aboutUsSubtext1": "Translations are done by a Japanese translator and checked by an American, native-level English speaker with a Bachelor of Science in Business Administration (BSBA). We promise high-quality, business-level Japanese to English translation, so you can rest assured that even native-level English speakers will find your content to flow and sound natural. We can also provide translation for documents of all types, and transcription of audio and video data.",
-      "aboutUsSubheading2": "Website Creation",
-      "aboutUsSubtext2": "Want to get a website, but do not know how? Advertise and sell to customers outside of Japan? Own a website you can alter yourself easily? Do all this for a low budget? Please consult us and we can assist you with all of these. Feel free to ask questions and we will support you according to our ethics of kindness, politeness, and speed. We also support standalone english websites and pages"
+        "aboutUsTitle": "私たちについて",
+        "aboutUsText": "私たちは神奈川県綾瀬市にある地元のウェブサイトデザインスタジオです。シンプルなWordPressサイトから、複雑でスケーラブルなアプリケーションまで、さまざまなオンラインプレゼンスを提供しています。どんな目標であっても、必ずあなたのニーズに応えます。過去のプロジェクトをこちらでご覧いただき、私たちのサービスがあなたのデジタルな夢を現実にする方法をぜひご確認ください。",
+        "aboutUsSubheading1": "日英翻訳",
+        "aboutUsSubtext1": "日本人が翻訳した物をビジネス学位を持ったアメリカ人がネイティブチェックいたします。 ネイティブにも違和感のないのはもちろん、ビジネスレベルでの高クオリティなサービスをお約束！ 翻訳以外にもYouTubeなどの動画・会議の音声データなどの英語文字起こし、英文の添削・ネイティブチェックもいたします。",
+        "aboutUsSubheading2": "ホームページ制作",
+        "aboutUsSubtext2": "ホームページ作ってみたいけど、何をどうしたらいいの？海外観光客向けに宣伝して集客したい。自分で更新できるホームページにしたい。まずは低予算で始めたい。ぜひ一度ご相談ください！親切・丁寧・迅速をモットーに、初心者の方でもイチからサポートいたしますでの、お気軽にお問合せください。 英語ページにも対応いたします。"
     }
-  }
+}
   
