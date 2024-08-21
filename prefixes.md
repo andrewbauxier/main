@@ -6,7 +6,7 @@
 2.  [FIX](#2-fix)
 3.  [CLEAN](#3-clean)
 4.  [FEAT](#4-feat)
-5.  [REFACTOR](#5-refactor)
+5.  [REFACT](#5-refact)
 6.  [DOCS](#6-docs)
 7.  [STYLE](#7-style)
 8.  [TEST](#8-test)
@@ -16,7 +16,7 @@
 
 ### 1. **CHORE**
 
--   **Description**: Routine tasks or maintenance.
+-   **Description**: Routine tasks or general maintenance.
 -   **Example**: `CHORE: Update dependencies`
 
 ### 2. **FIX**
@@ -26,7 +26,7 @@
 
 ### 3. **CLEAN**
 
--   **Description**: Removing unnecessary files or code.
+-   **Description**: Remove unnecessary files, code, etc.
 -   **Example**: `CLEAN: Remove unused assets`
 
 ### 4. **FEAT**
@@ -34,10 +34,10 @@
 -   **Description**: Adding new features.
 -   **Example**: `FEAT: Implement dark mode toggle`
 
-### 5. **REFACTOR**
+### 5. **REFACT**
 
--   **Description**: Improving code structure without changing behavior.
--   **Example**: `REFACTOR: Simplify login logic`
+-   **Description**: Improve code structure without changing behavior.
+-   **Example**: `REFACT: Simplify login logic`
 
 ### 6. **DOCS**
 
