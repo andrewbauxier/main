@@ -161,63 +161,26 @@ h2 {
     right: 0;
     width: 90px;
     height: 100px;
-    background-color: #fdfd00;
 }
-
-/* Language switcher styles */
-#language-switcher {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 100px;
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
-    align-items: center;
-}
-
-#language-switcher option {
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
-}
-
-.section-container {
-    margin-bottom: 20px;
-}
-
-.clear-fix {
-    clear: both;
-    background-color: yellow;
-    content: "";
-    margin-bottom: 50px;
-}
-
-.img-side {
-    height: 100px;
-    width: auto;
-    float: left;
-    clear: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
 /* Mode toggle */
 /* Styling the label that acts as the toggle switch */
 label {
-    width: 50px;
-    height: 90px;
-    margin-right: 20px;
+    width: 80px;
+    height: 40px;
+    top: 10px;
+    right: 7px;
     background: var(--light-mid-tone); /* Background color for light mode */
     border-radius: 200px;
     transition: 0.4s; /* Smooth transition when toggling modes */
-    margin-left: 20px;
-    position: relative;
+    position: absolute;
     display: block;
 }
 
 /* The circular switch inside the toggle */
 label::after {
     content: "";
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 5px;
     left: 5px;
@@ -239,9 +202,46 @@ input:checked + label {
 
 /* Move the switch to the bottom and change its color for dark mode */
 input:checked + label::after {
-    top: 85px;
-    transform: translateY(-100%);
+    top: 5px;
+    right: 45px;
+    transform: translatex(40px);
     background: linear-gradient(180deg, blue, navy); /* Gradient for the switch in dark mode */
+}
+/* Language switcher styles */
+#language-switcher {
+    position: absolute;
+    margin: 5px;
+    padding: 5px;
+    top: 50px;
+    border-radius: 100px;
+    background-color: var(--light-mid-tone);
+    color: var(--light-darkest-tone);
+    align-items: center;
+    border-style: none;
+}
+
+#language-switcher option {
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
+}
+
+.section-container {
+    margin-bottom: 20px;
+}
+
+.clear-fix {
+    clear: both;
+    content: "";
+    margin-bottom: 50px;
+}
+
+.img-side {
+    height: 100px;
+    width: auto;
+    float: left;
+    clear: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 /* Banner image */
@@ -304,6 +304,11 @@ body.mode .dropdown-content {
 
 body.mode .dropdown-content a {
     color: var(--dark-mid-tone);
+}
+
+body.mode #language-switcher {
+    background-color: var(--dark-mid-tone);
+    color: var(--dark-light-tone);
 }
 
 body.mode footer {
