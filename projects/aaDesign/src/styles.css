@@ -83,6 +83,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 /* Logo styles */
@@ -90,13 +91,13 @@ h2 {
     height: 100px;
     width: 50px;
     margin-right: 50px;
-    position: relative;
 }
 
 /* Main menu list styling */
 .navbar .main-menu {
     list-style-type: none; /* Remove default list bullet points */
     display: flex; /* Align list items horizontally */
+    margin-right: 150px;
 }
 
 /* Styling for each list item */
@@ -120,10 +121,12 @@ h2 {
 /* Dropdown Styles */
 .dropdown {
     display: none;
-    position: relative;
 }
 
 .dropdown-button {
+    position: absolute;
+    top: 22px;
+    right: 100px;
     background-color: #000098;
     color: #fdfd00;
     padding: 20px;
@@ -153,6 +156,30 @@ h2 {
 .dropdown-content a {
     color: var(--light-dark-tone);
     padding: 12px 16px;
+}
+
+.navbar-widgets {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #fdfd00;
+}
+
+/* Language switcher styles */
+#language-switcher {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 100px;
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
+    align-items: center;
+}
+
+#language-switcher option {
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
 }
 
 .section-container {
@@ -294,19 +321,4 @@ footer {
     padding: 5px;
     text-align: center;
     box-sizing: border-box;
-}
-
-/* Language switcher styles */
-#language-switcher {
-    margin: 15px;
-    padding: 15px;
-    border-radius: 100px;
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
-    align-items: center;
-}
-
-#language-switcher option {
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
 }
