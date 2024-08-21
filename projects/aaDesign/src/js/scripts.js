@@ -44,8 +44,7 @@ function loadTranslations(language) {
 
             // Update landing page content
             try {
-                if (document.getElementById('landing-welcome')) {
-                    document.getElementById('landing-welcome').textContent = translations.landing.welcome;
+                if (document.getElementById('landing-aboutUsTitle')) {
                     document.getElementById('landing-aboutUsTitle').textContent = translations.landing.aboutUsTitle;
                     document.getElementById('landing-aboutUsText').textContent = translations.landing.aboutUsText;
                 }
