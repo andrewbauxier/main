@@ -207,6 +207,23 @@ input:checked + label::after {
     transform: translatex(40px);
     background: linear-gradient(180deg, blue, navy); /* Gradient for the switch in dark mode */
 }
+label svg {
+    position: absolute;
+    width: 120px;
+    top: 40px;
+}
+label svg.lightMode {
+    left: -40px;
+    top: 5px;
+    fill: var(--dark-light-tone);
+    transition: 0.03s;
+}
+label svg.darkMode {
+    left: 1px;
+    top: 5px;
+    fill: var(--light-dark-tone);
+    transition: 0.03s;
+}
 /* Language switcher styles */
 #language-switcher {
     position: absolute;
@@ -284,6 +301,19 @@ input:checked + label::after {
 }
 
 /* Dark mode styles */
+
+body.mode .darkMode {
+    visibility: hidden;
+}
+body .darkMode {
+    visibility: visible;
+}
+body.mode .lightMode {
+    visibility: visible;
+}
+body .lightMode {
+    visibility: hidden;
+}
 body.mode {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
@@ -309,6 +339,9 @@ body.mode .dropdown-content a {
 body.mode #language-switcher {
     background-color: var(--dark-mid-tone);
     color: var(--dark-light-tone);
+}
+body.mode #language-switcher option {
+    background-color: var(--dark-light-tone);
 }
 
 body.mode footer {
