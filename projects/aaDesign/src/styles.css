@@ -87,10 +87,11 @@ h2 {
 }
 
 /* Logo styles */
-.logo img {
+.logo {
+    background-color: limegreen;
     height: 100px;
     width: 50px;
-    margin-right: 50px;
+    display: block;
 }
 
 /* Main menu list styling */
@@ -252,6 +253,7 @@ input:checked + label::after {
     width: 100%;
     height: auto;
     max-width: 100%;
+    display: block;
 }
 
 /* Main content area */
