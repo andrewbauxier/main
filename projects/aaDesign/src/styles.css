@@ -41,6 +41,7 @@ author: andrew b. auxier
     margin: 0;
     padding: 0;
     font-family: "OpenSans", Arial, sans-serif;
+    width: auto;
 }
 
 /* Element-specific styles */
@@ -63,12 +64,14 @@ body {
 }
 
 p {
+    display: flex;
     line-height: 1.5em;
     text-align: justify;
+    flex-flow: wrap;
 }
 
 h1 {
-    margin-right: 50px;
+    margin-bottom: 40px;
     font-size: 40px;
 }
 
@@ -76,8 +79,6 @@ h2 {
     margin-right: 20px;
     margin-bottom: 10px;
     font-size: 20px;
-}
-h2 .landing-aboutUsSubheading1 {
     background-color: #fdfd00;
 }
 
@@ -126,6 +127,7 @@ h2 .landing-aboutUsSubheading1 {
 /* Dropdown Styles */
 .dropdown {
     display: none;
+    margin-right: 10px;
 }
 
 .dropdown-button {
@@ -163,7 +165,6 @@ h2 .landing-aboutUsSubheading1 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px;
     margin-left: 70px;
 }
 /* Mode toggle */
@@ -171,7 +172,7 @@ h2 .landing-aboutUsSubheading1 {
 label {
     width: 80px;
     height: 40px;
-    top: 10px;
+    top: 7px;
     right: 5px;
     background: var(--light-mid-tone); /* Background color for light mode */
     border-radius: 200px;
@@ -232,7 +233,6 @@ label svg.darkMode {
     position: absolute;
     width: 80px;
     height: 40px;
-    margin-top: 5px;
     margin-right: 5px;
     padding: 5px;
     top: 50px;
@@ -241,6 +241,7 @@ label svg.darkMode {
     color: var(--light-darkest-tone);
     align-items: center;
     border-style: none;
+    margin-top: 5px;
 }
 
 #language-switcher option {
@@ -253,27 +254,20 @@ label svg.darkMode {
 }
 
 .section-with-image {
-    display: block;
-    flex-flow: wrap;
+    align-items: flex-start;
+    flex: 1;
     overflow: auto; /* Contains floated content */
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    flex-shrink: 1;
 }
 
 .float-left {
     float: left;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     height: 150px;
     width: auto;
     max-width: 100%; /* Ensures responsiveness */
-}
-
-.img-side {
-    height: 100px;
-    width: auto;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    flex-shrink: 0;
 }
 
 /* Banner image */
@@ -288,31 +282,6 @@ label svg.darkMode {
 .content {
     padding: 20px;
     width: 100%;
-}
-
-/* Responsive Styles for Navigation */
-@media (max-width: 600px) {
-    .navbar a:not(.logo) {
-        display: none;
-    }
-
-    .dropdown {
-        display: block;
-    }
-
-    label {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 599px) {
-    .dropdown {
-        display: none;
-    }
-
-    .navbar a:not(.logo) {
-        display: block;
-    }
 }
 
 /* Dark mode styles */
@@ -372,4 +341,53 @@ footer {
     padding: 5px;
     text-align: center;
     box-sizing: border-box;
+}
+
+@media (min-width: 767px) {
+    .dropdown {
+        display: none;
+    }
+
+    .navbar a:not(.logo) {
+        display: block;
+    }
+}
+
+/* Responsive Styles for Navigation */
+@media (max-width: 768px) {
+    .section-container h1 {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar a:not(.logo) {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+
+    label {
+        margin-left: 0;
+    }
+    .section-with-image {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        overflow: auto; /* Contains floated content */
+        margin-bottom: 40px;
+        flex-shrink: 1;
+    }
+
+    .float-left {
+        float: left;
+        margin: 40px;
+        height: 150px;
+        width: auto;
+        max-width: 100%; /* Ensures responsiveness */
+        flex-shrink: 1;
+    }
 }
