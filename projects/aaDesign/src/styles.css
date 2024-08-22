@@ -68,11 +68,17 @@ p {
 }
 
 h1 {
+    margin-right: 50px;
     font-size: 40px;
 }
 
 h2 {
+    margin-right: 20px;
+    margin-bottom: 10px;
     font-size: 20px;
+}
+h2 .landing-aboutUsSubheading1 {
+    background-color: #fdfd00;
 }
 
 /* Navigation bar styles */
@@ -80,22 +86,23 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100px;
     position: relative;
 }
 
 /* Logo styles */
 .logo {
-    background-color: limegreen;
     height: 100px;
-    width: 50px;
-    display: block;
+    width: auto;
 }
 
 /* Main menu list styling */
 .navbar .main-menu {
     list-style-type: none; /* Remove default list bullet points */
     display: flex; /* Align list items horizontally */
-    margin-right: 100px;
+    flex: 1;
+    justify-content: flex-end;
+    margin: 0;
 }
 
 /* Styling for each list item */
@@ -122,9 +129,6 @@ h2 {
 }
 
 .dropdown-button {
-    position: absolute;
-    top: 22px;
-    right: 120px;
     background-color: #000098;
     color: #fdfd00;
     padding: 20px;
@@ -156,11 +160,11 @@ h2 {
 }
 
 .navbar-widgets {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 90px;
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin-left: 70px;
 }
 /* Mode toggle */
 /* Styling the label that acts as the toggle switch */
@@ -168,12 +172,11 @@ label {
     width: 80px;
     height: 40px;
     top: 10px;
-    right: 7px;
+    right: 5px;
     background: var(--light-mid-tone); /* Background color for light mode */
     border-radius: 200px;
     transition: 0.4s; /* Smooth transition when toggling modes */
     position: absolute;
-    display: block;
 }
 
 /* The circular switch inside the toggle */
@@ -227,7 +230,10 @@ label svg.darkMode {
 /* Language switcher styles */
 #language-switcher {
     position: absolute;
-    margin: 5px;
+    width: 80px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 5px;
     padding: 5px;
     top: 50px;
     border-radius: 100px;
@@ -246,19 +252,28 @@ label svg.darkMode {
     margin-bottom: 20px;
 }
 
-.clear-fix {
-    clear: both;
-    content: "";
-    margin-bottom: 50px;
+.section-with-image {
+    display: block;
+    flex-flow: wrap;
+    overflow: auto; /* Contains floated content */
+    margin-bottom: 20px;
+}
+
+.float-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: 150px;
+    width: auto;
+    max-width: 100%; /* Ensures responsiveness */
 }
 
 .img-side {
     height: 100px;
     width: auto;
-    float: left;
-    clear: left;
     margin-right: 20px;
     margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 /* Banner image */
@@ -276,7 +291,7 @@ label svg.darkMode {
 }
 
 /* Responsive Styles for Navigation */
-@media (max-width: 501px) {
+@media (max-width: 600px) {
     .navbar a:not(.logo) {
         display: none;
     }
@@ -290,7 +305,7 @@ label svg.darkMode {
     }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 599px) {
     .dropdown {
         display: none;
     }
