@@ -384,8 +384,8 @@ footer {
 
     .float-left {
         float: left;
-        margin: 40px;
-        height: 150px;
+        margin: 20px;
+        height: 100px;
         width: auto;
         max-width: 100%; /* Ensures responsiveness */
         flex-shrink: 1;
