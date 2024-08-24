@@ -252,7 +252,36 @@ label svg.darkMode {
 .section-container {
     margin-bottom: 20px;
 }
+.section-container-with-cards {
+    display: flex;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    gap: 50px;
+    justify-content: space-around;
+}
 
+.card {
+    align-items: center;
+    display: flex;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #0a0a0a;
+    height: 300px;
+    width: auto;
+    flex-direction: column;
+}
+.card-image {
+    margin: 20px;
+    height: 200px;
+    width: auto;
+}
+
+.card-button {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+}
 .section-with-image {
     align-items: flex-start;
     flex: 1;
@@ -264,6 +293,7 @@ label svg.darkMode {
 .float-left {
     float: left;
     margin-right: 20px;
+    margin-top: 40px;
     margin-bottom: 40px;
     height: 150px;
     width: auto;
