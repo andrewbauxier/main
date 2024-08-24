@@ -71,15 +71,18 @@ p {
 }
 
 h1 {
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 40px;
 }
-
+.centered {
+    display: flex;
+    justify-content: center;
+}
 h2 {
     margin-right: 20px;
     margin-bottom: 10px;
     font-size: 20px;
-    background-color: #fdfd00;
 }
 
 /* Navigation bar styles */
@@ -252,6 +255,7 @@ label svg.darkMode {
 .section-container {
     margin-bottom: 20px;
 }
+
 .section-container-with-cards {
     display: flex;
     margin-right: 50px;
@@ -262,26 +266,32 @@ label svg.darkMode {
 }
 
 .card {
-    align-items: center;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 50px;
     border-style: solid;
     border-color: #0a0a0a;
     height: 300px;
-    width: auto;
-    flex-direction: column;
+    width: 300px;
 }
+
 .card-image {
     margin: 20px;
-    height: 200px;
+    height: auto;
     width: auto;
+    max-width: 100%;
 }
 
 .card-button {
-    width: 200px;
-    height: 50px;
-    margin: 10px;
+    background-color: #000098;
+    color: #fdfd00;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
 }
+
 .section-with-image {
     align-items: flex-start;
     flex: 1;
