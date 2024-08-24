@@ -418,7 +418,6 @@ footer {
         justify-content: center;
         align-items: center;
         overflow: auto; /* Contains floated content */
-        margin-bottom: 40px;
         flex-shrink: 1;
     }
 
@@ -441,7 +440,7 @@ footer {
         gap: 50px;
         justify-content: space-around;
     }
-    
+
     .card {
         display: flex;
         flex-direction: column;
@@ -453,19 +452,19 @@ footer {
         height: 300px;
         width: 300px;
     }
-    
+
     .card-image {
         margin: 20px;
         height: auto;
         width: auto;
         max-width: 100%;
     }
-    
+
     .card-button {
         background-color: #000098;
         color: #fdfd00;
         width: 250px;
         height: 150px;
         margin: 20px;
-    }+
+    }
 }
