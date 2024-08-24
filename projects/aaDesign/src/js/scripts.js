@@ -53,6 +53,10 @@ function loadTranslations(language) {
                     document.getElementById('landing-aboutUsSubheading2').textContent = translations.landing.aboutUsSubheading2;
                     document.getElementById('landing-aboutUsSubtext2').textContent = translations.landing.aboutUsSubtext2;
                     document.getElementById('landing-serviceFeesTitle').textContent = translations.landing.serviceFeesTitle;
+                    document.getElementById('landing-translationServiceButton').textContent = translations.landing.translationServiceButton;
+                    document.getElementById('landing-designServiceButton').textContent = translations.landing.designServiceButton;
+
+
 
                 }
             } catch (error) {
