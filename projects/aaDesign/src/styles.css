@@ -395,7 +395,7 @@ footer {
 
 /* Responsive Styles for Navigation - Effective under 768px*/
 @media (max-width: 768px) {
-    text .section-container h1 {
+    .section-container h1 {
         display: flex;
         margin-bottom: 20px;
         align-items: center;
