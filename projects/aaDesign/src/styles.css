@@ -72,7 +72,7 @@ p {
 
 h1 {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-size: 40px;
 }
 .centered {
@@ -252,14 +252,18 @@ label svg.darkMode {
     color: var(--light-darkest-tone);
 }
 
-.section-container {
-    margin-bottom: 20px;
+.section {
+    margin-bottom: 40px;
 }
 
-.section-container-with-cards {
+.section-banner {
+    margin-bottom: 40px;
+}
+
+.section-with-cards {
     display: flex;
     margin-right: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     margin-left: 50px;
     gap: 50px;
     justify-content: space-around;
@@ -304,7 +308,6 @@ label svg.darkMode {
     float: left;
     margin-right: 20px;
     margin-top: 40px;
-    margin-bottom: 40px;
     height: 150px;
     width: auto;
     max-width: 100%; /* Ensures responsiveness */
@@ -395,9 +398,9 @@ footer {
 
 /* Responsive Styles for Navigation - Effective under 768px*/
 @media (max-width: 768px) {
-    text .section-container h1 {
+    .section h1 {
         display: flex;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         align-items: center;
         justify-content: center;
     }
@@ -430,12 +433,12 @@ footer {
         flex-shrink: 1;
     }
 
-    .section-container-with-cards {
+    .section-with-cards {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-right: 50px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         margin-left: 50px;
         gap: 50px;
         justify-content: space-around;
