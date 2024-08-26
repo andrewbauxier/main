@@ -94,6 +94,7 @@ h2 {
     justify-content: space-between;
     height: 100px;
     position: relative;
+    background-color: var(--light-mid-tone);
 }
 
 /* Logo styles */
@@ -118,7 +119,7 @@ h2 {
 
 /* Styling for the links */
 .navbar .main-menu li a {
-    color: var(--light-dark-tone);
+    color: var(--light-darkest-tone);
     font-weight: bold;
     transition: color 0.3s;
     text-decoration: none; /* Remove underline */
@@ -179,7 +180,7 @@ label {
     height: 40px;
     top: 7px;
     right: 5px;
-    background: var(--light-mid-tone); /* Background color for light mode */
+    background: var(--light-light-tone); /* Background color for light mode */
     border-radius: 200px;
     transition: 0.4s; /* Smooth transition when toggling modes */
     position: absolute;
@@ -206,7 +207,7 @@ input {
 
 /* When the checkbox is checked (dark mode), apply these styles */
 input:checked + label {
-    background: var(--dark-mid-tone); /* Background color for dark mode */
+    background: var(--dark-dark-tone); /* Background color for dark mode */
 }
 
 /* Move the switch to the bottom and change its color for dark mode */
@@ -242,7 +243,7 @@ label svg.darkMode {
     padding: 5px;
     top: 50px;
     border-radius: 100px;
-    background-color: var(--light-mid-tone);
+    background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
     align-items: center;
     border-style: none;
@@ -359,7 +360,7 @@ body.mode {
 }
 
 body.mode nav {
-    background-color: var(--dark-darkest-tone);
+    background-color: var(--dark-mid-tone);
 }
 
 body.mode .navbar a {
@@ -376,7 +377,7 @@ body.mode .dropdown-content a {
 }
 
 body.mode #language-switcher {
-    background-color: var(--dark-mid-tone);
+    background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
 }
 body.mode #language-switcher option {
