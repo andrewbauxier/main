@@ -54,6 +54,8 @@ li {
 
 img {
     max-width: 100%;
+    border-color: #fdfd00;
+    border-style: double;
 }
 
 body {
@@ -256,7 +258,7 @@ label svg.darkMode {
     margin-bottom: 40px;
 }
 
-.section-banner {
+.section-with-banner {
     margin-bottom: 40px;
 }
 
@@ -314,17 +316,27 @@ label svg.darkMode {
 }
 
 /* Banner image */
-.under-nav-banner {
+.banner {
     width: 100%;
     height: auto;
-    max-width: 100%;
     display: block;
+}
+.banner-opaque {
+    opacity: 0.5;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 50px;
 }
 
 /* Main content area */
 .content {
     padding: 20px;
     width: 100%;
+    max-width: 100%;
 }
 
 /* Dark mode styles */
