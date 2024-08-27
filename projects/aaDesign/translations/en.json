@@ -17,5 +17,16 @@
         "serviceFeesTitle": "Service Plans and Fees",
         "translationServiceButton": "JP-EN Translation starting at ¥5,000",
         "designServiceButton": "Web Design starting at ¥70,000"
+    },
+    "services": {
+        "title": "Web Design Services",
+        "center1": "Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.",
+        "center2Bold": "TEXT GOES HERE",
+        "center2": "Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.",
+        "center3": "Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty."
+    },
+    "Object-Key-Page": {
+        "Object-Key-Element-1": "Value-Content",
+        "Object-Key-Element-2": "Value-Content"
     }
 }

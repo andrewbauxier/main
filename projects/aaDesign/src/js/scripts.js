@@ -75,6 +75,14 @@ function loadTranslations(language) {
                     document.getElementById('landing-translationServiceButton').textContent = translations.landing.translationServiceButton;
                     document.getElementById('landing-designServiceButton').textContent = translations.landing.designServiceButton;
                 }
+                // Update Services page content
+                if (document.getElementById('services-title')) {
+                    document.getElementById('services-center1').textContent = translations.services.center1;
+                    document.getElementById('services-center2Bold').textContent = translations.services.center2Bold;
+                    document.getElementById('services-center2').textContent = translations.services.center2;
+                    document.getElementById('services-center3').textContent = translations.services.center3;
+
+                }
             } catch (error) {
                 console.error('ERROR UPDATING LANDING PAGE CONTENT:', error);
             }
