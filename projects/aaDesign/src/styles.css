@@ -63,6 +63,8 @@ body {
     margin-left: auto;
     max-width: 1000px;
     min-width: 375px;
+    border: #0a0a0a;
+    border-style: solid;
 }
 
 p {
@@ -328,9 +330,9 @@ label svg.darkMode {
     height: auto;
     display: block;
     margin-bottom: 10px;
-    padding-right: 50px;
-    padding-left: 50px;
-    margin-bottom: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
 }
 
 /* Main content area */
@@ -387,13 +389,11 @@ body.mode #language-switcher option {
 body.mode footer {
     background-color: var(--dark-mid-tone);
     color: var(--dark-light-tone);
-    border-top: 2px solid var(--dark-mid-tone);
 }
 
 /* Footer styles */
 footer {
     background-color: var(--light-mid-tone);
-    border-top: 2px solid var(--light-dark-tone);
     padding: 5px;
     text-align: center;
     box-sizing: border-box;

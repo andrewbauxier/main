@@ -1,9 +1,8 @@
 {
     "nav": {
-        "about": "アバウト",
         "services": "サービス",
-        "legal": "法務",
-        "menu": "メニュー"
+        "portfolio": "制作実績",
+        "legal": "法務"
     },
     "footer": {
         "copyright": "©2023 Double-A Design. All Rights Reserved"

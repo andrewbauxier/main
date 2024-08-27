@@ -27,10 +27,10 @@ function loadTranslations(language) {
 
             // Update navigation content
             try {
-                document.getElementById('nav-about').textContent = translations.nav.about;
                 document.getElementById('nav-services').textContent = translations.nav.services;
+                document.getElementById('nav-portfolio').textContent = translations.nav.portfolio;
                 document.getElementById('nav-legal').textContent = translations.nav.legal;
-                document.getElementById('nav-menu').textContent = translations.nav.menu;
+                
             } catch (error) {
                 console.error('ERROR UPDATING NAVIGATION CONTENT:', error);
             }

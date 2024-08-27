@@ -1,9 +1,8 @@
 {
     "nav": {
-        "about": "About",
         "services": "Services",
-        "legal": "Legal",
-        "menu": "Menu"
+        "portfolio": "Portfolio",
+        "legal": "Legal"
     },
     "footer": {
         "copyright": "©2023 Double-A Design. All Rights Reserved."
