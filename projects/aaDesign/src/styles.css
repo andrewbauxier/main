@@ -21,7 +21,7 @@ author: andrew b. auxier
     font-style: italic;
 }
 
-/* Color Variables */
+/* General styles */
 :root {
     /* Light Mode Colors */
     --light-dark-tone: #333333; /* Dark grey */
@@ -36,7 +36,6 @@ author: andrew b. auxier
     --dark-darkest-tone: #0a0a0a; /* Almost pitch black */
 }
 
-/* General styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -49,7 +48,6 @@ author: andrew b. auxier
 a {
     text-decoration: none;
 }
-
 li {
     text-decoration: none;
 }
@@ -81,12 +79,10 @@ h1 {
     margin-bottom: 40px;
     font-size: 40px;
 }
-
 .centered {
     display: flex;
     justify-content: center;
 }
-
 h2 {
     margin-right: 20px;
     margin-bottom: 10px;
@@ -132,7 +128,7 @@ h2 {
 
 /* Hover effect */
 .navbar .main-menu li a:hover {
-    color: var(--light-dark-tone);
+    color: #000098;
 }
 
 /* Dropdown Styles */
@@ -142,8 +138,8 @@ h2 {
 }
 
 .dropdown-button {
-    background-color: var(--light-dark-tone);
-    color: var(--light-light-tone);
+    background-color: #000098;
+    color: #fdfd00;
     padding: 20px;
     border-radius: 100px;
     font-size: 16px;
@@ -180,7 +176,21 @@ h2 {
 }
 
 /* Language switcher styles */
-#language-switcher,
+#language-switcher {
+    width: 80px;
+    padding: 10px;
+    margin-right: 5px;
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
+    align-items: center;
+    border-style: none;
+    margin-top: 5px;
+}
+
+#language-switcher option {
+    background-color: var(--light-light-tone);
+    color: var(--light-darkest-tone);
+}
 #mode-switcher {
     width: 80px;
     padding: 10px;
@@ -192,16 +202,15 @@ h2 {
     margin-top: 5px;
 }
 
-#language-switcher option,
 #mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
 
-/* Breadcrumbs styles */
+/* breadcrumbs */
 .breadcrumbs-container {
     font-size: 12px;
-    margin: 0;
+    margin: 0px; /* Adds spacing between the navbar and breadcrumbs */
     background-color: var(--light-mid-tone);
 }
 
@@ -210,7 +219,7 @@ h2 {
     list-style: none;
     padding: 0;
     margin: 0;
-    color: var(--light-dark-tone);
+    color: var(--breadcrumb-link-color, #000098);
 }
 
 .breadcrumb li {
@@ -220,20 +229,119 @@ h2 {
 .breadcrumb li + li::before {
     content: ">";
     margin-right: 8px;
-    color: var(--light-dark-tone);
+    color: var(--breadcrumb-separator-color, #999);
 }
 
 .breadcrumb a {
     text-decoration: none;
-    color: var(--light-dark-tone);
+    color: var(--breadcrumb-link-color, #007bff);
 }
 
 .breadcrumb li[aria-current="page"] {
     font-weight: bold;
-    color: var(--light-darkest-tone);
+    color: var(--breadcrumb-current-color);
+}
+/* breadcrumbs */
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-with-banner {
+    margin-bottom: 40px;
+}
+
+.section-with-cards {
+    display: flex;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: #0a0a0a;
+    height: 300px;
+    width: 300px;
+}
+
+.card-image {
+    margin: 20px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.card-button {
+    background-color: #000098;
+    color: #fdfd00;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+}
+
+.section-with-image {
+    align-items: flex-start;
+    flex: 1;
+    overflow: auto; /* Contains floated content */
+    margin-bottom: 40px;
+    flex-shrink: 1;
+}
+
+.float-left {
+    float: left;
+    margin-right: 20px;
+    margin-top: 40px;
+    height: 150px;
+    width: auto;
+    max-width: 100%; /* Ensures responsiveness */
+}
+
+/* Banner image */
+.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.banner-opaque {
+    opacity: 0.5;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* Main content area */
+.content {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Dark mode styles */
+
+body.mode .darkMode {
+    visibility: hidden;
+}
+body .darkMode {
+    visibility: visible;
+}
+body.mode .lightMode {
+    visibility: visible;
+}
+body .lightMode {
+    visibility: hidden;
+}
 body.mode {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
@@ -247,32 +355,33 @@ body.mode .navbar a {
     color: var(--dark-light-tone);
 }
 
-body.mode .dropdown-button {
+body.mode .dropdown-content {
+    background-color: var(--dark-mid-tone);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.mode .dropdown-content a {
+    color: var(--dark-mid-tone);
+}
+
+body.mode #language-switcher {
     background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
 }
+body.mode #language-switcher option {
+    background-color: var(--dark-light-tone);
+}
 
-body.mode #language-switcher,
 body.mode #mode-switcher {
     background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
 }
-
-body.mode #language-switcher option,
 body.mode #mode-switcher option {
     background-color: var(--dark-light-tone);
 }
 
 body.mode .breadcrumb {
     background-color: var(--dark-mid-tone);
-}
-
-body.mode .breadcrumb a {
-    color: var(--dark-light-tone);
-}
-
-body.mode .breadcrumb li[aria-current="page"] {
-    color: var(--dark-darkest-tone);
 }
 
 body.mode footer {
@@ -298,7 +407,7 @@ footer {
     }
 }
 
-/* Responsive Styles for Navigation - Effective under 768px */
+/* Responsive Styles for Navigation - Effective under 768px*/
 @media (max-width: 768px) {
     .section h1 {
         display: flex;
@@ -322,7 +431,7 @@ footer {
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        overflow: auto;
+        overflow: auto; /* Contains floated content */
         flex-shrink: 1;
     }
 
@@ -331,7 +440,7 @@ footer {
         margin: 20px;
         height: 100px;
         width: auto;
-        max-width: 100%;
+        max-width: 100%; /* Ensures responsiveness */
         flex-shrink: 1;
     }
 
@@ -366,8 +475,8 @@ footer {
     }
 
     .card-button {
-        background-color: var(--light-dark-tone);
-        color: var(--light-light-tone);
+        background-color: #000098;
+        color: #fdfd00;
         width: 250px;
         height: 150px;
         margin: 20px;

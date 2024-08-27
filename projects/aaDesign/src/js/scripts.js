@@ -34,7 +34,6 @@ function handleLanguageSwitch() {
     }
 }
 
-
 // Function to load translations based on the selected language
 function loadTranslations(language) {
     fetch(`/translations/${language}.json`)
@@ -75,9 +74,6 @@ function loadTranslations(language) {
                     document.getElementById('landing-serviceFeesTitle').textContent = translations.landing.serviceFeesTitle;
                     document.getElementById('landing-translationServiceButton').textContent = translations.landing.translationServiceButton;
                     document.getElementById('landing-designServiceButton').textContent = translations.landing.designServiceButton;
-
-
-
                 }
             } catch (error) {
                 console.error('ERROR UPDATING LANDING PAGE CONTENT:', error);
@@ -87,7 +83,6 @@ function loadTranslations(language) {
             console.error('ERROR LOADING TRANSLATIONS:', error);
         });
 }
-
 
 // Function to load the navigation bar content
 function loadNav() {
@@ -99,12 +94,6 @@ function loadNav() {
         .then(data => {
             try {
                 document.querySelector('nav').innerHTML = data;
-                
-                // Add event listener for the mode toggle checkbox
-                const modeToggleCheckbox = document.getElementById('toggle-mode-checkbox');
-                if (modeToggleCheckbox) {
-                    modeToggleCheckbox.addEventListener('change', toggleMode);
-                }
             } catch (error) {
                 console.error('ERROR INSERTING NAVIGATION CONTENT:', error);
             }
@@ -133,6 +122,50 @@ function loadFooter() {
         });
 }
 
+// Function to generate breadcrumb dynamically based on the URL path
+function generateBreadcrumb() {
+    const breadcrumbContainer = document.querySelector(".breadcrumbs-container ol");
+    if (!breadcrumbContainer) return; // Exit if the breadcrumb container doesn't exist
+
+    // Get the current path and split it into parts, filtering out non-user-facing directories
+    const pathArray = window.location.pathname
+        .split("/")
+        .filter(part => part && !["js", "img", "fonts"].includes(part)); // Filter out irrelevant directories
+
+    // Clear existing breadcrumb content
+    breadcrumbContainer.innerHTML = "";
+
+    // Create and add the "Home" link
+    const homeLink = document.createElement("li");
+    homeLink.innerHTML = `<a href="/src/landing.html"></a>`;
+    breadcrumbContainer.appendChild(homeLink);
+
+    // Initialize the accumulated path, starting from "/src/"
+    let accumulatedPath = "/src/";
+
+    // Build the breadcrumb from the URL path
+    pathArray.forEach((segment, index) => {
+        // Skip adding "src" to avoid "src/src" duplication
+        if (segment === "src") return;
+
+        accumulatedPath += segment + "/";
+        const isLast = index === pathArray.length - 1;
+
+        // Create the breadcrumb item
+        const breadcrumbItem = document.createElement("li");
+        if (isLast) {
+            // For the last item, display it as plain text without ".html"
+            breadcrumbItem.textContent = segment.replace(".html", "").replace(/-/g, " ");
+            breadcrumbItem.setAttribute("aria-current", "page");
+        } else {
+            // For intermediate items, make them clickable links
+            breadcrumbItem.innerHTML = `<a href="${accumulatedPath}">${segment.replace(".html", "").replace(/-/g, " ")}</a>`;
+        }
+        breadcrumbContainer.appendChild(breadcrumbItem);
+    });
+}
+
+
 // Function to ensure both the nav and footer are loaded before running translations
 function initializePage() {
     try {
@@ -140,6 +173,7 @@ function initializePage() {
             .then(() => {
                 handleLanguageSwitch();
                 handleModeSwitch(); // Initialize mode switcher
+                generateBreadcrumb(); // Generate breadcrumb after loading nav
             })
             .catch((error) => {
                 console.error('ERROR INITIALIZING PAGE PROMISE:', error);
