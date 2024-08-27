@@ -3,17 +3,37 @@
 // author: andrew b. auxier
 
 // Function to toggle between light and dark mode
-function toggleMode() {
+function handleModeSwitch() {
+    const modeSwitcher = document.getElementById('mode-switcher');
+    const selectedMode = localStorage.getItem('mode') || 'light';
+    document.body.classList.toggle('mode', selectedMode === 'dark');
+    modeSwitcher.value = selectedMode;
+
+    modeSwitcher.addEventListener('change', (event) => {
+        const selectedMode = event.target.value;
+        document.body.classList.toggle('mode', selectedMode === 'dark');
+        localStorage.setItem('mode', selectedMode);
+    });
+}
+
+// Function to handle language switching
+function handleLanguageSwitch() {
     try {
-        // Debug log to check if the function is executing
-        console.log('Mode toggled');
-        
-        // Toggle the 'mode' class on the body element
-        document.body.classList.toggle('mode');
+        const languageSwitcher = document.getElementById('language-switcher');
+        const selectedLanguage = localStorage.getItem('language') || 'en';
+        loadTranslations(selectedLanguage);
+
+        languageSwitcher.value = selectedLanguage;
+        languageSwitcher.addEventListener('change', (event) => {
+            const selectedLanguage = event.target.value;
+            loadTranslations(selectedLanguage);
+            localStorage.setItem('language', selectedLanguage);
+        });
     } catch (error) {
-        console.error('ERROR TOGGLING MODE:', error);
+        console.error('ERROR HANDLING LANGUAGE SWITCH:', error);
     }
 }
+
 
 // Function to load translations based on the selected language
 function loadTranslations(language) {
@@ -68,23 +88,6 @@ function loadTranslations(language) {
         });
 }
 
-// Function to handle language switching
-function handleLanguageSwitch() {
-    try {
-        const languageSwitcher = document.getElementById('language-switcher');
-        const selectedLanguage = localStorage.getItem('language') || 'en';
-        loadTranslations(selectedLanguage);
-
-        languageSwitcher.value = selectedLanguage;
-        languageSwitcher.addEventListener('change', (event) => {
-            const selectedLanguage = event.target.value;
-            loadTranslations(selectedLanguage);
-            localStorage.setItem('language', selectedLanguage);
-        });
-    } catch (error) {
-        console.error('ERROR HANDLING LANGUAGE SWITCH:', error);
-    }
-}
 
 // Function to load the navigation bar content
 function loadNav() {
@@ -134,7 +137,10 @@ function loadFooter() {
 function initializePage() {
     try {
         Promise.all([loadNav(), loadFooter()])
-            .then(handleLanguageSwitch)
+            .then(() => {
+                handleLanguageSwitch();
+                handleModeSwitch(); // Initialize mode switcher
+            })
             .catch((error) => {
                 console.error('ERROR INITIALIZING PAGE PROMISE:', error);
             });

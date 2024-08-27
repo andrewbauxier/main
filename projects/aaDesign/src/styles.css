@@ -21,7 +21,7 @@ author: andrew b. auxier
     font-style: italic;
 }
 
-/* General styles */
+/* Color Variables */
 :root {
     /* Light Mode Colors */
     --light-dark-tone: #333333; /* Dark grey */
@@ -36,6 +36,7 @@ author: andrew b. auxier
     --dark-darkest-tone: #0a0a0a; /* Almost pitch black */
 }
 
+/* General styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -48,6 +49,7 @@ author: andrew b. auxier
 a {
     text-decoration: none;
 }
+
 li {
     text-decoration: none;
 }
@@ -79,10 +81,12 @@ h1 {
     margin-bottom: 40px;
     font-size: 40px;
 }
+
 .centered {
     display: flex;
     justify-content: center;
 }
+
 h2 {
     margin-right: 20px;
     margin-bottom: 10px;
@@ -95,7 +99,6 @@ h2 {
     align-items: center;
     justify-content: space-between;
     height: 100px;
-    position: relative;
     background-color: var(--light-mid-tone);
 }
 
@@ -129,7 +132,7 @@ h2 {
 
 /* Hover effect */
 .navbar .main-menu li a:hover {
-    color: #000098;
+    color: var(--light-dark-tone);
 }
 
 /* Dropdown Styles */
@@ -139,8 +142,8 @@ h2 {
 }
 
 .dropdown-button {
-    background-color: #000098;
-    color: #fdfd00;
+    background-color: var(--light-dark-tone);
+    color: var(--light-light-tone);
     padding: 20px;
     border-radius: 100px;
     font-size: 16px;
@@ -175,76 +178,13 @@ h2 {
     align-items: flex-end;
     margin-left: 70px;
 }
-/* Mode toggle */
-/* Styling the label that acts as the toggle switch */
-label {
-    width: 80px;
-    height: 40px;
-    top: 7px;
-    right: 5px;
-    background: var(--light-light-tone); /* Background color for light mode */
-    border-radius: 200px;
-    transition: 0.4s; /* Smooth transition when toggling modes */
-    position: absolute;
-}
 
-/* The circular switch inside the toggle */
-label::after {
-    content: "";
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background: linear-gradient(180deg, #fdfd00, #ff9900dd); /* Gradient for the switch in light mode */
-    border-radius: 30px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-    transition: 0.4s; /* Smooth transition when the switch moves */
-}
-
-/* Hides the actual checkbox, only the label is visible */
-input {
-    visibility: hidden;
-}
-
-/* When the checkbox is checked (dark mode), apply these styles */
-input:checked + label {
-    background: var(--dark-dark-tone); /* Background color for dark mode */
-}
-
-/* Move the switch to the bottom and change its color for dark mode */
-input:checked + label::after {
-    top: 5px;
-    right: 45px;
-    transform: translatex(40px);
-    background: linear-gradient(180deg, blue, navy); /* Gradient for the switch in dark mode */
-}
-label svg {
-    position: absolute;
-    width: 120px;
-    top: 40px;
-}
-label svg.lightMode {
-    left: -40px;
-    top: 5px;
-    fill: var(--dark-light-tone);
-    transition: 0.03s;
-}
-label svg.darkMode {
-    left: 1px;
-    top: 5px;
-    fill: var(--light-dark-tone);
-    transition: 0.03s;
-}
 /* Language switcher styles */
-#language-switcher {
-    position: absolute;
+#language-switcher,
+#mode-switcher {
     width: 80px;
-    height: 40px;
+    padding: 10px;
     margin-right: 5px;
-    padding: 5px;
-    top: 50px;
-    border-radius: 100px;
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
     align-items: center;
@@ -252,110 +192,48 @@ label svg.darkMode {
     margin-top: 5px;
 }
 
-#language-switcher option {
+#language-switcher option,
+#mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
 
-.section {
-    margin-bottom: 40px;
+/* Breadcrumbs styles */
+.breadcrumbs-container {
+    font-size: 12px;
+    margin: 0;
+    background-color: var(--light-mid-tone);
 }
 
-.section-with-banner {
-    margin-bottom: 40px;
-}
-
-.section-with-cards {
+.breadcrumb {
     display: flex;
-    margin-right: 50px;
-    margin-bottom: 40px;
-    margin-left: 50px;
-    gap: 50px;
-    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--light-dark-tone);
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    border-style: solid;
-    border-color: #0a0a0a;
-    height: 300px;
-    width: 300px;
+.breadcrumb li {
+    margin-right: 8px;
 }
 
-.card-image {
-    margin: 20px;
-    height: auto;
-    width: auto;
-    max-width: 100%;
+.breadcrumb li + li::before {
+    content: ">";
+    margin-right: 8px;
+    color: var(--light-dark-tone);
 }
 
-.card-button {
-    background-color: #000098;
-    color: #fdfd00;
-    width: 250px;
-    height: 150px;
-    margin: 20px;
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--light-dark-tone);
 }
 
-.section-with-image {
-    align-items: flex-start;
-    flex: 1;
-    overflow: auto; /* Contains floated content */
-    margin-bottom: 40px;
-    flex-shrink: 1;
-}
-
-.float-left {
-    float: left;
-    margin-right: 20px;
-    margin-top: 40px;
-    height: 150px;
-    width: auto;
-    max-width: 100%; /* Ensures responsiveness */
-}
-
-/* Banner image */
-.banner {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.banner-opaque {
-    opacity: 0.5;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-bottom: 10px;
-}
-
-/* Main content area */
-.content {
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
+.breadcrumb li[aria-current="page"] {
+    font-weight: bold;
+    color: var(--light-darkest-tone);
 }
 
 /* Dark mode styles */
-
-body.mode .darkMode {
-    visibility: hidden;
-}
-body .darkMode {
-    visibility: visible;
-}
-body.mode .lightMode {
-    visibility: visible;
-}
-body .lightMode {
-    visibility: hidden;
-}
 body.mode {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
@@ -369,21 +247,32 @@ body.mode .navbar a {
     color: var(--dark-light-tone);
 }
 
-body.mode .dropdown-content {
-    background-color: var(--dark-mid-tone);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-body.mode .dropdown-content a {
-    color: var(--dark-mid-tone);
-}
-
-body.mode #language-switcher {
+body.mode .dropdown-button {
     background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
 }
-body.mode #language-switcher option {
+
+body.mode #language-switcher,
+body.mode #mode-switcher {
+    background-color: var(--dark-dark-tone);
+    color: var(--dark-light-tone);
+}
+
+body.mode #language-switcher option,
+body.mode #mode-switcher option {
     background-color: var(--dark-light-tone);
+}
+
+body.mode .breadcrumb {
+    background-color: var(--dark-mid-tone);
+}
+
+body.mode .breadcrumb a {
+    color: var(--dark-light-tone);
+}
+
+body.mode .breadcrumb li[aria-current="page"] {
+    color: var(--dark-darkest-tone);
 }
 
 body.mode footer {
@@ -409,7 +298,7 @@ footer {
     }
 }
 
-/* Responsive Styles for Navigation - Effective under 768px*/
+/* Responsive Styles for Navigation - Effective under 768px */
 @media (max-width: 768px) {
     .section h1 {
         display: flex;
@@ -433,7 +322,7 @@ footer {
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        overflow: auto; /* Contains floated content */
+        overflow: auto;
         flex-shrink: 1;
     }
 
@@ -442,7 +331,7 @@ footer {
         margin: 20px;
         height: 100px;
         width: auto;
-        max-width: 100%; /* Ensures responsiveness */
+        max-width: 100%;
         flex-shrink: 1;
     }
 
@@ -477,8 +366,8 @@ footer {
     }
 
     .card-button {
-        background-color: #000098;
-        color: #fdfd00;
+        background-color: var(--light-dark-tone);
+        color: var(--light-light-tone);
         width: 250px;
         height: 150px;
         margin: 20px;
