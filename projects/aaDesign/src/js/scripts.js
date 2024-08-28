@@ -82,6 +82,22 @@ function loadTranslations(language) {
                     document.getElementById('services-center2').textContent = translations.services.center2;
                     document.getElementById('services-center3').textContent = translations.services.center3;
 
+                    document.getElementById('services-card1-title').textContent = translations.services.card1Title;
+                    document.getElementById('services-card1-subtitle').textContent = translations.services.card1Subtitle;
+                    document.getElementById('services-card1-List-Item-1').textContent = translations.services.card1ListItem1;
+                    document.getElementById('services-card1-List-Item-2').textContent = translations.services.card1ListItem2;
+                    document.getElementById('services-card1-List-Item-3').textContent = translations.services.card1ListItem3;
+
+                    document.getElementById('services-card2-title').textContent = translations.services.card2Title;
+                    document.getElementById('services-card2-subtitle').textContent = translations.services.card2Subtitle;
+                    document.getElementById('services-card2-List-Item-1').textContent = translations.services.card2ListItem1;
+                    document.getElementById('services-card2-List-Item-2').textContent = translations.services.card2ListItem2;
+                    document.getElementById('services-card2-List-Item-3').textContent = translations.services.card2ListItem3;
+
+
+
+                    
+
                 }
             } catch (error) {
                 console.error('ERROR UPDATING LANDING PAGE CONTENT:', error);

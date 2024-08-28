@@ -48,8 +48,12 @@ author: andrew b. auxier
 a {
     text-decoration: none;
 }
-li {
+
+li,
+ul,
+ol {
     text-decoration: none;
+    list-style-type: none;
 }
 
 img {
@@ -284,6 +288,7 @@ h2 {
 }
 
 .card-title {
+    display: block;
     border-style: none;
     background-color: #000098;
     color: #fdfd00;
@@ -309,6 +314,7 @@ h2 {
     flex-direction: column;
     gap: 2em;
     margin-top: 20px;
+    text-decoration: underline;
 }
 
 .card {
