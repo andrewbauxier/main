@@ -4,7 +4,7 @@ module: styles.css
 author: andrew b. auxier 
 */
 
-/* Fonts */
+/* Build Settings */
 /* Variable font for normal and bold styles */
 @font-face {
     font-family: "OpenSans";
@@ -20,6 +20,13 @@ author: andrew b. auxier
     font-weight: 1 1000;
     font-style: italic;
 }
+
+/* Build Templates */
+/* Example for id selectors */
+
+/* #page\.ID {
+    SYLE GOES HERE
+} */
 
 /* General styles */
 :root {

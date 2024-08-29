@@ -2,6 +2,15 @@
 // module: scripts.js
 // author: andrew b. auxier
 
+// The default locale our app first shows
+const defaultLocale = "en";
+
+// The active locale
+let locale;
+
+// Gets filled with active locale translations
+let translations = {};
+
 // Function to toggle between light and dark mode
 function handleModeSwitch() {
     const modeSwitcher = document.getElementById('mode-switcher');
@@ -18,94 +27,69 @@ function handleModeSwitch() {
 
 // Function to handle language switching
 function handleLanguageSwitch() {
-    try {
-        const languageSwitcher = document.getElementById('language-switcher');
-        const selectedLanguage = localStorage.getItem('language') || 'en';
-        loadTranslations(selectedLanguage);
+    const languageSwitcher = document.getElementById('language-switcher');
+    const selectedLanguage = localStorage.getItem('language') || defaultLocale;
 
-        languageSwitcher.value = selectedLanguage;
-        languageSwitcher.addEventListener('change', (event) => {
-            const selectedLanguage = event.target.value;
-            loadTranslations(selectedLanguage);
-            localStorage.setItem('language', selectedLanguage);
-        });
-    } catch (error) {
-        console.error('ERROR HANDLING LANGUAGE SWITCH:', error);
-    }
+    languageSwitcher.value = selectedLanguage;
+    languageSwitcher.addEventListener('change', (event) => {
+        const selectedLanguage = event.target.value;
+        setLocale(selectedLanguage);
+        localStorage.setItem('language', selectedLanguage);
+    });
+
+    setLocale(selectedLanguage); // Initialize locale on page load
 }
 
-// Function to load translations based on the selected language
-function loadTranslations(language) {
-    fetch(`/translations/${language}.json`)
-        .then((response) => {
-            if (!response.ok) throw new Error(`Failed to fetch translations: ${response.statusText}`);
-            return response.json();
-        })
-        .then((translations) => {
-            console.log('Loaded Translations:', translations);
+// Load translations for the given locale and translate the page
+async function setLocale(newLocale) {
+    if (newLocale === locale) return;
+    const newTranslations = await fetchTranslationsFor(newLocale);
+    locale = newLocale;
+    translations = newTranslations;
+    translatePage();
+}
 
-            // Update navigation content
-            try {
-                document.getElementById('nav-services').textContent = translations.nav.services;
-                document.getElementById('nav-portfolio').textContent = translations.nav.portfolio;
-                document.getElementById('nav-legal').textContent = translations.nav.legal;
-                
-            } catch (error) {
-                console.error('ERROR UPDATING NAVIGATION CONTENT:', error);
-            }
+// Fetch translations JSON object for the given locale over the network
+async function fetchTranslationsFor(newLocale) {
+    const response = await fetch(`/translations/${newLocale}.json`);
+    if (!response.ok) throw new Error(`Failed to fetch translations: ${response.statusText}`);
+    return await response.json();
+}
 
-            // Update footer content
-            try {
-                document.getElementById('footer').textContent = translations.footer.copyright;
-            } catch (error) {
-                console.error('ERROR UPDATING FOOTER CONTENT:', error);
-            }
+// Function to access nested properties safely
+function getNestedTranslation(obj, key) {
+    return key.split('.').reduce((o, k) => {
+        if (o === undefined || o === null) {
+            throw new Error(`Path "${key}" is invalid. "${k}" is not found in the object.`);
+        }
+        return o[k];
+    }, obj);
+}
 
-            // Update landing page content
-            try {
-                if (document.getElementById('landing-aboutUsTitle')) {
-                    document.getElementById('landing-aboutUsTitle').textContent = translations.landing.aboutUsTitle;
-                    document.getElementById('landing-aboutUsText').textContent = translations.landing.aboutUsText;
+// Replace the inner text of each element that has a
+// data-i18n-key attribute with the translation corresponding
+// to its data-i18n-key or id
+function translatePage() {
+    document.querySelectorAll("[data-i18n-key], [id]").forEach(translateElement);
+}
 
-                    document.getElementById('landing-aboutUsSubheading1').textContent = translations.landing.aboutUsSubheading1;
-                    document.getElementById('landing-aboutUsSubtext1').textContent = translations.landing.aboutUsSubtext1;
-                    document.getElementById('landing-aboutUsSubheading2').textContent = translations.landing.aboutUsSubheading2;
-                    document.getElementById('landing-aboutUsSubtext2').textContent = translations.landing.aboutUsSubtext2;
-                    document.getElementById('landing-serviceFeesTitle').textContent = translations.landing.serviceFeesTitle;
-                    document.getElementById('landing-translationServiceButton').textContent = translations.landing.translationServiceButton;
-                    document.getElementById('landing-designServiceButton').textContent = translations.landing.designServiceButton;
-                }
-                // Update Services page content
-                if (document.getElementById('services-title')) {
-                    document.getElementById('services-center1').textContent = translations.services.center1;
-                    document.getElementById('services-center2Bold').textContent = translations.services.center2Bold;
-                    document.getElementById('services-center2').textContent = translations.services.center2;
-                    document.getElementById('services-center3').textContent = translations.services.center3;
-
-                    document.getElementById('services-card1-title').textContent = translations.services.card1Title;
-                    document.getElementById('services-card1-subtitle').textContent = translations.services.card1Subtitle;
-                    document.getElementById('services-card1-List-Item-1').textContent = translations.services.card1ListItem1;
-                    document.getElementById('services-card1-List-Item-2').textContent = translations.services.card1ListItem2;
-                    document.getElementById('services-card1-List-Item-3').textContent = translations.services.card1ListItem3;
-
-                    document.getElementById('services-card2-title').textContent = translations.services.card2Title;
-                    document.getElementById('services-card2-subtitle').textContent = translations.services.card2Subtitle;
-                    document.getElementById('services-card2-List-Item-1').textContent = translations.services.card2ListItem1;
-                    document.getElementById('services-card2-List-Item-2').textContent = translations.services.card2ListItem2;
-                    document.getElementById('services-card2-List-Item-3').textContent = translations.services.card2ListItem3;
-
-
-
-                    
-
-                }
-            } catch (error) {
-                console.error('ERROR UPDATING LANDING PAGE CONTENT:', error);
-            }
-        })
-        .catch((error) => {
-            console.error('ERROR LOADING TRANSLATIONS:', error);
-        });
+// Replace the inner text of the given HTML element
+// with the translation in the active locale
+function translateElement(element) {
+    // Use data-i18n-key if present, fall back to id if not
+    const key = element.getAttribute("data-i18n-key") || element.id;
+    if (!key) {
+        console.warn(`No data-i18n-key or id found for element:`, element);
+        return;
+    }
+    
+    // Retrieve the translation using the nested key approach
+    const translation = getNestedTranslation(translations, key);
+    if (translation) {
+        element.innerText = translation;
+    } else {
+        console.warn(`Translation for key "${key}" not found.`);
+    }
 }
 
 // Function to load the navigation bar content
@@ -189,15 +173,14 @@ function generateBreadcrumb() {
     });
 }
 
-
 // Function to ensure both the nav and footer are loaded before running translations
 function initializePage() {
     try {
         Promise.all([loadNav(), loadFooter()])
             .then(() => {
-                handleLanguageSwitch();
-                handleModeSwitch(); // Initialize mode switcher
-                generateBreadcrumb(); // Generate breadcrumb after loading nav
+                handleLanguageSwitch();  // Load and set the locale
+                handleModeSwitch();       // Initialize mode switcher
+                generateBreadcrumb();     // Generate breadcrumb after loading nav
             })
             .catch((error) => {
                 console.error('ERROR INITIALIZING PAGE PROMISE:', error);
