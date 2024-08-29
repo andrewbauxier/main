@@ -2,7 +2,9 @@
     "nav": {
         "services": "Services",
         "portfolio": "Portfolio",
-        "legal": "Legal"
+        "legal": "Legal",
+        "menu": "Menu",
+        "language-switcher":"language-switcher"
     },
     "footer": {
         "copyright": "©2023 Double-A Design. All Rights Reserved."
