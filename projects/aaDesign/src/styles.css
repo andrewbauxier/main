@@ -21,13 +21,6 @@ author: andrew b. auxier
     font-style: italic;
 }
 
-/* Build Templates */
-/* Example for id selectors */
-
-/* #page\.ID {
-    SYLE GOES HERE
-} */
-
 /* General styles */
 :root {
     /* Light Mode Colors */
@@ -92,7 +85,7 @@ h1 {
     margin-bottom: 40px;
     font-size: 40px;
 }
-.centered {
+.centered-h1 {
     display: flex;
     justify-content: center;
 }
@@ -220,7 +213,7 @@ h2 {
     color: var(--light-darkest-tone);
 }
 
-/* breadcrumbs */
+/* Breadcrumbs */
 .breadcrumbs-container {
     font-size: 12px;
     margin: 0px; /* Adds spacing between the navbar and breadcrumbs */
@@ -254,8 +247,8 @@ h2 {
     font-weight: bold;
     color: var(--breadcrumb-current-color);
 }
-/* breadcrumbs */
 
+/* Sections */
 .section {
     margin-bottom: 40px;
 }
@@ -318,6 +311,8 @@ h2 {
 
 .card-body {
     display: flex;
+    justify-content: center;
+    font-size: 12px;
     flex-direction: column;
     gap: 2em;
     margin-top: 20px;
@@ -477,7 +472,7 @@ footer {
     }
 }
 
-/* Responsive Styles for Navigation - Effective under 768px*/
+/* Responsive Styles for Navigation - Effective under 768px */
 @media (max-width: 768px) {
     .section h1 {
         display: flex;
