@@ -82,7 +82,7 @@ p {
 
 h1 {
     margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-size: 40px;
 }
 .centered-h1 {
@@ -259,17 +259,17 @@ h2 {
 
 .section-with-cards {
     display: flex;
-    margin-right: 50px;
-    margin-bottom: 40px;
-    margin-left: 50px;
-    gap: 50px;
-    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    gap: 20px;
+    justify-content: space-evenly;
 }
 
 .services-section-with-cards {
     display: flex;
     margin-right: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     margin-left: 10px;
     justify-content: space-around;
     gap: 10px;
@@ -327,37 +327,37 @@ h2 {
     margin-top: 20px;
     border-style: solid;
     border-color: #0a0a0a;
-    height: 400px;
+    height: auto;
     width: 300px;
+    justify-content: center;
 }
 
 .card-image {
-    margin: 20px;
-    height: auto;
+    height: 200px;
+    padding: 20px;
     width: auto;
-    max-width: 100%;
 }
 
 .card-button {
     background-color: #000098;
     color: #fdfd00;
-    width: 250px;
+    width: auto;
     height: 50px;
     margin: 20px;
+    padding: 10px;
 }
 
 .section-with-image {
+    display: flex;
     align-items: flex-start;
-    flex: 1;
     overflow: auto; /* Contains floated content */
     margin-bottom: 40px;
-    flex-shrink: 1;
 }
 
 .float-left {
     float: left;
     margin-right: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     height: 150px;
     width: auto;
     max-width: 100%; /* Ensures responsiveness */
@@ -368,6 +368,7 @@ h2 {
     width: 100%;
     height: auto;
     display: block;
+    padding: 0;
 }
 .banner-opaque {
     opacity: 0.5;
@@ -476,7 +477,7 @@ footer {
 @media (max-width: 768px) {
     .section h1 {
         display: flex;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         align-items: center;
         justify-content: center;
     }
@@ -497,7 +498,7 @@ footer {
         justify-content: center;
         align-items: center;
         overflow: auto; /* Contains floated content */
-        flex-shrink: 1;
+        margin-bottom: 20px;
     }
 
     .float-left {
@@ -510,14 +511,8 @@ footer {
     }
 
     .section-with-cards {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        margin-right: 50px;
-        margin-bottom: 40px;
-        margin-left: 50px;
-        gap: 50px;
-        justify-content: space-around;
     }
 
     .card {
@@ -525,25 +520,23 @@ footer {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        margin-top: 50px;
+        margin-bottom: 20px;
         border-style: solid;
         border-color: #0a0a0a;
-        height: 300px;
+        height: auto;
         width: 300px;
     }
 
     .card-image {
         margin: 20px;
-        height: auto;
-        width: auto;
-        max-width: 100%;
     }
 
     .card-button {
         background-color: #000098;
         color: #fdfd00;
-        width: 250px;
-        height: 150px;
+        width: auto;
+        height: 50px;
         margin: 20px;
+        padding: 10px;
     }
 }
