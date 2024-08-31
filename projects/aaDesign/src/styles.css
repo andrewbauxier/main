@@ -97,6 +97,7 @@ h3 {
 
 .centered-heading {
     display: flex;
+    margin: 10px 0;
     justify-content: center;
 }
 
@@ -325,7 +326,7 @@ h3 {
 .services-section-with-cards {
     display: flex;
     margin-right: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     margin-left: 10px;
     justify-content: space-between;
     gap: 5px;
@@ -440,12 +441,69 @@ h3 {
     margin: 20px 0 30px 0;
     padding: 10px;
 }
+/* Wrapper for the entire options section */
+.options-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--light-light-tone);
+}
 
-.services-card-fine-print
-.options-list-container
-.options-list-title
-.
+/* Title styling */
+.option-title-option1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
+/* Individual option items */
+.option-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+/* Option description styling */
+.option-description-item1,
+.option-description-item2,
+.option-description-item3,
+.option-description-item4,
+.option-description-item5 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Price styling */
+.option-price-item1,
+.option-price-item2,
+.option-price-item3,
+.option-price-item4,
+.option-price-item5 {
+    font-size: 18px;
+    color: var(--light-dark-tone);
+}
+
+/* Option details styling */
+.option-details-item1,
+.option-details-item2,
+.option-details-item3,
+.option-details-item4,
+.option-details-item5 {
+    font-size: 14px;
+    color: var(--light-dark-tone);
+}
+
+/* Separator styling */
+.option-separator {
+    border-bottom: 1px solid var(--text-yellow-mid);
+    margin-bottom: 20px;
+}
+
+/* Optional: Add a hover effect on the entire option row */
+.option-item:hover {
+    background-color: var(--light-mid-tone);
+}
 
 /* Dark mode styles */
 
