@@ -48,7 +48,6 @@ author: andrew b. auxier
     margin: 0;
     padding: 0;
     font-family: "OpenSans", Arial, sans-serif;
-    width: auto;
 }
 
 /* Element-specific styles */
@@ -88,28 +87,17 @@ p {
 }
 
 h1 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-.centered-heading h1,
-.centered-heading h2,
-.centered-heading h3 {
-    display: flex;
-    justify-content: center;
 }
 
 h2 {
-    margin-right: 20px;
-    margin-bottom: 10px;
-    font-size: 18px;
 }
 
 h3 {
-    margin-right: 20px;
-    margin-bottom: 10px;
-    font-size: 12px;
+}
+
+.centered-heading {
+    display: flex;
+    justify-content: center;
 }
 
 /* Navigation bar styles */
@@ -281,6 +269,14 @@ h3 {
     margin-left: 20px;
     gap: 20px;
     justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
 }
 
 .services-section-with-cards {
@@ -299,26 +295,35 @@ h3 {
     margin-top: 20px;
     border: 2px solid;
     border-color: var(--light-dark-tone);
-    height: 400px;
+    height: 500px;
     width: 350px;
     text-align: center;
     box-sizing: border-box;
 }
 
+.card-body-container {
+    display: block;
+    margin: 10px;
+    height: auto;
+}
+
 .card-title {
     border-style: none;
     color: var(--text-yellow-light);
-    font-size: 24px;
-    padding: 0px 30px;
-    height: 70px;
-    width: auto;
+    width: 100%;
 }
 
 .card-subtitle {
     align-items: flex-start;
     color: var(--text-yellow-light);
-    padding: 0px 20px;
-    height: 100px;
+    width: 100%;
+}
+.card-price {
+    margin-top: 10px;
+}
+
+.fine-print {
+    font-size: 10px;
 }
 
 .card-body {
@@ -336,7 +341,6 @@ h3 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
     border-style: solid;
     border-color: var(--light-dark-tone);
     height: auto;
@@ -359,27 +363,37 @@ h3 {
     padding: 10px;
 }
 
+.services-card-title-container1,
+.services-card-title-container2,
+.services-card-title-container3 {
+    height: 160px;
+    padding: 10px;
+}
+
 .services-card1Subtitle,
-.services-card1Title {
+.services-card1Title,
+.services-card-title-container1 {
     background-color: var(--background-blue-light);
     color: var(--text-yellow-light);
 }
 
 .services-card2Subtitle,
-.services-card2Title {
+.services-card2Title,
+.services-card-title-container2 {
     background-color: var(--background-blue-mid);
     color: var(--text-yellow-light);
 }
 
 .services-card3Subtitle,
-.services-card3Title {
+.services-card3Title,
+.services-card-title-container3 {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
 }
 
 .landing-section-with-image {
     overflow: auto; /* Contains floated content */
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .float-left {
@@ -417,7 +431,7 @@ h3 {
 }
 
 .compact-paragraph-centered {
-    padding: 10px 200px 10px 200px;
+    padding: 10px 100px 10px 100px;
     justify-content: center;
     align-items: center;
 }
@@ -503,6 +517,13 @@ footer {
 
 /* Responsive Styles for Navigation - Effective under 768px */
 @media (max-width: 768px) {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "OpenSans", Arial, sans-serif;
+        width: auto;
+    }
     .section h1 {
         display: flex;
         margin-bottom: 20px;
@@ -527,6 +548,13 @@ footer {
         align-items: center;
         overflow: auto; /* Contains floated content */
         margin-bottom: 20px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        gap: 0;
     }
 
     .float-left {
@@ -566,5 +594,9 @@ footer {
         height: 50px;
         margin: 20px;
         padding: 10px;
+    }
+    .services-section-with-cards {
+        flex-direction: column;
+        align-items: center;
     }
 }

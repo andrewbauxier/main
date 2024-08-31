@@ -18,11 +18,26 @@
     "landing-designServiceButton": "Web Design starting at ¥70,000",
 
     "services-title": "Web Design Services",
-    "services-center1": "Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.",
-    "services-center2Bold": "TEXT GOES HERE",
-    "services-center2": "Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.",
-    "services-center3": "Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.",
-
-    "Object-Key-Page-Object-Key-Element-1": "Value-Content",
-    "Object-Key-Page-Object-Key-Element-2": "Value-Content"
+    "services-p1": "WixまたはWordPressを使用し個人様・中小企業様向けのオリジナルホームページを制作いたします。どちらも納品後でもお客様ご自身で文章・画像の編集・更新が可能です。",
+    "services-pBold": "初めての方でもご安心ください！",
+    "services-p2": "作って終わりではなく、制作前の丁寧なヒアリング、制作中にもご確認いただきながら進めてまいります。 納品後も１ヶ月間は使い方や修正（初期不良×無制限、変更×3箇所）は無料でサポートさせて頂きます。",
+    "services-p3": "また、オプションの英語ページはアメリカ人の主人とパートナーを組んで行いますので、完全なネイティブレベルでのご提供が可能です。ビジネスのグローバル化・インバウンド集客のお役立ていただけます。",
+    "services-card1Title": "Wix（テンプレート使用）",
+    "services-card1Subtitle": "美容室や飲食店などSNS集客がメインで、ホームページも名刺代わりに持っておきたい方にお勧め",
+    "services-card1ListItem1": "トップページ＋お好きな4ページ",
+    "services-card1ListItem2": "お問い合わせフォーム×1",
+    "services-card1ListItem3": "レンタルサーバー無料プランあり",
+    "services-card1ListItem4": "レスポンシブデザイン対応",
+    "services-card2Title": "WordPress（オリジナルデザイン）",
+    "services-card2Subtitle": "デザインにこだわりたいけど情報量が多くない方におすすめ",
+    "services-card2ListItem1": "1",
+    "services-card2ListItem2": "2",
+    "services-card2ListItem3": "3",
+    "services-card2ListItem4": "4",
+    "services-card3Title": "WordPress（オリジナルデザイン）",
+    "services-card3Subtitle": "デザインにこだわりたいけど情報量が多くない方におすすめ",
+    "services-card3ListItem1": "1",
+    "services-card3ListItem2": "2",
+    "services-card3ListItem3": "3",
+    "services-card3ListItem4": "4"
 }
