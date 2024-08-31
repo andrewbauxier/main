@@ -5,7 +5,8 @@ author: andrew b. auxier
 */
 
 /* Build Settings */
-/* Variable font for normal and bold styles */
+
+/* Define variable font for normal and bold styles */
 @font-face {
     font-family: "OpenSans";
     src: url("/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
@@ -13,7 +14,7 @@ author: andrew b. auxier
     font-style: normal;
 }
 
-/* Variable font for italic styles */
+/* Define variable font for italic styles */
 @font-face {
     font-family: "OpenSans";
     src: url("/fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
@@ -22,6 +23,8 @@ author: andrew b. auxier
 }
 
 /* General styles */
+
+/* Root color variables for light and dark modes */
 :root {
     /* Light Mode Colors */
     --light-dark-tone: #333333; /* Dark grey */
@@ -35,14 +38,15 @@ author: andrew b. auxier
     --dark-light-tone: #bbbbbb; /* Light grey */
     --dark-darkest-tone: var(--light-dark-tone); /* Almost pitch black */
 
+    /* Additional text and background colors */
     --text-yellow-light: #fdfe01;
     --text-yellow-mid: #bcbc00;
-
     --background-blue-light: #0000f5;
     --background-blue-mid: #0000ce;
     --background-blue-dark: #000099;
 }
 
+/* Universal box-sizing for all elements */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -50,7 +54,7 @@ author: andrew b. auxier
     font-family: "OpenSans", Arial, sans-serif;
 }
 
-/* Element-specific styles */
+/* Reset styles for links and list elements */
 a {
     text-decoration: none;
 }
@@ -62,14 +66,12 @@ ol {
     list-style-type: none;
 }
 
+/* Responsive images */
 img {
     max-width: 100%;
-
-    /* Testing purposes only */
-    /* border-color: var(--text-yellow-light); */
-    /* border-style: double; */
 }
 
+/* Body styling */
 body {
     margin-right: auto;
     margin-left: auto;
@@ -79,6 +81,7 @@ body {
     border-style: solid;
 }
 
+/* Paragraph styling */
 p {
     display: flex;
     line-height: 1.5em;
@@ -86,15 +89,15 @@ p {
     flex-flow: wrap;
 }
 
+/* Headings styling - Add styles if needed */
 h1 {
 }
-
 h2 {
 }
-
 h3 {
 }
 
+/* Center heading text */
 .centered-heading {
     display: flex;
     margin: 10px 0;
@@ -125,12 +128,12 @@ h3 {
     margin: 0;
 }
 
-/* Styling for each list item */
+/* Styling for each list item in the navbar */
 .navbar .main-menu li {
     margin-right: 20px; /* Space between each link */
 }
 
-/* Styling for the links */
+/* Styling for navbar links */
 .navbar .main-menu li a {
     color: var(--light-darkest-tone);
     font-weight: bold;
@@ -138,7 +141,7 @@ h3 {
     text-decoration: none; /* Remove underline */
 }
 
-/* Hover effect */
+/* Navbar link hover effect */
 .navbar .main-menu li a:hover {
     color: var(--background-blue-dark);
 }
@@ -149,6 +152,7 @@ h3 {
     margin-right: 10px;
 }
 
+/* Styling for dropdown button */
 .dropdown-button {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
@@ -159,6 +163,7 @@ h3 {
     cursor: pointer;
 }
 
+/* Dropdown content container styling */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -171,15 +176,18 @@ h3 {
     flex-direction: column;
 }
 
+/* Show dropdown content when the dropdown is focused */
 .dropdown:focus-within .dropdown-content {
     display: flex;
 }
 
+/* Styling for links in the dropdown */
 .dropdown-content a {
     color: var(--light-dark-tone);
     padding: 12px 16px;
 }
 
+/* Widget container in the navbar */
 .navbar-widgets {
     display: flex;
     flex-direction: column;
@@ -187,7 +195,7 @@ h3 {
     margin-left: 70px;
 }
 
-/* Language switcher styles */
+/* Language switcher dropdown styles */
 #language-switcher {
     width: 80px;
     padding: 10px;
@@ -199,10 +207,13 @@ h3 {
     margin-top: 5px;
 }
 
+/* Language switcher options styles */
 #language-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
+
+/* Mode switcher dropdown styles */
 #mode-switcher {
     width: 80px;
     padding: 10px;
@@ -214,18 +225,20 @@ h3 {
     margin-top: 5px;
 }
 
+/* Mode switcher options styles */
 #mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs container styling */
 .breadcrumbs-container {
     font-size: 12px;
     margin: 0px; /* Adds spacing between the navbar and breadcrumbs */
     background-color: var(--light-mid-tone);
 }
 
+/* Breadcrumb list styling */
 .breadcrumb {
     display: flex;
     list-style: none;
@@ -234,25 +247,30 @@ h3 {
     color: var(--background-blue-light);
 }
 
+/* Breadcrumb list item styling */
 .breadcrumb li {
     margin-right: 8px;
 }
 
+/* Breadcrumb separator styling */
 .breadcrumb li + li::before {
     content: ">";
     margin-right: 8px;
     color: var(--background-blue-dark);
 }
 
+/* Breadcrumb link styling */
 .breadcrumb a {
     text-decoration: none;
     color: var(--background-blue-light);
 }
 
+/* Styling for the current page in the breadcrumb */
 .breadcrumb li[aria-current="page"] {
     font-weight: bold;
     color: var(--background-blue-light);
 }
+
 /* Main content area */
 .content {
     padding: 20px;
@@ -260,15 +278,17 @@ h3 {
     max-width: 100%;
 }
 
-/* Sections */
+/* Section spacing */
 .section {
     margin-bottom: 40px;
 }
 
+/* Section with banner spacing */
 .section-with-banner {
     margin-bottom: 40px;
 }
 
+/* Section with cards styling */
 .section-with-cards {
     display: flex;
     margin-bottom: 20px;
@@ -279,17 +299,21 @@ h3 {
     flex-direction: column;
 }
 
+/* Card container for organizing multiple cards in a row */
 .card-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 2em;
 }
+
+/* Section with image styling */
 .landing-section-with-image {
     overflow: auto; /* Contains floated content */
     margin-bottom: 10px;
 }
 
+/* Floating image styling */
 .float-left {
     float: left;
     margin-right: 20px;
@@ -299,13 +323,15 @@ h3 {
     max-width: 100%; /* Ensures responsiveness */
 }
 
-/* Banner image */
+/* Banner image styling */
 .banner {
     width: 100%;
     height: auto;
     display: block;
     padding: 0;
 }
+
+/* Opaque banner image styling */
 .banner-opaque {
     opacity: 0.5;
     width: 100%;
@@ -317,12 +343,14 @@ h3 {
     margin-bottom: 10px;
 }
 
+/* Compact paragraph styling with centered text */
 .compact-paragraph-centered {
     padding: 10px 100px 10px 100px;
     justify-content: center;
     align-items: center;
 }
 
+/* Services section with cards styling */
 .services-section-with-cards {
     display: flex;
     margin-right: 10px;
@@ -332,6 +360,7 @@ h3 {
     gap: 5px;
 }
 
+/* Large card styling */
 .card-large {
     display: flex;
     flex-direction: column;
@@ -345,31 +374,38 @@ h3 {
     box-sizing: border-box;
 }
 
+/* Card body container styling */
 .card-body-container {
     display: block;
     margin: 10px;
     height: auto;
 }
 
+/* Card title styling */
 .card-title {
     border-style: none;
     color: var(--text-yellow-light);
     width: 100%;
 }
 
+/* Card subtitle styling */
 .card-subtitle {
     align-items: flex-start;
     color: var(--text-yellow-light);
     width: 100%;
 }
+
+/* Card price margin adjustment */
 .card-price {
     margin-top: 10px;
 }
 
+/* Fine print text styling */
 .fine-print {
     font-size: 10px;
 }
 
+/* Card body styling */
 .card-body {
     display: flex;
     justify-content: center;
@@ -380,6 +416,7 @@ h3 {
     text-decoration: underline;
 }
 
+/* General card styling */
 .card {
     display: flex;
     flex-direction: column;
@@ -392,12 +429,14 @@ h3 {
     justify-content: center;
 }
 
+/* Card image styling */
 .card-image {
     height: 200px;
     padding: 20px;
     width: auto;
 }
 
+/* Card button styling */
 .card-button {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
@@ -407,6 +446,7 @@ h3 {
     padding: 10px;
 }
 
+/* Styling for specific services card title containers */
 .services-card-title-container1,
 .services-card-title-container2,
 .services-card-title-container3 {
@@ -414,6 +454,7 @@ h3 {
     padding: 10px;
 }
 
+/* Styling for the first services card */
 .services-card1Subtitle,
 .services-card1Title,
 .services-card-title-container1 {
@@ -421,6 +462,7 @@ h3 {
     color: var(--text-yellow-light);
 }
 
+/* Styling for the second services card */
 .services-card2Subtitle,
 .services-card2Title,
 .services-card-title-container2 {
@@ -428,12 +470,15 @@ h3 {
     color: var(--text-yellow-light);
 }
 
+/* Styling for the third services card */
 .services-card3Subtitle,
 .services-card3Title,
 .services-card-title-container3 {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
 }
+
+/* Button styling for services cards */
 .services-card-button {
     background-color: var(--background-blue-mid);
     color: var(--light-light-tone);
@@ -441,6 +486,7 @@ h3 {
     margin: 20px 0 30px 0;
     padding: 10px;
 }
+
 /* Wrapper for the entire options section */
 .options-section {
     margin: 20px 0;
@@ -448,20 +494,18 @@ h3 {
     background-color: var(--light-light-tone);
 }
 
-/* Title styling */
+/* Title styling for the options section */
 .option-title-option1 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Individual option items */
+/* Individual option items styling */
 .option-item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px 0;
 }
 
 /* Option description styling */
@@ -474,7 +518,7 @@ h3 {
     font-weight: bold;
 }
 
-/* Price styling */
+/* Option price styling */
 .option-price-item1,
 .option-price-item2,
 .option-price-item3,
@@ -482,6 +526,10 @@ h3 {
 .option-price-item5 {
     font-size: 18px;
     color: var(--light-dark-tone);
+}
+
+.option-description-and-price-container {
+    flex-direction: row;
 }
 
 /* Option details styling */
@@ -492,81 +540,104 @@ h3 {
 .option-details-item5 {
     font-size: 14px;
     color: var(--light-dark-tone);
+    margin-bottom: 30px;
 }
 
-/* Separator styling */
+/* Separator styling for options */
 .option-separator {
-    border-bottom: 1px solid var(--text-yellow-mid);
-    margin-bottom: 20px;
+    display: inline; /* Ensures the separator takes up the full width */
+    border-bottom: 2px solid var(--text-yellow-mid);
+    margin: 10px 0; /* Add some margin to create space around the separator */
 }
 
-/* Optional: Add a hover effect on the entire option row */
+/* Optional hover effect for option items */
 .option-item:hover {
     background-color: var(--light-mid-tone);
 }
 
 /* Dark mode styles */
 
+/* Hide dark mode elements in light mode */
 body.mode .darkMode {
     visibility: hidden;
 }
+
+/* Show dark mode elements */
 body .darkMode {
     visibility: visible;
 }
+
+/* Show light mode elements in dark mode */
 body.mode .lightMode {
     visibility: visible;
 }
+
+/* Hide light mode elements */
 body .lightMode {
     visibility: hidden;
 }
+
+/* Dark mode background and text colors */
 body.mode {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
+/* Dark mode navbar styling */
 body.mode nav {
     background-color: var(--dark-mid-tone);
 }
 
+/* Dark mode navbar link styling */
 body.mode .navbar a {
     color: var(--dark-light-tone);
 }
 
+/* Dark mode dropdown content styling */
 body.mode .dropdown-content {
     background-color: var(--dark-mid-tone);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Dark mode dropdown link styling */
 body.mode .dropdown-content a {
     color: var(--dark-mid-tone);
 }
 
+/* Dark mode language switcher styling */
 body.mode #language-switcher {
     background-color: var(--dark-dark-tone);
-    color: var(--dark-light-tone);
+    color: var (--dark-light-tone);
 }
+
+/* Dark mode language switcher option styling */
 body.mode #language-switcher option {
     background-color: var(--dark-light-tone);
 }
 
+/* Dark mode mode switcher styling */
 body.mode #mode-switcher {
     background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
 }
+
+/* Dark mode mode switcher option styling */
 body.mode #mode-switcher option {
     background-color: var(--dark-light-tone);
 }
 
+/* Dark mode breadcrumb styling */
 body.mode .breadcrumb {
     background-color: var(--dark-mid-tone);
 }
 
+/* Dark mode footer styling */
 body.mode footer {
     background-color: var(--dark-mid-tone);
     color: var(--dark-light-tone);
 }
 
-/* Footer styles */
+/* Footer styling */
 footer {
     background-color: var(--light-mid-tone);
     padding: 5px;
@@ -574,17 +645,21 @@ footer {
     box-sizing: border-box;
 }
 
+/* Media queries for larger screens (min-width: 767px) */
+
+/* Hide dropdown on larger screens */
 @media (min-width: 767px) {
     .dropdown {
         display: none;
     }
 
+    /* Show navbar links on larger screens */
     .navbar a:not(.logo) {
         display: block;
     }
 }
 
-/* Responsive Styles for Navigation - Effective under 768px */
+/* Responsive styles for smaller screens (max-width: 768px) */
 @media (max-width: 768px) {
     * {
         box-sizing: border-box;
@@ -593,23 +668,26 @@ footer {
         font-family: "OpenSans", Arial, sans-serif;
         width: auto;
     }
+
+    /* Center headings on smaller screens */
     .section h1 {
         display: flex;
         margin-bottom: 20px;
         align-items: center;
         justify-content: center;
     }
+
+    /* Hide navbar links on smaller screens */
     .navbar a:not(.logo) {
         display: none;
     }
 
+    /* Show dropdown on smaller screens */
     .dropdown {
         display: block;
     }
 
-    label {
-        margin-left: 0;
-    }
+    /* Adjust landing section with image for smaller screens */
     .landing-section-with-image {
         display: flex;
         flex-flow: column;
@@ -619,6 +697,7 @@ footer {
         margin-bottom: 20px;
     }
 
+    /* Adjust card container for smaller screens */
     .card-container {
         display: flex;
         flex-direction: column;
@@ -626,6 +705,7 @@ footer {
         gap: 0;
     }
 
+    /* Adjust floated elements for smaller screens */
     .float-left {
         float: left;
         margin: 20px;
@@ -635,11 +715,13 @@ footer {
         flex-shrink: 1;
     }
 
+    /* Adjust section with cards for smaller screens */
     .section-with-cards {
         flex-direction: column;
         align-items: center;
     }
 
+    /* Adjust card styling for smaller screens */
     .card {
         display: flex;
         flex-direction: column;
@@ -652,10 +734,12 @@ footer {
         width: 300px;
     }
 
+    /* Adjust card image margin for smaller screens */
     .card-image {
         margin: 20px;
     }
 
+    /* Adjust card button styling for smaller screens */
     .card-button {
         background-color: var(--background-blue-dark);
         color: var(--text-yellow-light);
@@ -665,6 +749,7 @@ footer {
         padding: 10px;
     }
 
+    /* Adjust services section with cards for smaller screens */
     .services-section-with-cards {
         flex-direction: column;
         align-items: center;
