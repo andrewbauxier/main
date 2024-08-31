@@ -252,6 +252,12 @@ h3 {
     font-weight: bold;
     color: var(--background-blue-light);
 }
+/* Main content area */
+.content {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+}
 
 /* Sections */
 .section {
@@ -278,6 +284,43 @@ h3 {
     justify-content: center;
     gap: 2em;
 }
+.landing-section-with-image {
+    overflow: auto; /* Contains floated content */
+    margin-bottom: 10px;
+}
+
+.float-left {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+    height: 150px;
+    width: auto;
+    max-width: 100%; /* Ensures responsiveness */
+}
+
+/* Banner image */
+.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+}
+.banner-opaque {
+    opacity: 0.5;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.compact-paragraph-centered {
+    padding: 10px 100px 10px 100px;
+    justify-content: center;
+    align-items: center;
+}
 
 .services-section-with-cards {
     display: flex;
@@ -295,7 +338,7 @@ h3 {
     margin-top: 20px;
     border: 2px solid;
     border-color: var(--light-dark-tone);
-    height: 500px;
+    height: 550px;
     width: 350px;
     text-align: center;
     box-sizing: border-box;
@@ -390,51 +433,19 @@ h3 {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
 }
-
-.landing-section-with-image {
-    overflow: auto; /* Contains floated content */
-    margin-bottom: 10px;
-}
-
-.float-left {
-    float: left;
-    margin-right: 20px;
-    margin-top: 20px;
-    height: 150px;
+.services-card-button {
+    background-color: var(--background-blue-mid);
+    color: var(--light-light-tone);
     width: auto;
-    max-width: 100%; /* Ensures responsiveness */
+    margin: 20px 0 30px 0;
+    padding: 10px;
 }
 
-/* Banner image */
-.banner {
-    width: 100%;
-    height: auto;
-    display: block;
-    padding: 0;
-}
-.banner-opaque {
-    opacity: 0.5;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-bottom: 10px;
-}
+.services-card-fine-print
+.options-list-container
+.options-list-title
+.
 
-/* Main content area */
-.content {
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
-}
-
-.compact-paragraph-centered {
-    padding: 10px 100px 10px 100px;
-    justify-content: center;
-    align-items: center;
-}
 
 /* Dark mode styles */
 
@@ -595,6 +606,7 @@ footer {
         margin: 20px;
         padding: 10px;
     }
+
     .services-section-with-cards {
         flex-direction: column;
         align-items: center;
