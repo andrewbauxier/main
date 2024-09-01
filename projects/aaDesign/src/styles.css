@@ -91,6 +91,7 @@ p {
 
 /* Headings styling - Add styles if needed */
 h1 {
+    color: var(--background-blue-mid);
 }
 h2 {
 }
@@ -273,6 +274,14 @@ h3 {
 .breadcrumb li[aria-current="page"] {
     font-weight: bold;
     color: var(--background-blue-light);
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--light-mid-tone);
+    padding-bottom: 10px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 /* Main content area */
@@ -516,8 +525,12 @@ h3 {
 
 /* Separator styling for options */
 .option-separator {
-    border-bottom: 1px solid var(--text-yellow-mid);
-    margin: 10px;
+    flex-grow: 1;
+    align-self: center;
+    margin: 0 10px;
+    border-color: var(--text-yellow-mid);
+    border-bottom-style: dotted;
+    border-bottom-width: 1px solid var(--text-yellow-mid);
 }
 
 /* Optional hover effect for option items */
@@ -638,14 +651,6 @@ body.mode footer {
     color: var(--dark-light-tone);
 }
 
-/* Footer styling */
-footer {
-    background-color: var(--light-mid-tone);
-    padding-bottom: 10px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
 /* Media queries for larger screens (min-width: 767px) */
 
 /* Hide dropdown on larger screens */
@@ -674,6 +679,7 @@ footer {
     .section h1 {
         display: flex;
         margin-bottom: 20px;
+
         align-items: center;
         justify-content: center;
     }
