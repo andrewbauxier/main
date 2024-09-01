@@ -97,6 +97,10 @@ h2 {
 h3 {
 }
 
+.bold-text {
+    font-weight: ;
+}
+
 /* Center heading text */
 .centered-heading {
     display: flex;
@@ -338,8 +342,6 @@ h3 {
     height: auto;
     display: block;
     margin-bottom: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
     margin-bottom: 10px;
 }
 
@@ -639,7 +641,7 @@ body.mode footer {
 /* Footer styling */
 footer {
     background-color: var(--light-mid-tone);
-    padding: 5px;
+    padding-bottom: 10px;
     text-align: center;
     box-sizing: border-box;
 }
