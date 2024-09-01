@@ -502,10 +502,25 @@ h3 {
 }
 
 /* Individual option items styling */
-.option-item {
+.option-container {
+    display: block;
+}
+
+.option-description-and-price-container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Separator styling for options */
+.option-separator {
+    border-bottom: 1px solid var(--text-yellow-mid);
+    margin: 10px;
+}
+
+/* Optional hover effect for option items */
+.option-container:hover {
+    background-color: var(--light-mid-tone);
 }
 
 /* Option description styling */
@@ -528,10 +543,6 @@ h3 {
     color: var(--light-dark-tone);
 }
 
-.option-description-and-price-container {
-    flex-direction: row;
-}
-
 /* Option details styling */
 .option-details-item1,
 .option-details-item2,
@@ -541,18 +552,6 @@ h3 {
     font-size: 14px;
     color: var(--light-dark-tone);
     margin-bottom: 30px;
-}
-
-/* Separator styling for options */
-.option-separator {
-    display: inline; /* Ensures the separator takes up the full width */
-    border-bottom: 2px solid var(--text-yellow-mid);
-    margin: 10px 0; /* Add some margin to create space around the separator */
-}
-
-/* Optional hover effect for option items */
-.option-item:hover {
-    background-color: var(--light-mid-tone);
 }
 
 /* Dark mode styles */
