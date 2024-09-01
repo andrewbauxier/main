@@ -205,7 +205,6 @@ h3 {
     width: 80px;
     padding: 10px;
     margin-right: 5px;
-    background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
     align-items: center;
     border-style: none;
@@ -214,7 +213,6 @@ h3 {
 
 /* Language switcher options styles */
 #language-switcher option {
-    background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
 
@@ -502,7 +500,6 @@ footer {
 .options-section {
     margin: 20px 0;
     padding: 20px;
-    background-color: var(--light-light-tone);
 }
 
 /* Title styling for the options section */
@@ -555,7 +552,6 @@ footer {
 .option-price-item4,
 .option-price-item5 {
     font-size: 18px;
-    color: var(--light-dark-tone);
 }
 
 /* Option details styling */
@@ -565,7 +561,6 @@ footer {
 .option-details-item4,
 .option-details-item5 {
     font-size: 14px;
-    color: var(--light-dark-tone);
     margin-bottom: 30px;
 }
 
@@ -621,12 +616,12 @@ body.mode .dropdown-content a {
 /* Dark mode language switcher styling */
 body.mode #language-switcher {
     background-color: var(--dark-dark-tone);
-    color: var (--dark-light-tone);
+    color: var(--dark-light-tone);
 }
 
 /* Dark mode language switcher option styling */
 body.mode #language-switcher option {
-    background-color: var(--dark-light-tone);
+    background-color: var(--dark-mid-tone);
 }
 
 /* Dark mode mode switcher styling */

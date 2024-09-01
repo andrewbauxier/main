@@ -3,7 +3,7 @@
 // author: andrew b. auxier
 
 // The default locale of the website, which is JP (base text in html is Japanese)
-const defaultLocale = "jp";
+const defaultLocale = 'jp';
 
 // Variable to keep track of the current active locale
 let locale;
@@ -91,7 +91,7 @@ async function fetchTranslationsFor(newLocale) {
 // 'translate' class with the translation corresponding to its class-based key
 function translatePage() {
     // Select all elements with the 'translate' class and pass them to the translateElement function
-    document.querySelectorAll(".translate").forEach(translateElement);
+    document.querySelectorAll('.translate').forEach(translateElement);
 }
 
 // Function to replace the inner text of the given HTML element
@@ -103,7 +103,7 @@ function translateElement(element) {
     }
 
     // Assume the translation key is the second class in the class list
-    const key = Array.from(element.classList).find(cls => cls !== 'translate');
+    const key = Array.from(element.classList).find((cls) => cls !== 'translate');
     if (!key) {
         console.warn(`No translation key found in classes for element:`, element);
         return;
@@ -120,7 +120,7 @@ function translateElement(element) {
 
 // Function to reset the page content to the base Japanese text
 function resetToBaseText() {
-    document.querySelectorAll(".translate").forEach(element => {
+    document.querySelectorAll('.translate').forEach((element) => {
         // Restore the original content from the custom attribute
         const originalText = element.getAttribute('data-original-text');
         if (originalText) {
@@ -132,11 +132,11 @@ function resetToBaseText() {
 // Function to load the navigation bar content
 function loadNav() {
     return fetch('nav.html')
-        .then(response => {
+        .then((response) => {
             if (!response.ok) throw new Error(`FAILED TO LOAD nav.html: ${response.statusText}`);
             return response.text();
         })
-        .then(data => {
+        .then((data) => {
             try {
                 document.querySelector('nav').innerHTML = data; // Insert the fetched navigation content into the <nav> element
             } catch (error) {
@@ -151,11 +151,11 @@ function loadNav() {
 // Function to load the footer content
 function loadFooter() {
     return fetch('footer.html')
-        .then(response => {
+        .then((response) => {
             if (!response.ok) throw new Error(`FAILED TO LOAD footer.html: ${response.statusText}`);
             return response.text();
         })
-        .then(data => {
+        .then((data) => {
             try {
                 document.querySelector('footer').innerHTML = data; // Insert the fetched footer content into the <footer> element.
             } catch (error) {
@@ -169,40 +169,42 @@ function loadFooter() {
 
 // Function to generate breadcrumbs dynamically based on the URL path.
 function generateBreadcrumb() {
-    const breadcrumbContainer = document.querySelector(".breadcrumbs-container ol");
+    const breadcrumbContainer = document.querySelector('.breadcrumbs-container ol');
     if (!breadcrumbContainer) return; // Exit if the breadcrumb container doesn't exist
 
     // Get the current path and split it into parts, filtering out non-user-facing directories
     const pathArray = window.location.pathname
-        .split("/")
-        .filter(part => part && !["js", "img", "fonts"].includes(part)); // Filter out irrelevant directories.
+        .split('/')
+        .filter((part) => part && !['js', 'img', 'fonts'].includes(part)); // Filter out irrelevant directories.
 
     // Clear existing breadcrumb content
-    breadcrumbContainer.innerHTML = "";
+    breadcrumbContainer.innerHTML = '';
 
     // Create and add the "Home" link
-    const homeLink = document.createElement("li");
+    const homeLink = document.createElement('li');
     homeLink.innerHTML = `<a href="/src/landing.html"></a>`;
     breadcrumbContainer.appendChild(homeLink);
 
     // Initialize the accumulated path, starting from "/src/"
-    let accumulatedPath = "/src/";
+    let accumulatedPath = '/src/';
 
     // Build the breadcrumb from the URL path.
     pathArray.forEach((segment, index) => {
-        if (segment === "src") return; // Skip adding "src" to avoid "src/src" duplication
+        if (segment === 'src') return; // Skip adding "src" to avoid "src/src" duplication
 
-        accumulatedPath += segment + "/";
+        accumulatedPath += segment + '/';
         const isLast = index === pathArray.length - 1;
 
-        const breadcrumbItem = document.createElement("li");
+        const breadcrumbItem = document.createElement('li');
         if (isLast) {
             // For the last item, display it as plain text without ".html"
-            breadcrumbItem.textContent = segment.replace(".html", "").replace(/-/g, " ");
-            breadcrumbItem.setAttribute("aria-current", "page");
+            breadcrumbItem.textContent = segment.replace('.html', '').replace(/-/g, ' ');
+            breadcrumbItem.setAttribute('aria-current', 'page');
         } else {
             // For intermediate items, make them clickable links.
-            breadcrumbItem.innerHTML = `<a href="${accumulatedPath}">${segment.replace(".html", "").replace(/-/g, " ")}</a>`;
+            breadcrumbItem.innerHTML = `<a href="${accumulatedPath}">${segment
+                .replace('.html', '')
+                .replace(/-/g, ' ')}</a>`;
         }
         breadcrumbContainer.appendChild(breadcrumbItem);
     });
@@ -214,9 +216,9 @@ function initializePage() {
         // Load navigation and footer, then initialize other features
         Promise.all([loadNav(), loadFooter()])
             .then(() => {
-                handleLanguageSwitch();  // Initialize language switcher and set the locale
-                handleModeSwitch();       // Initialize mode switcher
-                generateBreadcrumb();     // Generate breadcrumb after loading nav
+                handleLanguageSwitch(); // Initialize language switcher and set the locale
+                handleModeSwitch(); // Initialize mode switcher
+                generateBreadcrumb(); // Generate breadcrumb after loading nav
             })
             .catch((error) => {
                 console.error('ERROR INITIALIZING PAGE PROMISE:', error);
