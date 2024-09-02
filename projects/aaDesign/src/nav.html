@@ -4,7 +4,6 @@ module: nav.html
 author: andrew b. auxier
 -->
 
-<!-- give class position relative -->
 <nav class="navbar">
     <!-- Logo -->
     <a href="landing.html" class="logo">
@@ -18,22 +17,13 @@ author: andrew b. auxier
         <li><a class="translate nav-legal" href="legal.html">法務</a></li>
     </ul>
 
-    <!-- Dropdown menu for mobile view -->
-    <div class="dropdown">
-        <button class="translate nav-menu dropdown-button">メニュー</button>
-        <ul class="dropdown-content">
-            <li><a class="translate nav-services" href="services.html">サービス</a></li>
-            <li><a class="translate nav-portfolio" href="portfolio.html">制作実績</a></li>
-            <li><a class="translate nav-legal" href="legal.html">法務</a></li>
-        </ul>
-    </div>
-
+    <!-- Widgets: Language and Mode Toggles -->
     <div class="navbar-widgets">
-        <select id="language-switcher">
+        <select id="language-switcher" aria-label="Language Toggle Dropdown">
             <option value="jp">JP</option>
             <option value="en">EN</option>
         </select>
-        <select id="mode-switcher">
+        <select id="mode-switcher" aria-label="Mode Toggle Dropdown">
             <option value="light">Light</option>
             <option value="dark">Dark</option>
         </select>
@@ -51,6 +41,6 @@ author: andrew b. auxier
     <img
         class="banner"
         src="/img/banner1.jpg"
-        alt="A banner depicting the text 'web design services' overlaid on a techie looking virtual background."
+        alt="A banner depicting the text 'web design services' overlaid on a techie-looking virtual background."
     />
 </span>

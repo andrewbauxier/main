@@ -4,9 +4,8 @@ module: styles.css
 author: andrew b. auxier 
 */
 
-/* Build Settings */
+/* General styling */
 
-/* Define variable font for normal and bold styles */
 @font-face {
     font-family: "OpenSans";
     src: url("/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
@@ -14,7 +13,6 @@ author: andrew b. auxier
     font-style: normal;
 }
 
-/* Define variable font for italic styles */
 @font-face {
     font-family: "OpenSans";
     src: url("/fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
@@ -22,36 +20,30 @@ author: andrew b. auxier
     font-style: italic;
 }
 
-/* General styles */
-
-/* Root color variables for light and dark modes */
 :root {
     /* Light Mode Colors */
-    --light-dark-tone: #333333; /* Dark grey */
-    --light-mid-tone: #dddddd; /* Light grey */
-    --light-light-tone: #ffffff; /* Pure white */
-    --light-darkest-tone: #1a1a1a; /* Darkest grey */
+    --light-dark-tone: #333333;
+    --light-mid-tone: #dddddd;
+    --light-light-tone: #ffffff;
+    --light-darkest-tone: #1a1a1a;
 
     /* Dark Mode Colors */
-    --dark-dark-tone: #515151; /* Almost black */
-    --dark-mid-tone: #969696; /* Dark grey */
-    --dark-light-tone: #dbdbdb; /* Light grey */
-    --dark-darkest-tone: #121212; /* Almost pitch black */
+    --dark-dark-tone: #515151;
+    --dark-mid-tone: #969696;
+    --dark-light-tone: #dbdbdb;
+    --dark-darkest-tone: #121212;
 
-    /* Additional text and background colors */
+    /* Additional Colors */
     --text-yellow-light: #fdfe01;
     --text-yellow-mid: #bcbc00;
-
     --text-blue-light: #00b7ff;
     --text-blue-mid: #0099d5;
     --text-blue-dark: #005b7f;
-
     --background-blue-light: #0000f5;
     --background-blue-mid: #0000ce;
     --background-blue-dark: #000099;
 }
 
-/* Universal box-sizing for all elements */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -59,7 +51,6 @@ author: andrew b. auxier
     font-family: "OpenSans", Arial, sans-serif;
 }
 
-/* Reset styles for links and list elements */
 a {
     text-decoration: none;
 }
@@ -67,26 +58,21 @@ a {
 li,
 ul,
 ol {
-    text-decoration: none;
     list-style-type: none;
 }
 
-/* Responsive images */
 img {
     max-width: 100%;
 }
 
-/* Body styling */
 body {
     margin-right: auto;
     margin-left: auto;
     max-width: 1300px;
     min-width: 375px;
-    border: var(--light-darkest-tone);
-    border-style: solid;
+    border: var(--light-darkest-tone) solid;
 }
 
-/* Paragraph styling */
 p {
     display: flex;
     line-height: 1.5em;
@@ -94,21 +80,18 @@ p {
     flex-flow: wrap;
 }
 
-/* Headings styling - Add styles if needed */
 h1,
 h2,
 h3 {
     color: var(--background-blue-mid);
 }
 
-/* Center heading text */
 .centered-heading {
     display: flex;
     margin: 10px 0;
     justify-content: center;
 }
 
-/* Navigation bar styles */
 .navbar {
     display: flex;
     align-items: center;
@@ -117,13 +100,11 @@ h3 {
     background-color: var(--light-mid-tone);
 }
 
-/* Logo styles */
 .logo {
     height: 100px;
     width: auto;
 }
 
-/* Main menu list styling */
 .navbar .main-menu {
     display: flex;
     flex: 1;
@@ -131,75 +112,27 @@ h3 {
     margin: 0;
 }
 
-/* Styling for each list item in the navbar */
 .navbar .main-menu li {
-    margin-right: 20px; /* Space between each link */
+    margin-right: 10px;
 }
 
-/* Styling for navbar links */
 .navbar .main-menu li a {
     font-weight: bold;
     color: var(--light-darkest-tone);
-
     transition: color 0.3s;
-    text-decoration: none; /* Remove underline */
 }
 
-/* Navbar link hover effect */
 .navbar .main-menu li a:hover {
     color: var(--background-blue-light);
 }
 
-/* Dropdown Styles */
-.dropdown {
-    display: none;
-    margin-right: 10px;
-}
-
-/* Styling for dropdown button */
-.dropdown-button {
-    background-color: var(--background-blue-dark);
-    color: var(--text-yellow-light);
-    padding: 20px;
-    border-radius: 100px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Dropdown content container styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--light-mid-tone);
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(65, 65, 65, 0.2);
-    z-index: 10;
-    top: 100%;
-    left: 0;
-    flex-direction: column;
-}
-
-/* Show dropdown content when the dropdown is focused */
-.dropdown:focus-within .dropdown-content {
-    display: flex;
-}
-
-/* Styling for links in the dropdown */
-.dropdown-content a {
-    color: var(--light-dark-tone);
-    padding: 12px 16px;
-}
-
-/* Widget container in the navbar */
 .navbar-widgets {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-left: 70px;
+    margin-left: 20px;
 }
 
-/* Language switcher dropdown styles */
 #language-switcher {
     width: 80px;
     padding: 10px;
@@ -210,12 +143,10 @@ h3 {
     margin-top: 5px;
 }
 
-/* Language switcher options styles */
 #language-switcher option {
     color: var(--light-darkest-tone);
 }
 
-/* Mode switcher dropdown styles */
 #mode-switcher {
     width: 80px;
     padding: 10px;
@@ -226,20 +157,17 @@ h3 {
     margin-top: 5px;
 }
 
-/* Mode switcher options styles */
 #mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
 }
 
-/* Breadcrumbs container styling */
 .breadcrumbs-container {
     font-size: 12px;
-    margin: 0px; /* Adds spacing between the navbar and breadcrumbs */
+    margin: 0px;
     background-color: var(--light-mid-tone);
 }
 
-/* Breadcrumb list styling */
 .breadcrumb {
     display: flex;
     list-style: none;
@@ -249,31 +177,26 @@ h3 {
     background-color: var(--light-light-tone);
 }
 
-/* Breadcrumb list item styling */
 .breadcrumb li {
     margin-right: 8px;
 }
 
-/* Breadcrumb separator styling */
 .breadcrumb li + li::before {
     content: ">";
     margin-right: 8px;
     color: var(--background-blue-dark);
 }
 
-/* Breadcrumb link styling */
 .breadcrumb a {
     text-decoration: none;
     color: var(--background-blue-light);
 }
 
-/* Styling for the current page in the breadcrumb */
 .breadcrumb li[aria-current="page"] {
     font-weight: bold;
     color: var(--background-blue-light);
 }
 
-/* Footer styling */
 footer {
     background-color: var(--light-mid-tone);
     text-align: center;
@@ -284,24 +207,20 @@ footer {
     padding: 10px;
 }
 
-/* Main content area */
 .content {
     padding: 20px;
     width: 100%;
     max-width: 100%;
 }
 
-/* Section spacing */
 .section {
     margin: 20px;
 }
 
-/* Section with banner spacing */
 .section-with-banner {
     margin-bottom: 40px;
 }
 
-/* Section with cards styling */
 .section-with-cards {
     display: flex;
     margin-bottom: 20px;
@@ -312,7 +231,6 @@ footer {
     flex-direction: column;
 }
 
-/* Card container for organizing multiple cards in a row */
 .card-container {
     display: flex;
     flex-direction: row;
@@ -320,23 +238,19 @@ footer {
     gap: 2em;
 }
 
-/* Section with image styling */
 .landing-section-with-image {
-    overflow: auto; /* Contains floated content */
+    overflow: auto;
     margin-bottom: 10px;
 }
 
-/* Floating image styling */
 .float-left {
     float: left;
     margin-right: 20px;
     margin-top: 20px;
     height: 150px;
     width: auto;
-    max-width: 100%; /* Ensures responsiveness */
+    max-width: 100%;
 }
-
-/* Banner styling */
 
 .banner-container {
     display: flex;
@@ -352,21 +266,18 @@ footer {
     display: block;
 }
 
-/* Opaque banner image styling */
 .banner-opaque {
     opacity: 0.5;
     margin-bottom: 10px;
     margin-bottom: 10px;
 }
 
-/* Compact paragraph styling with centered text */
 .compact-paragraph-centered {
     padding: 10px 100px 10px 100px;
     justify-content: center;
     align-items: center;
 }
 
-/* Services section with cards styling */
 .services-section-with-cards {
     display: flex;
     margin-right: 10px;
@@ -376,7 +287,6 @@ footer {
     gap: 5px;
 }
 
-/* Large card styling */
 .card-large {
     display: flex;
     flex-direction: column;
@@ -390,38 +300,32 @@ footer {
     box-sizing: border-box;
 }
 
-/* Card body container styling */
 .card-body-container {
     display: block;
     margin: 10px;
     height: auto;
 }
 
-/* Card title styling */
 .card-title {
     border-style: none;
     color: var(--text-yellow-light);
     width: 100%;
 }
 
-/* Card subtitle styling */
 .card-subtitle {
     align-items: flex-start;
     color: var(--text-yellow-light);
     width: 100%;
 }
 
-/* Card price margin adjustment */
 .card-price {
     margin-top: 10px;
 }
 
-/* Fine print text styling */
 .fine-print {
     font-size: 10px;
 }
 
-/* Card body styling */
 .card-body {
     display: flex;
     justify-content: center;
@@ -432,7 +336,6 @@ footer {
     text-decoration: underline;
 }
 
-/* General card styling */
 .card {
     display: flex;
     flex-direction: column;
@@ -445,14 +348,12 @@ footer {
     justify-content: center;
 }
 
-/* Card image styling */
 .card-image {
     height: 200px;
     padding: 20px;
     width: auto;
 }
 
-/* Card button styling */
 .card-button {
     background-color: var(--background-blue-dark);
     color: var(--text-yellow-light);
@@ -462,7 +363,6 @@ footer {
     padding: 10px;
 }
 
-/* Styling for specific services card title containers */
 .services-card-title-container1,
 .services-card-title-container2,
 .services-card-title-container3 {
@@ -470,7 +370,6 @@ footer {
     padding: 10px;
 }
 
-/* Styling for the first services card */
 .services-card1Subtitle,
 .services-card1Title,
 .services-card-title-container1 {
@@ -478,15 +377,13 @@ footer {
     color: var(--text-yellow-light);
 }
 
-/* Styling for the second services card */
 .services-card2Subtitle,
 .services-card2Title,
 .services-card-title-container2 {
     background-color: var(--background-blue-mid);
-    color: var(--text-yellow-light);
+    color: var (--text-yellow-light);
 }
 
-/* Styling for the third services card */
 .services-card3Subtitle,
 .services-card3Title,
 .services-card-title-container3 {
@@ -494,7 +391,6 @@ footer {
     color: var(--text-yellow-light);
 }
 
-/* Button styling for services cards */
 .services-card-button {
     background-color: var(--background-blue-mid);
     color: var(--light-light-tone);
@@ -503,20 +399,17 @@ footer {
     padding: 10px;
 }
 
-/* Wrapper for the entire options section */
 .options-section {
     margin: 20px 0;
     padding: 20px;
 }
 
-/* Title styling for the options section */
 .option-title-option1 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Individual option items styling */
 .option-container {
     display: block;
     padding: 0 50px;
@@ -528,7 +421,6 @@ footer {
     justify-content: space-between;
 }
 
-/* Separator styling for options */
 .option-separator {
     flex-grow: 1;
     align-self: center;
@@ -538,12 +430,10 @@ footer {
     border-bottom-width: 1px solid var(--text-yellow-mid);
 }
 
-/* Optional hover effect for option items */
 .option-container:hover {
     background-color: var(--light-mid-tone);
 }
 
-/* Option description styling */
 .option-description-item1,
 .option-description-item2,
 .option-description-item3,
@@ -553,7 +443,6 @@ footer {
     font-weight: bold;
 }
 
-/* Option price styling */
 .option-price-item1,
 .option-price-item2,
 .option-price-item3,
@@ -562,7 +451,6 @@ footer {
     font-size: 18px;
 }
 
-/* Option details styling */
 .option-details-item1,
 .option-details-item2,
 .option-details-item3,
@@ -592,19 +480,15 @@ footer {
     margin: 20px 30px 50px 30px;
 }
 
-/* Dark mode styles */
-
-/* Hide dark mode elements in light mode */
+/* Dark Mode Styles */
 body.mode .darkMode {
     visibility: hidden;
 }
 
-/* Show dark mode elements */
 body .darkMode {
     visibility: visible;
 }
 
-/* Show light mode elements in dark mode */
 body.mode .lightMode {
     visibility: visible;
 }
@@ -613,184 +497,46 @@ body.mode .navbar .main-menu li a:hover {
     color: var(--text-blue-light);
 }
 
-/* Hide light mode elements */
 body .lightMode {
     visibility: hidden;
 }
 
-/* Dark mode background and text colors */
 body.mode {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
-/* Dark mode navbar styling */
 body.mode nav {
     background-color: var(--dark-dark-tone);
 }
 
-/* Dark mode navbar link styling */
 body.mode .navbar a {
     color: var(--dark-light-tone);
 }
 
-/* Dark mode dropdown content styling */
-body.mode .dropdown-content {
-    background-color: var(--dark-mid-tone);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Dark mode dropdown link styling */
-body.mode .dropdown-content a {
-    color: var(--dark-mid-tone);
-}
-
-/* Dark mode language switcher styling */
 body.mode #language-switcher {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
-/* Dark mode language switcher option styling */
 body.mode #language-switcher option {
     background-color: var(--dark-light-tone);
 }
 
-/* Dark mode mode switcher styling */
 body.mode #mode-switcher {
     background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
-/* Dark mode mode switcher option styling */
 body.mode #mode-switcher option {
     background-color: var(--dark-light-tone);
 }
 
-/* Dark mode breadcrumb styling */
 body.mode .breadcrumb {
     background-color: var(--dark-mid-tone);
 }
 
-/* Dark mode footer styling */
 body.mode footer {
     background-color: var(--dark-mid-tone);
     color: var(--dark-light-tone);
-}
-
-/* Media queries for larger screens (min-width: 767px) */
-
-/* Hide dropdown on larger screens */
-@media (min-width: 767px) {
-    .dropdown {
-        display: none;
-    }
-
-    /* Show navbar links on larger screens */
-    .navbar a:not(.logo) {
-        display: block;
-    }
-}
-
-/* Responsive styles for smaller screens (max-width: 768px) */
-@media (max-width: 768px) {
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "OpenSans", Arial, sans-serif;
-        width: auto;
-    }
-
-    /* Center headings on smaller screens */
-    .section h1 {
-        display: flex;
-        margin-bottom: 20px;
-
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Hide navbar links on smaller screens */
-    .navbar a:not(.logo) {
-        display: none;
-    }
-
-    /* Show dropdown on smaller screens */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: block;
-        position: absolute;
-        background-color: var(--light-mid-tone);
-        min-width: 160px;
-        box-shadow: 0 8px 16px rgba(65, 65, 65, 0.2);
-        z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-content,
-    .dropdown-button:focus + .dropdown-content {
-        display: block;
-    }
-
-    /* Adjust card container for smaller screens */
-    .card-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 0;
-        gap: 0;
-    }
-
-    /* Adjust floated elements for smaller screens */
-    .float-left {
-        float: left;
-        margin: 20px;
-        height: 100px;
-        width: auto;
-        max-width: 100%; /* Ensures responsiveness */
-        flex-shrink: 1;
-    }
-
-    /* Adjust section with cards for smaller screens */
-    .section-with-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Adjust card styling for smaller screens */
-    .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        border-style: solid;
-        border-color: var(--light-darkest-tone);
-        height: auto;
-        width: 300px;
-    }
-
-    /* Adjust card image margin for smaller screens */
-    .card-image {
-        margin: 20px;
-    }
-
-    /* Adjust card button styling for smaller screens */
-    .card-button {
-        background-color: var(--background-blue-dark);
-        color: var(--text-yellow-light);
-        width: auto;
-        height: 50px;
-        margin: 20px;
-        padding: 10px;
-    }
-
-    /* Adjust services section with cards for smaller screens */
-    .services-section-with-cards {
-        flex-direction: column;
-        align-items: center;
-    }
 }
