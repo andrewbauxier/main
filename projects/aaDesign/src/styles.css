@@ -33,14 +33,19 @@ author: andrew b. auxier
     --light-darkest-tone: #1a1a1a; /* Darkest grey */
 
     /* Dark Mode Colors */
-    --dark-dark-tone: #121212; /* Almost black */
-    --dark-mid-tone: #333333; /* Dark grey */
-    --dark-light-tone: #bbbbbb; /* Light grey */
-    --dark-darkest-tone: var(--light-dark-tone); /* Almost pitch black */
+    --dark-dark-tone: #515151; /* Almost black */
+    --dark-mid-tone: #969696; /* Dark grey */
+    --dark-light-tone: #dbdbdb; /* Light grey */
+    --dark-darkest-tone: #121212; /* Almost pitch black */
 
     /* Additional text and background colors */
     --text-yellow-light: #fdfe01;
     --text-yellow-mid: #bcbc00;
+
+    --text-blue-light: #00b7ff;
+    --text-blue-mid: #0099d5;
+    --text-blue-dark: #005b7f;
+
     --background-blue-light: #0000f5;
     --background-blue-mid: #0000ce;
     --background-blue-dark: #000099;
@@ -126,8 +131,7 @@ h3 {
 
 /* Main menu list styling */
 .navbar .main-menu {
-    list-style-type: none; /* Remove default list bullet points */
-    display: flex; /* Align list items horizontally */
+    display: flex;
     flex: 1;
     justify-content: flex-end;
     margin: 0;
@@ -140,15 +144,16 @@ h3 {
 
 /* Styling for navbar links */
 .navbar .main-menu li a {
-    color: var(--light-darkest-tone);
     font-weight: bold;
+    color: var(--light-darkest-tone);
+
     transition: color 0.3s;
     text-decoration: none; /* Remove underline */
 }
 
 /* Navbar link hover effect */
 .navbar .main-menu li a:hover {
-    color: var(--background-blue-dark);
+    color: var(--background-blue-light);
 }
 
 /* Dropdown Styles */
@@ -206,7 +211,7 @@ h3 {
     padding: 10px;
     margin-right: 5px;
     color: var(--light-darkest-tone);
-    align-items: center;
+    background-color: var(--light-light-tone);
     border-style: none;
     margin-top: 5px;
 }
@@ -223,7 +228,6 @@ h3 {
     margin-right: 5px;
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
-    align-items: center;
     border-style: none;
     margin-top: 5px;
 }
@@ -248,6 +252,7 @@ h3 {
     padding: 0;
     margin: 0;
     color: var(--background-blue-light);
+    background-color: var(--light-light-tone);
 }
 
 /* Breadcrumb list item styling */
@@ -581,6 +586,10 @@ body.mode .lightMode {
     visibility: visible;
 }
 
+body.mode .navbar .main-menu li a:hover {
+    color: var(--text-blue-light);
+}
+
 /* Hide light mode elements */
 body .lightMode {
     visibility: hidden;
@@ -594,7 +603,7 @@ body.mode {
 
 /* Dark mode navbar styling */
 body.mode nav {
-    background-color: var(--dark-mid-tone);
+    background-color: var(--dark-dark-tone);
 }
 
 /* Dark mode navbar link styling */
@@ -615,18 +624,18 @@ body.mode .dropdown-content a {
 
 /* Dark mode language switcher styling */
 body.mode #language-switcher {
-    background-color: var(--dark-dark-tone);
+    background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
 /* Dark mode language switcher option styling */
 body.mode #language-switcher option {
-    background-color: var(--dark-mid-tone);
+    background-color: var(--dark-light-tone);
 }
 
 /* Dark mode mode switcher styling */
 body.mode #mode-switcher {
-    background-color: var(--dark-dark-tone);
+    background-color: var(--dark-darkest-tone);
     color: var(--dark-light-tone);
 }
 
