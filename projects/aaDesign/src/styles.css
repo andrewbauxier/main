@@ -231,6 +231,30 @@ footer {
     flex-direction: column;
 }
 
+.portfolio-cards-container {
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    justify-content: center;
+    gap: 1em;
+}
+
+.portfolio-cards {
+    display: flex;
+    background-color: var(--text-yellow-light);
+    flex-direction: column;
+}
+
+.portfolio-cards-image {
+    height: 200px;
+    width: 300px;
+}
+
+.portfolio-cards-text-box {
+    width: 100%;
+    text-align: center;
+    background-color: var(--dark-light-tone);
+}
+
 .card-container {
     display: flex;
     flex-direction: row;
