@@ -232,14 +232,17 @@ footer {
 }
 
 .portfolio-cards-container {
-    display: grid;
-    grid-template-columns: 250px 250px 250px;
+    display: inline-flex;
     justify-content: center;
+    margin: 40px 10px;
     gap: 1em;
+    flex-wrap: wrap;
 }
 
 .portfolio-cards {
     display: flex;
+    height: 200px;
+    width: 250px;
     background-color: var(--text-yellow-light);
     flex-direction: column;
 }
@@ -252,7 +255,7 @@ footer {
 .portfolio-cards-text-box {
     width: 100%;
     text-align: center;
-    background-color: var(--dark-light-tone);
+    background-color: var(--light-mid-tone);
 }
 
 .card-container {
