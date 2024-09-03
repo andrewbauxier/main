@@ -134,6 +134,7 @@ h3 {
 }
 
 #language-switcher {
+    height: 40px;
     width: 80px;
     padding: 10px;
     margin-right: 10px;
@@ -141,6 +142,8 @@ h3 {
     background-color: var(--light-light-tone);
     border-style: none;
     margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--text-yellow-light);
 }
 
 #language-switcher option {
@@ -148,18 +151,33 @@ h3 {
 }
 
 #mode-switcher {
+    height: 40px;
     width: 80px;
     padding: 10px;
-    margin-right: 10px;
+    margin: 5px 10px 5px 0px;
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
-    border-style: none;
-    margin-top: 5px;
+    border: 1px solid var(--text-yellow-light);
+    text-decoration-line: none;
+    border-radius: 5px;
 }
 
 #mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
+}
+
+.nav-contact-button {
+    margin-bottom: 2px;
+    margin-right: 5px;
+    font-size: 20px;
+    height: 90px;
+    width: 100px;
+    border: solid var(--text-yellow-light);
+    border-radius: 10px;
+    color: var(--text-yellow-light);
+    background-color: var(--background-blue-dark);
+    box-shadow: 1px 1px var(--dark-mid-tone);
 }
 
 .breadcrumbs-container {
@@ -235,7 +253,7 @@ footer {
     display: inline-flex;
     justify-content: center;
     margin: 40px 10px;
-    gap: 1em;
+    gap: 5em;
     flex-wrap: wrap;
 }
 
@@ -564,6 +582,10 @@ body.mode .breadcrumb {
 }
 
 body.mode footer {
-    background-color: var(--dark-mid-tone);
+    background-color: var(--dark-dark-tone);
     color: var(--dark-light-tone);
+}
+
+body.mode .portfolio-cards-text-box {
+    background-color: var(--dark-dark-tone);
 }
