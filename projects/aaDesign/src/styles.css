@@ -144,6 +144,7 @@ h3 {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid var(--text-yellow-light);
+    cursor: pointer;
 }
 
 #language-switcher option {
@@ -160,6 +161,7 @@ h3 {
     border: 1px solid var(--text-yellow-light);
     text-decoration-line: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #mode-switcher option {
@@ -178,6 +180,7 @@ h3 {
     color: var(--text-yellow-light);
     background-color: var(--background-blue-dark);
     box-shadow: 1px 1px var(--dark-mid-tone);
+    cursor: pointer;
 }
 
 .breadcrumbs-container {
@@ -406,6 +409,7 @@ footer {
     height: 50px;
     margin: 20px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .services-card-title-container1,
