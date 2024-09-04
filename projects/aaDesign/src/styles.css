@@ -627,6 +627,71 @@ footer {
     margin: 20px 30px 50px 30px;
 }
 
+.contact-form-container,
+.contact-input-block,
+.contact-input-field,
+.contact-input-label,
+.contact-submit-button,
+.contact-submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form-container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: 30px 0;
+
+    height: auto;
+}
+
+.contact-input-block {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+.contact-input-label {
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin-top: 5px;
+    min-width: 30%;
+    width: auto;
+}
+
+.contact-input-field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid var(--text-yellow-mid);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-submit-button-container {
+    flex-direction: column;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.contact-submit-button {
+    margin-top: 10px;
+    min-width: 30%;
+    height: 50px;
+    background-color: var(--background-blue-light);
+    color: var(--text-yellow-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-submit-button:hover {
+    color: #000098;
+    background-color: var(--text-yellow-light);
+}
+
 /* Dark Mode Styles */
 body.mode .darkMode {
     visibility: hidden;
