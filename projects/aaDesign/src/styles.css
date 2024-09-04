@@ -5,6 +5,12 @@ author: andrew b. auxier
 */
 
 /* General styling */
+@font-face {
+    font-family: "NotoSerif";
+    src: url("/fonts/NotoSerif/NotoSerifJP-VariableFont_wght.ttf") format("truetype");
+    font-weight: 1 1000;
+    font-style: normal;
+}
 
 @font-face {
     font-family: "OpenSans";
@@ -49,6 +55,8 @@ author: andrew b. auxier
     margin: 0;
     padding: 0;
     font-family: "OpenSans", Arial, sans-serif;
+    font-family: "NotoSerif";
+    font-size: 20px;
 }
 
 a {
@@ -70,7 +78,6 @@ body {
     margin-left: auto;
     max-width: 1300px;
     min-width: 375px;
-    border: var(--light-darkest-tone) solid;
 }
 
 p {
@@ -82,9 +89,20 @@ p {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
     color: var(--background-blue-mid);
+    font-family: "NotoSerif";
+    text-shadow: 1px 1px 2px var(--dark-light-tone);
 }
+
+h1 {
+    font-size: 36px;
+}
+
+/* FX Utilities */
 
 .centered-heading {
     display: flex;
@@ -109,11 +127,11 @@ h3 {
     display: flex;
     flex: 1;
     justify-content: flex-end;
-    margin: 0;
+    margin-right: 0px;
 }
 
 .navbar .main-menu li {
-    margin-right: 10px;
+    margin-right: 40px;
 }
 
 .navbar .main-menu li a {
@@ -145,10 +163,19 @@ h3 {
     border-radius: 5px;
     border: 1px solid var(--text-yellow-light);
     cursor: pointer;
+    font-size: 15px;
 }
 
 #language-switcher option {
     color: var(--light-darkest-tone);
+    font-size: 15px;
+}
+
+.mode-toggle-icon {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    visibility: hidden;
 }
 
 #mode-switcher {
@@ -162,11 +189,14 @@ h3 {
     text-decoration-line: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 15px;
+    visibility: hidden;
 }
 
 #mode-switcher option {
     background-color: var(--light-light-tone);
     color: var(--light-darkest-tone);
+    font-size: 15px;
 }
 
 .nav-contact-button {
@@ -288,7 +318,7 @@ footer {
 
 .landing-section-with-image {
     overflow: auto;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .float-left {
@@ -404,9 +434,9 @@ footer {
 
 .card-button {
     background-color: var(--background-blue-dark);
+    font-size: 16px;
     color: var(--text-yellow-light);
-    width: auto;
-    height: 50px;
+    width: 250px;
     margin: 20px;
     padding: 10px;
     cursor: pointer;
@@ -592,4 +622,102 @@ body.mode footer {
 
 body.mode .portfolio-cards-text-box {
     background-color: var(--dark-dark-tone);
+}
+
+@media (min-width: 767px) {
+    .dropdown {
+        display: none;
+    }
+
+    .navbar a:not(.logo) {
+        display: block;
+    }
+}
+
+/* Responsive Styles for Navigation - Effective under 768px*/
+@media (max-width: 768px) {
+    .section {
+        margin-bottom: 50px;
+    }
+
+    .section h1 {
+        display: flex;
+        margin-bottom: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar a:not(.logo) {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+
+    label {
+        margin-left: 0;
+    }
+    .section-with-image {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        overflow: auto; /* Contains floated content */
+        flex-shrink: 1;
+    }
+
+    .float-left {
+        float: left;
+        margin: 20px;
+        height: 100px;
+        width: auto;
+        max-width: 100%; /* Ensures responsiveness */
+        flex-shrink: 1;
+    }
+
+    .section-with-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 50px;
+        margin-bottom: 40px;
+        margin-left: 50px;
+        gap: 50px;
+        justify-content: space-around;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+        border-style: solid;
+        border-color: #0a0a0a;
+        height: 300px;
+        width: 300px;
+    }
+
+    .landing-section-with-image {
+        margin-bottom: 40px;
+    }
+    .card {
+        margin-top: 0;
+    }
+
+    .card-image {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .card-button {
+        background-color: #000098;
+        color: #fdfd00;
+        width: 250px;
+    }
 }
