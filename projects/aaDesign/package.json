@@ -1,0 +1,11 @@
+{
+  "name": "aadesign",
+  "version": "1.0.0",
+  "description": "Double A Design website",
+  "main": "landing.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Double A Design",
+  "license": "ISC"
+}
