@@ -95,9 +95,9 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--background-blue-mid);
+    color: var(--background-blue-dark);
     font-family: "NotoSerif";
-    text-shadow: 1px 1px 2px var(--dark-light-tone);
+    text-shadow: 1px 1px 1px var(--text-blue-mid);
 }
 
 h1 {
@@ -130,8 +130,12 @@ h1 {
     color: var(--background-blue-dark);
 }
 
-.navbar h1:hover {
-    color: var(--text-yellow-light);
+.navbar h1:hover,
+a:hover {
+    color: var(--text-yellow-mid);
+    text-shadow: 2px 0 var(--text-blue-dark), -2px 0 var(--text-blue-dark), 0 2px var(--text-blue-dark),
+        0 -2px var(--text-blue-dark), 1px 1px var(--text-blue-dark), -1px -1px var(--text-blue-dark),
+        1px -1px var(--text-blue-dark), -1px 1px var(--text-blue-dark);
 }
 .navbar-left {
     padding: 5px;
@@ -269,10 +273,16 @@ h1 {
     box-shadow: 1px 1px var(--dark-mid-tone);
     cursor: pointer;
 }
+.nav-contact-button:hover {
+    border: solid var(--background-blue-dark);
+    color: var(--text-blue-dark);
+    background-color: var(--text-yellow-light);
+    box-shadow: 1px 1px var(--dark-mid-tone);
+    cursor: pointer;
+}
 /* Navbar End */
 
 footer {
-    background-color: var(--light-mid-tone);
     text-align: center;
     box-sizing: border-box;
 }
@@ -580,9 +590,9 @@ footer {
     flex-grow: 1;
     align-self: center;
     margin: 0 10px;
-    border-color: var(--text-yellow-mid);
+    border-color: var(--text-yellow-dark);
     border-bottom-style: dotted;
-    border-bottom-width: 1px solid var(--text-yellow-mid);
+    border-bottom-width: 1px solid var(--text-yellow-dark);
 }
 
 .option-container:hover {
