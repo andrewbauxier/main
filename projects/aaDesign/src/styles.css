@@ -97,11 +97,10 @@ h5,
 h6 {
     color: var(--background-blue-dark);
     font-family: "NotoSerif";
-    text-shadow: 1px 1px 1px var(--text-blue-mid);
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 48px;
 }
 
 .page-title {
@@ -115,17 +114,21 @@ h1 {
 }
 
 .shadowed-text {
-    text-shadow: 1px 1px var(--text-blue-light);
+    text-shadow: 1px 1px 1px var(--text-yellow-mid);
 }
 /* FX Utilities End*/
 
 /* Navbar Begin */
 .navbar {
+    display: block;
+}
+
+.navbar-stack-div {
     display: flex;
+    margin-bottom: 5px;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: solid #0a0a0a;
 }
 .navbar-title {
     display: flex;
@@ -143,11 +146,12 @@ a:hover {
 .navbar-left {
     padding: 5px;
 }
+
 .breadcrumbs-container {
     flex-direction: column;
     justify-content: end;
     height: 10px;
-    font-size: 12px;
+    padding: 5px;
 }
 
 .breadcrumb {
@@ -157,6 +161,8 @@ a:hover {
 
 .breadcrumb li {
     margin-right: 8px;
+
+    font-size: 16px;
 }
 
 .breadcrumb li + li::before {
@@ -176,7 +182,7 @@ a:hover {
 }
 
 .logo-container {
-    height: 100px;
+    height: 80px;
     width: auto;
     justify-content: center;
     align-items: center;
@@ -283,6 +289,12 @@ a:hover {
     box-shadow: 1px 1px var(--dark-mid-tone);
     cursor: pointer;
 }
+
+.navbar-border {
+    border-top: solid #0a0a0a;
+    margin: 0 5px;
+}
+
 /* Navbar End */
 
 footer {
