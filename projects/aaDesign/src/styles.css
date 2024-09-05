@@ -101,13 +101,16 @@ h6 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 32px;
+}
+
+.page-title {
+    margin-top: 50px;
 }
 
 /* FX Utilities Begin*/
 .centered-heading {
     display: flex;
-    margin: 10px 0;
     justify-content: center;
 }
 
