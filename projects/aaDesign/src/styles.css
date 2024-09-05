@@ -40,13 +40,14 @@ author: andrew b. auxier
     --dark-darkest-tone: #121212;
 
     /* Additional Colors */
-    --text-yellow-light: #fdfe01;
-    --text-yellow-mid: #bcbc00;
-    --text-blue-light: #00b7ff;
+    --text-yellow-light: #ffff5f;
+    --text-yellow-mid: #fffb00;
+    --text-yellow-dark: #ced200;
+    --text-blue-light: #70a1ff;
     --text-blue-mid: #0099d5;
-    --text-blue-dark: #005b7f;
-    --background-blue-light: #0000f5;
-    --background-blue-mid: #0000ce;
+    --text-blue-dark: #5352ed;
+    --background-blue-light: #70a1ff;
+    --background-blue-mid: #3742fa;
     --background-blue-dark: #000099;
 }
 
@@ -70,6 +71,7 @@ ol {
 }
 
 img {
+    max-height: 100%;
     max-width: 100%;
 }
 
@@ -99,7 +101,7 @@ h6 {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 2em;
 }
 
 /* FX Utilities Begin*/
@@ -119,10 +121,12 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100px;
-    background-color: var(--light-mid-tone);
+    padding: 10px;
+    border-bottom: solid #0a0a0a;
 }
 .navbar-title {
+    display: flex;
+    flex-shrink: inherit;
     color: var(--background-blue-dark);
 }
 
@@ -140,10 +144,7 @@ h1 {
 }
 
 .breadcrumb {
-    display: flex;
     list-style: none;
-    padding: 0;
-    margin: 0;
     color: var(--background-blue-light);
 }
 
@@ -167,9 +168,16 @@ h1 {
     color: var(--background-blue-light);
 }
 
-.logo {
+.logo-container {
     height: 100px;
     width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 .navbar .main-menu {
@@ -252,7 +260,7 @@ h1 {
     margin-bottom: 2px;
     margin-right: 5px;
     font-size: 20px;
-    height: 90px;
+    height: 50px;
     width: 100px;
     border: solid var(--text-yellow-light);
     border-radius: 10px;
@@ -688,7 +696,7 @@ footer {
 }
 
 .contact-submit-button:hover {
-    color: #000098;
+    color: var(--background-blue-light);
     background-color: var(--text-yellow-light);
 }
 
