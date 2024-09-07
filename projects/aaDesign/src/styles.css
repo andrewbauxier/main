@@ -496,30 +496,36 @@ footer {
 .services-section-with-cards {
     display: flex;
     height: 100%;
-    margin-right: 1rem;
-    margin-bottom: 4rem;
-    margin-left: 1rem;
+    width: auto;
+    padding: auto;
+    margin: auto;
     justify-content: space-between;
     gap: 0.5rem;
 }
 
-.service-card-large {
+.services-card-button,
+.services-card-title,
+.services-card-subtitle,
+.services-card-body,
+.services-card-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.services-card-large {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 2px solid;
     border-color: var(--light-dark-tone);
-    height: auto;
     width: 100%;
-    text-align: center;
     box-sizing: border-box;
     min-width: 250px; /* Set a min-width to avoid being too small */
 }
 
-.card-body-container {
+.services-card-body-container {
     display: block;
-    margin: 1rem;
-    height: auto;
+    margin: 0.2em 0.7em;
+    height: 25em;
 }
 
 .services-card-title {
@@ -533,22 +539,34 @@ footer {
     color: var(--text-yellow-light);
     width: 100%;
 }
-
-.card-price {
+.services-card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.services-card-price {
+    display: flex;
+    align-self: center;
     margin-top: 1rem;
 }
 
+.services-fine-print-list {
+    display: block;
+
+    align-items: left;
+}
 .fine-print {
     font-size: 0.625rem;
 }
 
-.card-body {
+.services-card-body {
     display: flex;
     justify-content: center;
     font-size: 0.75rem;
     flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
     text-decoration: underline;
 }
 
@@ -566,7 +584,7 @@ footer {
 .services-card-title-container-one,
 .services-card-title-container-two,
 .services-card-title-container-three {
-    height: 25%;
+    min-height: 30%;
     padding: 1rem;
     width: 100%;
 }
@@ -587,7 +605,7 @@ footer {
     background-color: var(--text-blue-dark);
     color: var(--light-light-tone);
     width: auto;
-    margin: 2rem 0 3rem 0;
+    margin: 2rem 0 1rem 0;
     border-style: none;
     padding: 1rem 3rem;
     border-radius: 1rem;
