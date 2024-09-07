@@ -2,9 +2,11 @@
   "name": "aadesign",
   "version": "1.0.0",
   "description": "Double A Design website",
-  "main": "landing.html",
+  "main": "app/src/landing.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch src/js/server.js"
+    
+    
   },
   "author": "Double A Design",
   "license": "ISC",
