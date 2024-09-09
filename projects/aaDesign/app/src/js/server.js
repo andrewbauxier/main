@@ -7,11 +7,14 @@ const PORT = process.env.PORT || 5000;
 console.log("LOG: __dirname is", __dirname);
 
 // Correct the static path by moving up two levels from 'js' to the project root
-const staticPath = path.join(__dirname, '..', '..', 'src');
+const staticPath = path.join(__dirname, '..', '..');
 console.log("LOG - STATIC PATH: Serving static files from", staticPath);
 
 // Serve static files from the correct 'app/src' directory
+app.use(express.static(staticPath + "/src"));
 app.use(express.static(staticPath));
+app.use("/fonts", express.static(staticPath));
+
 
 // Correct the path to contact.html by moving up two levels
 const contactHtmlPath = path.join(__dirname, '..', '..', 'src', 'contact.html');

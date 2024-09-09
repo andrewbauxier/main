@@ -7,21 +7,21 @@ author: andrew b. auxier
 /* General styling */
 @font-face {
     font-family: "NotoSerif";
-    src: url("/app/fonts/NotoSerif/NotoSerifJP-VariableFont_wght.ttf") format("truetype");
+    src: url("../fonts/NotoSerif/NotoSerifJP-VariableFont_wght.ttf") format("truetype");
     font-weight: 1 1000;
     font-style: normal;
 }
 
 @font-face {
     font-family: "OpenSans";
-    src: url("/app/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    src: url("../fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
     font-weight: 1 1000;
     font-style: normal;
 }
 
 @font-face {
     font-family: "OpenSans";
-    src: url("/app/fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    src: url("../fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
     font-weight: 1 1000;
     font-style: italic;
 }
@@ -705,35 +705,35 @@ footer {
 .contact-form-container {
     border-radius: 0.5rem;
     background-color: #f2f2f2;
-    margin: 3rem 0;
-    padding: 5rem 0;
-    margin: 10rem;
+    padding: 1rem 0;
+    margin: 1rem;
     height: auto;
 }
 .contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 2rem 10rem;
+    margin: 5rem 2rem;
 }
 
 .contact-input-block {
     display: flex;
-    margin: 1rem;
+    margin: 1em;
+    width: 100%;
     align-items: start;
     justify-content: center;
 }
 .contact-input-label {
-    margin-top: 0.5rem;
-    min-width: 10rem;
+    margin: 0.5em;
+    min-width: 8em;
     width: auto;
     text-align: center;
-    padding: 1rem 1rem;
+    padding: 1em 1em;
 }
 
 .contact-input-field {
     width: 100%;
-    padding: 1.25rem 2rem;
+    padding: 1rem 1rem;
     margin: 1rem;
     display: inline-block;
     border: 1px solid var(--text-yellow-mid);
