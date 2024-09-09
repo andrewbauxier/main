@@ -212,9 +212,8 @@ li a:hover {
     transition: color 0.3s;
 }
 
-.navbar .main-menu-container li a :hover {
+.navbar .main-menu-container a :hover {
     color: var(--text-yellow-light);
-    background-color: #969696;
 }
 
 .navbar-dropdown {
@@ -234,6 +233,8 @@ li a:hover {
     z-index: 1;
     justify-self: center;
     text-align: center;
+    border-top: 1px solid var(--light-darkest-tone);
+    border-bottom: 1px solid var(--light-darkest-tone);
 }
 
 .navbar-dropdown:hover .navbar-dropdown-content {
