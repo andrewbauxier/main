@@ -2,8 +2,11 @@
 // module: scripts.js
 // author: andrew b. auxier
 
+const exp = require("express");
+
 // The default locale of the website, which is JP (base text in HTML is Japanese)
 const defaultLocale = 'jp';
+const contactForm = document.querySelector('.contact')
 let locale;
 let translations = {};
 
@@ -220,5 +223,11 @@ function initializePage() {
     }
 }
 
+/*Event Listeners*/
 // Initialize page after content is loaded
 document.addEventListener('DOMContentLoaded', initializePage);
+
+contactForm.addEventListener('submit', (exp)=>{
+    exp.preventDefault();
+    console.log("Submit Clicked")
+})
