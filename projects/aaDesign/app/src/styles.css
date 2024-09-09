@@ -157,10 +157,10 @@ h1 {
 
 .navbar h2:hover,
 li a:hover {
-    color: var(--text-yellow-mid);
-    text-shadow: 2px 0 var(--text-blue-dark), -2px 0 var(--text-blue-dark), 0 2px var(--text-blue-dark),
-        0 -2px var(--text-blue-dark), 1px 1px var(--text-blue-dark), -1px -1px var(--text-blue-dark),
-        1px -1px var(--text-blue-dark), -1px 1px var(--text-blue-dark);
+    color: var(--background-blue-dark);
+    text-shadow: 2px 0 var(--text-yellow-mid), -2px 0 var(--text-yellow-mid), 0 2px var(--text-yellow-mid),
+        0 -2px var(--text-yellow-mid), 1px 1px var(--text-yellow-mid), -1px -1px var(--text-yellow-mid),
+        1px -1px var(--text-yellow-mid), -1px 1px var(--text-yellow-mid);
 }
 
 .breadcrumbs-container {
@@ -212,24 +212,28 @@ li a:hover {
     transition: color 0.3s;
 }
 
-.navbar .main-menu-container li a:hover {
+.navbar .main-menu-container li a :hover {
     color: var(--text-yellow-light);
+    background-color: #969696;
 }
 
 .navbar-dropdown {
     position: relative;
     display: inline-block;
+    justify-content: center;
 }
 
 .navbar-dropdown-content {
     display: none;
     position: absolute;
+    top: 3.5em;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
     z-index: 1;
     justify-self: center;
+    text-align: center;
 }
 
 .navbar-dropdown:hover .navbar-dropdown-content {
@@ -601,14 +605,23 @@ footer {
 }
 
 .services-card-button {
-    background-color: var(--text-blue-dark);
-    color: var(--light-light-tone);
     width: auto;
     margin: 2rem 0 1rem 0;
-    border-style: none;
     padding: 1rem 3rem;
-    border-radius: 1rem;
     font-size: 0.625rem;
+    border: solid var(--text-yellow-mid);
+    border-radius: 1rem;
+    color: var(--text-yellow-light);
+    background-color: var(--background-blue-dark);
+    box-shadow: 1px 1px var(--dark-mid-tone);
+    cursor: pointer;
+}
+
+.services-card-button:hover {
+    color: var(--background-blue-dark);
+    background-color: var(--text-yellow-light);
+    box-shadow: 1px 1px var(--dark-mid-tone);
+    border: solid var(--background-blue-dark);
 }
 
 .options-section {
@@ -833,8 +846,9 @@ body.mode .portfolio-cards-text-box {
     .nav-links-dropdown-menu {
         display: none;
     }
-    .main-menu-container {
-        display: flex; /* Show the main menu */
+    .main-menu-container,
+    .main-menu-container li {
+        display: flex;
     }
     .navbar-dropdown {
         display: none; /* Hide dropdown on larger screens */
@@ -842,12 +856,20 @@ body.mode .portfolio-cards-text-box {
 }
 
 @media (max-width: 1000px) {
+    .navbar {
+        display: inline-flex;
+    }
     .navbar-title {
         display: none;
     }
-    .main-menu-container,
+    .navbar-left {
+        margin-right: auto;
+    }
+
+    .navbar .main-menu-container,
     .main-menu-container li {
         display: none;
+        width: 0;
     }
 
     .navbar-dropdown {
@@ -860,10 +882,6 @@ body.mode .portfolio-cards-text-box {
         border-radius: 1rem;
         color: var(--text-yellow-mid);
         background-color: var(--background-blue-dark);
-    }
-
-    .navbar-dropdown-content {
-        display: none;
     }
 }
 
