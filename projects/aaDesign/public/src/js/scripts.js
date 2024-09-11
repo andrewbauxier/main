@@ -2,32 +2,32 @@
 // module: scripts.js
 // author: andrew b. auxier
 
-const express = require("express");
+const express = require('express');
 const nodemailer = require('nodemailer');
 const contact = document.querySelector('.contact');
 
 // The default locale of the website, which is JP (base text in HTML is Japanese)
 const defaultLocale = 'jp';
-const contactForm = document.querySelector('.contact')
+const contactForm = document.querySelector('.contact');
 let locale;
 let translations = {};
 
 // Function to handle the light/dark mode toggle
 function handleModeSwitch() {
-    console.log("Initializing mode switcher...");
+    console.log('Initializing mode switcher...');
     const modeSwitcher = document.getElementById('mode-switcher');
     if (!modeSwitcher) {
-        console.error("Mode switcher element not found!");
+        console.error('Mode switcher element not found!');
         return;
     }
     const selectedMode = localStorage.getItem('mode') || 'light';
-    console.log("Selected mode from localStorage:", selectedMode);
+    console.log('Selected mode from localStorage:', selectedMode);
     document.body.classList.toggle('mode', selectedMode === 'dark');
     modeSwitcher.value = selectedMode;
 
     modeSwitcher.addEventListener('change', (event) => {
         const selectedMode = event.target.value;
-        console.log("Mode changed to:", selectedMode);
+        console.log('Mode changed to:', selectedMode);
         document.body.classList.toggle('mode', selectedMode === 'dark');
         localStorage.setItem('mode', selectedMode);
     });
@@ -35,19 +35,19 @@ function handleModeSwitch() {
 
 // Function to handle language switching
 function handleLanguageSwitch() {
-    console.log("Initializing language switcher...");
+    console.log('Initializing language switcher...');
     const languageSwitcher = document.getElementById('language-switcher');
     if (!languageSwitcher) {
-        console.error("Language switcher element not found!");
+        console.error('Language switcher element not found!');
         return;
     }
     const selectedLanguage = localStorage.getItem('language') || defaultLocale;
-    console.log("Selected language from localStorage:", selectedLanguage);
+    console.log('Selected language from localStorage:', selectedLanguage);
     languageSwitcher.value = selectedLanguage;
 
     languageSwitcher.addEventListener('change', (event) => {
         const selectedLanguage = event.target.value;
-        console.log("Language changed to:", selectedLanguage);
+        console.log('Language changed to:', selectedLanguage);
         setLocale(selectedLanguage);
         localStorage.setItem('language', selectedLanguage);
     });
@@ -57,33 +57,33 @@ function handleLanguageSwitch() {
 
 // Function to load translations for the given locale and translate the page
 async function setLocale(newLocale) {
-    console.log("Setting locale to:", newLocale);
+    console.log('Setting locale to:', newLocale);
     if (newLocale === locale) {
-        console.log("Locale is the same as the current locale. No change needed.");
+        console.log('Locale is the same as the current locale. No change needed.');
         return;
     }
 
     if (newLocale === 'jp') {
         locale = newLocale;
-        console.log("Resetting to base Japanese text.");
+        console.log('Resetting to base Japanese text.');
         resetToBaseText();
     } else {
         try {
-            console.log("Fetching translations for locale:", newLocale);
+            console.log('Fetching translations for locale:', newLocale);
             const newTranslations = await fetchTranslationsFor(newLocale);
             locale = newLocale;
             translations = newTranslations;
-            console.log("Translations loaded:", translations);
+            console.log('Translations loaded:', translations);
             translatePage();
         } catch (error) {
-            console.error("Error loading translations:", error);
+            console.error('Error loading translations:', error);
         }
     }
 }
 
 // Function to fetch the translations JSON object for the given locale over the network
 async function fetchTranslationsFor(newLocale) {
-    console.log("Fetching translations from:", `/translations/${newLocale}.json`);
+    console.log('Fetching translations from:', `/translations/${newLocale}.json`);
     const response = await fetch(`/translations/${newLocale}.json`);
     if (!response.ok) {
         throw new Error(`Failed to fetch translations: ${response.statusText}`);
@@ -93,19 +93,19 @@ async function fetchTranslationsFor(newLocale) {
 
 // Function to replace the inner text of each element with the translation corresponding to its class-based key
 function translatePage() {
-    console.log("Translating page content...");
+    console.log('Translating page content...');
     document.querySelectorAll('.translate').forEach(translateElement);
 }
 
 // Function to replace the inner text of the given HTML element with the translation in the active locale
 function translateElement(element) {
-    console.log("Translating element:", element);
+    console.log('Translating element:', element);
     if (!element.hasAttribute('data-original-text')) {
         element.setAttribute('data-original-text', element.innerText);
     }
     const key = Array.from(element.classList).find((cls) => cls !== 'translate');
     if (!key) {
-        console.warn("No translation key found in classes for element:", element);
+        console.warn('No translation key found in classes for element:', element);
         return;
     }
     const translation = translations[key];
@@ -118,7 +118,7 @@ function translateElement(element) {
 
 // Function to reset the page content to the base Japanese text
 function resetToBaseText() {
-    console.log("Resetting page content to base Japanese text...");
+    console.log('Resetting page content to base Japanese text...');
     document.querySelectorAll('.translate').forEach((element) => {
         const originalText = element.getAttribute('data-original-text');
         if (originalText) {
@@ -129,7 +129,7 @@ function resetToBaseText() {
 
 // Function to load the navigation bar content
 function loadNav() {
-    console.log("Loading navigation...");
+    console.log('Loading navigation...');
     return fetch('nav.html')
         .then((response) => {
             if (!response.ok) throw new Error(`FAILED TO LOAD nav.html: ${response.statusText}`);
@@ -137,20 +137,20 @@ function loadNav() {
         })
         .then((data) => {
             try {
-                console.log("Navigation content loaded. Inserting into DOM...");
+                console.log('Navigation content loaded. Inserting into DOM...');
                 document.querySelector('nav').innerHTML = data;
             } catch (error) {
-                console.error("ERROR INSERTING NAVIGATION CONTENT:", error);
+                console.error('ERROR INSERTING NAVIGATION CONTENT:', error);
             }
         })
         .catch((error) => {
-            console.error("ERROR LOADING NAV:", error);
+            console.error('ERROR LOADING NAV:', error);
         });
 }
 
 // Function to load the footer content
 function loadFooter() {
-    console.log("Loading footer...");
+    console.log('Loading footer...');
     return fetch('footer.html')
         .then((response) => {
             if (!response.ok) throw new Error(`FAILED TO LOAD footer.html: ${response.statusText}`);
@@ -158,23 +158,23 @@ function loadFooter() {
         })
         .then((data) => {
             try {
-                console.log("Footer content loaded. Inserting into DOM...");
+                console.log('Footer content loaded. Inserting into DOM...');
                 document.querySelector('footer').innerHTML = data;
             } catch (error) {
-                console.error("ERROR INSERTING FOOTER CONTENT:", error);
+                console.error('ERROR INSERTING FOOTER CONTENT:', error);
             }
         })
         .catch((error) => {
-            console.error("ERROR LOADING FOOTER:", error);
+            console.error('ERROR LOADING FOOTER:', error);
         });
 }
 
 // Function to generate breadcrumbs dynamically based on the URL path.
 function generateBreadcrumb() {
-    console.log("Generating breadcrumbs...");
+    console.log('Generating breadcrumbs...');
     const breadcrumbContainer = document.querySelector('.breadcrumbs-container ol');
     if (!breadcrumbContainer) {
-        console.warn("Breadcrumb container not found.");
+        console.warn('Breadcrumb container not found.');
         return;
     }
 
@@ -207,33 +207,29 @@ function generateBreadcrumb() {
 
 // Function to ensure both the nav and footer are loaded before running translations
 function initializePage() {
-    console.log("Initializing page...");
+    console.log('Initializing page...');
     try {
         Promise.all([loadNav(), loadFooter()])
             .then(() => {
-                console.log("Nav and footer loaded. Initializing other features...");
+                console.log('Nav and footer loaded. Initializing other features...');
                 // Add these later if we feel like it
                 // handleLanguageSwitch();
                 // handleModeSwitch();
                 generateBreadcrumb();
             })
             .catch((error) => {
-                console.error("ERROR INITIALIZING PAGE PROMISE:", error);
+                console.error('ERROR INITIALIZING PAGE PROMISE:', error);
             });
     } catch (error) {
-        console.error("ERROR INITIALIZING PAGE:", error);
+        console.error('ERROR INITIALIZING PAGE:', error);
     }
 }
-
-
-
-
 
 /*Event Listeners*/
 // Initialize page after content is loaded
 document.addEventListener('DOMContentLoaded', initializePage);
 
-contact.addEventListener('contact-submit-button', (e) =>{
+contact.addEventListener('contact-submit-button', (e) => {
     e.preventDefault();
-    console.log('submit clicked')
-})
+    console.log('submit clicked');
+});
