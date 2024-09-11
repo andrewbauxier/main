@@ -2,7 +2,9 @@
 // module: scripts.js
 // author: andrew b. auxier
 
-const exp = require("express");
+const express = require("express");
+const nodemailer = require('nodemailer');
+const contact = document.querySelector('.contact');
 
 // The default locale of the website, which is JP (base text in HTML is Japanese)
 const defaultLocale = 'jp';
@@ -223,11 +225,15 @@ function initializePage() {
     }
 }
 
+
+
+
+
 /*Event Listeners*/
 // Initialize page after content is loaded
 document.addEventListener('DOMContentLoaded', initializePage);
 
-contactForm.addEventListener('submit', (exp)=>{
-    exp.preventDefault();
-    console.log("Submit Clicked")
+contact.addEventListener('contact-submit-button', (e) =>{
+    e.preventDefault();
+    console.log('submit clicked')
 })
