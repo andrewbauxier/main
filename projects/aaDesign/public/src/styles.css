@@ -241,68 +241,14 @@ li a:hover {
     display: block;
 }
 
-.navbar-widgets {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-left: 2rem;
-}
-
-#language-switcher {
-    height: 4rem;
-    width: 8rem;
-    padding: 1rem;
-    margin-right: 1rem;
-    color: var(--light-darkest-tone);
-    background-color: var(--light-light-tone);
-    border-style: none;
-    margin-top: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--text-yellow-light);
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-#language-switcher option {
-    color: var(--light-darkest-tone);
-    font-size: 1rem;
-}
-
-.mode-toggle-icon {
-    height: 4rem;
-    width: 4rem;
-    margin-right: 1rem;
-    visibility: hidden;
-}
-
-#mode-switcher {
-    height: 4rem;
-    width: 8rem;
-    padding: 1rem;
-    margin: 0.5rem 1rem 0.5rem 0;
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
-    border: 1px solid var(--text-yellow-light);
-    text-decoration-line: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    visibility: hidden;
-}
-
-#mode-switcher option {
-    background-color: var(--light-light-tone);
-    color: var(--light-darkest-tone);
-    font-size: 1rem;
-}
-
 .navbar-contact-button {
     display: flex;
     background-color: #0099d5;
     justify-content: center;
     align-items: center;
-    height: 3.5rem;
-    width: 15rem;
+    height: 150px;
+    width: 150px;
+    font-size: 1.5em;
     margin: 1em;
     border: solid var(--text-yellow-light);
     border-radius: 1rem;
@@ -776,71 +722,6 @@ footer {
 .contact-submit-button:hover {
     color: var(--background-blue-light);
     background-color: var(--text-yellow-light);
-}
-
-/* Dark Mode Styles */
-body.mode .darkMode {
-    visibility: hidden;
-}
-
-body .darkMode {
-    visibility: visible;
-}
-
-body.mode .lightMode {
-    visibility: visible;
-}
-
-body.mode .navbar .main-menu-container li a:hover {
-    color: var(--text-blue-light);
-}
-
-body .lightMode {
-    visibility: hidden;
-}
-
-body.mode {
-    background-color: var(--dark-darkest-tone);
-    color: var(--dark-light-tone);
-}
-
-body.mode nav {
-    background-color: var(--dark-dark-tone);
-}
-
-body.mode .navbar a {
-    color: var(--dark-light-tone);
-}
-
-body.mode #language-switcher {
-    background-color: var(--dark-darkest-tone);
-    color: var(--dark-light-tone);
-}
-
-body.mode #language-switcher option {
-    background-color: var(--dark-light-tone);
-}
-
-body.mode #mode-switcher {
-    background-color: var(--dark-darkest-tone);
-    color: var(--dark-light-tone);
-}
-
-body.mode #mode-switcher option {
-    background-color: var(--dark-light-tone);
-}
-
-body.mode .breadcrumb {
-    background-color: var(--dark-mid-tone);
-}
-
-body.mode footer {
-    background-color: var(--dark-dark-tone);
-    color: var(--dark-light-tone);
-}
-
-body.mode .portfolio-cards-text-box {
-    background-color: var(--dark-dark-tone);
 }
 
 @media (min-width: 1001px) {
